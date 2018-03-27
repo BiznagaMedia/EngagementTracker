@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "16ce4b400a3c0ae21bfe3e56de29968b",
+    "title": "Builder Mode Pushdown Ad (Single file)_main_asset",
+    "description": "",
+    "width": 970,
+    "height": 415,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www.adform.com"
+    },
+    "source": "index.html"
+}

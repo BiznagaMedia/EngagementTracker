@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>16ce4b400a3c0ae21bfe3e56de29968b</uniqueId>
+      <format>IAB Pushdown (Single file)</format>
+      <name>Builder Mode Pushdown Ad (Single file)</name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <position>1</position>
+      <expandsTo>down</expandsTo>
+      <autoShowAfter>0</autoShowAfter>
+      <autoCloseAfter>0</autoCloseAfter>
+      <expandDelay>0</expandDelay>
+      <closeOnRollOut>0</closeOnRollOut>
+      <showType>2</showType>
+      <expandTime>0.3</expandTime>
+      <collapseTime>0.3</collapseTime>
+      <pushdown>1</pushdown>
+      <collapsedWidth>970</collapsedWidth>
+      <collapsedHeight>90</collapsedHeight>
+      <enableSideKickAnimation>0</enableSideKickAnimation>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName><![CDATA[Builder Mode Pushdown Ad (Single file)_main_asset]]></fileName>
+        <clickTagNames>
+          <clickTagName>clickTAG</clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc2</sourceType>
+        <fileName><![CDATA[Poster_Image_640x360.jpg]]></fileName>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[https://www.adform.com]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+  </banner>
+</adf>
