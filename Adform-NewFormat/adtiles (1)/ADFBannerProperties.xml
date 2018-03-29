@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>c3142638138e228267ea07322c4bc02f</uniqueId>
+      <format>AdTiles</format>
+      <name>AdTiles</name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <position>1</position>
+      <expandsTo>down</expandsTo>
+      <autoShowAfter>0</autoShowAfter>
+      <autoCloseAfter>0</autoCloseAfter>
+      <expandDelay>0</expandDelay>
+      <closeOnRollOut>0</closeOnRollOut>
+      <showType>2</showType>
+      <expandTime>0</expandTime>
+      <collapseTime>0</collapseTime>
+      <pushdown>0</pushdown>
+      <collapsedWidth>300</collapsedWidth>
+      <collapsedHeight>250</collapsedHeight>
+      <enableSideKickAnimation>0</enableSideKickAnimation>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName><![CDATA[AdTiles_main_asset]]></fileName>
+        <clickTagNames>
+          <clickTagName>clickTAG</clickTagName>
+          <clickTagName>clickTAG2</clickTagName>
+          <clickTagName>clickTAG3</clickTagName>
+          <clickTagName>clickTAG4</clickTagName>
+        </clickTagNames>
+        <eventIds>
+          <eventId>1</eventId>
+          <eventId>2</eventId>
+        </eventIds>
+      </asset>
+      <asset>
+        <sourceType>bsrc</sourceType>
+        <fileName><![CDATA[300x250.png]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>videoSrc</sourceType>
+        <fileName><![CDATA[AdformVideo_mp4_640x360.mp4]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>alternateVideoSrc</sourceType>
+        <fileName><![CDATA[AdformVideo_webm_640x360.webm]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc2</sourceType>
+        <fileName><![CDATA[Poster_Image_640x360.jpg]]></fileName>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG2" displayName="clickTAG2"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG3" displayName="clickTAG3"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG4" displayName="clickTAG4"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="backupClickURL" displayName="backupClickURL"><![CDATA[http://www.adform.com/]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents>
+      <bannerEvent name="Panel Expanded" id="1"/>
+      <bannerEvent name="Panel Collapsed" id="2"/>
+    </bannerEvents>
+    <variables/>
+    <video>
+      <details/>
+      <settings>
+        <loop>0</loop>
+        <autoPlay>0</autoPlay>
+        <soundOn>0</soundOn>
+      </settings>
+    </video>
+  </banner>
+</adf>

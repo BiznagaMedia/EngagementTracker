@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "uniqueId": "c3142638138e228267ea07322c4bc02f",
+    "title": "AdTiles_main_asset",
+    "description": "AdTiles 2.0",
+    "width": 300,
+    "height": 1000,
+    "events": {
+        "enabled": 1,
+        "list": {
+            "1": "Panel Expanded",
+            "2": "Panel Collapsed"
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http://www.adform.com",
+        "clickTAG2": "http://www.adform.com",
+        "clickTAG3": "http://www.adform.com",
+        "clickTAG4": "http://www.adform.com"
+    },
+    "source": "index.html",
+    "metaData": {
+        "libs": {
+            "src": [
+                {
+                    "name": "Styles",
+                    "version": "1"
+                },
+                {
+                    "name": "SingleExpanding",
+                    "version": "1"
+                },
+                {
+                    "name": "PanelFlip",
+                    "version": "2"
+                },
+                {
+                    "name": "VideoPlayer",
+                    "version": "1"
+                },
+                {
+                    "name": "VideoContainer",
+                    "version": "1"
+                }
+            ]
+        },
+        "templateTitle": "AdTiles 300x250 300x1000",
+        "releaseDate": "2017-11-14"
+    }
+}

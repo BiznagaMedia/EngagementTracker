@@ -1,0 +1,40 @@
+/* PANEL TITLE STYLES */
+.adf-PanelTitle {
+    font-size: 18px;
+    top: 50px;
+    left: 15px;
+}
+
+/* CONTROLS STYLES */
+.collapse-button, .expand-button, .flipping .lastFlipped .collapse-button, .flipping .lastFlipped .expand-button {
+    display: none;
+}
+
+.collapse-button {
+    top: 15px;
+    right: 15px;
+}
+.expand-button {
+    bottom: 15px;
+    right: 15px;
+}
+.expand-button span {
+    padding: 0 5px;
+}
+
+.lastFlipped .collapse-button, .lastFlipped .expand-button {
+    display: block;
+}
+
+/* VIDEO STYLES */
+.adf-Video {
+    position: relative;
+    width: 60%;
+    max-height: 100%;
+}
+.adf-Video::before {
+    padding-top: 56.25%;
+    /* 16:9 ratio */
+    display: block;
+    content: '';
+}
