@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "728c96d4cbe365d4395315856b222a89",
+    "title": "Builder Mode Roll for Video_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http:\/\/www.adform.com"
+    },
+    "source": "index.html"
+}

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<head>
+<title>HTML5 STUDIO BUILDER: Roll For Video v 1.5</title>
+
+<!-- Adform API Script -->
+<script type="text/javascript">/*#import:common/import*/
+(window.components = window.components || [])
+  /*#video.import:video/import.1*/
+components.push('VideoPlayer')
+/*#/#*/
+  ;
+/*#/#*/
+document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+</script>
+
+<style>
+body {
+  background: #fff;
+}
+</style>
+
+<!--#head:common/head-->
+<!--#countdown.head:countdown/globalhead.1-->
+<script>
+    (function (Adf) {
+
+        Adf.CountDown = function () {
+
+            var START_COUNTDOWN = 'startCountdown';
+            var SKIP_COUNTDOWN = 'skipCountdown';
+            var REENABLE_COUNTDOWN = 'reenableCountdown';
+            var PAUSE_COUNTDOWN = 'pauseCountdown';
+            var RESUME_COUNTDOWN = 'resumeCountdown';
+
+            var COUNTDOWN_TICKED = 'countdownTicked';
+            var COUNTDOWN_STARTED = 'countdownStarted';
+            var COUNTDOWN_ENDED = 'countdownFinished';
+
+            var counter;
+            var counterElem;
+            var counterImage;
+            var counterWrapper;
+            var defaultWrapper;
+
+            var placement;
+            var wrap_html;
+            var isInProgress;
+            var isEnabled = true;
+            
+            var ms;
+            var startTime;
+            var timer;
+
+            var _settings = {
+                placement: '',
+                counterElem: '',
+                duration: 3,
+                initOn: 'Rollover',
+                countType: 'Custom'
+            };
+
+            /*HELPER METHODS*/
+
+            function validateNumber(field, num, min, max) {
+                if (isNaN(num) || typeof num !== 'number' || num < min || num > max) {
+                    throw new Error('Countdown ' + field + ' has to be between ' + min + ' and ' + max)
+                }
+
+            }
+
+            function ensureTypes() {
+                // we get strings from builder
+                _settings.duration = parseFloat(_settings.duration);
+            }
+
+            function makeEvent(name) {
+                var event = document.createEvent('Event');
+                event.initEvent(name, true, true);
+
+                return event
+            }
+
+            /*CONTROL METHODS*/
+
+            var startCounter = function () {
+                if (isInProgress || !isEnabled) return;
+                
+                clearInterval(timer);
+                isInProgress = true;
+                
+                ms = (_settings.duration + 1) * 1000;
+                
+                if (_settings.countType === 'Custom') counter = counterElem;
+                
+                if (_settings.countType === 'Default') counterImage.classList.add('is-animated');
+                
+                counter.textContent = _settings.duration;
+                
+                counterWrapper.style.display = 'block';
+                
+                setTimeout(function(){ 
+                    placement.dispatchEvent(makeEvent(COUNTDOWN_STARTED)); 
+                }, 500);
+                
+                startTime = new Date().getTime();
+                timer = setInterval(counterTick, 250);
+            };
+
+            var dismissCounter = function () {
+                if (!isInProgress || !isEnabled) return;
+                
+                if (_settings.countType === 'Default') {
+                    counterImage.classList.remove('is-animated');
+                }
+                
+                isInProgress = false;
+                counterWrapper.style.display = 'none';
+                counter.textContent = '';
+
+                clearInterval(timer);         
+            };
+
+            function counterTick() {
+                var now = Math.max(0, ms - (new Date().getTime() - startTime));
+                var s = Math.floor(now/1000);
+
+                if (s === 0) {
+                    dismissCounter();
+                    disableCountdown();
+                    placement.dispatchEvent(makeEvent(COUNTDOWN_TICKED));
+                    placement.dispatchEvent(makeEvent(COUNTDOWN_ENDED));
+                } else {
+                    counter.textContent = s;
+                    placement.dispatchEvent(makeEvent(COUNTDOWN_TICKED));
+                }
+                return now;
+            }
+
+            function skipCountdown(e) {
+                if (!isInProgress || !isEnabled) return;
+
+                e.preventDefault();
+                dismissCounter();
+                disableCountdown();
+                placement.dispatchEvent(makeEvent(COUNTDOWN_ENDED));
+            }
+
+            function disableCountdown() {
+                isEnabled = false;
+                placement.style.display = 'none';
+            }
+
+            function reenableCountdown() {
+                placement.style.display = 'block';
+                isEnabled = true;
+                (_settings.initOn === 'Load') && startCounter();
+            }
+            
+            function pauseCountdown() {
+                if (!isInProgress || !isEnabled) return;
+                isInProgress = false;
+                ms = counterTick();
+                clearInterval(timer);
+            }
+            
+            function resumeCountdown() {
+                if (isInProgress) return;
+                
+                isInProgress = true;
+                clearInterval(timer);
+                startTime = new Date().getTime();
+                timer = setInterval(counterTick, 250);
+            }
+
+            function listenForExternalEventCalls() {
+                placement.addEventListener(SKIP_COUNTDOWN, skipCountdown);
+                placement.addEventListener(START_COUNTDOWN, startCounter);
+                placement.addEventListener(REENABLE_COUNTDOWN, reenableCountdown);
+                placement.addEventListener(PAUSE_COUNTDOWN, pauseCountdown);
+                placement.addEventListener(RESUME_COUNTDOWN, resumeCountdown);
+            }
+
+            /*INIT METHODS*/
+
+            function setup(settings) {
+                for (var prop in settings) {
+                    if (_settings[prop] instanceof Object) {
+                        for (var prop2 in settings[prop]) {
+                            _settings[prop][prop2] = settings[prop][prop2];
+                        }
+                    } else {
+                        _settings[prop] = settings[prop];
+                    }
+                }
+                ensureTypes();
+                validateNumber('duration', _settings.duration, 1, 1000);
+                return this;
+            }
+
+            function createBaseElements() {
+                wrap_html = '<div class="CounterWrapper">' + placement.innerHTML + '</div>';
+                placement.innerHTML = wrap_html;
+                counterWrapper = placement.querySelector('.CounterWrapper');
+                if (_settings.countType === 'Default') {
+                    defaultWrapper = document.createElement('div');
+                    defaultWrapper.classList.add('Counter');
+                    
+                    counterWrapper.appendChild(defaultWrapper);
+                }
+                counterWrapper.style.display = 'none';
+            }
+            
+            function createAndAddCounterImg() {
+                counterImage = document.createElement('img');
+                counterImage.classList.add('Counter-spinner');
+                counterImage.src = 'data:image/png;base64,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';
+                defaultWrapper.appendChild(counterImage);
+            }
+            
+            function createAndAddCounterText() {
+                counter = document.createElement('div');
+                counter.classList.add('Counter-text');
+                defaultWrapper.appendChild(counter);
+            }
+            
+            function initializeCounter(settings) {
+                setup(settings);
+                
+                placement = document.getElementById(_settings.placement);
+
+                if (!placement) throw new Error('Counter placement not found');
+                
+                createBaseElements();
+                if (_settings.countType === 'Default') {
+                    createAndAddCounterImg();
+                    createAndAddCounterText();
+                }
+                
+                counterElem = document.getElementById(_settings.counterElem);
+                if (_settings.countType === 'Custom' && !counterElem) throw new Error('Counter element not found');
+                
+                if (_settings.initOn === 'Rollover') {
+                    placement.addEventListener('mouseenter', startCounter);
+                    placement.addEventListener('mouseleave', dismissCounter);
+                }
+                listenForExternalEventCalls();
+
+                if (_settings.initOn === 'Load') startCounter();
+            }
+
+            return {
+                init: initializeCounter
+            };
+        };
+    })(Adf = window.Adf || {});
+
+</script>
+<!--#/#--><!--#i4.font-google.head:font/font-google/head-->
+<!--#i4.i5.font-google.head:font-google/head-->
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<!--#/#-->
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#i6.i10.shape.css:shape/base/css*/
+#i10 { background-color: #ffffff; opacity: 1;
+}
+/*#/#*//*#i10.i11.positioning.css:positioning/base/css.1*/
+#i10 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i6.i8.text.css:text/base/css*/
+#i8 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 24px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+/*#/#*//*#i8.i9.positioning.css:positioning/base/css.1*/
+#i8 { position: absolute; top: 100%; left: 0%; overflow: hidden; width: 287px; height: 50px;
+        -ms-transform: translate(0, -100%) translate(6px, -26px) rotate(0deg);
+        -webkit-transform: translate(0, -100%) translate(6px, -26px) rotate(0deg);
+        -moz-transform: translate(0, -100%) translate(6px, -26px) rotate(0deg);
+        transform: translate(0, -100%) translate(6px, -26px) rotate(0deg);
+}
+/*#/#*//*#i6.i14.text.css:text/base/css*/
+#i14 { position: absolute; opacity: 1.00; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 100%; left: 0%; overflow: hidden; width: 133px; height: 24px;
+        -ms-transform: translate(0, -100%) translate(15px, 8px) rotate(0deg);
+        -webkit-transform: translate(0, -100%) translate(15px, 8px) rotate(0deg);
+        -moz-transform: translate(0, -100%) translate(15px, 8px) rotate(0deg);
+        transform: translate(0, -100%) translate(15px, 8px) rotate(0deg);
+}
+/*#/#*//*#countdown.css:countdown/globalcss.1*/
+
+.Counter {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.CounterWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+}
+.Counter-spinner {
+    -moz-transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    margin: auto;
+}
+.Counter-text {
+    font-size: 60px;
+    font-family: sans-serif;
+    color: white;
+    text-shadow: 0 0 11px rgba(0, 0, 0, 1);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.Counter-spinner.is-animated {
+    animation: counterRoll 1.4s infinite;
+    -moz-animation: counterRoll 1.4s infinite;
+    -webkit-animation: counterRoll 1.4s infinite;
+    -o-animation: counterRoll 1.4s infinite;
+}
+@keyframes counterRoll {
+    0%   {transform:rotate(0deg);}
+    50%  {transform:rotate(180deg);}
+    100% {transform:rotate(360deg);}
+}
+@-moz-keyframes counterRoll {
+    0%   {-moz-transform:rotate(0deg);}
+    50%  {-moz-transform:rotate(180deg);}
+    100% {-moz-transform:rotate(360deg);}
+}
+@-webkit-keyframes counterRoll {
+    0%   {-webkit-transform:rotate(0deg);}
+    50%  {-webkit-transform:rotate(180deg);}
+    100% {-webkit-transform:rotate(360deg);}
+}
+@-o-keyframes counterRoll {
+    0%   {-o-transform:rotate(0deg);}
+    50%  {-o-transform:rotate(180deg);}
+    100% {-o-transform:rotate(360deg);}
+}
+/*#/#*//*#video.css:video/globalcss.1*/
+.adform-video-container {
+    background: #000;
+    position: static;
+}
+
+.adform-video-container video,
+.adform-video-container .adform-video-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000 no-repeat 50% 50%;
+}
+
+.no-other .adform-video-seek-bar,
+.no-other .adform-video-full-screen,
+.no-other .adform-video-rewind,
+.no-other .adform-video-stop {
+    display: none;
+}
+.no-other .adform-video-sound {
+    right: 0;
+}
+.no-other .adform-video-play-pause {
+    right: 30px;
+    left: auto;
+}
+.no-play .adform-video-play-pause {
+    display: none;
+}
+/*#/#*//*#i6.i28.image.css:image/base/css*/
+#i28 { opacity: 1; }
+/*#/#*//*#i28.i29.positioning.css:positioning/base/css.1*/
+#i28 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 35px; height: 15px;
+        -ms-transform: translate(0, 0) translate(9px, 230px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(9px, 230px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(9px, 230px) rotate(0deg);
+        transform: translate(0, 0) translate(9px, 230px) rotate(0deg);
+}
+/*#/#*//*#i6.i30.button.css:button/base/css*/
+#i30 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(201,36,66,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 5px; border-color: rgba(201,36,66,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i30:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i30:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
+#i30 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 111px; height: 30px;
+        -ms-transform: translate(0, 0) translate(183px, 214px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(183px, 214px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(183px, 214px) rotate(0deg);
+        transform: translate(0, 0) translate(183px, 214px) rotate(0deg);
+}
+/*#/#*//*#i24.i25.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i6 { cursor: pointer; }
+/*#/#*//*#i6.i7.positioning.css:positioning/base/css.1*/
+#i6 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i16.i17.positioning.css:positioning/base/css.1*/
+#i16 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 300px; height: 170px;
+        -ms-transform: translate(-50%, -50%) translate(0px, -40px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, -40px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, -40px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, -40px) rotate(0deg);
+}
+/*#/#*//*#i18.i19.positioning.css:positioning/base/css.1*/
+#i18 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 68%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i2.i3.positioning.css:positioning/base/css.1*/
+#i2 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i4.font.html:font/html-->
+<!--#/#--><!--#i2.container.html:container/html-->
+<div id="i2">
+    <!--#i2.i6.container.html:container/html-->
+<div id="i6">
+    <!--#i6.i10.shape.html:shape/html-->
+<div id="i10"></div>
+<!--#/#--><!--#i6.i8.text.html:text/html-->
+<div id="i8">Book a tour and get a 20% discount.</div>
+<!--#/#--><!--#i6.i14.text.html:text/html-->
+<div id="i14">300x250 px</div>
+<!--#/#--><!--#i6.i28.image.html:image/html-->
+<img id="i28" src="https://i.imgur.com/lQx7a7P.png"/>
+<!--#/#--><!--#i6.i30.button.html:button/html-->
+<button id="i30">Book your tour</button>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i2.i16.video.html:video/html.1-->
+<div id="i16"></div>
+<!--#/#--><!--#i2.i18.countdown.html:countdown/html.1-->
+<div id="i18">
+    
+</div>
+<!--#/#-->
+</div>
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i6.i28.image.js:image/base/js*/
+
+/*#/#*//*#i6.i24.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i6').addEventListener('click', function(e){
+    /*#i24.i25.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i6.i26.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i6').addEventListener('click', function(e){
+    /*#i26.i27.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger Pause on i16
+    var el = document.getElementById('i16');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i2.i16.video.js:video/js.1*/
+(function(){
+    var source = [
+        { "file": dhtml.getAsset(1) },
+        { "file": "" },
+        { "file": "" }
+    ];
+
+    var player = Adform.Component.VideoPlayer.create({
+        sources: source,
+        loop: false,
+        muted: true,
+        autoPlay: false,
+        poster: dhtml.getAsset(3),
+        clicktag: dhtml.getVar("clickTAG", "http://www.adform.com"),
+        inview: 51,
+        theme: 'v2'
+    });
+
+    var videoContainer = document.getElementById("i16");
+
+    if (player) {
+        player.addClass("no-other");
+        player.appendTo(videoContainer);
+    }
+
+    function playVideo() {
+        if (player.video.state !== 'playing') player.video.play();
+    }
+
+    function pauseVideo() {
+        if (player.video.state === 'playing') player.video.pause();
+    }
+
+    function stopVideo() {
+        if (player.video.state === 'playing') player.video.stop();
+    }
+
+    videoContainer.addEventListener('playVideo', playVideo);
+
+    videoContainer.addEventListener('pauseVideo', pauseVideo);
+
+    videoContainer.addEventListener('stopVideo', stopVideo);
+
+    videoContainer.addEventListener('replayVideo', function(){
+        player.video.seek(0);
+        playVideo();
+    });
+
+    videoContainer.addEventListener('muteVideo', function(){
+        player.video.mute(true);
+    });
+
+    videoContainer.addEventListener('unmuteVideo', function(){
+        player.video.mute(false);
+    });
+})();
+/*#/#*//*#i2.i18.countdown.js:countdown/js.1*/
+var countdown_i18 = new Adf.CountDown();
+
+countdown_i18.init({
+    placement: 'i18',
+    initOn: 'Rollover',
+    duration: '3',
+    counterElem: '',
+    countType: 'Default'
+});
+
+/*#/#*//*#i18.i20.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i18').addEventListener('click', function(e){
+    /*#i20.i21.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger Skip Countdown on i18
+    var el = document.getElementById('i18');
+    var event = document.createEvent('Event');
+    event.initEvent('skipCountdown', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i18.i22.actions.js:actions/base/js*/
+/* Name: On Countdown Finished; */
+document.getElementById('i18').addEventListener('countdownFinished', function(e){
+    /*#i22.i23.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger Play on i16
+    var el = document.getElementById('i16');
+    var event = document.createEvent('Event');
+    event.initEvent('playVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*/
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i4.font.meta:font/meta*/
+name: Web Font: Source Sans Pro; type: font-google; customName: ;
+/*#/#*//*#i4.i5.font-google.meta:font-google/meta*/
+family: Source Sans Pro;
+/*#/#*//*#i2.container.meta:container/meta*/
+name: Container;
+data: /*!*/{}/*!*/;
+/*#/#*//*#i2.i6.container.meta:container/meta*/
+name: Content;
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i10.shape.meta:shape/meta*/
+name: Background;
+/*#/#*//*#i10.i11.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i8.text.meta:text/meta*/
+name: Roll for video; customName: 1;
+/*#/#*//*#i8.i9.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i14.text.meta:text/meta*/
+name: 300x250 px; customName: false;
+/*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i28.image.meta:image/meta*/
+name: lQx7a7P.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i28.i29.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i6.i30.button.meta:button/meta*/
+name: Book your tour;
+customName: false;
+/*#/#*//*#i30.i31.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i7.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i2.i16.video.meta:video/meta.1*/
+name: Video 1; fileId_MP4: 1; fileId_WEBM: ; fileId_OGV: ; clicktag: clickTAG;
+posterSourceType: externalUrl; posterFileId: ;
+/*#/#*//*#i16.i17.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":false}/*!*/;
+/*#/#*//*#i2.i18.countdown.meta:countdown/meta.1*/
+name: Countdown 1;
+customName: ;
+/*#/#*//*#i18.i19.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*/--><!--#/#-->
