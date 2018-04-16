@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>DJI Cube</title>
+<title>HTML5 STUDIO BUILDER: 3D Box v 1.5</title>
 
 <!-- Adform API Script -->
 <script type="text/javascript">
@@ -470,104 +470,12 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
-/*#/#*//*#i4.i20.shape.css:shape/base/css*/
-#i20 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
-#i20 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+/*#i58.i59.positioning.css:positioning/base/css.1*/
+#i58 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 150px;
         -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 32px; color: #0a202b; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
-#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 67px;
-        -ms-transform: translate(-50%, -50%) translate(-1px, 72px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(-1px, 72px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(-1px, 72px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(-1px, 72px) rotate(0deg);
-}
-/*#/#*//*#i4.i56.image.css:image/base/css*/
-#i56 { opacity: 1; }
-/*#/#*//*#i56.i57.positioning.css:positioning/base/css.1*/
-#i56 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 150px;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i4.i64.image.css:image/base/css*/
-#i64 { opacity: 1; }
-/*#/#*//*#i64.i65.positioning.css:positioning/base/css.1*/
-#i64 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 59px; height: 19px;
-        -ms-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-}
-/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i4 { cursor: pointer; }
-/*#/#*//*#i5.i30.shape.css:shape/base/css*/
-#i30 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
-#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i5.i24.text.css:text/base/css*/
-#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 32px; color: #0a202b; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
-#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 61px;
-        -ms-transform: translate(-50%, -50%) translate(-1px, 70px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(-1px, 70px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(-1px, 70px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(-1px, 70px) rotate(0deg);
-}
-/*#/#*//*#i5.i28.text.css:text/base/css*/
-#i28 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,0); }
-/*#/#*//*#i28.i29.positioning.css:positioning/base/css.1*/
-#i28 { position: absolute; top: 100%; left: 0%; overflow: hidden; width: 100px; height: 15px;
-        -ms-transform: translate(0, -100%) translate(15px, -10px) rotate(0deg);
-        -webkit-transform: translate(0, -100%) translate(15px, -10px) rotate(0deg);
-        -moz-transform: translate(0, -100%) translate(15px, -10px) rotate(0deg);
-        transform: translate(0, -100%) translate(15px, -10px) rotate(0deg);
-}
-/*#/#*//*#i5.i58.image.css:image/base/css*/
-#i58 { opacity: 1; }
-/*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
-#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 150px;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
 /*#/#*//*#cube.css:cube/globalcss.1*/
 
@@ -698,14 +606,119 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
+/*#/#*//*#i4.i20.shape.css:shape/base/css*/
+#i20 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
+#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i14.text.css:text/base/css*/
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 278px; height: 58px;
+        -ms-transform: translate(-50%, -50%) translate(6px, 64px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(6px, 64px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(6px, 64px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(6px, 64px) rotate(0deg);
+}
+/*#/#*//*#i4.i56.image.css:image/base/css*/
+#i56 { opacity: 1; }
+/*#/#*//*#i56.i57.positioning.css:positioning/base/css.1*/
+#i56 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 150px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i4.i62.button.css:button/base/css*/
+#i62 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(156,30,151,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 4px; border-color: rgba(156,30,151,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i62:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i62:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i62.i63.positioning.css:positioning/base/css.1*/
+#i62 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 90px; height: 30px;
+        -ms-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+}
+/*#/#*//*#i4.i64.image.css:image/base/css*/
+#i64 { opacity: 1; height: 16px; width: 27px!important;}
+/*#/#*//*#i64.i65.positioning.css:positioning/base/css.1*/
+#i64 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 75px; height: 19px;
+        -ms-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+}
+/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i4 { cursor: pointer; }
+/*#/#*//*#i5.i30.shape.css:shape/base/css*/
+#i30 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i5.i24.text.css:text/base/css*/
+#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: ##1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+/*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
+#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 287px; height: 63px;
+        -ms-transform: translate(-50%, -50%) translate(6px, 71px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(6px, 71px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(6px, 71px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(6px, 71px) rotate(0deg);
+}
+/*#/#*//*#i5.i58.image.css:image/base/css*/
+#i58 { opacity: 1; }
+/*#/#*//*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
 /*#/#*//*#i5.i66.image.css:image/base/css*/
-#i66 { opacity: 1; }
+#i66 { opacity: 1; height: 16px; width: 27px!important;}
 /*#/#*//*#i66.i67.positioning.css:positioning/base/css.1*/
-#i66 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 60px; height: 19px;
-        -ms-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
+#i66 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 75px; height: 19px;
+        -ms-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+}
+/*#/#*//*#i5.i70.button.css:button/base/css*/
+#i70 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(156,30,151,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 4px; border-color: rgba(156,30,151,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i70:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i70:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i70.i71.positioning.css:positioning/base/css.1*/
+#i70 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 90px; height: 30px;
+        -ms-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
 }
 /*#/#*//*#i52.i53.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i5 { cursor: pointer; }
@@ -720,22 +733,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i6.i34.text.css:text/base/css*/
-#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 32px; color: #0a202b; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: ##1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
 /*#/#*//*#i34.i35.positioning.css:positioning/base/css.1*/
-#i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 67px;
-        -ms-transform: translate(-50%, -50%) translate(1px, 66px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(1px, 66px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(1px, 66px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(1px, 66px) rotate(0deg);
-}
-/*#/#*//*#i6.i38.text.css:text/base/css*/
-#i38 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,0); }
-/*#/#*//*#i38.i39.positioning.css:positioning/base/css.1*/
-#i38 { position: absolute; top: 100%; left: 0%; overflow: hidden; width: 100px; height: 15px;
-        -ms-transform: translate(0, -100%) translate(15px, -10px) rotate(0deg);
-        -webkit-transform: translate(0, -100%) translate(15px, -10px) rotate(0deg);
-        -moz-transform: translate(0, -100%) translate(15px, -10px) rotate(0deg);
-        transform: translate(0, -100%) translate(15px, -10px) rotate(0deg);
+#i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 55px;
+        -ms-transform: translate(-50%, -50%) translate(6px, 67px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(6px, 67px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(6px, 67px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(6px, 67px) rotate(0deg);
 }
 /*#/#*//*#i6.i60.image.css:image/base/css*/
 #i60 { opacity: 1; }
@@ -747,14 +751,18 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i6.i68.image.css:image/base/css*/
-#i68 { opacity: 1; }
+#i68 { opacity: 1; height: 16px; width: 27px!important;}
 /*#/#*//*#i68.i69.positioning.css:positioning/base/css.1*/
-#i68 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 60px; height: 19px;
-        -ms-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
-        transform: translate(0, 0) translate(235px, 226px) rotate(0deg);
+#i68 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 75px; height: 19px;
+        -ms-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
+        transform: translate(0, 0) translate(17px, 224px) rotate(0deg);
 }
+/*#/#*//*#i6.i72.button.css:button/base/css*/
+#i72 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(156,30,151,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 4px; border-color: rgba(156,30,151,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i72:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i72:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
 /*#/#*//*#i54.i55.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i6 { cursor: pointer; }
 /*#/#*//*#i2.i3.positioning.css:positioning/base/css.1*/
@@ -763,6 +771,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i72.i73.positioning.css:positioning/base/css.1*/
+#i72 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 90px; height: 30px;
+        -ms-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
+        transform: translate(0, 0) translate(205px, 214px) rotate(0deg);
 }
 /*#/#*/
 </style>
@@ -780,6 +795,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <div id="i14">¿Te gusta la aventura?</div>
 <!--#/#--><!--#i4.i56.image.html:image/html-->
 <img id="i56" src="https://i.imgur.com/btXY9u2.png"/>
+<!--#/#--><!--#i4.i64.image.html:image/html-->
+<img id="i64" src="https://i.imgur.com/6DaOAMB.png"/>
 <!--#/#-->
 </div>
 <!--#/#--><!--#i2.i5.cube-panel.html:cube-panel/html-->
@@ -788,10 +805,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <div id="i30"></div>
 <!--#/#--><!--#i5.i24.text.html:text/html-->
 <div id="i24">Te seguira donde vayas</div>
-<!--#/#--><!--#i5.i28.text.html:text/html-->
-<div id="i28">300x250 px</div>
 <!--#/#--><!--#i5.i58.image.html:image/html-->
 <img id="i58" src="https://i.imgur.com/D4TRiS1.png"/>
+<!--#/#--><!--#i5.i66.image.html:image/html-->
+<img id="i66" src="https://i.imgur.com/6DaOAMB.png"/>
 <!--#/#-->
 </div>
 <!--#/#--><!--#i2.i6.cube-panel.html:cube-panel/html-->
@@ -800,10 +817,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <div id="i40"></div>
 <!--#/#--><!--#i6.i34.text.html:text/html-->
 <div id="i34">¡¡Saca lo máximo de tus viajes!!</div>
-<!--#/#--><!--#i6.i38.text.html:text/html-->
-<div id="i38">300x250 px</div>
 <!--#/#--><!--#i6.i60.image.html:image/html-->
-<img id="i60" src="https://i.imgur.com/vqQHjNB.png"/>
+<img id="i60" src="https://i.imgur.com/D4TRiS1.png"/>
+<!--#/#--><!--#i6.i68.image.html:image/html-->
+<img id="i68" src="https://i.imgur.com/6DaOAMB.png"/>
 <!--#/#-->
 </div>
 <!--#/#-->
@@ -877,7 +894,8 @@ document.getElementById('i6').addEventListener('click', function(e){
 /*#/#*/
 });
 /*#/#*/
- function next(){
+
+  function next(){
              cube_i2.rotate(cube_i2.ROTATE_NEXT)
         }
 
@@ -897,16 +915,21 @@ name: Background;
 /*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i14.text.meta:text/meta*/
-name: ¿Crees que lo has visto todo?; customName: false;
+name: Descubra los destinos más bonitos de Europa desde 34,99$ con Eurowings.; customName: false;
 /*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i56.image.meta:image/meta*/
-name: K1xUa85.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: yUOjBr2.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i56.i57.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i4.i62.button.meta:button/meta*/
+name: ¡Reserve ya!;
+customName: false;
+/*#/#*//*#i62.i63.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i64.image.meta:image/meta*/
-name: L4XGbVV.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: ktt3AVT.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i64.i65.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
@@ -917,23 +940,24 @@ name: Background;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i24.text.meta:text/meta*/
-name: ¿Crees que lo has visto todo?; customName: false;
+name: Descubra los destinos más bonitos de Europa desde 34,99$ con Eurowings.; customName: false;
 /*#/#*//*#i24.i25.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i5.i28.text.meta:text/meta*/
-name: 300x250 px; customName: false;
-/*#/#*//*#i28.i29.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i58.image.meta:image/meta*/
-name: QDbd4U5.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: DbvDtrw.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i58.i59.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i5.i66.image.meta:image/meta*/
-name: L4XGbVV.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: ktt3AVT.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i66.i67.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i5.i70.button.meta:button/meta*/
+name: ¡Reserve ya!;
+customName: false;
+/*#/#*//*#i70.i71.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
 /*#/#*//*#i2.i6.cube-panel.meta:cube-panel/meta*/
     name: Cube Panel 3;
 /*#/#*//*#i6.i40.shape.meta:shape/meta*/
@@ -941,23 +965,24 @@ name: Background;
 /*#/#*//*#i40.i41.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i6.i34.text.meta:text/meta*/
-name: ¿Crees que lo has visto todo?; customName: false;
+name: Descubra los destinos más bonitos de Europa desde 34,99$ con Eurowings.; customName: false;
 /*#/#*//*#i34.i35.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i6.i38.text.meta:text/meta*/
-name: 300x250 px; customName: false;
-/*#/#*//*#i38.i39.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i6.i60.image.meta:image/meta*/
-name: Gr0psG6.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: 8cDZtb3.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i60.i61.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i6.i68.image.meta:image/meta*/
-name: L4XGbVV.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: ktt3AVT.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i68.i69.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i6.i72.button.meta:button/meta*/
+name: ¡Reserve ya!;
+customName: false;
+/*#/#*//*#i72.i73.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*/--><!--#/#-->
