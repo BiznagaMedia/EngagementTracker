@@ -1,0 +1,269 @@
+<style>
+    .ClaroColombiaFade p {
+        margin: 0px
+    }
+
+    .ClaroColombiaFade .bg.cover-1,
+    .ClaroColombiaFade .bg.cover-2,
+    .ClaroColombiaFade .bg.cover-3,
+    .ClaroColombiaFade {
+        background-size: cover
+    }
+
+    .ClaroColombiaFade .btn {
+        margin-top: 0;
+        padding-left: 0
+    }
+
+    .ClaroColombiaFade a,
+    .ClaroColombiaFade a:hover {
+        text-decoration: none;
+        color: #fff
+    }
+
+    .ClaroColombiaFade .bzm_wrapper {
+        position: relative;
+        overflow: hidden;
+        color: #000;
+        font-family: Lato, sans-serif
+    }
+
+    .ClaroColombiaFade .bzm_wrapper.size_300x250 {
+        width: 300px;
+        height: 250px;
+        background-color: #f1f1f1;
+    }
+
+    .ClaroColombiaFade .bzm_cover,
+    .ClaroColombiaFade .carousel-wrapper {
+        position: relative;
+        width: 100%
+    }
+
+    .ClaroColombiaFade .bzm_cover {
+        height: 150px
+    }
+
+    .ClaroColombiaFade .bg.cover-1 {
+        background-image: url(https://i.imgur.com/E1fYwr6.jpg)
+    }
+
+    .ClaroColombiaFade .bg.cover-2 {
+        background-image: url(https://i.imgur.com/TUZ8Omh.jpg)
+    }
+
+    .ClaroColombiaFade .bg.cover-3 {
+        background-image: url(https://i.imgur.com/kBq4ONP.jpg)
+    }
+
+    .ClaroColombiaFade .bzm_cover.bzm_pos_tl {
+        top: 3%;
+        left: 3%
+    }
+
+    .ClaroColombiaFade .bzm_pos_tr {
+        top: 3%;
+        right: 3%
+    }
+
+    .ClaroColombiaFade .bzm_pos_bl {
+        bottom: 3%;
+        left: 3%
+    }
+
+    .ClaroColombiaFade .bzm_pos_br {
+        bottom: 3%;
+        right: 3%
+    }
+
+    .ClaroColombiaFade .bzm_pos_bm {
+        bottom: 3%;
+        left: calc(100% - 70%)
+    }
+
+    .ClaroColombiaFade .bzm_text {
+        padding: 6px 0 0 .3em;
+        line-height: 1.1;
+        color: #000
+    }
+
+    .ClaroColombiaFade .bzm_text_title {
+        font-size: 14px;
+        color: #000
+    }
+
+    .ClaroColombiaFade .bzm_text_light {
+        font-size: 10px;
+        font-weight: 0
+    }
+
+    .ClaroColombiaFade .bzm_text_medium {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.7
+    }
+
+    .ClaroColombiaFade .bzm_text_bold {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1
+    }
+
+    .ClaroColombiaFade .bzm_text_small {
+        font-size: 10px;
+        line-height: 1
+    }
+
+    .ClaroColombiaFade .carousel-wrapper {
+        height: auto;
+        margin: 0 auto
+    }
+
+    .ClaroColombiaFade .carousel-item1 {
+        position: absolute;
+        opacity: 0;
+        transition: all .5s ease-in-out
+    }
+
+    .ClaroColombiaFade [id^=item] {
+        display: none
+    }
+
+    .ClaroColombiaFade .item-1 {
+        z-index: 2;
+        opacity: 1;
+        animation: fade 14s infinite;
+        -webkit-animation: fade 14s infinite
+    }
+
+    .ClaroColombiaFade .item-2 {
+        animation: fade2 14s infinite;
+        -webkit-animation: fade2 14s infinite
+    }
+
+    .ClaroColombiaFade .item-3 {
+        animation: fade3 14s infinite;
+        -webkit-animation: fade3 14s infinite
+    }
+
+    @keyframes fade {
+        0%,
+        100% {
+            opacity: 1
+        }
+        25%,
+        50%,
+        50% {
+            opacity: 0
+        }
+    }
+
+    @keyframes fade2 {
+        0%,
+        100%,
+        50%,
+        50% {
+            opacity: 0
+        }
+        25% {
+            opacity: 1
+        }
+    }
+
+    @keyframes fade3 {
+        0%,
+        100%,
+        25%,
+        50% {
+            opacity: 0
+        }
+        50% {
+            opacity: 1
+        }
+    }
+
+    .ClaroColombiaFade .bzm_button {
+        position: absolute;
+        bottom: 7px;
+        left: 3%;
+        text-transform: uppercase;
+        background-color: #6cbd44;
+        color: #fff;
+        border-radius: 50%;
+        padding: 4px;
+        text-align: center;
+        font-size: 90%;
+        cursor: pointer
+    }
+
+    .ClaroColombiaFade .bzm_button:hover {
+        background-color: #579e38
+    }
+
+    .ClaroColombiaFade .carousel-container {
+        width: 300px;
+        height: 150px;
+        overflow-y: hidden
+    }
+
+    .ClaroColombiaFade #botones-para-compartir {
+        text-align: right
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .googlei:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .googlei,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+</style>
+
+<div style="float:left; margin-left:10px; margin-top:15px;">
+    <div class="ClaroColombiaFade">
+        <div class="bzm_wrapper carousel-wrapper size_300x250">
+            <a href="https://blog.sweetwell.com.mx/4-ideas-bebidas-saludables-mientras-estas-a-dieta" style="display: block;" target="_blank">
+                <div class="carousel-container">
+                    <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
+                    <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
+                    <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
+                </div>
+                <div class="bzm_text" style="margin-left:10px;margin-top:5px;"> <span class="bzm_text_title bzm_text_bold" style="color:#1a1a1a;line-height:1;">4 ideas de bebidas saludables mientras estas a dieta</span>
+                    <div style="bottom:0px;height: 26px;text-align:right;margin-top:10px; margin-right:10px;">
+                        <img src="https://i.imgur.com/2ZaFV6z.png" style="height: 28px; margin-top: 5px;" />
+                        <div id="botones-para-compartir" style="display:inline;float:left;margin-left:0px;margin-top:-18px;">
+                            <span> 
+                                <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.sweetwell.com.mx/4-ideas-bebidas-saludables-mientras-estas-a-dieta" target="_blank"> 
+                                    <img alt="compartir en facebook" class="facebooki" height="16" src="http://4.bp.blogspot.com/-2W3Fr7nS-T0/Uh1HrkLe5wI/AAAAAAAAAiQ/0-_aC8Yici4/s1600/facebook.png" title="compartir en facebook" width="16" />
+                                </a>
+                                <a class="shared" href="https://plus.google.com/share?url=https://blog.sweetwell.com.mx/4-ideas-bebidas-saludables-mientras-estas-a-dieta" target="_blank"> 
+                                    <img alt="compartir en google+" class="googlei" height="16" src="http://3.bp.blogspot.com/-Ioy5JWv_nwk/Uh1HlxE8urI/AAAAAAAAAhc/q_uUabDAhsU/s1600/Google%252B%2Balt.png" title="compartir en google+" width="16" />
+                                </a>
+                                <a class="shared" href="https://twitter.com/home?status=https://blog.sweetwell.com.mx/4-ideas-bebidas-saludables-mientras-estas-a-dieta" target="_blank"> 
+                                    <img alt="compartir en twitter" class="twitteri" height="16" src="http://3.bp.blogspot.com/-TgonF6vzJs0/Uh1Hmxqk8aI/AAAAAAAAAiA/MdT4pRWKRbI/s1600/twitter.png" title="compartir en twitter" width="16" />
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
