@@ -1,59 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <!-- Adform API Script -->
-    <script type="text/javascript">
-        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
-    </script>
-    
-    <!--Adform Global Clicktag START-->
-    <script type="text/javascript">
-        function adfOpenGlobalClickTAG() {
-            var adfClickTAGName = 'clickTAG',
-                adfClickTAGUrl = '%%c1;cpdir=';
-
-            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
-        }
-        if(window.addEventListener) {
-            window.addEventListener('click', function(e) {
-                if(e.button !== 0) return;
-                e.stopPropagation();
-                e.preventDefault();
-                adfOpenGlobalClickTAG();
-            }, true);
-        } else {
-            document.attachEvent('onclick', function() {
-                adfOpenGlobalClickTAG();
-            });
-        }
-        
-        window.onload = function(){
-            dhtml.sendEvent('1', 'PageView', 'PageView');
-        }
-        
-        window.onclick = function() {
-            dhtml.sendEvent('9', 'Click Out', 'Click Out');
-        }
-        
-        /*document.getElementById('housell').addEventListener('click', function(e){
-            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
-        });*/
-        
-    </script>
-    <style>
-        html {
-            cursor: pointer;
-        }
-    </style>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
     <title>Slider_Huawei</title>
-    <style>
-        .HousellSlide1 a,
+	  <style>
+		.HousellSlide1 a,
         .HousellSlide1 a:hover {
             text-decoration: none;
             color: white
@@ -222,12 +176,10 @@
             margin-top: 10px;
             margin-right: 6.5px
         }
-
-    </style>
+	 </style> 
 </head>
-
-<body id="housell" class="HousellSlide1" style="margin:0px;">
-    <div class="te-container">
+<body class="HousellSlide1" style="margin:0px;">
+	 <div class="te-container">
         <a href="%%c1;cpdir=" target="_blank">
             <div id="te-wrapper" class="te-wrapper">
                 <div class="te-images"> <img src="https://i.imgur.com/m72wjh3.png" alt="" /> <img src="https://i.imgur.com/TX9D2Yv.png" alt="" /> <img src="https://i.imgur.com/2oNFBwz.png" alt="" /> </div>
@@ -243,152 +195,149 @@
         </a>
     </div>
 
-    <script>        
-        var Housell2Slide = (function() {
-            //funcionamiento del script
-            var teWrapper = null,
-            teCover	= null,
-            teImages = null,
-            containerE = null;
-            imagesCount	= 0,
-            teTransition = null;
+	<script>
+		var HousellSlide1 = (function() {	
+		//funcionamiento del script
+	var teWrapper = null,
+	teCover	= null,
+	teImages = null,
+	containerE = null;
+	imagesCount	= 0,
+	teTransition = null;
 
-            // Función que hace compatibles los eventos con todos los navegadores.
-            function _addEvent(el, name, fn) {
-                if (el.addEventListener) {
-                el.addEventListener(name, fn);
-                } else if (el.attachEvent) {
-                el.attachEvent('on' + name, function(evt) {
-                    evt.target = evt.target || evt.srcElement;
-                    // Call the event to ensure uniform 'this' handling, pass it event
-                    fn.call(el, evt);
-                });
-                } else if (typeof el['on' + name] === 'undefined' || el['on' + name] === null) {
-                el['on' + name] = function(evt) {
-                    evt.target = evt.target || evt.srcElement;
-                    // Call the event to ensure uniform 'this' handling, pass it event
-                    fn.call(el, evt);
-                };
-                }
-            };
-            //limpiar todos los elementos hijos del un uno padre
-            function _removeChildrens(arrayElements) {
+	//configuracion
+	var _currentImg = 0,
+		animated = false,
+		_TRANSITION = 'te-example3';
 
-                for (var i=0;i<arrayElements.length;i++) {
-                    while (arrayElements[i].firstChild) {
-                        arrayElements[i].removeChild(arrayElements[i].firstChild);
-                    }
-                }
+	// Función que hace compatibles los eventos con todos los navegadores.
+	function _addEvent(el, name, fn) {
+		if (el.addEventListener) {
+		el.addEventListener(name, fn);
+		} else if (el.attachEvent) {
+		el.attachEvent('on' + name, function(evt) {
+			evt.target = evt.target || evt.srcElement;
+			// Call the event to ensure uniform 'this' handling, pass it event
+			fn.call(el, evt);
+		});
+		} else if (typeof el['on' + name] === 'undefined' || el['on' + name] === null) {
+		el['on' + name] = function(evt) {
+			evt.target = evt.target || evt.srcElement;
+			// Call the event to ensure uniform 'this' handling, pass it event
+			fn.call(el, evt);
+		};
+		}
+	};
+	//limpiar todos los elementos hijos del un uno padre
+	function _removeChildrens(arrayElements) {
 
-                return arrayElements;
-            };
+		for (var i=0;i<arrayElements.length;i++) {
+			while (arrayElements[i].firstChild) {
+				arrayElements[i].removeChild(arrayElements[i].firstChild);
+			}
+		}
 
-            //function para inicializar el carousel 
-            function _initCarousel () {
-                if( animated )
-                    return false;
+		return arrayElements;
+	};
 
-                animated = true;	
-                showNext();
-                setInterval(_initCarousel, 5000);
-            };
+	//function para inicializar el carousel 
+	function _initCarousel () {
+		if( animated )
+			return false;
+			
+		animated = true;	
+		showNext();
+		setInterval(_initCarousel, 5000);
+	};
 
-            //function propias del component
-            function webkitAnimationEnd(event) {
-                var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover'),
-                    teWrapper = document.querySelector(containerE + ' #te-wrapper'),
-                    teTransition = document.querySelector(containerE + ' #te-wrapper .te-transition');
+	//function propias del component
+	function webkitAnimationEnd(event) {
+		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover'),
+			teWrapper = document.querySelector(containerE + ' #te-wrapper'),
+			teTransition = document.querySelector(containerE + ' #te-wrapper .te-transition');
+		
+		teCover.classList.remove('te-hide');
+		teWrapper.classList.remove('te-perspective');
+		teTransition.classList.remove('te-show');
+		animated = false;
+	};
+	function updateImages() {
+		
+		var back = document.querySelectorAll(containerE + ' #te-wrapper .te-transition div.te-back'),
+			front = document.querySelectorAll(containerE + ' #te-wrapper .te-transition div.te-front');
+		
+		( _currentImg === imagesCount - 1 ) ? 
+			( last_img = imagesCount - 1, _currentImg = 0 ) : 
+			( last_img = _currentImg, ++_currentImg );
+		
+		var teImages = document.querySelectorAll(containerE + ' #te-wrapper div.te-images > img');
+		var last_img = teImages[last_img],
+			currentImg	= teImages[teImages.length == _currentImg ? 0 : _currentImg];
 
-                teCover.classList.remove('te-hide');
-                teWrapper.classList.remove('te-perspective');
-                teTransition.classList.remove('te-show');
-                animated = false;
-            };
-            function updateImages() {
+		_currentImg = teImages.length == _currentImg ? 0 : _currentImg;
+		
+		var urlLast = last_img.attributes.getNamedItem('src').value;
+		var urlCurrent = currentImg.attributes.getNamedItem('src').value;
 
-                var back = document.querySelectorAll(containerE + ' #te-wrapper .te-transition div.te-back'),
-                    front = document.querySelectorAll(containerE + ' #te-wrapper .te-transition div.te-front');
+		_removeChildrens(front);
+		for (var i=0;i<front.length;i++) {
+			var img = document.createElement('img');
+			img.setAttribute('style','width: 300px;height: 170px;');
+			img.setAttribute('src', urlLast);
+			front[i].appendChild(img);
+		}
 
-                ( _currentImg === imagesCount - 1 ) ? 
-                    ( last_img = imagesCount - 1, _currentImg = 0 ) : 
-                    ( last_img = _currentImg, ++_currentImg );
+		_removeChildrens(back);		
+		for (var i=0;i<back.length;i++) {
+			img = document.createElement('img');
+			img.setAttribute('style','width: 300px;height: 170px;');
+			img.setAttribute('src', urlCurrent);
+			back[i].appendChild(img);
+		}
 
-                var teImages = document.querySelectorAll(containerE + ' #te-wrapper div.te-images > img');
-                var last_img = teImages[last_img],
-                    currentImg	= teImages[teImages.length == _currentImg ? 0 : _currentImg];
+		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover img');
+		teCover.setAttribute('src', urlCurrent);
+	};
+	function showNext() {
+		
+		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover'),
+			teWrapper = document.querySelector(containerE + ' #te-wrapper'),
+			teTransition = document.querySelector(containerE + ' #te-wrapper .te-transition');
 
-                _currentImg = teImages.length == _currentImg ? 0 : _currentImg;
+		teTransition.classList.add('te-show');
+		teCover.classList.add('te-hide');
+		teWrapper.classList.add('te-perspective');
+		
+		updateImages();
+	};
 
-                var urlLast = last_img.attributes.getNamedItem('src').value;
-                var urlCurrent = currentImg.attributes.getNamedItem('src').value;
+	function show(container) {
 
-                _removeChildrens(front);
-                for (var i=0;i<front.length;i++) {
-                    var img = document.createElement('img');
-                    img.setAttribute('style','width: 300px;height: 170px;');
-                    img.setAttribute('src', urlLast);
-                    front[i].appendChild(img);
-                }
+		var containerElement = document.querySelector('.'+container);
+		if (containerElement != null) {
+			containerE = '.'+container;
+		 
+				
+			//inicializando variables global
+			teWrapper = document.querySelector(containerE + ' #te-wrapper');
+			teCover	= document.querySelector(containerE + ' #te-wrapper div.te-cover');
+			teImages		= document.querySelectorAll(containerE + ' #te-wrapper div.te-images > img');
+			imagesCount		= teImages.length;
+			teTransition	= document.querySelector(containerE + ' #te-wrapper .te-transition');
 
-                _removeChildrens(back);		
-                for (var i=0;i<back.length;i++) {
-                    img = document.createElement('img');
-                    img.setAttribute('style','width: 300px;height: 170px;');
-                    img.setAttribute('src', urlCurrent);
-                    back[i].appendChild(img);
-                }
+			//agregar la transition
+			teTransition.classList.add(_TRANSITION);
+			_addEvent(teWrapper, 'webkitAnimationEnd', webkitAnimationEnd);
 
-                var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover img');
-                teCover.setAttribute('src', urlCurrent);
-            };
-            function showNext() {
+			setInterval(_initCarousel, 5000);
+		}
+	};
 
-                var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover'),
-                    teWrapper = document.querySelector(containerE + ' #te-wrapper'),
-                    teTransition = document.querySelector(containerE + ' #te-wrapper .te-transition');
-
-                teTransition.classList.add('te-show');
-                teCover.classList.add('te-hide');
-                teWrapper.classList.add('te-perspective');
-
-                updateImages();
-            };
-
-            function show(container) {
-
-                var containerElement = document.querySelector('.'+container);
-                if (containerElement != null) {
-                    containerE = '.'+container;
-                    var head = document.getElementsByTagName('head');
-                    var style = document.createElement('style');  
-                    var text = document.createTextNode(css);            
-                    style.appendChild(text);   
-                    head[0].appendChild(style);
-
-                    containerElement.innerHTML = html;  
-
-                    //inicializando variables global
-                    teWrapper = document.querySelector(containerE + ' #te-wrapper');
-                    teCover	= document.querySelector(containerE + ' #te-wrapper div.te-cover');
-                    teImages		= document.querySelectorAll(containerE + ' #te-wrapper div.te-images > img');
-                    imagesCount		= teImages.length;
-                    teTransition	= document.querySelector(containerE + ' #te-wrapper .te-transition');
-
-                    //agregar la transition
-                    teTransition.classList.add(_TRANSITION);
-                    _addEvent(teWrapper, 'webkitAnimationEnd', webkitAnimationEnd);
-
-                    setInterval(_initCarousel, 5000);
-                }
-            };
-
-            return {
-                show: show
-            };
-        })();
-        HousellSlide1.show('HousellSlide1');
-
-    </script>
+	return {
+		show: show
+	};
+})();
+HousellSlide1.show('HousellSlide1');
+	</script>
 </body>
-
 </html>
