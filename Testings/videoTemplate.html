@@ -218,7 +218,7 @@
         //Deteccion de Cargado el Video Youtube
         function onPlayerReady(e) {
             //Deteccion de Scroll cuando el video este Cargado
-            window.onscroll = function(){
+            window.parent.onscroll = function(){
                 //Iniciacion de Variables para dibujar lineas de verificacion en viewportz
                 var videoCont = document.querySelector('.videoContainer');
                 var windowHeight = window.innerHeight;
