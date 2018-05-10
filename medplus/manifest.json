@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "c896f2d2c348b87ed1343065b0f8dc57",
+    "title": "medplus_cube_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www.medplus.com.co\/index.php\/te-mereces-mas\/que-nos-hace-diferentes\/"
+    },
+    "source": "Cube3d.html"
+}
