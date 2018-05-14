@@ -1,0 +1,343 @@
+<style>
+    .HuaweiScroll1 p {
+        margin: 0px;
+    }
+
+    .HuaweiScroll1 .btn {
+        margin-top: 0;
+        padding-left: 0;
+    }
+
+    .HuaweiScroll1 a,
+    .ClaroScroll a:hover {
+        text-decoration: none;
+        color: #fff
+    }
+
+    .HuaweiScroll1 .bzm_wrapper {
+        position: relative;
+        overflow: hidden;
+        color: #000;
+        font-family: Lato, sans-serif;
+    }
+
+    .HuaweiScroll1 .bzm_wrapper.size_320x480 {
+        width: 320px;
+        height: 480px;
+        background-color: #FFF;
+        overflow-y: auto;
+    }
+
+    .HuaweiScroll1 .bzm_cover,
+    .ClaroScroll .carousel-wrapper {
+        position: relative;
+        width: 100%
+    }
+
+    .HuaweiScroll1 .bzm_cover {
+        height: 150px
+    }
+
+    .HuaweiScroll1 .bzm_cover.bzm_pos_tl {
+        top: 3%;
+        left: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_tr {
+        top: 3%;
+        right: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_bl {
+        bottom: 3%;
+        left: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_br {
+        bottom: 3%;
+        right: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_bm {
+        bottom: 3%;
+        left: calc(100% - 70%)
+    }
+
+    .HuaweiScroll1 .bzm_text {
+        padding: 6px 0 0 .3em;
+        line-height: 1.1;
+        color: #000
+    }
+
+    .HuaweiScroll1 .bzm_text_title {
+        font-size: 14px;
+        color: #000
+    }
+
+    .HuaweiScroll1 .bzm_text_light {
+        font-size: 10px;
+        font-weight: 0
+    }
+
+    .HuaweiScroll1 .bzm_text_medium {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4
+    }
+
+    .HuaweiScroll1 .bzm_text_bold {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1
+    }
+
+    .HuaweiScroll1 .bzm_text_small {
+        font-size: 10px;
+        line-height: 1
+    }
+
+    .HuaweiScroll1 .carousel-wrapper {
+        height: auto;
+        margin: 0 auto
+    }
+
+
+    .HuaweiScroll1 .bzm_button {
+        position: absolute;
+        bottom: 7px;
+        left: 3%;
+        text-transform: uppercase;
+        background-color: #6cbd44;
+        color: #fff;
+        border-radius: 50%;
+        padding: 4px;
+        text-align: center;
+        font-size: 90%;
+        cursor: pointer
+    }
+
+    .HuaweiScroll1 .bzm_button:hover {
+        background-color: #579e38
+    }
+
+    .HuaweiScroll1 .carousel-container {
+        width: 300px;
+        height: 150px;
+        overflow-y: hidden
+    }
+
+    .HuaweiScroll1 #botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .googlei:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .googlei,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .HuaweiScroll1 .logo {
+        margin-top: -8px;
+        margin-right: 10px;
+        width: 33.33%;
+        line-height: 1.3em;
+        right: -20px;
+        z-index: 2;
+        background-color: #d8594f;
+        border-radius: 2px;
+        float: right;
+        height: 30px;
+        text-align: center;
+    }
+
+    .img-news {
+        background-size: cover;
+        width: 315px;
+        height: 150px;
+    }
+
+    .logo-enterp {
+        height: 40px;
+        margin-bottom: 40px;
+    }
+
+    .HuaweiScroll1 #botones-para-compartir {
+        text-align: right;
+        
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .googlei:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .googlei,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .HuaweiScroll1 #Sup-botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .googlei:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .shared{ float: right;
+            margin-top: 2px;
+            padding-left: 10px;
+            height:20px;
+           
+       
+          
+        
+    }
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .googlei,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+    
+    .facebooki,
+    .twitteri,
+    .googlei{
+        height:20px;
+        padding-top: 10px
+    }
+
+    @media screen and (max-width: 480px) {
+        .HuaweiScroll1 .bzm_wrapper.size_320x480 {
+            width: 270px;
+            height: 411px;
+            background-color: #FFF;
+            overflow-y: auto;
+        }
+
+        .img-news {
+            width: 265px;
+            height: 126px;
+        }
+
+        .logo-enterp {
+            margin-top: 0px;
+            height: 17.5px;
+        }
+    }
+
+</style>
+
+
+<div class="HuaweiScroll1" style="margin:0px; background-color:white;">
+    <div class="bzm_wrapper carousel-wrapper size_320x480">
+        <div class="context">
+
+            <div class="bzm_text">
+               
+                
+                <div style="text-align:left; background-color:white; background-size:25px; height:20px; padding-top:10px; padding-left:4px;">
+                    <span>  <a> <img class="logo-enterp" src="https://i.imgur.com/Z3spQS6.png" style="float:left; margin-left: -10px"></a>
+                       
+                         <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard"  target="block" >    
+                            <img alt="Facebook" class="facebooki"  src="http://4.bp.blogspot.com/-2W3Fr7nS-T0/Uh1HrkLe5wI/AAAAAAAAAiQ/0-_aC8Yici4/s1600/facebook.png" title="Facebook" />
+                        </a>
+
+                         <a class="shared" href="https://twitter.com/home?status=http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard" target="block" >
+                            <img alt="Twitter" class="twitteri"
+                             src="http://3.bp.blogspot.com/-TgonF6vzJs0/Uh1Hmxqk8aI/AAAAAAAAAiA/MdT4pRWKRbI/s1600/twitter.png" title="Twitter" />
+                        </a>
+
+                      <a class="shared" href="https://plus.google.com/share?url=http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard" target="block" >
+								<img alt="compartir en google+" class="googlei" src="http://3.bp.blogspot.com/-Ioy5JWv_nwk/Uh1HlxE8urI/AAAAAAAAAhc/q_uUabDAhsU/s1600/Google%252B%2Balt.png" title="compartir en google+" /></a>
+                    </span>
+                </div>
+                <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:25px; padding-top:30px; padding-bottom:20px;">
+                    <a href="http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard" style="display:block; margin-left:-10px;" target="_blank">
+                        <div class="img-news" style="background-image:url(https://i.imgur.com/ienZjGw.jpg);"></div>
+                    </a>
+                </span>
+            </div>
+            
+
+            <div class="bzm_text">
+                <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#000;">
+                    <i><h3>ESQUI E SNOWBOARD EM CHILE.</h3>Divirta-se a mais de dois mil metros de altura! Visite algum dos vários centros de esqui que o Chile oferece e deslize por suas pistas de qualidade mundial, que a cada inverno se tornam o destino obrigatório dos amantes do esqui e snowboard. <br> <br>
+                    Suba a Cordilheira dos Andes e descubra o paraíso branco, onde a neve e o esporte são os melhores aliados. Encha-se de coragem e desça as melhores pistas da América do Sul, ideais para esquiadores principiantes e também para os mais experientes. A poucos quilômetros de Santiago, em pleno relevo andino, abrem-se frente aos seus olhos os famosos centros de montanha Valle Nevado, La Parva e El Colorado.
+				    <br>
+				    <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:-15px; padding-top:30px; padding-bottom:20px;">
+						<a href="http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard" style="display:block; margin-left:-10px;" target="_blank">
+						    <div class="img-news" style="background-image:url(https://i.imgur.com/rRHrE8L.jpg);"></div>
+						</a>
+					</span> Suba em seus teleféricos, desfrute de suas longas pistas e atreva-se em seus campos com iluminação noturna. Você nasceu para viver a vida ao máximo? Experimente as encostas íngremes de Portillo, em plena fronteira de Los Andes com Argentina, e use sua generosa neve como colchão para provar giros e piruetas em cima de seus esquis ou pranchas. <br> <br>
+                    Não tire os óculos de proteção, e jogue-se na aventura de provar suas habilidades nos rollers, rainbows e corrimões com kink que permitem tocar o céu em cada salto nos centros de esqui do sul do país. E se você ainda tiver energia, prove a experiência de voar em um heliski. Conquiste com sua prancha inexplorados cumes que irão te impactar pela espetacular vista de crateras e vulcões.
+                <br>
+                <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:-15px; padding-top:30px; padding-bottom:20px;">
+                    <a href="http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard" style="display:block; margin-left:-10px;" target="_blank">
+                        <div class="img-news" style="background-image:url(https://i.imgur.com/CV8o3FO.jpg);"></div>
+                    </a>
+                </span>
+                
+                <br>
+               
+        
+            <div style="text-align:left; background-color:white; background-size:25px; height:20px; padding-top:25px;">
+                <a href="http://www.huawei.com/mx/" style="line-height: 31px; padding-right:10px;" target="_blank">
+                  </a>
+                  
+                   
+        
+           
+
+        </div>
+    </div>
+</div>
+</div>
