@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<head>
+<title>HTML5 STUDIO BUILDER: 3D Box v 1.5</title>
+
+<!-- Adform API Script -->
+<script type="text/javascript">
+document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+</script>
+
+<!--#head:common/head-->
+<!--#cube.head:cube/globalhead.1-->
+<script>
+    (function(Adf) {
+        Adf.Cube = function Cube() {
+            var ROTATE_START = 'cubeRotateStart',
+                    ROTATE_END = 'cubeRotateEnd',
+                    ROTATE_NEXT = 'rotateNext',
+                    ROTATE_PREVIOUS = 'rotatePrevious',
+                    lib = Adform.lib,
+                    _settings = {
+                        direction: 'horizontal',
+
+                        cubeId: '',
+                        shapeId: '',
+
+                        cubeWidth: 300,
+                        cubeHeight: 250,
+
+                        bannerShowDelay: 1,
+                        autoRotateEnabled: true,
+                        autoRotateDelay: 3,
+                        autoRotateDirection: ROTATE_NEXT
+                    };
+            
+            var baseZIndex = 100000;
+            
+            var rotationIsAllowed = true,
+                    pageIsFocused = true;
+
+            var realCurrent = 1,
+                    current = 1;
+
+            var x, y,
+                    deltaX = 0,
+                    deltaY = 0;
+            var deg = 0;
+
+            var autoSlide;
+            var touched = false,
+                    click = false;
+
+            var shape,
+                    banner,
+                    panels,
+                    content,
+                    swipe,
+                    swipeIsHidden,
+                    perspective,
+                    translateZ;
+
+            var po = [0, 90, 180, 270];
+
+
+            function setup(settings) {
+                for (var prop in settings) {
+                    if (_settings[prop] instanceof Object) {
+                        for (var prop2 in settings[prop]) {
+                            _settings[prop][prop2] = settings[prop][prop2];
+                        }
+                    } else {
+                        _settings[prop] = settings[prop];
+                    }
+                }
+            }
+
+            var init = function(settings) {
+                setup(settings);
+                findElementsAndParams(_init);
+
+                function _init() {
+                    if (content.length === 0) return;
+
+                    perspective = _settings.cubeWidth * 2.6;
+                    translateZ = (_settings.cubeWidth / 2) - 0.5;
+
+                    if (_settings.direction === 'vertical') {
+                        translateZ = (_settings.cubeHeight / 2) - 0.5;
+                    }
+
+                    initShape();
+                    adjustSlides();
+                    adjustForMobileIfNeeded();
+
+                    if (_settings.defaultButtonsOnPanels) addDefaultButtons();
+
+
+                    for (var i = 0; i < 4; i++) {
+                        transformPanel(panels[i], po[i]);
+                    }                    
+                    
+                    setTimeout(function() {
+                        banner.style.opacity = 1;
+                        
+                        for (var i = 0; i < 4; i++) {
+                            dhtml.addClass(panels[i], 'transition');
+                        } 
+                        
+                    }, parseFloat(_settings.bannerShowDelay) * 1000);
+                }
+
+                dhtml.inscreen.on('visible', onVisible);
+                dhtml.inscreen.on('visible', function(visible) {
+                    pageIsFocused = visible;
+                });
+            };
+
+            function start() {
+                autoSlide = setInterval(function() {
+                    rotate(_settings.autoRotateDirection);
+                }, parseFloat(parseFloat(_settings.autoRotateDelay)) * 1000);
+            }
+
+            function stop() {
+                if (autoSlide) clearInterval(autoSlide);
+            }
+
+            function onVisible(value) {
+                if (value) {
+                    dhtml.inscreen.off('visible', onVisible);
+                    if (!click && _settings.autoRotateEnabled) {
+                        start();
+                    } else {
+                        stop();
+                    }
+                }
+            }
+
+            function initShape() {
+                shape.style.width = _settings.cubeWidth + 'px';
+                shape.style.height = _settings.cubeHeight + 'px';
+                shape.style.transition = 'transform ' + _settings.transition / 2 + 's linear';
+
+                if (!(lib.isMobile && lib.isFF)) {
+                    dhtml.addClass(shape, 'transformation');
+                }
+            }
+
+            function addDefaultButtons() {
+                function makeAButton(side) {
+                    var b = document.createElement('div');
+                    b.className = "adf-Controls--" + side + ' ' + _settings.direction;
+                    b.style.zIndex = 2;
+
+                    b.addEventListener('click', clickRotate.bind(null, side));
+                    return b;
+                }
+
+                panels.forEach(function(panel) {
+                    panel.appendChild(makeAButton(ROTATE_NEXT));
+                    panel.appendChild(makeAButton(ROTATE_PREVIOUS))
+                })
+            }
+
+            function adjustSlides() {
+
+                panels.forEach(function(panel) {
+                    panel.style.width = _settings.cubeWidth + 'px';
+                    panel.style.height = _settings.cubeHeight + 'px';
+                });
+
+                panels[0].appendChild(content[0]);
+                
+                panels[3].style['z-index'] = baseZIndex + 1;
+                panels[0].style['z-index'] = baseZIndex + 2;
+                panels[1].style['z-index'] = baseZIndex + 1;
+
+            }
+
+            function transformPanel(panel, rotateY) {
+                var rotate = 'rotateY';
+                if (_settings.direction === 'vertical') {
+                    rotate = 'rotateX';
+                }
+                panel.style.transform = 'perspective(' + perspective + 'px) ' + 'translateZ(-' + translateZ + 'px) ' + rotate + '(' + deg + 'deg) ' + rotate + '(' + rotateY + 'deg) translateZ(' + translateZ + 'px)';
+                panel.style.webkitTransform = 'perspective(' + perspective + 'px) ' + 'translateZ(-' + translateZ + 'px) ' + rotate + '(' + deg + 'deg) ' + rotate + '(' + rotateY + 'deg) translateZ(' + translateZ + 'px)';
+                panel.style.MozTransform = 'perspective(' + perspective + 'px) ' + 'translateZ(-' + translateZ + 'px) ' + rotate + '(' + deg + 'deg) ' + rotate + '(' + rotateY + 'deg) translateZ(' + translateZ + 'px)';
+            }
+
+            var touchTime;
+            var releaseTime;
+
+            function fingerDown(event) {
+                pageIsFocused = true;
+
+                touchTime = new Date().getTime();
+                deltaX = 0;
+                deltaY = 0;
+                x = event.clientX || event.touches[0].clientX;
+                y = event.clientY || event.touches[0].clientY;
+
+                stopAutoSlide();
+            }
+
+            function fingerMove(event) {
+                if (event.touches) {
+                    deltaX = x - event.touches[0].clientX;
+                    deltaY = y - event.touches[0].clientY;
+                } else {
+                    deltaX = x - event.clientX;
+                    deltaY = y - event.clientY;
+                }
+
+                event.preventDefault();
+                if (_settings.direction === 'vertical') {
+                    event.preventDefault();
+                } else {
+                    if (Math.abs(deltaX) >= Math.abs(deltaY) && (deltaX > 10 || deltaX < -10)) {
+                        event.preventDefault();
+                    }
+                }
+
+                touched = true;
+
+            }
+
+            function fingerUp(event) {
+                releaseTime = new Date().getTime();
+
+                if (_settings.direction === 'vertical' && Math.abs(deltaX) <= Math.abs(deltaY)) {
+                    if (deltaY > 10) {
+                        event.preventDefault();
+                        rotate(ROTATE_PREVIOUS);
+                    }
+                    if (deltaY < -10) {
+                        event.preventDefault();
+                        rotate(ROTATE_NEXT);
+                    }
+                } else if (_settings.direction !== 'vertical' && Math.abs(deltaX) >= Math.abs(deltaY)) {
+                    if (deltaX > 10) {
+                        event.preventDefault();
+                        rotate(ROTATE_NEXT);
+                    }
+                    if (deltaX < -10) {
+                        event.preventDefault();
+                        rotate(ROTATE_PREVIOUS);
+                    }
+                }
+            }
+
+            function adjustForMobileIfNeeded() {
+                if (lib.isMobile === true) {
+                    swipe.style.opacity = 1;
+
+                    lib.addEvent(document, 'touchstart', fingerDown);
+                    lib.addEvent(document, 'touchmove', fingerMove);
+                    lib.addEvent(document, 'touchend', fingerUp);
+                } else {
+                    swipe.style.display = 'none';
+                }
+                //IE ...
+                if (window.navigator.msPointerEnabled) {
+                    lib.addEvent(document, 'MSPointerDown', fingerDown);
+                    lib.addEvent(document, 'MSPointerMove', fingerMove);
+                    lib.addEvent(document, 'MSPointerUp', fingerUp);
+                }
+            }
+
+            function stopAutoSlide() {
+                if (!swipeIsHidden) {
+                    swipe.style.opacity = 0;
+                    setTimeout(function() {
+                        swipe.style.display = 'none';
+                    }, 500);
+                    swipeIsHidden = true;
+                }
+
+                if (_settings.autoRotateEnabled && autoSlide) {
+                    clearInterval(autoSlide);
+                    autoSlide = null;
+                }
+            }
+
+            var rotate = function(direction) {
+                if (!rotationIsAllowed || !pageIsFocused) return;
+
+                var prevDeg = deg;
+                if (direction === ROTATE_NEXT) {
+                    deg -= 90;
+                    if (touched) {
+                        dhtml.sendEvent(1, 'Swipe Left');
+                    }
+                }
+
+                if (direction === ROTATE_PREVIOUS) {
+                    deg += 90;
+                    if (touched) {
+                        dhtml.sendEvent(2, 'Swipe Right');
+                    }
+                }
+
+                if (prevDeg !== deg) {
+                    performRotate(direction);
+                }
+            };
+
+            function clickRotate(direction) {
+                pageIsFocused = true;
+
+                if (!rotationIsAllowed) return;
+
+                var prevDeg = deg;
+                if (direction === ROTATE_NEXT) {
+                    deg -= 90;
+                    dhtml.sendEvent(4, 'Click Right');
+                }
+
+                if (direction === ROTATE_PREVIOUS) {
+                    deg += 90;
+                    dhtml.sendEvent(3, 'Click Left');
+                }
+
+                if (prevDeg !== deg) {
+                    stopAutoSlide();
+                    performRotate(direction);
+                }
+            }
+
+            function makeEvent(name) {
+                var event = document.createEvent('Event');
+                event.initEvent(name, true, true);
+
+                return event
+            }
+
+            function performRotate(direction) {
+                banner.dispatchEvent(makeEvent(ROTATE_START));
+
+                rotationIsAllowed = false;
+
+                _settings.expanding && dhtml.external && dhtml.external.expand();
+                
+                shape.style.transform = 'scale(' + (_settings.expanding ? 1.1 : 0.7) + ')';
+
+                for (var i = 0; i < 4; i++) {
+                    transformPanel(panels[i], po[i]);
+                    panels[i].style['z-index'] = baseZIndex;
+                }
+
+                var activePanel;
+
+                if (direction === ROTATE_NEXT) {
+                    
+                    panels[current - 1 < 0 ? 3 : current - 1].style['z-index'] = baseZIndex + 2;
+                    panels[current > 3 ? 0 : current].style['z-index'] = baseZIndex + 1;
+                    
+                    realCurrent++;
+                    current++;
+                    if (current > 4) {
+                        current = 1;
+                    }
+                    if (realCurrent > content.length) {
+                        realCurrent = 1;
+                    }
+                    activePanel = panels[current - 1];
+
+                }
+
+                if (direction === ROTATE_PREVIOUS) {
+                    
+                    panels[current - 1 < 0 ? 3 : current - 1].style['z-index'] = baseZIndex + 2;
+                    panels[(current - 2 < 0) ? 3 : current - 2].style['z-index'] = baseZIndex + 1;
+                    
+                    realCurrent--;
+                    current--;
+                    if (current < 1) {
+                        current = 4;
+                    }
+                    if (realCurrent < 1) {
+                        realCurrent = content.length;
+                    }
+                    activePanel = panels[current - 1];
+
+                }
+
+                function removePreviousContent(panel) {
+                    [].slice.call(panel.children).forEach(function(child) {
+                        if (child.className === 'panel-content-holder') {
+                            panel.removeChild(child)
+                        }
+                    })
+                }
+
+                removePreviousContent(activePanel);
+                activePanel.appendChild(content[realCurrent - 1]);
+                
+                setTimeout(function () {
+                    
+                    panels.forEach(function (panel) {
+                        panel.style['z-index'] = baseZIndex;
+                    });
+
+                    panels[(current - 2 < 0) ? 3 : current - 2].style['z-index'] = baseZIndex + 1;
+                    panels[current > 3 ? 0 : current].style['z-index'] = baseZIndex + 1;
+                    activePanel.style['z-index'] = baseZIndex + 2;
+                    
+                }, _settings.transition * 1000 * 0.4);
+                
+                setTimeout(function () {
+                    
+                    shape.style.transform = '';
+                }, _settings.transition * 1000 / 2);
+                
+                setTimeout(function() {
+
+                    _settings.expanding && dhtml.external && dhtml.external.close();
+
+                    setTimeout(function() {
+                        rotationIsAllowed = true;
+                        banner.dispatchEvent(makeEvent(ROTATE_END))
+                    });
+                }, _settings.transition * 1000);
+            }
+
+
+            function findElementsAndParams(callback) {
+                banner = dhtml.byId(_settings.cubeId);
+                var cubeParent = banner.parentElement;
+
+                panels = cubeParent.querySelectorAll('#' + _settings.cubeId + ' > .adf-Shape > .cube-Panel');
+                panels = [].slice.call(panels);
+
+                content = cubeParent.querySelectorAll('#' + _settings.cubeId + ' > #content-container > .panel-content-holder');
+
+                shape = cubeParent.querySelector('#' + _settings.cubeId + '> .adf-Shape');
+                swipe = cubeParent.querySelector('#' + _settings.cubeId + ' > .adf-Swipe');
+
+                waitForBannerInit(callback);
+            }
+
+            var timesToWait = 10;
+            function waitForBannerInit(callback) {
+                if (!timesToWait) return;
+                timesToWait--;
+
+                if (!banner.offsetWidth && !banner.offsetHeight) {
+                    setTimeout(waitForBannerInit.bind(null, callback), 10);
+                } else {
+                    _settings.cubeWidth = banner.offsetWidth;
+                    _settings.cubeHeight = banner.offsetHeight;
+                    callback();
+                }
+            }
+
+
+            return {
+                ROTATE_NEXT: ROTATE_NEXT,
+                ROTATE_PREVIOUS: ROTATE_PREVIOUS,
+
+                init: init,
+                rotate: clickRotate
+            };
+        }
+    })(Adf = window.Adf || {});
+
+</script>
+<!--#/#--><!--#i8.font-google.head:font/font-google/head-->
+<!--#i8.i9.font-google.head:font-google/head-->
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<!--#/#-->
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/*#/#*//*#i4.i20.shape.css:shape/base/css*/
+#i20 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
+#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i14.text.css:text/base/css*/
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: Tahoma, Geneva, sans-serif; font-size: 24px; color: #6b6767; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 302px; height: 53px;
+        -ms-transform: translate(-50%, -50%) translate(0px, 51px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 51px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 51px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 51px) rotate(0deg);
+}
+/*#/#*//*#i4.i56.image.css:image/base/css*/
+#i56 { opacity: 1; }
+/*#/#*//*#i56.i57.positioning.css:positioning/base/css.1*/
+#i56 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 315px; height: 150px;
+        -ms-transform: translate(0, 0) translate(-9px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(-9px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(-9px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(-9px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i91.shape.css:shape/base/css*/
+#i91 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i93.i94.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i91 { cursor: pointer; }
+/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
+#i91 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i4.i104.image.css:image/base/css*/
+#i104 { opacity: 1; }
+/*#/#*//*#i104.i105.positioning.css:positioning/base/css.1*/
+#i104 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 70px; height: 29px;
+        -ms-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+}
+/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i4 { cursor: pointer; }
+/*#/#*//*#i5.i30.shape.css:shape/base/css*/
+#i30 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i5.i24.text.css:text/base/css*/
+#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: Tahoma, Geneva, sans-serif; font-size: 24px; color: #666565; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
+/*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
+#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 287px; height: 63px;
+        -ms-transform: translate(-50%, -50%) translate(0px, 56px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 56px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 56px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 56px) rotate(0deg);
+}
+/*#/#*//*#i5.i58.image.css:image/base/css*/
+#i58 { opacity: 1; }
+/*#/#*//*#cube.css:cube/globalcss.1*/
+
+.transformation {
+    -webkit-transform: translateZ(-1000px);
+    -moz-transform: translateZ(-1000px);
+    -o-transform: translateZ(-1000px);
+    transform: translateZ(-1000px);
+}
+
+.transition {
+    -webkit-transition: -webkit-transform 0.8s;
+    -o-transition: -moz-transform 0.8s;
+    -moz-transition: -moz-transform 0.8s;
+    -ms-transition: -ms-transform 0.8s;
+    transition: transform 0.8s;
+}
+
+.adf-Shape {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.adf-Shape > div {
+    position: absolute;
+}
+
+.adf-Swipe {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+
+.adf-Swipe span {
+    font-family: sans-serif;
+    font-size: 28px;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+/* nav controls*/
+.adf-Controls--rotatePrevious {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OC4xMjEsNC40MjMgTDIwLjU0NCwzMi4wMDAgTDQ4LjEyMSw1OS41NzcgQzQ4LjkwMiw2MC4zNTggNDguOTAyLDYxLjYyNSA0OC4xMjEsNjIuNDA2IEw0Ny40MTQsNjMuMTEzIEM0Ni42MzMsNjMuODk0IDQ1LjM2Nyw2My44OTQgNDQuNTg2LDYzLjExMyBMMTUuNTk0LDM0LjEyMSBMMTQuODg3LDMzLjQxNCBDMTQuMTA2LDMyLjYzMyAxNC4xMDYsMzEuMzY3IDE0Ljg4NywzMC41ODYgTDQ0LjU4NiwwLjg4NyBDNDUuMzY3LDAuMTA2IDQ2LjYzMywwLjEwNiA0Ny40MTQsMC44ODcgTDQ4LjEyMSwxLjU5NCBDNDguOTAyLDIuMzc1IDQ4LjkwMiwzLjY0MiA0OC4xMjEsNC40MjMgWiIgc3R5bGU9ImZpbGw6ICMwMDVGOEM7DQpmaWxsLXJ1bGU6IGV2ZW5vZGQ7Ii8+DQo8L3N2Zz4=') 50% 50% no-repeat;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;     
+    -ms-user-select: none;     
+    user-select: none; 
+}
+.adf-Controls--rotatePrevious.horizontal {
+    top: 50%;
+    left: 0;
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+.adf-Controls--rotatePrevious.vertical {
+    right: 50%;
+    top: 0;
+    -moz-transform: rotate(90deg) translateY(-50%);
+    -ms-transform: rotate(90deg) translateY(-50%);
+    -o-transform: rotate(90deg) translateY(-50%);
+    -webkit-transform: rotate(90deg) translateY(-50%);
+    transform: rotate(90deg) translateY(-50%);
+}
+
+.adf-Controls--rotatePrevious:hover {
+    background-color: #5AAAD2;
+}
+
+.adf-Controls--rotateNext {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OS4xMTMsMzMuNDE0IEw0OC40MDYsMzQuMTIxIEwxOS40MTQsNjMuMTEzIEMxOC42MzMsNjMuODk0IDE3LjM2Nyw2My44OTQgMTYuNTg2LDYzLjExMyBMMTUuODc5LDYyLjQwNiBDMTUuMDk4LDYxLjYyNSAxNS4wOTgsNjAuMzU4IDE1Ljg3OSw1OS41NzcgTDQzLjQ1NiwzMi4wMDAgTDE1Ljg3OSw0LjQyMyBDMTUuMDk4LDMuNjQyIDE1LjA5OCwyLjM3NSAxNS44NzksMS41OTQgTDE2LjU4NiwwLjg4NyBDMTcuMzY3LDAuMTA2IDE4LjYzMywwLjEwNiAxOS40MTQsMC44ODcgTDQ5LjExMywzMC41ODYgQzQ5Ljg5NCwzMS4zNjcgNDkuODk0LDMyLjYzMyA0OS4xMTMsMzMuNDE0IFoiIHN0eWxlPSJmaWxsOiAjMDA1RjhDOw0KZmlsbC1ydWxlOiBldmVub2RkOyIvPg0KPC9zdmc+') 50% 50% no-repeat;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;     
+    -ms-user-select: none;     
+    user-select: none; 
+}
+
+.adf-Controls--rotateNext.horizontal {
+    top: 50%;
+    right: 0;
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+.adf-Controls--rotateNext.vertical {
+    right: 50%;
+    bottom: 0;
+    -moz-transform: rotate(90deg) translateY(-50%);
+    -ms-transform: rotate(90deg) translateY(-50%);
+    -o-transform: rotate(90deg) translateY(-50%);
+    -webkit-transform: rotate(90deg) translateY(-50%);
+    transform: rotate(90deg) translateY(-50%);
+}
+
+.adf-Controls--rotateNext:hover {
+    background-color: #5AAAD2;
+}
+
+/*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
+#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 315px; height: 150px;
+        -ms-transform: translate(0, 0) translate(-8px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(-8px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(-8px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(-8px, 0px) rotate(0deg);
+}
+/*#/#*//*#i5.i95.shape.css:shape/base/css*/
+#i95 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i97.i98.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i95 { cursor: pointer; }
+/*#/#*//*#i95.i96.positioning.css:positioning/base/css.1*/
+#i95 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+}
+/*#/#*//*#i5.i108.image.css:image/base/css*/
+#i108 { opacity: 1; }
+/*#/#*//*#i108.i109.positioning.css:positioning/base/css.1*/
+#i108 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 70px; height: 29px;
+        -ms-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+}
+/*#/#*//*#i52.i53.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i5 { cursor: pointer; }
+/*#/#*//*#i6.i40.shape.css:shape/base/css*/
+#i40 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i40.i41.positioning.css:positioning/base/css.1*/
+#i40 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i6.i34.text.css:text/base/css*/
+#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: Tahoma, Geneva, sans-serif; font-size: 24px; color: #706f6f; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 0px;}
+/*#/#*//*#i34.i35.positioning.css:positioning/base/css.1*/
+#i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 55px;
+        -ms-transform: translate(-50%, -50%) translate(3px, 60px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(3px, 60px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(3px, 60px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(3px, 60px) rotate(0deg);
+}
+/*#/#*//*#i6.i60.image.css:image/base/css*/
+#i60 { opacity: 1; }
+/*#/#*//*#i60.i61.positioning.css:positioning/base/css.1*/
+#i60 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 315px; height: 150px;
+        -ms-transform: translate(0, 0) translate(-7px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(-7px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(-7px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(-7px, 0px) rotate(0deg);
+}
+/*#/#*//*#i6.i99.shape.css:shape/base/css*/
+#i99 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i102.i103.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i99 { cursor: pointer; }
+/*#/#*//*#i99.i100.positioning.css:positioning/base/css.1*/
+#i99 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i6.i106.image.css:image/base/css*/
+#i106 { opacity: 1; }
+/*#/#*//*#i106.i107.positioning.css:positioning/base/css.1*/
+#i106 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 70px; height: 29px;
+        -ms-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+        transform: translate(0, 0) translate(10px, 210px) rotate(0deg);
+}
+/*#/#*//*#i54.i55.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i6 { cursor: pointer; }
+/*#/#*//*#i2.i3.positioning.css:positioning/base/css.1*/
+#i2 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i8.font.html:font/html-->
+<!--#/#--><!--#i2.cube.html:cube/html.1-->
+<div style="overflow: visible" id="i2" class="shape-holder">
+    <div style="visibility: hidden" id="content-container">
+        <!--#i2.i4.cube-panel.html:cube-panel/html-->
+<div id="i4" class="panel-content-holder">
+    <!--#i4.i20.shape.html:shape/html-->
+<div id="i20"></div>
+<!--#/#--><!--#i4.i14.text.html:text/html-->
+<div id="i14">ESQUI E SNOWBOARD 
+EM CHILE</div>
+<!--#/#--><!--#i4.i56.image.html:image/html-->
+<img id="i56" src="https://i.imgur.com/ienZjGw.jpg"/>
+<!--#/#--><!--#i4.i91.shape.html:shape/html-->
+<div id="i91"></div>
+<!--#/#--><!--#i4.i104.image.html:image/html-->
+<img id="i104" src="https://i.imgur.com/Z3spQS6.png"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i2.i5.cube-panel.html:cube-panel/html-->
+<div id="i5" class="panel-content-holder">
+    <!--#i5.i30.shape.html:shape/html-->
+<div id="i30"></div>
+<!--#/#--><!--#i5.i24.text.html:text/html-->
+<div id="i24">ESQUI E SNOWBOARD 
+EM CHILE</div>
+<!--#/#--><!--#i5.i58.image.html:image/html-->
+<img id="i58" src="https://i.imgur.com/rRHrE8L.jpg"/>
+<!--#/#--><!--#i5.i95.shape.html:shape/html-->
+<div id="i95"></div>
+<!--#/#--><!--#i5.i108.image.html:image/html-->
+<img id="i108" src="https://i.imgur.com/Z3spQS6.png"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i2.i6.cube-panel.html:cube-panel/html-->
+<div id="i6" class="panel-content-holder">
+    <!--#i6.i40.shape.html:shape/html-->
+<div id="i40"></div>
+<!--#/#--><!--#i6.i34.text.html:text/html-->
+<div id="i34">ESQUI E SNOWBOARD 
+EM CHILE</div>
+<!--#/#--><!--#i6.i60.image.html:image/html-->
+<img id="i60" src="https://i.imgur.com/CV8o3FO.jpg"/>
+<!--#/#--><!--#i6.i99.shape.html:shape/html-->
+<div id="i99"></div>
+<!--#/#--><!--#i6.i106.image.html:image/html-->
+<img id="i106" src="https://i.imgur.com/Z3spQS6.png"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+    <div class="adf-Shape">
+        <div class="cube-Panel"></div>
+        <div class="cube-Panel"></div>
+        <div class="cube-Panel"></div>
+        <div class="cube-Panel"></div>
+    </div>
+
+    <div class="adf-Swipe">
+        <span>Swipe</span>
+    </div>
+</div>
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i2.cube.js:cube/js.1*/
+var cube_i2 = new Adf.Cube();
+
+cube_i2.init({
+    cubeId: 'i2',
+    shapeId: 'shape_i2',
+    direction: 'horizontal',
+    bannerShowDelay: 1,
+    autoRotateEnabled: true,
+    autoRotateDelay: 3,
+    autoRotateDirection: 'rotateNext',
+    defaultButtonsOnPanels: true,
+    transition: 0.8
+});
+
+document.getElementById('i2').addEventListener('showPrevious', function(e){
+    cube_i2.rotate(cube_i2.ROTATE_PREVIOUS)
+});
+
+document.getElementById('i2').addEventListener('showNext', function(e){
+    cube_i2.rotate(cube_i2.ROTATE_NEXT)
+});
+/*#/#*//*#i4.i56.image.js:image/base/js*/
+
+/*#/#*//*#i91.i93.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i91').addEventListener('click', function(e){
+    /*#i93.i94.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i4.i104.image.js:image/base/js*/
+
+/*#/#*//*#i4.i50.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i4').addEventListener('click', function(e){
+    /*#i50.i51.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i5.i58.image.js:image/base/js*/
+
+/*#/#*//*#i95.i97.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i95').addEventListener('click', function(e){
+    /*#i97.i98.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i5.i108.image.js:image/base/js*/
+
+/*#/#*//*#i5.i52.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i5').addEventListener('click', function(e){
+    /*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i6.i60.image.js:image/base/js*/
+
+/*#/#*//*#i99.i102.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i99').addEventListener('click', function(e){
+    /*#i102.i103.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://chile.travel/pt-br/o-que-fazer/aventura-e-esporte/ski-y-snowboard'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i6.i106.image.js:image/base/js*/
+
+/*#/#*//*#i6.i54.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i6').addEventListener('click', function(e){
+    /*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*/
+
+  function next(){
+             cube_i2.rotate(cube_i2.ROTATE_NEXT)
+        }
+
+        setInterval(next, 5000);
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i8.font.meta:font/meta*/
+name: Web Font: Source Sans Pro; type: font-google; customName: ;
+/*#/#*//*#i8.i9.font-google.meta:font-google/meta*/
+family: Source Sans Pro;
+/*#/#*//*#i2.cube.meta:cube/meta.1*/
+name: Cube;
+customName: 1;
+/*#/#*//*#i2.i4.cube-panel.meta:cube-panel/meta*/
+    name: Cube Panel 1;
+/*#/#*//*#i4.i20.shape.meta:shape/meta*/
+name: Background;
+/*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i4.i14.text.meta:text/meta*/
+name: ESQUI E SNOWBOARD 
+EM CHILE; customName: false;
+/*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i4.i56.image.meta:image/meta*/
+name: ienZjGw.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i56.i57.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i4.i91.shape.meta:shape/meta*/
+name: Link;
+/*#/#*//*#i91.i92.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i4.i104.image.meta:image/meta*/
+name: Z3spQS6.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i104.i105.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i2.i5.cube-panel.meta:cube-panel/meta*/
+    name: Cube Panel 2;
+/*#/#*//*#i5.i30.shape.meta:shape/meta*/
+name: Background;
+/*#/#*//*#i30.i31.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i5.i24.text.meta:text/meta*/
+name: ESQUI E SNOWBOARD 
+EM CHILE; customName: false;
+/*#/#*//*#i24.i25.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i5.i58.image.meta:image/meta*/
+name: rRHrE8L.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i58.i59.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i5.i95.shape.meta:shape/meta*/
+name: Link;
+/*#/#*//*#i95.i96.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i5.i108.image.meta:image/meta*/
+name: Z3spQS6.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i108.i109.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i2.i6.cube-panel.meta:cube-panel/meta*/
+    name: Cube Panel 3;
+/*#/#*//*#i6.i40.shape.meta:shape/meta*/
+name: Background;
+/*#/#*//*#i40.i41.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i34.text.meta:text/meta*/
+name: ESQUI E SNOWBOARD 
+EM CHILE; customName: false;
+/*#/#*//*#i34.i35.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i60.image.meta:image/meta*/
+name: CV8o3FO.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i60.i61.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i6.i99.shape.meta:shape/meta*/
+name: Link;
+/*#/#*//*#i99.i100.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i106.image.meta:image/meta*/
+name: Z3spQS6.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i106.i107.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*/--><!--#/#-->
