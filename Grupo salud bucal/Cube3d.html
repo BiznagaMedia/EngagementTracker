@@ -880,6 +880,16 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i5.i122.image.css:image/base/css*/
+    
+  #whatsapp{
+        position: absolute; top: 0%; left: 0%; overflow: hidden; width: 27px; height: 27px;
+        -ms-transform: translate(0, 0) translate(90px, 218px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(90px, 218px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(90px, 218px) rotate(0deg);
+        transform: translate(0, 0) translate(90px, 218px) rotate(0deg);     
+    }   
+    
+    
 #i122 { opacity: 1; }
 /*#/#*/
 </style>
@@ -908,6 +918,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i4.i91.shape.html:shape/html-->
 <div id="i91"></div>
 <!--#/#-->
+<img id="whatsapp" src="https://i.imgur.com/eyhyCtS.png"/>
 </div>
 <!--#/#--><!--#i2.i5.cube-panel.html:cube-panel/html-->
 <div id="i5" class="panel-content-holder">
@@ -916,7 +927,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i5.i24.text.html:text/html-->
 <div id="i24">Get your theeth done and make a beautifull trip at the same time</div>
 <!--#/#--><!--#i5.i58.image.html:image/html-->
-<img id="i58" src="https://i.imgur.com/1enOHza.jpg"/>
+<img id="i58" src="https://i.imgur.com/jWHPC11.jpg"/>
 <!--#/#--><!--#i5.i95.shape.html:shape/html-->
 <div id="i95"></div>
 <!--#/#--><!--#i5.i108.image.html:image/html-->
@@ -928,6 +939,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i5.i126.image.html:image/html-->
 <img id="i126" src="https://i.imgur.com/jo9wDIZ.png"/>
 <!--#/#-->
+<img id="whatsapp" src="https://i.imgur.com/eyhyCtS.png"/>
 </div>
 <!--#/#--><!--#i2.i6.cube-panel.html:cube-panel/html-->
 <div id="i6" class="panel-content-holder">
@@ -948,6 +960,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i6.i138.image.html:image/html-->
 <img id="i138" src="https://i.imgur.com/jo9wDIZ.png"/>
 <!--#/#-->
+<img id="whatsapp" src="https://i.imgur.com/eyhyCtS.png"/>
 </div>
 <!--#/#-->
     </div>
@@ -1102,6 +1115,14 @@ document.getElementById('i138').addEventListener('click', function(e){
 });
 /*#/#*/
 
+    document.getElementById('whatsapp').addEventListener('click', function(e){
+    /*#i144.i145.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG5')) : window.open(dhtml.getVar('clickTAG5', 'whatsapp://send?text=http://www.implantesdentalesgsb.com/'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+    
+    
+    
   function next(){
              cube_i2.rotate(cube_i2.ROTATE_NEXT)
         }
