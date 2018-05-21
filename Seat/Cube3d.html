@@ -470,7 +470,21 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#cube.css:cube/globalcss.1*/
+/*#i58.i59.positioning.css:positioning/base/css.1*/
+    @font-face {
+          font-family:'Seat';
+        src: url('http://biznagamedia.com/wp-content/gallery/test/SEATBCN-Bold.woff')format('woff'),
+        url('http://biznagamedia.com/wp-content/gallery/test/SEATBCN-Bold.eot')
+          } 
+    
+    
+#i58 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 150px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#cube.css:cube/globalcss.1*/
 
 .transformation {
     -webkit-transform: translateZ(-1000px);
@@ -599,29 +613,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
-/*#/#*//*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
 /*#/#*//*#i4.i20.shape.css:shape/base/css*/
 #i20 { background-color: #fafafa; opacity: 1;
 }
@@ -633,13 +624,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
 /*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 18px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family:'Seat'; font-size: 21px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
 /*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
-#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 44px;
-        -ms-transform: translate(-50%, -50%) translate(-1px, 49px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(-1px, 49px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(-1px, 49px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(-1px, 49px) rotate(0deg);
+#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 305px; height: 74px;
+        -ms-transform: translate(-50%, -50%) translate(9px, 70px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(9px, 70px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(9px, 70px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(9px, 70px) rotate(0deg);
 }
 /*#/#*//*#i4.i56.image.css:image/base/css*/
 #i56 { opacity: 1; }
@@ -650,8 +641,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
-/*#/#*//*#i4.i64.image.css:image/base/css*/
-#i64 { opacity: 1;}
 /*#/#*//*#i64.i65.positioning.css:positioning/base/css.1*/
 #i64 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 90px; height: 32px;
         -ms-transform: translate(0, 0) translate(208px, 216px) rotate(0deg);
@@ -659,6 +648,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(208px, 216px) rotate(0deg);
         transform: translate(0, 0) translate(208px, 216px) rotate(0deg);
 }
+/*#/#*//*#i4.i64.image.css:image/base/css*/
+#i64 { opacity: 1;}
 /*#/#*//*#i4.i91.shape.css:shape/base/css*/
 #i91 { background-color: #dedede; opacity: 0.00;
 }
@@ -684,23 +675,39 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i5.i24.text.css:text/base/css*/
-#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 18px; color: #1f1f1f; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
+#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family:'Seat'; font-size: 21px; color: ##1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
 /*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
 #i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 271px; height: 63px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 56px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 56px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 56px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 56px) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) translate(0px, 64px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 64px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 64px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 64px) rotate(0deg);
 }
 /*#/#*//*#i5.i58.image.css:image/base/css*/
 #i58 { opacity: 1; }
-/*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
-#i58 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 150px;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+/*#/#*//*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
 }
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
 /*#/#*//*#i5.i66.image.css:image/base/css*/
 #i66 { opacity: 1;}
 /*#/#*//*#i66.i67.positioning.css:positioning/base/css.1*/
@@ -735,13 +742,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i6.i34.text.css:text/base/css*/
-#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 18px; color: #141414; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
+#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family:'Seat'; font-size: 21px; color: ##1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
 /*#/#*//*#i34.i35.positioning.css:positioning/base/css.1*/
 #i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 74px;
-        -ms-transform: translate(-50%, -50%) translate(5px, 62px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(5px, 62px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(5px, 62px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(5px, 62px) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) translate(5px, 69px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(5px, 69px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(5px, 69px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(5px, 69px) rotate(0deg);
 }
 /*#/#*//*#i6.i60.image.css:image/base/css*/
 #i60 { opacity: 1; }
@@ -751,6 +758,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(0px, -29px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0px, -29px) rotate(0deg);
         transform: translate(0, 0) translate(0px, -29px) rotate(0deg);
+}
+/*#/#*//*#i6.i68.image.css:image/base/css*/
+#i68 { opacity: 1;}
+/*#/#*//*#i68.i69.positioning.css:positioning/base/css.1*/
+#i68 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 90px; height:32px;
+        -ms-transform: translate(0, 0) translate(208px, 215px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(208px, 215px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(208px, 215px) rotate(0deg);
+        transform: translate(0, 0) translate(208px, 215px) rotate(0deg);
 }
 /*#/#*//*#i6.i99.shape.css:shape/base/css*/
 #i99 { background-color: #dedede; opacity: 0.00;
@@ -763,15 +779,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i6.i104.image.css:image/base/css*/
-#i104 { opacity: 1; }
-/*#/#*//*#i104.i105.positioning.css:positioning/base/css.1*/
-#i104 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 90px; height: 32px;
-        -ms-transform: translate(0, 0) translate(208px, 215px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(208px, 215px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(208px, 215px) rotate(0deg);
-        transform: translate(0, 0) translate(208px, 215px) rotate(0deg);
 }
 /*#/#*//*#i54.i55.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i6 { cursor: pointer; }
@@ -795,8 +802,9 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     <!--#i4.i20.shape.html:shape/html-->
 <div id="i20"></div>
 <!--#/#--><!--#i4.i14.text.html:text/html-->
-<div id="i14">La potencia y nueva tecnología 
-que tu camino necesita</div>
+<div id="i14">La potencia y nueva 
+tecnología que tu camino 
+necesita</div>
 <!--#/#--><!--#i4.i56.image.html:image/html-->
 <img id="i56" src="https://i.imgur.com/0kyQ0og.png"/>
 <!--#/#--><!--#i4.i64.image.html:image/html-->
@@ -827,10 +835,10 @@ que tu camino necesita</div>
 <div id="i34">El Nuevo Dashboard 100% digital, 100% personalizable</div>
 <!--#/#--><!--#i6.i60.image.html:image/html-->
 <img id="i60" src="https://i.imgur.com/zB41tH0.png"/>
+<!--#/#--><!--#i6.i68.image.html:image/html-->
+<img id="i68" src="https://i.imgur.com/KAJDmTN.jpg"/>
 <!--#/#--><!--#i6.i99.shape.html:shape/html-->
 <div id="i99"></div>
-<!--#/#--><!--#i6.i104.image.html:image/html-->
-<img id="i104" src="https://i.imgur.com/KAJDmTN.jpg"/>
 <!--#/#-->
 </div>
 <!--#/#-->
@@ -896,7 +904,7 @@ document.getElementById('i4').addEventListener('click', function(e){
 /* Name: On Click; */
 document.getElementById('i95').addEventListener('click', function(e){
     /*#i97.i98.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.seat.mx/autos/nuevo-leon-cupra/descubre.html'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://www.seat.mx/autos/nuevo-leon-cupra/descubre.html'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
@@ -908,15 +916,15 @@ document.getElementById('i5').addEventListener('click', function(e){
 });
 /*#/#*//*#i6.i60.image.js:image/base/js*/
 
+/*#/#*//*#i6.i68.image.js:image/base/js*/
+
 /*#/#*//*#i99.i102.actions.js:actions/base/js*/
 /* Name: On Click; */
 document.getElementById('i99').addEventListener('click', function(e){
     /*#i102.i103.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.seat.mx/autos/nuevo-leon-cupra/descubre.html'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'http://www.seat.mx/autos/nuevo-leon-cupra/descubre.html'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
-/*#/#*//*#i6.i104.image.js:image/base/js*/
-
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
 /* Name: On Click; */
 document.getElementById('i6').addEventListener('click', function(e){
@@ -946,8 +954,9 @@ name: Background;
 /*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i14.text.meta:text/meta*/
-name: La potencia y nueva tecnología 
-que tu camino necesita; customName: false;
+name: La potencia y nueva 
+tecnología que tu camino 
+necesita; customName: false;
 /*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i56.image.meta:image/meta*/
@@ -1003,15 +1012,15 @@ name: zB41tH0.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i60.i61.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":false}/*!*/;
+/*#/#*//*#i6.i68.image.meta:image/meta*/
+name: KAJDmTN.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i68.i69.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i6.i99.shape.meta:shape/meta*/
 name: Link;
 /*#/#*//*#i99.i100.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i6.i104.image.meta:image/meta*/
-name: KAJDmTN.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: false;
-/*#/#*//*#i104.i105.positioning.meta:positioning/meta.1*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*/--><!--#/#-->
