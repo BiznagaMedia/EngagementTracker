@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+    
+    <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.americanexpress.com/mx/content/cards/gold-elite-credit-card.html';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if(window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if(e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+        
+        window.onload = function(){
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+        
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+        
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+        
+    </script>
+    <style>
+        html {
+            cursor: pointer;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <title>Slider_Huawei</title>
+	  <style>
+          .bzm_text_title, 
+          .bzm_text_bold{
+              font-family: 'Seat', sans-serif;
+          }
+          
+		.AmericanFijo a,
+        .AmericanFijo a:hover {
+            text-decoration: none;
+            color: white
+        }
+
+        .AmericanFijo .te-container {
+            width: 300px;
+            height: 250px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        .AmericanFijo .te-wrapper {
+            position: relative;
+            width: 300px;
+            height: 250px;
+            overflow: hidden;
+            font-family: Source Sans Pro;
+        }
+
+        .AmericanFijo .bzm_text {
+            margin-top: -10px;
+            margin-left: 5px;
+            text-align: left;
+            font: trebuchet MS 
+        }
+
+        .AmericanFijo .bzm_text_bold,
+        .AmericanFijo .bzm_text_medium {
+            line-height: 1.4;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .AmericanFijo .bzm_text_bold {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1;
+    
+        }
+
+        .AmericanFijo .bzm_text_medium {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /*******************************************************/
+
+        /****************** Unfold Effects *********************/
+
+        /*******************************************************/
+
+        .AmericanFijo .te-perspective {
+            -webkit-perspective: 1000;
+        }
+
+        .AmericanFijo .te-cover,
+        .AmericanFijo .te-transition {
+            width: 300px;
+            height: 170px;
+        }
+
+        .AmericanFijo .te-cover.te-hide,
+        .AmericanFijo .te-transition,
+        .AmericanFijo .te-images {
+            display: none;
+        }
+
+        .AmericanFijo .te-images {
+            width: 300px;
+            height: 170px;
+        }
+
+        .AmericanFijo .te-cover>img,
+        .AmericanFijo .te-images>img {
+            width: 300px;
+            height: 150px;
+        }
+
+        .AmericanFijo .te-transition.te-show {
+            display: block;
+        }
+
+        .AmericanFijo .te-back,
+        .AmericanFijo .te-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .AmericanFijo .te-front {
+            z-index: 2;
+        }
+
+        .AmericanFijo .te-back {
+            z-index: 1;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .AmericanFijo .te-transition img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        /***************** example3 ********************/
+
+        .AmericanFijo .te-example3 .te-front {
+            z-index: 1;
+        }
+
+        .AmericanFijo .te-example3 .te-back {
+            z-index: 2;
+        }
+
+        .AmericanFijo .te-example3.te-show .te-back {
+            -webkit-animation: example3Back 0.4s ease-out forwards;
+        }
+
+        @-webkit-keyframes example3Back {
+            0% {
+                -webkit-transform: rotate(40deg) scale(1.5) translate(200px, 10px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotate(0deg) scale(1) translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        .AmericanFijo #botones-para-compartir {
+            text-align: right;
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            /* Sombra */
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .AmericanFijo .logo {
+            z-index: 2;
+            background-color: transparent;
+            border-radius: 0px;
+            float: right;
+            height: 15px;
+            text-align: center;
+            margin-top: 10px;
+            margin-right: -5px
+        }
+	 </style> 
+</head>
+<body class="AmericanFijo" style="margin:0px;">
+	 <div class="te-container">
+        <a href="%%c1;cpdir=" target="_blank">
+            <div id="te-wrapper" class="te-wrapper">
+                <div class="te-images"> 
+                <img src="https://i.imgur.com/EwDtMNz.png" alt="" /> 
+                 </div>
+                <div class="te-cover"> 
+                    <img src="https://i.imgur.com/EwDtMNz.png" alt="" /> 
+                </div>
+                <div class="te-transition">
+                    <div class="te-front"></div>
+                    <div class="te-back"></div>
+                </div>
+                <div style="margin-top:-5px; margin-left: 10px; margin-right: 10px;">
+                    <div class="bzm_text"> 
+                        <span class="bzm_text_title bzm_text_bold" style="color:#2d363b; font-size:18px; text-align: center;">
+                          El aliado ideal para tu día a día.
+                        </span> 
+                        <img class="logo" src="https://i.imgur.com/h2vfz37.png"  style="height:40px"> 
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
