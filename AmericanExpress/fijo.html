@@ -6,40 +6,7 @@
         document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
     </script>
     
-    <!--Adform Global Clicktag START-->
-    <script type="text/javascript">
-        function adfOpenGlobalClickTAG() {
-            var adfClickTAGName = 'clickTAG',
-                adfClickTAGUrl = 'https://www.americanexpress.com/mx/content/cards/gold-elite-credit-card.html';
-
-            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
-        }
-        if(window.addEventListener) {
-            window.addEventListener('click', function(e) {
-                if(e.button !== 0) return;
-                e.stopPropagation();
-                e.preventDefault();
-                adfOpenGlobalClickTAG();
-            }, true);
-        } else {
-            document.attachEvent('onclick', function() {
-                adfOpenGlobalClickTAG();
-            });
-        }
-        
-        window.onload = function(){
-            dhtml.sendEvent('1', 'PageView', 'PageView');
-        }
-        
-        window.onclick = function() {
-            dhtml.sendEvent('9', 'Click Out', 'Click Out');
-        }
-        
-        /*document.getElementById('housell').addEventListener('click', function(e){
-            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
-        });*/
-        
-    </script>
+    
     <style>
         html {
             cursor: pointer;
@@ -66,7 +33,7 @@
             width: 300px;
             height: 250px;
             margin: 0 auto;
-            background-color: #f1f1f1;
+            background-color: #ffffff;
         }
 
         .AmericanFijo .te-wrapper {
@@ -230,7 +197,7 @@
 </head>
 <body class="AmericanFijo" style="margin:0px;">
 	 <div class="te-container">
-        <a href="%%c1;cpdir=" target="_blank">
+        <a href="https://www.americanexpress.com/mx/content/cards/gold-elite-credit-card.html" target="_blank">
             <div id="te-wrapper" class="te-wrapper">
                 <div class="te-images"> 
                 <img src="https://i.imgur.com/EwDtMNz.png" alt="" /> 
@@ -249,6 +216,7 @@
                         </span> 
                         <img class="logo" src="https://i.imgur.com/h2vfz37.png"  style="height:40px"> 
                     </div>
+                    <div id="botones-para-compartir" style="display:inline;float:left;margin-top:5.5px;"> <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.americanexpress.com/mx/content/cards/gold-elite-credit-card.html" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="20" src="http://4.bp.blogspot.com/-2W3Fr7nS-T0/Uh1HrkLe5wI/AAAAAAAAAiQ/0-_aC8Yici4/s1600/facebook.png" title="compartir en facebook" width="20" /></a><a class="shared" href="https://plus.google.com/share?url=https://www.americanexpress.com/mx/content/cards/gold-elite-credit-card.html" target="_blank"> <img alt="compartir en google+" class="googlei" height="20" src="http://3.bp.blogspot.com/-Ioy5JWv_nwk/Uh1HlxE8urI/AAAAAAAAAhc/q_uUabDAhsU/s1600/Google%252B%2Balt.png" title="compartir en google+" width="20" /></a><a class="shared" href="https://twitter.com/home?status=https://www.americanexpress.com/mx/content/cards/gold-elite-credit-card.html" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="20" src="http://3.bp.blogspot.com/-TgonF6vzJs0/Uh1Hmxqk8aI/AAAAAAAAAiA/MdT4pRWKRbI/s1600/twitter.png" title="compartir en twitter" width="20" /></a> </span></div>
                 </div>
             </div>
         </a>
