@@ -1,3 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consumer_Fade</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>
+    <style>
+        .PetrobrasFade p {
+            margin: 0px
+        }
+
+        .PetrobrasFade .bg.cover-1,
+        .PetrobrasFade .bg.cover-2,
+        .PetrobrasFade .bg.cover-3,
+        .PetrobrasFade {
+            background-size: cover
+        }
+
+        .PetrobrasFade .btn {
+            margin-top: 0;
+            padding-left: 0
+        }
+
+        .PetrobrasFade a,
+        .PetrobrasFade a:hover {
+            text-decoration: none;
+            color: #fff
+        }
+
+        .PetrobrasFade .bzm_wrapper {
+            position: relative;
+            overflow: hidden;
+            color: #000;
+            font-family: Lato, sans-serif
+        }
+
+        .PetrobrasFade .bzm_wrapper.size_300x250 {
+            width: 300px;
+            height: 250px;
+            background-color: #FFF
+        }
+
+        .PetrobrasFade .bzm_cover,
+        .PetrobrasFade .carousel-wrapper {
+            position: relative;
+            width: 100%
+        }
+
+        .PetrobrasFade .bzm_cover {
+            height: 150px
+        }
+
+        .PetrobrasFade .bg.cover-1 {
+            background-image: url(https://i.imgur.com/ltPbUCR.png)
+        }
+
+        .PetrobrasFade .bg.cover-2 {
+            background-image: url(https://i.imgur.com/mGviYZR.png)
+        }
+
+        .PetrobrasFade .bg.cover-3 {
+            background-image: url(https://i.imgur.com/ubDav9F.png)
+        }
+
+        .PetrobrasFade .bzm_cover.bzm_pos_tl {
+            top: 3%;
+            left: 3%
+        }
+
+        .PetrobrasFade .bzm_pos_tr {
+            top: 3%;
+            right: 3%
+        }
+
+        .PetrobrasFade .bzm_pos_bl {
+            bottom: 3%;
+            left: 3%
+        }
+
+        .PetrobrasFade .bzm_pos_br {
+            bottom: 3%;
+            right: 3%
+        }
+
+        .PetrobrasFade .bzm_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%)
+        }
+
+        .PetrobrasFade .bzm_text {
+            padding: 6px 0 0 .3em;
+            line-height: 1.1;
+            color: #000
+        }
+
+        .PetrobrasFade .bzm_text_title {
+            font-size: 14px;
+            color: #000
+        }
+
+        .PetrobrasFade .bzm_text_light {
+            font-size: 10px;
+            font-weight: 0
+        }
+
+        .PetrobrasFade .bzm_text_medium {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.7
+        }
+
+        .PetrobrasFade .bzm_text_bold {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1
+        }
+
+        .PetrobrasFade .bzm_text_small {
+            font-size: 10px;
+            line-height: 1
+        }
+
+        .PetrobrasFade .carousel-wrapper {
+            height: auto;
+            margin: 0 auto
+        }
+
+        .PetrobrasFade .carousel-item1 {
+            position: absolute;
+            opacity: 0;
+            transition: all .5s ease-in-out
+        }
+
+        .PetrobrasFade [id^=item] {
+            display: none
+        }
+
+        .PetrobrasFade .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 14s infinite;
+            -webkit-animation: fade 14s infinite
+        }
+
+        .PetrobrasFade .item-2 {
+            animation: fade2 14s infinite;
+            -webkit-animation: fade2 14s infinite
+        }
+
+        .PetrobrasFade .item-3 {
+            animation: fade3 14s infinite;
+            -webkit-animation: fade3 14s infinite
+        }
+
+        @keyframes fade {
+            0%,
+            100% {
+                opacity: 1
+            }
+            25%,
+            50%,
+            50% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade2 {
+            0%,
+            100%,
+            50%,
+            50% {
+                opacity: 0
+            }
+            25% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade3 {
+            0%,
+            100%,
+            25%,
+            50% {
+                opacity: 0
+            }
+            50% {
+                opacity: 1
+            }
+        }
+
+        .PetrobrasFade .bzm_button {
+            position: absolute;
+            bottom: 7px;
+            left: 3%;
+            text-transform: uppercase;
+            background-color: #6cbd44;
+            color: #fff;
+            border-radius: 50%;
+            padding: 4px;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer
+        }
+
+        .PetrobrasFade .bzm_button:hover {
+            background-color: #579e38
+        }
+
+        .PetrobrasFade .carousel-container {
+            width: 300px;
+            height: 150px;
+            overflow-y: hidden
+        }
+
+        .PetrobrasFade #botones-para-compartir {
+            text-align: right
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+    </style>
+</head>
+
+<body class="PetrobrasFade" style="margin:0px;">
+   <div class="bzm_wrapper carousel-wrapper size_300x250">
+        <a href="https://www.realmadrid.com/area-vip" style="display: block;" target="_blank">
+            <div class="carousel-container">
+                <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
+                <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
+                <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
+            </div>
+            <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000;line-height:1;font-size:16px;">Zona VIP: Visibilidad perfecta, atención personalizada, catering exclusivo... ¿A qué esperas?</span></div>
+            <div style="bottom:0px;height: 26px;text-align:right;margin-top:0px;"> 
+              <img src="https://i.imgur.com/Z3NquqA.png" style="height:28px;margin-right:0px;">
+            </div>
+        </a>
+    </div>
+
+    <!--<div class="EurowingsFade"></div>
+	<script src="bundle.js"></script>
+	<script>
+		EurowingsFade.show('EurowingsFade')
+	</script>-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+ELIMINAR CODIGO DE AQUI PARA ABAJO DESPUES DE HABER SUSTITUIDO LOS DATOS
+LINKS< URLS E IMAGENES NECESARIAS PARA ESTAR COMO ESTABA!!!
+-->
+
 
 <style>
 
