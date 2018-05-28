@@ -470,7 +470,102 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#i58.i59.positioning.css:positioning/base/css.1*/
+/*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/*#/#*//*#i4.i20.shape.css:shape/base/css*/
+#i20 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
+#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i14.text.css:text/base/css*/
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #595959; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 280px; height: 77px;
+        -ms-transform: translate(-50%, -50%) translate(0px, 82px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 82px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 82px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 82px) rotate(0deg);
+}
+/*#/#*//*#i4.i130.image.css:image/base/css*/
+#i130 { opacity: 1; }
+/*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
+#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 311px; height: 166px;
+        -ms-transform: translate(0, 0) translate(0px, -3px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -3px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -3px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -3px) rotate(0deg);
+}
+/*#/#*//*#i4.i181.image.css:image/base/css*/
+#i181 { opacity: 1; }
+/*#/#*//*#i181.i182.positioning.css:positioning/base/css.1*/
+#i181 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 52px; height: 30px;
+        -ms-transform: translate(0, 0) translate(242px, 220px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(242px, 220px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(242px, 220px) rotate(0deg);
+        transform: translate(0, 0) translate(242px, 220px) rotate(0deg);
+}
+/*#/#*//*#i4.i91.shape.css:shape/base/css*/
+#i91 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i183.i184.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i91 { cursor: pointer; }
+/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
+#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i4 { cursor: pointer; }
+/*#/#*//*#i5.i30.shape.css:shape/base/css*/
+#i30 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i5.i24.text.css:text/base/css*/
+#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #666666; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px; margin-left: 5px;}
+/*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
+#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 287px; height: 77px;
+        -ms-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
+}
+/*#/#*//*#i5.i58.image.css:image/base/css*/
+#i58 { opacity: 1; }
+/*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
 #i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 313px; height: 167px;
         -ms-transform: translate(0, 0) translate(0px, -4px) rotate(0deg);
         -webkit-transform: translate(0, 0) translate(0px, -4px) rotate(0deg);
@@ -606,101 +701,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
-/*#/#*//*#i4.i20.shape.css:shape/base/css*/
-#i20 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
-#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #595959; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
-/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
-#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 280px; height: 77px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 82px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 82px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 82px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 82px) rotate(0deg);
-}
-/*#/#*//*#i4.i130.image.css:image/base/css*/
-#i130 { opacity: 1; }
-/*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
-#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 311px; height: 166px;
-        -ms-transform: translate(0, 0) translate(0px, -3px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, -3px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, -3px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, -3px) rotate(0deg);
-}
-/*#/#*//*#i4.i181.image.css:image/base/css*/
-#i181 { opacity: 1; }
-/*#/#*//*#i181.i182.positioning.css:positioning/base/css.1*/
-#i181 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 52px; height: 30px;
-        -ms-transform: translate(0, 0) translate(242px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(242px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(242px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(242px, 220px) rotate(0deg);
-}
-/*#/#*//*#i4.i91.shape.css:shape/base/css*/
-#i91 { background-color: #dedede; opacity: 0.00;
-}
-/*#/#*//*#i183.i184.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i91 { cursor: pointer; }
-/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
-#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i4 { cursor: pointer; }
-/*#/#*//*#i5.i30.shape.css:shape/base/css*/
-#i30 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
-#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i5.i24.text.css:text/base/css*/
-#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #666666; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px; margin-left: 5px;}
-/*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
-#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 287px; height: 77px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
-}
-/*#/#*//*#i5.i58.image.css:image/base/css*/
-#i58 { opacity: 1; }
-/*#/#*//*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
 /*#/#*//*#i5.i185.image.css:image/base/css*/
 #i185 { opacity: 1; }
 /*#/#*//*#i185.i186.positioning.css:positioning/base/css.1*/
@@ -734,6 +734,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
+/*#/#*//*#i6.i34.text.css:text/base/css*/
+#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #5e5e5e; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px;}
 /*#/#*//*#i34.i35.positioning.css:positioning/base/css.1*/
 #i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 55px;
         -ms-transform: translate(-50%, -50%) translate(0px, 67px) rotate(0deg);
@@ -741,8 +743,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(-50%, -50%) translate(0px, 67px) rotate(0deg);
         transform: translate(-50%, -50%) translate(0px, 67px) rotate(0deg);
 }
-/*#/#*//*#i6.i34.text.css:text/base/css*/
-#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #5e5e5e; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px;}
 /*#/#*//*#i6.i60.image.css:image/base/css*/
 #i60 { opacity: 1; }
 /*#/#*//*#i60.i61.positioning.css:positioning/base/css.1*/
@@ -877,7 +877,7 @@ document.getElementById('i2').addEventListener('showNext', function(e){
 /* Name: On Click; */
 document.getElementById('i91').addEventListener('click', function(e){
     /*#i183.i184.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://institutotecnisistemas.com/index.php/programas/ingles/'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.walmart.com.mx/bebes-chicco?utm_source=facebook&utm_medium=social&utm_campaign=online_mg_fb_rev_jbm_chicco_180528'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i4.i50.actions.js:actions/base/js*/
@@ -895,7 +895,7 @@ document.getElementById('i4').addEventListener('click', function(e){
 /* Name: On Click; */
 document.getElementById('i95').addEventListener('click', function(e){
     /*#i189.i190.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://institutotecnisistemas.com/index.php/programas/ingles/'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.walmart.com.mx/bebes-chicco?utm_source=facebook&utm_medium=social&utm_campaign=online_mg_fb_rev_jbm_chicco_180528'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
@@ -913,7 +913,7 @@ document.getElementById('i5').addEventListener('click', function(e){
 /* Name: On Click; */
 document.getElementById('i99').addEventListener('click', function(e){
     /*#i191.i192.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'http://institutotecnisistemas.com/index.php/programas/ingles/'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.walmart.com.mx/bebes-chicco?utm_source=facebook&utm_medium=social&utm_campaign=online_mg_fb_rev_jbm_chicco_180528'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
