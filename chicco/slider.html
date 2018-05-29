@@ -6,6 +6,45 @@
         document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
     </script>
     
+    <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.walmart.com.mx/bebes-chicco?utm_source=facebook&utm_medium=social&utm_campaign=online_mg_fb_rev_jbm_chicco_180528';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
+    <style>
+        html {
+            cursor: pointer;
+        }
+    </style>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -187,7 +226,7 @@
 </head>
 <body class="AmericanSlide" style="margin:0px;">
 	 <div class="te-container">
-        <a href="https://www.walmart.com.mx/bebes-chicco?utm_source=facebook&utm_medium=social&utm_campaign=online_mg_fb_rev_jbm_chicco_180528" target="_blank">
+        <a href="%%c1;cpdir=" target="_blank">
             <div id="te-wrapper" class="te-wrapper">
                 <div class="te-images"> <img src="https://i.imgur.com/Z9FXIsk.jpg" alt="" /> <img src="https://i.imgur.com/5qTwDuT.jpg" alt="" /> <img src="https://i.imgur.com/7pDYetR.jpg" alt="" /> </div>
                 <div class="te-cover"> <img src="https://i.imgur.com/Z9FXIsk.jpg" alt="" /> </div>
