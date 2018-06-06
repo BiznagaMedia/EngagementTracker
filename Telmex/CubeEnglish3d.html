@@ -516,9 +516,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(220px, 209px) rotate(0deg);
         transform: translate(0, 0) translate(220px, 209px) rotate(0deg);
 }
-/*#/#*//*#i4.i91.shape.css:shape/base/css*/
-#i91 { background-color: #dedede; opacity: 0.00;
-}
 /*#/#*//*#i120.i121.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i110 { cursor: pointer; }
 /*#/#*//*#i110.i111.positioning.css:positioning/base/css.1*/
@@ -527,6 +524,9 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(12px, 220px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(12px, 220px) rotate(0deg);
         transform: translate(0, 0) translate(12px, 220px) rotate(0deg);
+}
+/*#/#*//*#i4.i91.shape.css:shape/base/css*/
+#i91 { background-color: #dedede; opacity: 0.00;
 }
 /*#/#*//*#i4.i110.image.css:image/base/css*/
 #i110 { opacity: 1; }
@@ -585,11 +585,11 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i5.i24.text.css:text/base/css*/
 #i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #5c5c5c; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 14px; margin-right: 10px}
 /*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
-#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 299px; height: 61px;
-        -ms-transform: translate(-50%, -50%) translate(8px, 59px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(8px, 59px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(8px, 59px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(8px, 59px) rotate(0deg);
+#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 292px; height: 61px;
+        -ms-transform: translate(-50%, -50%) translate(4px, 59px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(4px, 59px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(4px, 59px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(4px, 59px) rotate(0deg);
 }
 /*#/#*//*#i5.i58.image.css:image/base/css*/
 #i58 { opacity: 1; }
@@ -763,8 +763,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(39px, 220px) rotate(0deg);
         transform: translate(0, 0) translate(39px, 220px) rotate(0deg);
 }
-/*#/#*//*#i5.i126.image.css:image/base/css*/
-#i126 { opacity: 1; }
 /*#/#*//*#i132.i133.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i126 { cursor: pointer; }
 /*#/#*//*#i126.i127.positioning.css:positioning/base/css.1*/
@@ -879,6 +877,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 }
 /*#/#*//*#i6.i138.image.css:image/base/css*/
 #i138 { opacity: 1; }
+/*#/#*//*#i5.i126.image.css:image/base/css*/
+#i126 { opacity: 1; }
 /*#/#*/
 </style>
 <!--#/#--></head>
@@ -992,7 +992,7 @@ var el = document.getElementById('i56');
 
 el.addEventListener('click', function(e){
     /*#i151.i152.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.facebook.com/sharer/sharer.php?u=http://telmex.com/web/empresas/nube-privada-virtual'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -1011,6 +1011,19 @@ document.getElementById('i91').addEventListener('click', function(e){
 
 /*#/#*//*#i4.i110.image.js:image/base/js*/
 
+/*#/#*//*#i110.i155.actions.js:actions/base/js*/
+/* Name: On Click; */
+var el = document.getElementById('i110');
+
+el.addEventListener('click', function(e){
+    /*#i155.i156.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.facebook.com/sharer/sharer.php?u=http://telmex.com/web/empresas/nube-privada-virtual'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
 /*#/#*//*#i4.i112.image.js:image/base/js*/
 a
 /*#/#*//*#i112.i118.actions.js:actions/base/js*/
@@ -1030,6 +1043,23 @@ document.getElementById('i114').addEventListener('click', function(e){
 /*#/#*/
 });
 
+/*#/#*//*#i5.i58.image.js:image/base/js*/
+
+/*#/#*//*#i5.i108.image.js:image/base/js*/
+
+/*#/#*//*#i95.i153.actions.js:actions/base/js*/
+/* Name: On Click; */
+var el = document.getElementById('i95');
+
+el.addEventListener('click', function(e){
+    /*#i153.i154.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://telmex.com/web/empresas/nube-privada-virtual'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
 /*#/#*//*#i5.i122.image.js:image/base/js*/
 
 /*#/#*//*#i122.i128.actions.js:actions/base/js*/
@@ -1054,8 +1084,6 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i5.i126.image.js:image/base/js*/
-
 /*#/#*//*#i126.i132.actions.js:actions/base/js*/
 /* Name: On Click; */
 document.getElementById('i126').addEventListener('click', function(e){
@@ -1101,6 +1129,8 @@ document.getElementById('i138').addEventListener('click', function(e){
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://plus.google.com/share?url=http://telmex.com/web/empresas/nube-privada-virtual'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
+/*#/#*//*#i5.i126.image.js:image/base/js*/
+
 /*#/#*/
 
   function next(){
@@ -1136,10 +1166,10 @@ name: ni6VORO.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i104.i105.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i4.i91.shape.meta:shape/meta*/
-name: Link;
 /*#/#*//*#i91.i92.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i4.i91.shape.meta:shape/meta*/
+name: Link;
 /*#/#*//*#i4.i110.image.meta:image/meta*/
 name: iiRVE6C.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
@@ -1189,9 +1219,6 @@ name: TN6pO3T.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i124.i125.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i5.i126.image.meta:image/meta*/
-name: jo9wDIZ.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: false;
 /*#/#*//*#i126.i127.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.i6.cube-panel.meta:cube-panel/meta*/
@@ -1235,4 +1262,7 @@ customName: false;
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i5.i126.image.meta:image/meta*/
+name: jo9wDIZ.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
 /*#/#*/--><!--#/#-->
