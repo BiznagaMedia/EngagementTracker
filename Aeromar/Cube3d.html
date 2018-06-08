@@ -466,114 +466,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
-/*#/#*//*#i4.i20.shape.css:shape/base/css*/
-#i20 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
-#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family:'Seat'; font-size: 14px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
-/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
-#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 283px; height: 63px;
-        -ms-transform: translate(-50%, -50%) translate(2px, 75px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(2px, 75px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(2px, 75px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(2px, 75px) rotate(0deg);
-}
-/*#/#*//*#i4.i56.image.css:image/base/css*/
-#i56 { opacity: 1; }
-/*#/#*//*#i56.i57.positioning.css:positioning/base/css.1*/
-#i56 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 169px;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i4.i64.image.css:image/base/css*/
-#i64 { opacity: 1;}
-/*#/#*//*#i64.i65.positioning.css:positioning/base/css.1*/
-#i64 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 124px; height: 17px;
-        -ms-transform: translate(0, 0) translate(173px, 230px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(173px, 230px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(173px, 230px) rotate(0deg);
-        transform: translate(0, 0) translate(173px, 230px) rotate(0deg);
-}
-/*#/#*//*#i4.i91.shape.css:shape/base/css*/
-#i91 { background-color: #dedede; opacity: 0.00;
-}
-/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
-#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(-1px, -1px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(-1px, -1px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(-1px, -1px) rotate(0deg);
-        transform: translate(0, 0) translate(-1px, -1px) rotate(0deg);
-}
-/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i4 { cursor: pointer; }
-/*#/#*//*#i5.i30.shape.css:shape/base/css*/
-#i30 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
-#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i5.i24.text.css:text/base/css*/
-#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family:'Seat'; font-size: 14px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
-/*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
-#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 283px; height: 63px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 75px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 75px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 75px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 75px) rotate(0deg);
-}
-/*#/#*//*#i5.i58.image.css:image/base/css*/
-#i58 { opacity: 1; }
-/*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
-    @font-face {
-        font-family:'Seat';
-        src: url('http://biznagamedia.com/wp-content/gallery/test/SEATBCN-Bold.woff')format('woff'),
-        url('http://biznagamedia.com/wp-content/gallery/test/SEATBCN-Bold.eot')
-    }
-    
-    
-#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 171px;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#cube.css:cube/globalcss.1*/
+/*#cube.css:cube/globalcss.1*/
 
 .transformation {
     -webkit-transform: translateZ(-1000px);
@@ -702,6 +595,113 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
+/*#/#*//*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/*#/#*//*#i4.i20.shape.css:shape/base/css*/
+#i20 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
+#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i14.text.css:text/base/css*/
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family:'Seat'; font-size: 14px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 287px; height: 40px;
+        -ms-transform: translate(-50%, -50%) translate(4px, 64px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(4px, 64px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(4px, 64px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(4px, 64px) rotate(0deg);
+}
+/*#/#*//*#i4.i56.image.css:image/base/css*/
+#i56 { opacity: 1; }
+/*#/#*//*#i56.i57.positioning.css:positioning/base/css.1*/
+#i56 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 169px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i64.image.css:image/base/css*/
+#i64 { opacity: 1;}
+/*#/#*//*#i64.i65.positioning.css:positioning/base/css.1*/
+#i64 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 124px; height: 17px;
+        -ms-transform: translate(0, 0) translate(173px, 230px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(173px, 230px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(173px, 230px) rotate(0deg);
+        transform: translate(0, 0) translate(173px, 230px) rotate(0deg);
+}
+/*#/#*//*#i4.i91.shape.css:shape/base/css*/
+#i91 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
+#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(-1px, -1px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(-1px, -1px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(-1px, -1px) rotate(0deg);
+        transform: translate(0, 0) translate(-1px, -1px) rotate(0deg);
+}
+/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i4 { cursor: pointer; }
+/*#/#*//*#i5.i30.shape.css:shape/base/css*/
+#i30 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i5.i24.text.css:text/base/css*/
+#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family:'Seat'; font-size: 14px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
+/*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
+#i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 283px; height: 46px;
+        -ms-transform: translate(-50%, -50%) translate(0px, 66px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 66px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 66px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 66px) rotate(0deg);
+}
+/*#/#*//*#i5.i58.image.css:image/base/css*/
+#i58 { opacity: 1; }
+/*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
+    @font-face {
+        font-family:'Seat';
+        src: url('http://biznagamedia.com/wp-content/gallery/test/SEATBCN-Bold.woff')format('woff'),
+        url('http://biznagamedia.com/wp-content/gallery/test/SEATBCN-Bold.eot')
+    }
+    
+    
+#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 171px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
 /*#/#*//*#i5.i66.image.css:image/base/css*/
 #i66 { opacity: 1;}
 /*#/#*//*#i66.i67.positioning.css:positioning/base/css.1*/
@@ -736,11 +736,11 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i6.i34.text.css:text/base/css*/
 #i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family:'Seat'; font-size: 14px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: 10px;}
 /*#/#*//*#i34.i35.positioning.css:positioning/base/css.1*/
-#i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 288px; height: 59px;
-        -ms-transform: translate(-50%, -50%) translate(6px, 71px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(6px, 71px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(6px, 71px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(6px, 71px) rotate(0deg);
+#i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 63px;
+        -ms-transform: translate(-50%, -50%) translate(5px, 73px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(5px, 73px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(5px, 73px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(5px, 73px) rotate(0deg);
 }
 /*#/#*//*#i6.i60.image.css:image/base/css*/
 #i60 { opacity: 1; }
@@ -791,7 +791,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     <!--#i4.i20.shape.html:shape/html-->
 <div id="i20"></div>
 <!--#/#--><!--#i4.i14.text.html:text/html-->
-<div id="i14">Porque para disfrutar la esencia de México hay que ir lo más profundo de nuestro territorio y conectar con el corazón de las personas.</div>
+<div id="i14">Porque para disfrutar la esencia de México hay que conectar con el corazón de las personas.</div>
 <!--#/#--><!--#i4.i56.image.html:image/html-->
 <img id="i56" src="https://i.imgur.com/t2Y7u2j.jpg"/>
 <!--#/#--><!--#i4.i64.image.html:image/html-->
@@ -805,7 +805,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     <!--#i5.i30.shape.html:shape/html-->
 <div id="i30"></div>
 <!--#/#--><!--#i5.i24.text.html:text/html-->
-<div id="i24">Porque para disfrutar la esencia de México hay que ir lo más profundo de nuestro territorio y conectar con el corazón de las personas.</div>
+<div id="i24">Porque para disfrutar la esencia de México hay conectar con el corazón de las personas.</div>
 <!--#/#--><!--#i5.i58.image.html:image/html-->
 <img id="i58" src="https://i.imgur.com/TZUJiXq.jpg"/>
 <!--#/#--><!--#i5.i66.image.html:image/html-->
@@ -819,7 +819,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     <!--#i6.i40.shape.html:shape/html-->
 <div id="i40"></div>
 <!--#/#--><!--#i6.i34.text.html:text/html-->
-<div id="i34">Porque para disfrutar la esencia de México hay que ir lo más profundo de nuestro territorio y conectar con el corazón de las personas.</div>
+<div id="i34">Porque para disfrutar la esencia de México hay  conectar con el corazón de las personas.</div>
 <!--#/#--><!--#i6.i60.image.html:image/html-->
 <img id="i60" src="https://i.imgur.com/xm2BCve.jpg"/>
 <!--#/#--><!--#i6.i108.image.html:image/html-->
@@ -955,7 +955,7 @@ name: Background;
 /*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i14.text.meta:text/meta*/
-name: Porque para disfrutar la esencia de México hay que ir lo más profundo de nuestro territorio y conectar con el corazón de las personas.; customName: false;
+name: Porque para disfrutar la esencia de México hay que conectar con el corazón de las personas.; customName: false;
 /*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i56.image.meta:image/meta*/
@@ -979,7 +979,7 @@ name: Background;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i24.text.meta:text/meta*/
-name: Porque para disfrutar la esencia de México hay que ir lo más profundo de nuestro territorio y conectar con el corazón de las personas.; customName: false;
+name: Porque para disfrutar la esencia de México hay conectar con el corazón de las personas.; customName: false;
 /*#/#*//*#i24.i25.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i58.image.meta:image/meta*/
@@ -1003,7 +1003,7 @@ name: Background;
 /*#/#*//*#i40.i41.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i6.i34.text.meta:text/meta*/
-name: Porque para disfrutar la esencia de México hay que ir lo más profundo de nuestro territorio y conectar con el corazón de las personas.; customName: false;
+name: Porque para disfrutar la esencia de México hay  conectar con el corazón de las personas.; customName: false;
 /*#/#*//*#i34.i35.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i6.i60.image.meta:image/meta*/
