@@ -7,152 +7,173 @@
     <title>Consumer_Fade</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>
     <style>
-        .fade3 p {
+        .ClaroColombiaFade p {
             margin: 0px
         }
 
-        .fade3 .bg.cover-1,
-        .fade3 .bg.cover-2,
-        .fade3 .bg.cover-3,
-        .fade3 {
+        .ClaroColombiaFade .bg.cover-1,
+        .ClaroColombiaFade .bg.cover-2,
+        .ClaroColombiaFade .bg.cover-3,
+        .ClaroColombiaFade {
             background-size: cover
         }
 
-        .fade3 .btn {
+        .ClaroColombiaFade .btn {
             margin-top: 0;
             padding-left: 0
         }
 
-        .fade3 a,
-        .fade3 a:hover {
+        .ClaroColombiaFade a,
+        .ClaroColombiaFade a:hover {
             text-decoration: none;
             color: #fff
         }
 
-        .fade3 .bzm_wrapper {
+        .ClaroColombiaFade .bzm_wrapper {
             position: relative;
             overflow: hidden;
             color: #000;
             font-family: Lato, sans-serif
         }
 
-        .fade3 .bzm_wrapper.size_300x250 {
+        .ClaroColombiaFade .bzm_wrapper.size_300x250 {
             width: 300px;
             height: 250px;
             background-color: #FFF
         }
+        
+          .cta {
+            position: absolute;
+            bottom: 85px;
+            width: 60px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 48%;
+            left: -30px;
+            background-color: #f2c60c;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
 
-        .fade3 .bzm_cover,
-        .fade3 .carousel-wrapper {
+        .ClaroColombiaFade .bzm_cover,
+        .ClaroColombiaFade .carousel-wrapper {
             position: relative;
             width: 100%
         }
+        
+        
 
-        .fade3 .bzm_cover {
+        .ClaroColombiaFade .bzm_cover {
             height: 150px
         }
 
-        .fade3 .bg.cover-1 {
+        .ClaroColombiaFade .bg.cover-1 {
             background-image: url(https://i.imgur.com/3f4uAkr.jpg)
         }
 
-        .fade3 .bg.cover-2 {
-            background-image: url(https://i.imgur.com/Lvv56s3.jpg)
+        .ClaroColombiaFade .bg.cover-2 {
+            background-image: url(https://i.imgur.com/6jWGj10.jpg)
         }
 
-        .fade3 .bg.cover-3 {
+        .ClaroColombiaFade .bg.cover-3 {
             background-image: url(https://i.imgur.com/XKlr1nY.jpg)
         }
 
-        .fade3 .bzm_cover.bzm_pos_tl {
+        .ClaroColombiaFade .bzm_cover.bzm_pos_tl {
             top: 3%;
             left: 3%
         }
 
-        .fade3 .bzm_pos_tr {
+        .ClaroColombiaFade .bzm_pos_tr {
             top: 3%;
             right: 3%
         }
 
-        .fade3 .bzm_pos_bl {
+        .ClaroColombiaFade .bzm_pos_bl {
             bottom: 3%;
             left: 3%
         }
 
-        .fade3 .bzm_pos_br {
+        .ClaroColombiaFade .bzm_pos_br {
             bottom: 3%;
             right: 3%
         }
 
-        .fade3 .bzm_pos_bm {
+        .ClaroColombiaFade .bzm_pos_bm {
             bottom: 3%;
             left: calc(100% - 70%)
         }
 
-        .fade3 .bzm_text {
+        .ClaroColombiaFade .bzm_text {
             padding: 6px 0 0 .3em;
             line-height: 1.1;
-            color: #000
+            color: #000;
+            margin-top: 10px
+                
         }
 
-        .fade3 .bzm_text_title {
+        .ClaroColombiaFade .bzm_text_title {
             font-size: 14px;
             color: #000
         }
 
-        .fade3 .bzm_text_light {
+        .ClaroColombiaFade .bzm_text_light {
             font-size: 10px;
             font-weight: 0
         }
 
-        .fade3 .bzm_text_medium {
+        .ClaroColombiaFade .bzm_text_medium {
             font-size: 14px;
             font-weight: 500;
             line-height: 1.7
         }
 
-        .fade3 .bzm_text_bold {
+        .ClaroColombiaFade .bzm_text_bold {
             font-size: 18px;
             font-weight: 700;
             line-height: 1
         }
 
-        .fade3 .bzm_text_small {
+        .ClaroColombiaFade .bzm_text_small {
             font-size: 10px;
-            line-height: 1
+            line-height: 1;
+            margin-top: 4px
         }
 
-        .fade3 .carousel-wrapper {
+        .ClaroColombiaFade .carousel-wrapper {
             height: auto;
             margin: 0 auto
         }
 
-        .fade3 .carousel-item1 {
+        .ClaroColombiaFade .carousel-item1 {
             position: absolute;
             opacity: 0;
             transition: all .5s ease-in-out
         }
 
-        .fade3 [id^=item] {
+        .ClaroColombiaFade [id^=item] {
             display: none
         }
 
-        .fade3 .item-1 {
+        .ClaroColombiaFade .item-1 {
             z-index: 2;
             opacity: 1;
             animation: fade 14s infinite;
             -webkit-animation: fade 14s infinite
         }
 
-        .fade3 .item-2 {
+        .ClaroColombiaFade .item-2 {
             animation: fade2 14s infinite;
             -webkit-animation: fade2 14s infinite
         }
 
-        .fade3 .item-3 {
+        .ClaroColombiaFade .item-3 {
             animation: fade3 14s infinite;
             -webkit-animation: fade3 14s infinite
         }
+        
+      
 
         @keyframes fade {
             0%,
@@ -190,7 +211,7 @@
             }
         }
 
-        .fade3 .bzm_button {
+        .ClaroColombiaFade .bzm_button {
             position: absolute;
             bottom: 7px;
             left: 3%;
@@ -204,17 +225,17 @@
             cursor: pointer
         }
 
-        .fade3 .bzm_button:hover {
+        .ClaroColombiaFade .bzm_button:hover {
             background-color: #579e38
         }
 
-        .fade3 .carousel-container {
+        .ClaroColombiaFade .carousel-container {
             width: 300px;
             height: 150px;
             overflow-y: hidden
         }
 
-        .fade3 #botones-para-compartir {
+        .ClaroColombiaFade #botones-para-compartir {
             text-align: right
         }
 
@@ -235,17 +256,22 @@
     </style>
 </head>
 
-<body class="fade3" style="margin:0px;">
+<body class="ClaroColombiaFade" style="margin:0px;">
+  
    <div class="bzm_wrapper carousel-wrapper size_300x250">
+       <div class="cta"><span class="bzm_text_title bzm_text_bold" style="font-size:80%;">Infórmate</span></div>
         <a href="https://www.midas.es/" style="display: block;" target="_blank">
+           
+        
             <div class="carousel-container">
                 <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
                 <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
                 <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
             </div>
-            <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000;line-height:1;font-size:22px;width:95%">Ahorra tranquilamente. Incluso en la revisión de tu coche con La Revisión Oficial Midas</span></div>
-            <div style="bottom:0px;height: 26px;text-align:right;margin-top:-25px;"> 
-              <img src="https://i.imgur.com/jOh1dFA.png" style="height:33px;margin-right:8px;">
+            <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000;line-height:1;font-size:19px;">Con el coche en el taller… la vida continúa</span></div>
+            <div class="bzm_text_small"> <span class="bzm_text_small" style="color:#000;line-height:1;font-size:14px; font-style: italic; margin-top: -4px; width: 85%;">En Midas coche de sustitución GRATIS</span></div>
+            <div style="bottom:0px;height:26px;text-align:right;margin-top:-9px;"> 
+              <img src="https://i.imgur.com/jOh1dFA.png" style="height:33px;margin-right:5px;">
             </div>
         </a>
     </div>
