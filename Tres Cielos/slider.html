@@ -5,6 +5,40 @@
     <script type="text/javascript">
         document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
     </script>
+     <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'http://trescielos.mx/';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
+   
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
@@ -188,7 +222,7 @@
 </head>
 <body class="AmericanSlide" style="margin:0px;">
 	 <div class="te-container">
-        <a href="http://trescielos.mx/" target="_blank">
+        <a href="%%c1;cpdir=" target="_blank">
             <div id="te-wrapper" class="te-wrapper">
                 <div class="te-images"> <img src="https://i.imgur.com/W0u1mQk.jpg" alt="" /> <img src="https://i.imgur.com/1H3Xaq4.jpg" alt="" /> <img src="https://i.imgur.com/nl29Qju.jpg" alt="" /> </div>
                 <div class="te-cover"> <img src="https://i.imgur.com/W0u1mQk.jpg" alt="" /> </div>
@@ -202,6 +236,10 @@
                 
       
     </div>
+         </a>
+    </div>
+    
+    
 
 	<script>
 		var AmericanSlide = (function() {	
@@ -347,5 +385,6 @@
 })();
 AmericanSlide.show('AmericanSlide');
 	</script>
+   
 </body>
 </html>

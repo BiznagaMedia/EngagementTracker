@@ -1,6 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+     <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'http://rocatileusa.com/';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -19,7 +57,7 @@
             height: 480px;
             margin: 0 auto;
             background-color: #FFF;
-            
+            border: 1px solid #c5c5c5;
         }
 
         .InkabetSlide .te-wrapper {
@@ -27,6 +65,7 @@
             width: 318px;
             height: 478px;
             overflow: hidden;
+          
             
         }
         
@@ -217,7 +256,7 @@
        
         
     <div class="te-container">
-        <a href="http://rocatileusa.com/" target="_blank">
+        <a href="%%c1;cpdir=" target="_blank">
             
             <div class="tgx_logo"><span style="font-weight:900; font-size:90%;">More info</span></div>
       
