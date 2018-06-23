@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="ad.size" content="width=320, height=480" />
+    <title>320x480 - Argeta</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
+    <style>
+        body.tgx {
+            background-color: #FFFFFF;
+            color: black;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .tgx_wrapper {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #c5c5c5;
+            cursor: pointer;
+        }
+
+        .tgx_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
+        }
+
+        .tgx_wrapper.size_320x480 {
+            width: 318px;
+            height: 478px;
+        }
+
+        .tgx_wrapper.size_320x50 {
+            width: 318px;
+            height: 48px;
+        }
+
+        .tgx_wrapper.size_728x90 {
+            width: 726px;
+            height: 88px;
+        }
+
+        .tgx_cover {
+            position: relative;
+            width: 100%;
+            height: 70%;
+        }
+
+        .bg.cover-1 {
+            background: url("https://i.imgur.com/A355xjC.png");
+            background-size: cover;
+        }
+
+        .bg.cover-2 {
+            background: url("https://i.imgur.com/Sx8fifz.png");
+            background-size: cover;
+            background-position-x: 40%;
+        }
+
+        .bg.cover-3 {
+            background: url("https://i.imgur.com/CwZlg6P.png");
+            background-size: cover;
+            background-position-x: -40px;
+        }
+
+        .tgx_cover .tgx_logo {
+            position: absolute;
+            bottom: -30px;
+            width: 60px;
+            line-height: 1.3em;
+            z-index: 2;
+            margin-left: 47%;
+            left: -30px;
+            background-color: #3399FE;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .tgx_cover .tgx_logo span {
+            color: white;
+        }
+
+        .tgx_logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .tgx_pos_tl {
+            top: 3%;
+            left: 3%;
+        }
+
+        .tgx_pos_tr {
+            top: 3%;
+            right: 3%;
+        }
+
+        .tgx_pos_bl {
+            bottom: 3%;
+            left: 3%;
+        }
+
+        .tgx_pos_br {
+            bottom: 3%;
+            right: 3%;
+        }
+
+        .tgx_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%);
+        }
+
+        /* cover height + 5% */
+
+        .tgx_text {
+            position: absolute;
+            top: 80%;
+            left: 7.5px;
+            width: 91%;
+            padding: 0.3em;
+            line-height: 1.1em;
+            color: #453936;
+        }
+
+        .tgx_text_title {
+            font-size: 120%;
+            color: black;
+            display: inline-block;
+            width: 102%;
+            margin-bottom: -5px;
+            text-align: center;
+            margin-left: -10px
+                
+        }
+
+        .tgx_text_light {
+            font-weight: 400;
+        }
+
+        .tgx_text_medium {
+            font-weight: 700;
+        }
+
+        .tgx_text_bold {
+            font-weight: 900;
+        }
+
+        .tgx_text_small {
+            font-size: 66%;
+            text-align: justify
+            
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
+
+        /*Carousel in Cover */
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /*Select every element*/
+
+        [id^="item"] {
+            display: none;
+        }
+
+        .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 8s infinite;
+            -webkit-animation: fade 8s infinite;
+        }
+
+        .item-2 {
+            animation: fade2 8s infinite;
+            -webkit-animation: fade2 8s infinite;
+        }
+
+        .item-3 {
+            animation: fade3 8s infinite;
+            -webkit-animation: fade3 8s infinite;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade2 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 1
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 1
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        .tgx_sponsoredby {
+            position: absolute;
+            z-index: 99;
+        }
+
+        .tgx_sponsoredby.tgx_pos_br {
+            right: 1%;
+            bottom: 0% !important;
+        }
+
+        .tgx_sponsoredby .sponsor {
+            font-size: 9px;
+            display: inline-block;
+            float: left;
+            margin-right: 3px;
+            margin-top: 7px;
+        }
+
+        .tgx_sponsoredby:hover .sponsor {
+            opacity: 1;
+        }
+
+        .tgx_sponsoredby .tgx_logo {
+            width: 70px;
+            display: inline-block;
+            float: right;
+        }
+
+        .tgx_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #e97000;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
+
+        .tgx_button:hover {
+            background-color: #d34100;
+        }
+        
+         .logo {
+            width: 41%;
+            z-index: 2;
+            float: right;
+            height: 30px;
+            text-align: center;
+            margin-top: 18px;
+            margin-right: 12px
+        }
+
+    </style>
+    <script>
+        function openUrl() {
+            window.open("http://www.forever21.com/MX/Product/Category.aspx?br=f21&category=app-main");
+        }
+    </script>
+</head>
+
+<body class="tgx">
+    <div class="tgx_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+       
+        <div class="tgx_cover bg cover-1 carousel-item item-1">
+            <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small">More info</span></div>
+        </div>
+        <div class="tgx_cover bg cover-2 carousel-item item-2">
+            <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small">More info</span></div>
+        </div>
+        <div class="tgx_cover bg cover-3 carousel-item item-3">
+            <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small">More info</span></div>
+        </div>
+        <div class="tgx_text"> 
+            <span class="tgx_text_title tgx_text_bold">
+               ¿Quieres sorprender y sorprenderte cada dia?
+            </span>
+            <br/>  
+            
+           
+                    <div class="logo">
+                        <img src="https://i.imgur.com/4f7ckjr.png" style="height:31px">
+                    </div>
+                </div>
+        
+
+        
+    </div>
+    
+    
+</body>
+
+</html>
