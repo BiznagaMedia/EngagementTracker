@@ -1,0 +1,170 @@
+var votar_pelicula = function(pelicula, voto){
+    $.post(
+        '/ezjscore/call/hfrate::push',
+        {movieID: pelicula, puntos: voto},
+        function(json){
+            if(json.content === true){
+                $.cookie('movieID', voto, { path: window.location.pathname });
+            }
+        }
+    , 'json');
+};
+
+$(function(){
+
+    /*
+     * Si la URL tiene hash se hace scroll hasta su sitio y se expande el contenido
+     */
+    if (window.location.hash === '#critFG' || window.location.hash === '#critUS'){
+        $(window.location.hash).removeClass('collapsed').addClass('expanded');
+        $('html, body').animate({
+            scrollTop: $(window.location.hash).offset().top
+        }, 1000);
+    }
+
+    var movie = $('.ficha:first', '.film:first').first().attr('data-movie_id');
+    if(typeof movie !== 'undefined'){
+        //console.info('ObjectID de la película: ' + movie);
+
+        /*
+         * Muestra la valoración
+         */
+        $.get(
+            '/ezjscore/call/hfrate::get::' + parseInt(movie),
+            function(html){
+		$('.starsUsu').remove();
+                $('.fichaStars').first().append(html);
+            }
+        , 'html');
+
+        /*
+         * Mostrar formulario de las críticas
+         */
+        /*$.get(
+            '/ezjscore/call/hfrate::getform::' + parseInt(movie),
+            function(html){
+                $('.utilFicha .valUsu').first().after(html);
+                $('.btnCritica:first').parent().removeAttr('style');
+            }
+        , 'html');*/
+        
+        tipo = ( typeof $.cookie('ftgloggedcookie[login]') != 'undefined' )? 1: 0;
+        $.get(
+            '/ezjscore/call/hfrate::getform::' + parseInt(movie) + '::' + parseInt(tipo),
+            function(html){
+                $('.utilFicha .valUsu').first().after(html);
+                $('.btnCritica:first').parent().removeAttr('style');
+            }
+        , 'html');
+
+        /*
+         * Vota la película
+         */
+        $('.star > span', '.valUsu').on('click', function(event){
+            event.preventDefault();
+            if (typeof $.cookie('movieID') === 'undefined'){
+                var voto = parseInt($(this).attr('class').match(/star(\d{2,3})/i)[1])/20;
+                votar_pelicula(parseInt(movie), parseInt(voto));
+            }
+        });
+
+        /*
+         * Pone la valoración en un campo oculto
+         */
+        $('.utilFicha').on('click', '#val_crit .star > span', function(event){
+            event.preventDefault();
+            var voto = parseInt($(this).attr('class').match(/star(\d{2,3})/i)[1])/20;
+            if (typeof $.cookie('movieID') === 'undefined'){
+                votar_pelicula(parseInt(movie), parseInt(voto));
+            }
+            $('#val_crit .valorrango').first().text(parseInt(voto));
+            $('#criticaform input[name="valoracion"]').attr('value', parseInt(voto));
+        });
+
+        /*
+         * Envía una crítica
+         */
+        $('.utilFicha').on('submit', '#criticaform', function(event){
+            event.preventDefault();
+
+            var data = $(this).serializeArray();
+            data.push({name: 'movieID', value: parseInt(movie)});
+
+            $.post(
+                '/ezjscore/call/hfrate::add',
+                $.param(data),
+                function(json){
+                    console.log(json);
+                    var txt = "No se pudo guardar";
+                    if (json['content']['correcto'] == true){
+                        txt = "Crítica guardada";
+                    }
+                    $('#criticaform').replaceWith('<p>' + txt + '</p>');
+                }
+            , 'json');
+        });
+
+        /*
+         * Muestra más críticas de usuarios
+         */
+        $('#more-comments', '#critUS').on('click', function(event){
+            event.preventDefault();
+            var offset = $(this).attr('data-offset');
+            
+            $.get(
+                '/ezjscore/call/hfrate::getComments::' + parseInt(movie) + '::' + offset,
+                function(json){
+                    //console.log(json['content']['cantidad']);
+                    $('#more-comments').before(json['content']['html']);
+                    if(json['content']['more']){
+                        $('#more-comments').attr('data-offset', parseInt(offset)+json['content']['cantidad']);
+                    } else{
+                        $('#more-comments').remove();
+                    }
+                }
+            , 'json');
+            
+        });
+        
+        /**
+         * Comprueba si una película está en cartelera.
+         * Si tiene cookie de provincia pone el enlace, si no, pone un select con las provincias
+         */
+        (function(provincia){
+            //var provincia = (typeof  == 'undefined')? 'all': $.cookie('provincia_cartelera');
+            provincia = provincia || 'all';
+            if(provincia != 'all'){
+                provincia = provincia.match( /\/Cartelera\/(.*)/i )[1];
+            }
+            
+            $.get(
+                '/ezjscore/call/hfrate::isCartelera::' + parseInt(movie) + '::' + provincia,
+                function(json){
+                    if(json['content']['cartelera']){
+                        var enlace = $('.btnComprar', '.utilFicha').first();
+                        if (json['content']['enlace']){
+                            enlace.attr('href', json['content']['enlace']);
+                            $('.utilFicha').off('click', '.btnComprar');
+                        } else{
+                            $('.comprarForm', '.utilFicha').first().append(json['content']['html']);
+                        }
+                        enlace.parent().removeAttr('style');
+                    }
+                }
+            , 'json');
+        })( $.cookie('provincia_cartelera') );
+        
+        /**
+         * Si se envía el formulario del select se manda a la URL que corresponda
+         */
+        $('.comprarForm').on('submit', '#comprar', function(event){
+            event.preventDefault();
+            
+            if( $(this).find('#provincia').val() != 0 ){
+                $.cookie('provincia_cartelera', $(this).find('#provincia').val().split('/', 3).join('/'), {expires: 365, path: '/'});
+                window.location.href = $(this).find('#provincia').val();
+            }
+        });
+
+    }
+});

@@ -1,0 +1,103 @@
+if ( document.cookie.indexOf("_evidon_consent_cookie") > 0 ) {
+
+window.fbAsyncInit = function(){
+    FB.init({
+        appId: fb_id,
+        channelUrl: '//'+window.location.hostname+'/channel.html',
+        status: true,
+        xfbml: true,
+        version: 'v2.7'
+    });
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/es_ES/all.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+
+var hfCount = ( function( window, undefined ){
+
+    var facebook = function(url){
+        var likes;
+        $.getJSON(
+            'http://graph.facebook.com/?ids=' + url,
+            function(json){
+                likes = ( typeof json[url] === "undefined" || typeof(json[url].shares) === "undefined" )? 0: json[url].shares;
+                var span = $('.accion_social > a[data-social="facebook"] > span')[0];
+                $(span).empty().append(likes);
+            }
+        );
+    };
+    
+    var twitter = function(url){
+        var twits;
+        $.getJSON(
+            'http://urls.api.twitter.com/1/urls/count.json?url=' + url + '&callback=?',
+            function(json){
+                twits = ( typeof(json.count) === "undefined" )? 0: json.count;
+                var span = $('.accion_social > a[data-social="twitter"] > span')[0];
+                $(span).empty().append(twits);
+            }
+        );
+    };
+    
+    var escapeHtml = function(text){
+      return text
+          .replace(/&/g, " y ")
+          /*.replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;")*/;
+    };
+
+    var whatsapp = function(url){
+        var agente = navigator.userAgent || navigator.vendor || window.opera;
+        //var iphone = /ip(hone|od|ad)/i.test(agente);
+        var iphone = /iphone/i.test(agente), android = /android/i.test(agente);
+		if(iphone || android){
+            //var titulo = $('.film .teaser_text h1').first().text();
+            var titulo = $('meta[property="og:title"]').attr('content');
+            var whatsapp = $('<div />', {class: 'accion_social nobocata'} )
+            .append(
+                $('<a />', {href: 'whatsapp://send?text='+escapeHtml(titulo)+' - '+url}
+                )
+                .attr('data-social', 'whatsapp')
+                .attr('data-action', 'share/whatsapp/share')
+                .append(
+                    $('<img />', {src: '/design/fotogramas2/images/ico_whatsapp2.png', alt: 'Compartir por WhastApp'}).attr('width', 26).attr('height', 21)
+                )
+            );
+            $('.accion_social', '.util, .box_share').last().after(whatsapp);
+            
+            //$('<a />', {class: '', href: ''}).attr('data-action', 'share/whatsapp/share');
+        }
+    };
+   
+    return{
+        facebook: facebook,
+        twitter: twitter,
+        whatsapp: whatsapp
+    }
+
+}( window ));
+
+$(function(){
+    if( $('.accion_social').length > 0 ){
+        var url = document.URL.split('#')[0];
+
+        hfCount.facebook(url);
+        //hfCount.twitter(url);
+        hfCount.whatsapp(url);
+
+        $('.util, .box_share').on('click', '.accion_social > a[data-social!="whatsapp"]', function(event){
+            event.preventDefault();
+            var href = $(this).attr('href');
+            window.open(href, '_blank', 'height=400,width=600');
+        })
+    }
+});
+
+}//Evidon cookie

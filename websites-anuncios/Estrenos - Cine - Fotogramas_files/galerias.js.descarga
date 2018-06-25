@@ -1,0 +1,202 @@
+var $fotos, $numFotos, $currentFoto, _pch = _pch || [], _gaq = _gaq || [];
+
+/*Eventos Analytics*/
+var contabilizarEventoContenido = function(evento){
+	//console.log("Registrando el evento: " + evento);
+	try{
+		_gaq.push(['_trackEvent', window.location.hostname, evento, 'SeguimientoUsuarios']);
+	}catch(e){}
+}
+
+var prepara_src = function (actual) {
+    'use strict';
+
+    var next_index = (parseInt(actual, 10) === parseInt($numFotos, 10)) ? 0 : parseInt(actual, 10) + 1,
+        befr_index = (parseInt(actual, 10) === 0) ? $numFotos : parseInt(actual, 10) - 1,
+        next_img = $fotos.eq(next_index).find('img').first(),
+        befr_img = $fotos.eq(befr_index).find('img').first(),
+        curr_img = $fotos.eq(actual).find('img').first();
+
+    if (!curr_img.attr('src')) {
+        curr_img.attr('src', curr_img.attr('data-src'));
+    }
+
+    if (!next_img.attr('src')) {
+        next_img.attr('src', next_img.attr('data-src'));
+    }
+
+    if (!befr_img.attr('src')) {
+        befr_img.attr('src', befr_img.attr('data-src'));
+    }
+
+    $fotos.find('img').not('[src]').slice(0, 3).each(function () {
+        $(this).attr('src', $(this).attr('data-src'));
+    });
+};
+
+function sigFoto(){
+	
+	var GalHeight = $(".gallery").height();
+	$(".gallery").css({"height":GalHeight});
+
+	$fotos.eq($currentFoto).hide();
+	if ($currentFoto != $numFotos){
+		$fotos.eq($currentFoto+1).fadeIn();
+		$currentFoto++;
+	}else{
+		$fotos.eq(0).fadeIn();
+		$currentFoto = 0;
+	}
+	
+	prepara_src($currentFoto);
+	
+	$(".numeroImagen").html($currentFoto+1);
+	$(".gallery").css({"height":"auto"});
+	
+	refreshStats(String(parseInt($currentFoto)+ 1), true, _pch);
+}
+
+function antFoto(){
+
+	var GalHeight = $(".gallery").height();
+	$(".gallery").css({"height":GalHeight});
+
+	$fotos.eq($currentFoto).hide();
+	if ($currentFoto != 0){
+		$fotos.eq($currentFoto-1).fadeIn();
+		$currentFoto--;
+	}else{
+		$fotos.eq($numFotos).fadeIn();
+		$currentFoto = $numFotos;
+	}
+	
+	prepara_src($currentFoto);
+	
+	$(".numeroImagen").html($currentFoto+1);
+	$(".gallery").css({"height":"auto"});
+	
+	//refreshStats(""+(parseInt($currentFoto)+ 1)+"", true);
+	refreshStats(String(parseInt($currentFoto)+ 1), true, _pch);
+}
+
+$(document).ready(function(){
+
+$('img.nextGal').click(sigFoto);
+$('img.prevGal').click(antFoto);
+
+$fotos = $('.galimg');
+$numFotos = $('.galimg').length-1;
+$currentFoto = parseInt( $( '.numeroImagen:first' ).text() ) - 1;
+
+var availWidth = $(window).width();
+if (availWidth <= 768){
+	$fotos.css({"display":"block"});
+	Waypoint.refreshAll();
+}
+
+prepara_src($currentFoto);
+});
+
+
+$(function(){
+	
+	// Registrar eventos de las galerías en G. Analytics
+	try{
+		$('.hrefLeft').click(function(){
+			contabilizarEventoContenido('clickNavGaleria-Anterior');
+		});
+	} catch(e){}
+
+	try{
+		$('.hrefRight').click(function(){
+			contabilizarEventoContenido('clickNavGaleria-Siguiente');
+		});
+	} catch(e){}
+
+	try{
+		$('#fullscreen > a').click(function(){
+			contabilizarEventoContenido('clickFullScreen');
+		});
+	} catch(e){}
+
+});
+
+var refreshStats = function(concept, ComscoreCount, _pch){
+	/**
+	* Realiza peticiones a los píxeles de control.
+	* Al llamar el archivo se ha creado un array llamado "_pch":
+	* 	var _pch = _pch || [];
+	* Los píxeles de control tienen que ser insertados en el array "_pch", ejemplo:
+	* 	_pch.push([ '<img src="http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=19&mc=imp&pli=5545486&PluID=0&ord=%n&rtu=-1" width="1" height="1" border="0" style="position:absolute;" />' ]);
+	* El parámetro que tenga "%n" será sustituido por un valor aleatorio.
+	* Es recomendable inicializar el array antes de meter valores por si por algún motivo no se inicializó, ejemplo:
+	* 	var _pch = _pch || [];
+	* 	_pch.push([ '<img src="http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=19&mc=imp&pli=5545486&PluID=0&ord=%n&rtu=-1" width="1" height="1" border="0" style="position:absolute;" />' ]);
+	* Opcionalmente se puede mandar una función de callback que se ejecutará después de la  llamada al pixel, ejemplo:
+	* 	_pch.push([ '<img src="http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=19&mc=imp&pli=5545486&PluID=0&ord=%n&rtu=-1" width="1" height="1" border="0" style="position:absolute;" />', function_callback_prueba ]);
+	*/
+	try{
+		var _pch = _pch || [], rnd = Math.random()*10000000000000000;
+		for (var i=0; i<_pch.length; i++){
+			try{
+				$('body').append( _pch[i][0].replace( /%n/i, rnd ) );
+			} catch(e){
+				//c.warn( 'Se ha producido un error al intentar añadir un pixel de control.' );
+			}
+			if( _pch[i].length >= 2 ){
+				try{
+					if ( typeof _pch[i][1] == 'function'){
+						_pch[i][1].call();
+					}/* else{
+						c.warn( 'La función de callback que se quiere llamar no existe.' );
+					}*/
+				} catch(e){
+					//c.warn( 'La función de callback a la que se llama ha producido un error.' );
+				}
+			}
+		}
+	} catch(e){
+		//c.warn( 'No se está comprobando si hay píxeles de control.' );
+	}
+    
+    try{
+	gtag('config', 'UA-4539998-1', {'page_path': location.pathname+ "#" + parseInt(concept)});
+    } catch(e){
+        /* console.warn('Error en dataLayer'); */
+    }
+    
+	if((concept % 2) == 0){
+		$(window).trigger("slideshow.adrefresh");
+		
+		//if($("#enlaceTop").length > 0){
+		//	$("#enlaceDer").remove();
+		//	$("#enlaceTop").remove();
+		//	$("#enlaceIzq").remove();
+		//	$("body").css({"background":"none","padding-top":"0"});
+		//}
+
+    }
+}
+
+/* IMAGES LAZY LOAD */
+$(function(){
+	var availWidth = $(window).width();
+	if (availWidth <= 768){
+		
+		$(".galimg").each(function(){
+			new Waypoint({
+				element: this,
+				handler: function(direction) {
+					this.disable();
+					
+					//console.log("---------------------------Waypoint -> Called Image---------------------------------");
+					
+					$(this.element).find("img").attr('src', $(this.element).find("img").data('src'));
+					//alert("LAZY");
+					Waypoint.refreshAll();
+				}, offset: '85%'
+			});
+		});
+	}
+	
+});	

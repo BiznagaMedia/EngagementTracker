@@ -1,0 +1,15 @@
+$(function(){
+
+    /**
+     * Si en el buscador sólo seleccionan el género se les manda ahí en vez de buscar
+     */
+    $('#leftCol').on('submit', 'form#formulario_filmoteca', function(event){
+        if( $(this).find('[name="genero"]').val() > 0 &&
+            $(this).find('[name="pelicula"]').val().length == 0 &&
+            $(this).find('[name="anio"]').val() == 0 ){
+                event.preventDefault();
+                window.location.href = $('[name="genero"] option:checked', '#formulario_filmoteca').attr('data-url');
+        }
+    });
+
+});

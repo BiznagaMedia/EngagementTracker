@@ -1,0 +1,50 @@
+/* Controlar que se les informa del uso de cookies */
+var hfControlCookiesNew = ( function( window, undefined ){
+	var close_cookies = function(){
+		$('#contentCookiesNew').hide();
+
+		if(typeof(Storage) !== "undefined") {
+	        if (!sessionStorage.hidePrivacyMessage) {
+	           sessionStorage.hidePrivacyMessage = 1;
+	        }
+    	}
+	};	
+
+	var css_cookies = function(){
+		var css = "#contentCookiesNew { bottom: 0; font: 12px/18px Arial,Helvetica,sans-serif;left: 0;margin: 0;padding: 0;position: fixed;width: 100%;z-index: 99999;} .capaCookiesNew {background: none repeat scroll 0 0 #747474;border: 1px solid #DDDDDD;color: #FFFFFF;font: 12px/18px Arial,Helvetica,sans-serif;height: auto;margin: 0 auto;max-width: 970px;padding: 2%;position: relative;width: 96%;} a#mas_info_cookies{color:#fff;font-weight:bold;text-decoration:underline;} a.cerrar_cookies { margin: 1%;position: absolute; right: 0; top: 0;}";
+		$("head").append('<style type="text/css">'+css+'</style>');
+	};
+
+	var html_cookies = function(){
+		var html = '<div class="capaCookiesNew">Hemos actualizado nuestro Aviso de Privacidad. Puedes consultar el nuevo texto <a id="mas_info_cookies" href="http://www.hearst.es/aviso-de-privacidad" target="_blank">aqu&iacute;</a>. <a class="cerrar_cookies" href="javascript:hfControlCookiesNew.close_cookies();"><img src="http://www.hearst.es/extension/hearst/design/hearst/images/aviso_cookies/images/cierreBlack.gif" alt="cerrar" /></a></div>';
+		$('body').prepend( $('<div/>', { id: 'contentCookiesNew'}).html(html) );
+	};
+
+	return{
+		css_cookies: css_cookies,
+		html_cookies: html_cookies,
+		close_cookies: close_cookies
+	}
+}( window ));
+
+var showPrivacyMessage = function(){
+	if(typeof(Storage) !== "undefined") {
+        if (sessionStorage.hidePrivacyMessage == 1) {
+           $('#contentCookiesNew').hide();
+        }
+        else {
+        	hfControlCookiesNew.css_cookies();
+			hfControlCookiesNew.html_cookies();
+        }
+    }
+    else {
+    		hfControlCookiesNew.css_cookies();
+			hfControlCookiesNew.html_cookies();
+    }
+}
+
+if (window.addEventListener) {
+  document.addEventListener('DOMContentLoaded', function(){showPrivacyMessage();}, false);
+} else if (window.attachEvent) {
+  document.attachEvent('onreadystatechange', function(){showPrivacyMessage();});
+}
