@@ -155,10 +155,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
                     return b;
                 }
 
-                panels.forEach(function(panel) {
+                /*panels.forEach(function(panel) {
                     panel.appendChild(makeAButton(ROTATE_NEXT));
                     panel.appendChild(makeAButton(ROTATE_PREVIOUS))
-                })
+                }) */
             }
 
             function adjustSlides() {
@@ -516,6 +516,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 }
 
 .adf-Swipe span {
+    visibility: hidden;
     font-family: sans-serif;
     font-size: 28px;
     color: #fff;
