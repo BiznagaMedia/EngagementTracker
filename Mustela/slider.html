@@ -46,13 +46,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
     <title>Slider</title>
     <style>
-        .InkabetSlide a,
-        .InkabetSlide a:hover {
+        .mustela a,
+        .mustela a:hover {
             text-decoration: none;
             color: white
         }
 
-        .InkabetSlide .te-container {
+        .mustela .te-container {
             width: 300px;
             height: 600px;
             margin: 0 auto;
@@ -60,7 +60,7 @@
             border: 1px solid #c5c5c5;
         }
 
-        .InkabetSlide .te-wrapper {
+        .mustela .te-wrapper {
             position: relative;
             width: 300px;
             height: 600px;
@@ -85,7 +85,7 @@
         }
 
 
-        .InkabetSlide .bzm_text {
+        .mustela .bzm_text {
             
             margin-top: 70px;
             margin-bottom: 15px;
@@ -95,33 +95,33 @@
             font-family: Source Sans Pro
         }
 
-        .InkabetSlide .bzm_text_bold,
-        .InkabetSlide .bzm_text_medium {
+        .mustela .bzm_text_bold,
+        .mustela .bzm_text_medium {
             line-height: 1em;
             text-decoration: none;
             color: #000;
             width: 95%
         }
         
-        .InkabetSlide .bzm_text_title{
+        .mustela .bzm_text_title{
             
         }
 
-        .InkabetSlide .bzm_text_bold {
+        .mustela .bzm_text_bold {
             font-size: 20px;
             font-weight: 700;
             line-height: 1;
             width: 107%
         }
 
-        .InkabetSlide .bzm_text_medium {
+        .mustela .bzm_text_medium {
             font-size: 16.5px;
             font-weight: 400;
             line-height: 1em;
             text-align: justify
         }
         
-         .InkabetSlide .bzm_text_small {
+         .mustela .bzm_text_small {
            margin-top: 50px;
            
         }
@@ -132,56 +132,56 @@
 
         /*******************************************************/
 
-        .InkabetSlide .te-perspective {
+        .mustela .te-perspective {
             -webkit-perspective: 1000;
         }
 
-        .InkabetSlide .te-cover,
-        .InkabetSlide .te-transition {
+        .mustela .te-cover,
+        .mustela .te-transition {
             width: 300px;
             height: 245px;
         }
 
-        .InkabetSlide .te-cover.te-hide,
-        .InkabetSlide .te-transition,
-        .InkabetSlide .te-images {
+        .mustela .te-cover.te-hide,
+        .mustela .te-transition,
+        .mustela .te-images {
             display: none;
             
         }
 
-        .InkabetSlide .te-images {
+        .mustela .te-images {
             width: 300px;
             height: 300px;
         }
 
-        .InkabetSlide .te-cover>img,
-        .InkabetSlide .te-images>img {
+        .mustela .te-cover>img,
+        .mustela .te-images>img {
             width: 300px;
             height: 300px;
            
         }
 
-        .InkabetSlide .te-transition.te-show {
+        .mustela .te-transition.te-show {
             display: block;
         }
 
-        .InkabetSlide .te-back,
-        .InkabetSlide .te-front {
+        .mustela .te-back,
+        .mustela .te-front {
             position: absolute;
             width: 100%;
             height: 100%;
         }
 
-        .InkabetSlide .te-front {
+        .mustela .te-front {
             z-index: 2;
         }
 
-        .InkabetSlide .te-back {
+        .mustela .te-back {
             z-index: 1;
             -webkit-backface-visibility: hidden;
         }
 
-        .InkabetSlide .te-transition img {
+        .mustela .te-transition img {
             position: absolute;
             left: 0px;
             top: 0px;
@@ -189,15 +189,15 @@
 
         /***************** example3 ********************/
 
-        .InkabetSlide .te-example3 .te-front {
+        .mustela .te-example3 .te-front {
             z-index: 1;
         }
 
-        .InkabetSlide .te-example3 .te-back {
+        .mustela .te-example3 .te-back {
             z-index: 2;
         }
 
-        .InkabetSlide .te-example3.te-show .te-back {
+        .mustela .te-example3.te-show .te-back {
             -webkit-animation: example3Back 0.4s ease-out forwards;
         }
 
@@ -212,7 +212,7 @@
             }
         }
 
-        .InkabetSlide #botones-para-compartir {
+        .mustela #botones-para-compartir {
             text-align: right;
         }
 
@@ -241,7 +241,7 @@
             -o-transition: all .5s;
         }
 
-        .InkabetSlide .logo {
+        .mustela .logo {
             background-color: #ffffff;
             border-radius: 4px;
             float: right;
@@ -253,7 +253,7 @@
     </style>
 </head>
 
-<body class="InkabetSlide" style="margin:0px;">
+<body class="mustela" style="margin:0px;">
        
        
         
@@ -308,7 +308,7 @@
     </div>
 
     <script>
-        var InkabetSlide = (function() {
+        var mustela = (function() {
             //funcionamiento del script
             var teWrapper = null,
                 teCover = null,
@@ -451,7 +451,7 @@
                 show: show
             };
         })();
-        InkabetSlide.show('InkabetSlide');
+        mustela.show('mustela');
     </script>
 </body>
 </html>
