@@ -10,7 +10,6 @@
         function adfOpenGlobalClickTAG() {
             var adfClickTAGName = 'clickTAG',
                 adfClickTAGUrl = 'https://www.7-eleven.com.mx/index.php/productos-en-tienda/cafe-select.html';
-
             window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
         }
         if (window.addEventListener) {
@@ -25,15 +24,12 @@
                 adfOpenGlobalClickTAG();
             });
         }
-
         window.onload = function() {
             dhtml.sendEvent('1', 'PageView', 'PageView');
         }
-
         window.onclick = function() {
             dhtml.sendEvent('9', 'Click Out', 'Click Out');
         }
-
         /*document.getElementById('housell').addEventListener('click', function(e){
             window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
         });*/
@@ -51,14 +47,12 @@
             text-decoration: none;
             color: white
         }
-
         .AmericanSlide .te-container {
             width: 300px;
             height: 250px;
             margin: 0 auto;
             background-color: #ffffff;
         }
-
         .AmericanSlide .te-wrapper {
             position: relative;
             width: 300px;
@@ -66,14 +60,12 @@
             overflow: hidden;
             font-family: Source Sans Pro;
         }
-
         .AmericanSlide .bzm_text {
             margin-top: 20px;
             margin-left: 5px;
             text-align: center;
             margin-bottom: 
         }
-
         .AmericanSlide .bzm_text_bold,
         .AmericanSlide .bzm_text_medium {
             line-height: 1.4;
@@ -82,14 +74,12 @@
             font-family: sans-serif;
          
         }
-
         .AmericanSlide .bzm_text_bold {
             font-size: 19px;
             font-weight: 700;
             line-height: 1;
            
         }
-
         .AmericanSlide .bzm_text_medium {
             font-size: 16px;
             font-weight: 400;
@@ -109,80 +99,62 @@
             border-radius: 20px;
             text-align: center;
         }
-
         /*******************************************************/
-
         /****************** Unfold Effects *********************/
-
         /*******************************************************/
-
         .AmericanSlide .te-perspective {
             -webkit-perspective: 1000;
         }
-
         .AmericanSlide .te-cover,
         .AmericanSlide .te-transition {
             width: 300px;
             height: 155px;
         }
-
         .AmericanSlide .te-cover.te-hide,
         .AmericanSlide .te-transition,
         .AmericanSlide .te-images {
             display: none;
         }
-
         .AmericanSlide .te-images {
             width: 300px;
             height: 155px;
         }
-
         .AmericanSlide .te-cover>img,
         .AmericanSlide .te-images>img {
             width: 300px;
             height: 155px;
         }
-
         .AmericanSlide .te-transition.te-show {
             display: block;
         }
-
         .AmericanSlide .te-back,
         .AmericanSlide .te-front {
             position: absolute;
             width: 100%;
             height: 100%;
         }
-
         .AmericanSlide .te-front {
             z-index: 2;
         }
-
         .AmericanSlide .te-back {
             z-index: 1;
             -webkit-backface-visibility: hidden;
         }
-
         .AmericanSlide .te-transition img {
             position: absolute;
             left: 0px;
             top: 0px;
         }
-
         /***************** example3 ********************/
-
         .AmericanSlide .te-example3 .te-front {
             z-index: 1;
         }
-
         .AmericanSlide .te-example3 .te-back {
             z-index: 2;
         }
-
         .AmericanSlide .te-example3.te-show .te-back {
             -webkit-animation: example3Back 0.4s ease-out forwards;
         }
-
         @-webkit-keyframes example3Back {
             0% {
                 -webkit-transform: rotate(40deg) scale(1.5) translate(200px, 10px);
@@ -193,11 +165,9 @@
                 opacity: 1;
             }
         }
-
         .AmericanSlide #botones-para-compartir {
             text-align: right;
         }
-
         .likedini:hover,
         .facebooki:hover,
         .twitteri:hover,
@@ -211,7 +181,6 @@
             -webkit-transition: all .5s;
             -o-transition: all .5s;
         }
-
         .likedini,
         .facebooki,
         .twitteri,
@@ -222,7 +191,6 @@
             -webkit-transition: all .5s;
             -o-transition: all .5s;
         }
-
         .AmericanSlide .logo {
             z-index: 2;
             background-color: transparent;
@@ -284,12 +252,10 @@
 	containerE = null;
 	imagesCount	= 0,
 	teTransition = null;
-
 	//configuracion
 	var _currentImg = 0,
 		animated = false,
 		_TRANSITION = 'te-example3';
-
 	// Función que hace compatibles los eventos con todos los navegadores.
 	function _addEvent(el, name, fn) {
 		if (el.addEventListener) {
@@ -310,16 +276,13 @@
 	};
 	//limpiar todos los elementos hijos del un uno padre
 	function _removeChildrens(arrayElements) {
-
 		for (var i=0;i<arrayElements.length;i++) {
 			while (arrayElements[i].firstChild) {
 				arrayElements[i].removeChild(arrayElements[i].firstChild);
 			}
 		}
-
 		return arrayElements;
 	};
-
 	//function para inicializar el carousel 
 	function _initCarousel () {
 		if( animated )
@@ -329,7 +292,6 @@
 		showNext();
 		setInterval(_initCarousel, 5000);
 	};
-
 	//function propias del component
 	function webkitAnimationEnd(event) {
 		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover'),
@@ -353,12 +315,10 @@
 		var teImages = document.querySelectorAll(containerE + ' #te-wrapper div.te-images > img');
 		var last_img = teImages[last_img],
 			currentImg	= teImages[teImages.length == _currentImg ? 0 : _currentImg];
-
 		_currentImg = teImages.length == _currentImg ? 0 : _currentImg;
 		
 		var urlLast = last_img.attributes.getNamedItem('src').value;
 		var urlCurrent = currentImg.attributes.getNamedItem('src').value;
-
 		_removeChildrens(front);
 		for (var i=0;i<front.length;i++) {
 			var img = document.createElement('img');
@@ -366,7 +326,6 @@
 			img.setAttribute('src', urlLast);
 			front[i].appendChild(img);
 		}
-
 		_removeChildrens(back);		
 		for (var i=0;i<back.length;i++) {
 			img = document.createElement('img');
@@ -374,7 +333,6 @@
 			img.setAttribute('src', urlCurrent);
 			back[i].appendChild(img);
 		}
-
 		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover img');
 		teCover.setAttribute('src', urlCurrent);
 	};
@@ -383,16 +341,13 @@
 		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover'),
 			teWrapper = document.querySelector(containerE + ' #te-wrapper'),
 			teTransition = document.querySelector(containerE + ' #te-wrapper .te-transition');
-
 		teTransition.classList.add('te-show');
 		teCover.classList.add('te-hide');
 		teWrapper.classList.add('te-perspective');
 		
 		updateImages();
 	};
-
 	function show(container) {
-
 		var containerElement = document.querySelector('.'+container);
 		if (containerElement != null) {
 			containerE = '.'+container;
@@ -404,15 +359,12 @@
 			teImages		= document.querySelectorAll(containerE + ' #te-wrapper div.te-images > img');
 			imagesCount		= teImages.length;
 			teTransition	= document.querySelector(containerE + ' #te-wrapper .te-transition');
-
 			//agregar la transition
 			teTransition.classList.add(_TRANSITION);
 			_addEvent(teWrapper, 'webkitAnimationEnd', webkitAnimationEnd);
-
 			setInterval(_initCarousel, 5000);
 		}
 	};
-
 	return {
 		show: show
 	};
