@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <title>Slider_Huawei</title>
+	  <style>
+		.HyundaiSlider a,
+        .HyundaiSlider a:hover {
+            text-decoration: none;
+            color: white
+        }
+
+        .HyundaiSlider .te-container {
+            width: 300px;
+            height: 250px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        .HyundaiSlider .te-wrapper {
+            position: relative;
+            width: 300px;
+            height: 250px;
+            overflow: hidden;
+            font-family: Source Sans Pro;
+        }
+
+        .HyundaiSlider .bzm_text {
+            margin-top: 7px;
+            margin-left: 5px;
+            text-align: left;
+        }
+
+        .HyundaiSlider .bzm_text_bold,
+        .HyundaiSlider .bzm_text_medium {
+            line-height: 1.4;
+            text-decoration: none;
+            color: #FCFCFD;
+         
+        }
+
+        .HyundaiSlider .bzm_text_bold {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1;
+           
+        }
+
+        .HyundaiSlider .bzm_text_medium {
+            font-size: 16px;
+            font-weight: 400;
+         
+        }
+          
+          .cta {
+            position: absolute;
+            bottom: 435px;
+            width: 70px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 48%;
+            left: -8px;
+            background-color: #101A4F;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+            font-family: Source Sans Pro;
+            
+        }
+
+        /*******************************************************/
+
+        /****************** Unfold Effects *********************/
+
+        /*******************************************************/
+
+        .HyundaiSlider .te-perspective {
+            -webkit-perspective: 1000;
+        }
+
+        .HyundaiSlider .te-cover,
+        .HyundaiSlider .te-transition {
+            width: 300px;
+            height: 155px;
+        }
+
+        .HyundaiSlider .te-cover.te-hide,
+        .HyundaiSlider .te-transition,
+        .HyundaiSlider .te-images {
+            display: none;
+        }
+
+        .HyundaiSlider .te-images {
+            width: 300px;
+            height: 155px;
+        }
+
+        .HyundaiSlider .te-cover>img,
+        .HyundaiSlider .te-images>img {
+            width: 300px;
+            height: 155px;
+        }
+
+        .HyundaiSlider .te-transition.te-show {
+            display: block;
+        }
+
+        .HyundaiSlider .te-back,
+        .HyundaiSlider .te-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .HyundaiSlider .te-front {
+            z-index: 2;
+        }
+
+        .HyundaiSlider .te-back {
+            z-index: 1;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .HyundaiSlider .te-transition img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        /***************** example3 ********************/
+
+        .HyundaiSlider .te-example3 .te-front {
+            z-index: 1;
+        }
+
+        .HyundaiSlider .te-example3 .te-back {
+            z-index: 2;
+        }
+
+        .HyundaiSlider .te-example3.te-show .te-back {
+            -webkit-animation: example3Back 0.4s ease-out forwards;
+        }
+
+        @-webkit-keyframes example3Back {
+            0% {
+                -webkit-transform: rotate(40deg) scale(1.5) translate(200px, 10px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotate(0deg) scale(1) translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        .HyundaiSlider #botones-para-compartir {
+            text-align: right;
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            /* Sombra */
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .HyundaiSlider .logo {
+            z-index: 2;
+            background-color: transparent;
+            border-radius: 0px;
+            float: right;
+            height: 11px;
+            text-align: center;
+            margin-top: 40px;
+            margin-right: -3px
+        }
+	 </style> 
+</head>
+<body class="HyundaiSlider" style="margin:0px;">
+         
+     <div class="bzm_wrapper carousel-wrapper size_300x250">
+       <div class="cta"><span class="bzm_text_title bzm_text_bold" style="font-size:80%;">Descúbrela</span></div>
+        <a href="https://www.midas.es/" style="display: block;" target="_blank"> 
+            
+            
+	 <div class="te-container">
+         
+        <a href="http://www.hyundai.es/gamaKONA/" target="_blank">
+            <div id="te-wrapper" class="te-wrapper">
+                <div class="te-images"> 
+                    <img src="https://i.imgur.com/mifYpjX.png" alt="" /> 
+                    <img src="https://i.imgur.com/oa8rHiz.png" alt="" /> 
+                    <img src="https://i.imgur.com/ygC3BqE.png" alt="" /> </div>
+                <div class="te-cover"> 
+                    <img src="https://i.imgur.com/mifYpjX.png" alt="" /> </div>
+                <div class="te-transition">
+                    <div class="te-front"></div>
+                    <div class="te-back"></div>
+                </div>
+                <div style="margin-top:15px; margin-left:0px; margin-right: 10px;">
+                    <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000; font-size:21px; text-align:left;">Nueva Gama Hyundai KONA</span> <img class="logo" src="https://i.imgur.com/cVzJ8JK.png" alt=""> </div>
+                    
+                    <div class="bzm_text_small"> <span class="bzm_text_small" style="color:#000;line-height:0.3;font-size:15px; font-style: italic; margin-top: -4px; width: 90%; text-align: justify"> El primer SUV compacto eléctrico con una autonomía de 482 km.</span></div>
+                </div>
+               
+            </div>
+        </a>
+    </div>
+
+	<script>
+		var HyundaiSlider = (function() {	
+		//funcionamiento del script
+	var teWrapper = null,
+	teCover	= null,
+	teImages = null,
+	containerE = null;
+	imagesCount	= 0,
+	teTransition = null;
+
+	//configuracion
+	var _currentImg = 0,
+		animated = false,
+		_TRANSITION = 'te-example3';
+
+	// Función que hace compatibles los eventos con todos los navegadores.
+	function _addEvent(el, name, fn) {
+		if (el.addEventListener) {
+		el.addEventListener(name, fn);
+		} else if (el.attachEvent) {
+		el.attachEvent('on' + name, function(evt) {
+			evt.target = evt.target || evt.srcElement;
+			// Call the event to ensure uniform 'this' handling, pass it event
+			fn.call(el, evt);
+		});
+		} else if (typeof el['on' + name] === 'undefined' || el['on' + name] === null) {
+		el['on' + name] = function(evt) {
+			evt.target = evt.target || evt.srcElement;
+			// Call the event to ensure uniform 'this' handling, pass it event
+			fn.call(el, evt);
+		};
+		}
+	};
+	//limpiar todos los elementos hijos del un uno padre
+	function _removeChildrens(arrayElements) {
+
+		for (var i=0;i<arrayElements.length;i++) {
+			while (arrayElements[i].firstChild) {
+				arrayElements[i].removeChild(arrayElements[i].firstChild);
+			}
+		}
+
+		return arrayElements;
+	};
+
+	//function para inicializar el carousel 
+	function _initCarousel () {
+		if( animated )
+			return false;
+			
+		animated = true;	
+		showNext();
+		setInterval(_initCarousel, 5000);
+	};
+
+	//function propias del component
+	function webkitAnimationEnd(event) {
+		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover'),
+			teWrapper = document.querySelector(containerE + ' #te-wrapper'),
+			teTransition = document.querySelector(containerE + ' #te-wrapper .te-transition');
+		
+		teCover.classList.remove('te-hide');
+		teWrapper.classList.remove('te-perspective');
+		teTransition.classList.remove('te-show');
+		animated = false;
+	};
+	function updateImages() {
+		
+		var back = document.querySelectorAll(containerE + ' #te-wrapper .te-transition div.te-back'),
+			front = document.querySelectorAll(containerE + ' #te-wrapper .te-transition div.te-front');
+		
+		( _currentImg === imagesCount - 1 ) ? 
+			( last_img = imagesCount - 1, _currentImg = 0 ) : 
+			( last_img = _currentImg, ++_currentImg );
+		
+		var teImages = document.querySelectorAll(containerE + ' #te-wrapper div.te-images > img');
+		var last_img = teImages[last_img],
+			currentImg	= teImages[teImages.length == _currentImg ? 0 : _currentImg];
+
+		_currentImg = teImages.length == _currentImg ? 0 : _currentImg;
+		
+		var urlLast = last_img.attributes.getNamedItem('src').value;
+		var urlCurrent = currentImg.attributes.getNamedItem('src').value;
+
+		_removeChildrens(front);
+		for (var i=0;i<front.length;i++) {
+			var img = document.createElement('img');
+			img.setAttribute('style','width: 300px;height: 155px;');
+			img.setAttribute('src', urlLast);
+			front[i].appendChild(img);
+		}
+
+		_removeChildrens(back);		
+		for (var i=0;i<back.length;i++) {
+			img = document.createElement('img');
+			img.setAttribute('style','width: 300px;height: 155px;');
+			img.setAttribute('src', urlCurrent);
+			back[i].appendChild(img);
+		}
+
+		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover img');
+		teCover.setAttribute('src', urlCurrent);
+	};
+	function showNext() {
+		
+		var teCover = document.querySelector(containerE + ' #te-wrapper div.te-cover'),
+			teWrapper = document.querySelector(containerE + ' #te-wrapper'),
+			teTransition = document.querySelector(containerE + ' #te-wrapper .te-transition');
+
+		teTransition.classList.add('te-show');
+		teCover.classList.add('te-hide');
+		teWrapper.classList.add('te-perspective');
+		
+		updateImages();
+	};
+
+	function show(container) {
+
+		var containerElement = document.querySelector('.'+container);
+		if (containerElement != null) {
+			containerE = '.'+container;
+		 
+				
+			//inicializando variables global
+			teWrapper = document.querySelector(containerE + ' #te-wrapper');
+			teCover	= document.querySelector(containerE + ' #te-wrapper div.te-cover');
+			teImages		= document.querySelectorAll(containerE + ' #te-wrapper div.te-images > img');
+			imagesCount		= teImages.length;
+			teTransition	= document.querySelector(containerE + ' #te-wrapper .te-transition');
+
+			//agregar la transition
+			teTransition.classList.add(_TRANSITION);
+			_addEvent(teWrapper, 'webkitAnimationEnd', webkitAnimationEnd);
+
+			setInterval(_initCarousel, 5000);
+		}
+	};
+
+	return {
+		show: show
+	};
+})();
+HyundaiSlider.show('HyundaiSlider');
+	</script>
+</body>
+</html>
