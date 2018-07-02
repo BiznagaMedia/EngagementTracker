@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RUA_Fade</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>
+    <style>
+        .RuaFade p {
+            margin: 0px
+        }
+
+        .RuaFade .bg.cover-1,
+        .RuaFade .bg.cover-2,
+        .RuaFade .bg.cover-3,
+        .RuaFade {
+            background-size: cover
+        }
+
+        .RuaFade .btn {
+            margin-top: 0;
+            padding-left: 0
+        }
+
+        .RuaFade a,
+        .RuaFade a:hover {
+            text-decoration: none;
+            color: #fff
+        }
+
+        .RuaFade .bzm_wrapper {
+            position: relative;
+            overflow: hidden;
+            color: #000;
+            font-family: Lato, sans-serif
+        }
+
+        .RuaFade .bzm_wrapper.size_300x250 {
+            width: 300px;
+            height: 250px;
+            background-color: #FFF
+        }
+        
+          .cta {
+            position: absolute;
+            font-family: Lato, sans-serif;
+            bottom: 85px;
+            width: 60px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 48%;
+            left: -30px;
+            background-color: #f2c60c;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .RuaFade .bzm_cover,
+        .RuaFade .carousel-wrapper {
+            position: relative;
+            width: 100%
+        }
+        
+        
+
+        .RuaFade .bzm_cover {
+            height: 150px
+        }
+
+        .RuaFade .bg.cover-1 {
+            background-image: url(https://i.imgur.com/i3DX8DN.png)
+        }
+
+        .RuaFade .bg.cover-2 {
+            background-image: url(https://i.imgur.com/fWT2GJY.png)
+        }
+
+        .RuaFade .bg.cover-3 {
+            background-image: url(https://i.imgur.com/sEDhINb.png)
+        }
+
+        .RuaFade .bzm_cover.bzm_pos_tl {
+            top: 3%;
+            left: 3%
+        }
+
+        .RuaFade .bzm_pos_tr {
+            top: 3%;
+            right: 3%
+        }
+
+        .RuaFade .bzm_pos_bl {
+            bottom: 3%;
+            left: 3%
+        }
+
+        .RuaFade .bzm_pos_br {
+            bottom: 3%;
+            right: 3%
+        }
+
+        .RuaFade .bzm_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%)
+        }
+
+        .RuaFade .bzm_text {
+            padding: 6px 0 0 .3em;
+            line-height: 1.1;
+            color: #000;
+            text-align: center;
+            margin-top: 15px
+                
+        }
+
+        .RuaFade .bzm_text_title {
+            font-size: 14px;
+            color: #000;
+            
+        }
+
+        .RuaFade .bzm_text_light {
+            font-size: 10px;
+            font-weight: 0
+        }
+
+        .RuaFade .bzm_text_medium {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.7
+        }
+
+        .RuaFade .bzm_text_bold {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1
+        }
+
+        .RuaFade .bzm_text_small {
+            font-size: 10px;
+            line-height: 1;
+            text-align: left;
+            margin-top: 4px
+        }
+
+        .RuaFade .carousel-wrapper {
+            height: auto;
+            margin: 0 auto
+        }
+
+        .RuaFade .carousel-item1 {
+            position: absolute;
+            opacity: 0;
+            transition: all .5s ease-in-out
+        }
+
+        .RuaFade [id^=item] {
+            display: none
+        }
+
+        .RuaFade .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 14s infinite;
+            -webkit-animation: fade 14s infinite
+        }
+
+        .RuaFade .item-2 {
+            animation: fade2 14s infinite;
+            -webkit-animation: fade2 14s infinite
+        }
+
+        .RuaFade .item-3 {
+            animation: fade3 14s infinite;
+            -webkit-animation: fade3 14s infinite
+        }
+        
+      
+
+        @keyframes fade {
+            0%,
+            100% {
+                opacity: 1
+            }
+            25%,
+            50%,
+            50% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade2 {
+            0%,
+            100%,
+            50%,
+            50% {
+                opacity: 0
+            }
+            25% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade3 {
+            0%,
+            100%,
+            25%,
+            50% {
+                opacity: 0
+            }
+            50% {
+                opacity: 1
+            }
+        }
+
+        .RuaFade .bzm_button {
+            position: absolute;
+            bottom: 7px;
+            left: 3%;
+            text-transform: uppercase;
+            background-color: #6cbd44;
+            color: #fff;
+            border-radius: 50%;
+            padding: 4px;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer
+        }
+
+        .RuaFade .bzm_button:hover {
+            background-color: #579e38
+        }
+
+        .RuaFade .carousel-container {
+            width: 300px;
+            height: 150px;
+            overflow-y: hidden
+        }
+
+        .RuaFade #botones-para-compartir {
+            text-align: right
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+      
+    </style>
+</head>
+
+<body class="RuaFade" style="margin:0px;">
+  
+    <div class="bzm_wrapper carousel-wrapper size_300x250">
+       <div class="cta"><span class="bzm_text_title bzm_text_bold" style="font-size:80%;">Más Info</span></div>
+        <a href="https://ruaabogados.es/contacto" style="display: block;" target="_blank">
+           
+        
+            <div class="carousel-container">
+                <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
+                <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
+                <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
+            </div>
+            <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000;line-height:1;font-size:20px;">¿Es accionista afectado por el Banco Popular?</span></div>
+            <div class="bzm_text_small"> <span class="bzm_text_small" style="color:#000;line-height:1;font-size:15px; font-style: italic; margin-top: -4px; width: 90%;">Recupere su dinero. Somos abogados especialistas.</span></div>
+            <div style="bottom:0px;height:26px;text-align:right;margin-top:-15px;"> 
+              <img src="https://i.imgur.com/R82RTUQ.png" style="height:22px;margin-right:5px;">
+            </div>
+        </a>
+    </div>
+
+    <!--<div class="EurowingsFade"></div>
+	<script src="bundle.js"></script>
+	<script>
+		EurowingsFade.show('EurowingsFade')
+	</script>-->
+</body>
+</html>
