@@ -1,0 +1,335 @@
+<style>
+    .HuaweiScroll2 p {
+        margin: 0px;
+    }
+
+    .HuaweiScroll2 .btn {
+        margin-top: 0;
+        padding-left: 0;
+    }
+
+    .HuaweiScroll2 a,
+    .ClaroScroll a:hover {
+        text-decoration: none;
+        color: #fff
+    }
+
+    .HuaweiScroll2 .bzm_wrapper {
+        position: relative;
+        overflow: hidden;
+        color: #000;
+        font-family: Lato, sans-serif;
+    }
+
+    .HuaweiScroll2 .bzm_wrapper.size_320x480 {
+        width: 320px;
+        height: 480px;
+        background-color: #FFF;
+        overflow-y: auto;
+    }
+
+    .HuaweiScroll2 .bzm_cover,
+    .ClaroScroll .carousel-wrapper {
+        position: relative;
+        width: 100%
+    }
+
+    .HuaweiScroll2 .bzm_cover {
+        height: 150px
+    }
+
+    .HuaweiScroll2 .bzm_cover.bzm_pos_tl {
+        top: 3%;
+        left: 3%
+    }
+
+    .HuaweiScroll2 .bzm_pos_tr {
+        top: 3%;
+        right: 3%
+    }
+
+    .HuaweiScroll2 .bzm_pos_bl {
+        bottom: 3%;
+        left: 3%
+    }
+
+    .HuaweiScroll2 .bzm_pos_br {
+        bottom: 3%;
+        right: 3%
+    }
+
+    .HuaweiScroll2 .bzm_pos_bm {
+        bottom: 3%;
+        left: calc(100% - 70%)
+    }
+
+    .HuaweiScroll2 .bzm_text {
+        padding: 2px 0 0 .3em;
+        line-height: 1.1;
+        color: #000;
+        width: 97%;
+        margin-left: -3px;
+            
+    }
+
+    .HuaweiScroll2 .bzm_text_title {
+        font-size: 14px;
+        color: #000
+    }
+
+    .HuaweiScroll2 .bzm_text_light {
+        font-size: 10px;
+        font-weight: 0
+    }
+
+    .HuaweiScroll2 .bzm_text_medium {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4
+    }
+
+    .HuaweiScroll2 .bzm_text_bold {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1
+    }
+
+    .HuaweiScroll2 .bzm_text_small {
+        font-size: 10px;
+        line-height: 1
+    }
+
+    .HuaweiScroll2 .carousel-wrapper {
+        height: auto;
+        margin: 0 auto
+    }
+
+
+    .HuaweiScroll2 .bzm_button {
+        position: absolute;
+        bottom: 7px;
+        left: 3%;
+        text-transform: uppercase;
+        background-color: #6cbd44;
+        color: #fff;
+        border-radius: 50%;
+        padding: 4px;
+        text-align: center;
+        font-size: 90%;
+        cursor: pointer
+    }
+
+    .HuaweiScroll2 .bzm_button:hover {
+        background-color: #579e38
+    }
+
+    .HuaweiScroll1 .carousel-container {
+        width: 300px;
+        height: 150px;
+        overflow-y: hidden
+    }
+
+    .HuaweiScroll2 #botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .googlei:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .googlei,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .HuaweiScroll2 .logo {
+        margin-top: -8px;
+        margin-right: 10px;
+        width: 33.33%;
+        line-height: 1.3em;
+        right: -20px;
+        z-index: 2;
+        background-color: #d8594f;
+        border-radius: 2px;
+        float: right;
+        height: 30px;
+        text-align: center;
+    }
+
+    .img-news {
+        background-size: cover;
+        width: 320px;
+        height: 250px;
+    }
+
+    .logo-enterp {
+        height: 25px;
+    }
+
+    .HuaweiScroll2 #botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .googlei:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .googlei,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .HuaweiScroll1 #Sup-botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .googlei:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .googlei,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    @media screen and (max-width: 480px) {
+        .HuaweiScroll2 .bzm_wrapper.size_320x480 {
+            width: 270px;
+            height: 411px;
+            background-color: #FFF;
+            overflow-y: auto;
+        }
+
+        .img-news {
+            width: 265px;
+            height: 126px;
+        }
+
+        .logo-enterp {
+            margin-top: 5px;
+            height: 17.5px;
+        }
+    }
+
+</style>
+
+
+<div class="HuaweiScroll2" style="margin:0px; background-color:white;">
+    <div class="bzm_wrapper carousel-wrapper size_320x480">
+        <div class="context">
+
+            <div class="bzm_text">
+                <iframe width="320" height="250" src="https://i.imgur.com/6VKfMjV.png" style="margin-bottom: 10px;"> </iframe>
+                <a href="https://i2labsacademy.com/" style="padding-top:15px;" target="_blank">
+                    <span class="bzm_text_title  bzm_text_bold" style="color:#000; line-height:1; font-size:21px; margin-top: 10px;">
+                        ¿Te atrae la ciberseguridad?
+                    </span>
+                </a>
+                <div style="text-align:left; background-color:white; background-size:25px; height:20px; padding-top:10px; padding-left:4px;">
+                    <span>  
+                        <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://i2labsacademy.com/"  target="block">    
+                            <img alt="Facebook" class="facebooki" height="18" src="http://4.bp.blogspot.com/-2W3Fr7nS-T0/Uh1HrkLe5wI/AAAAAAAAAiQ/0-_aC8Yici4/s1600/facebook.png" title="Facebook" width="18" />
+                        </a>
+
+                        <a class="shared" href="https://twitter.com/home?status=https://i2labsacademy.com/" target="block">
+                            <img alt="Twitter" class="twitteri" height="18" src="http://3.bp.blogspot.com/-TgonF6vzJs0/Uh1Hmxqk8aI/AAAAAAAAAiA/MdT4pRWKRbI/s1600/twitter.png" title="Twitter" width="18" />
+                        </a>
+
+                        <a class="shared" href="https://plus.google.com/share?url=https://i2labsacademy.com/" target="block">
+                            <img alt="Instagram" class="googlei" height="18" src="https://i.imgur.com/jo9wDIZ.png" title="Instagram" width="18" />
+                        </a>
+                    </span>
+                </div>
+       
+
+
+            <div class="bzm_text" style="margin-top: 10px;">
+                <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#000; text-align: justify;">
+				    <i>Los fabricantes, las consultoras y las compañías que se especializan en <b>ransformación digital </b>tcoinciden en las líneas que marcarán este año en<b> ciber seguridad.</b><br>
+				    Entre estos factores hallamos los siguientes:
+
+<b>El ransomware,</b> seguirá siendo una de las <b>principales fuentes de negocio de los cibercriminales.</b> Se trata de secuestrar archivos o equipos, con la idea de que las empresas  <b>paguen</b> grandes cantidades de dinero <b>para recuperar sus sistemas.</b>
+				    <br>
+				    <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:-15px; padding-top:30px; padding-bottom:20px;">
+                        <a href="https://i2labsacademy.com/" style="display:block; margin-left:-10px;" target="_blank">
+                            <div class="img-news" style="background-image:url(https://i.imgur.com/FHsD2mN.png);"></div>
+                        </a>
+                    </span>
+				    <b>El malware,</b> el clásico software malicioso cuyo objetivo es infiltrarse en el sistema para <b>atacarlo,</b> tendrá en el punto de mira los dispositivos móviles.
+<b>Las criptodivisas.</b> El aumento de la popularidad del <b>Bitcoin </b> ha sido fundamental para que los delincuentes tengan como objetivo a<b> mineros y usuarios</b> de este tipo de monedas. En 2018 se prevé que los delincuentes se fijen más en este tipo de objetivos. <br>
+
+El Internet de la Cosas (IoT), se espera que en el<b> 2021 existan 13.200 millones de conexiones entre dispositivos IoT.</b> A medida que aumenten nuevos sistemas, estos se convertirán en los objetivos de los ciberdelincuentes, por lo que los dispositivos deben estar protegidos.
+                <br>                
+                <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:-15px; padding-top:30px; padding-bottom:20px;">
+                    <a href="https://i2labsacademy.com/" style="display:block; margin-left:-10px;" target="_blank">
+                        <div class="img-news" style="background-image:url(https://i.imgur.com/aTD1KfO.png);"></div>
+                    </a>
+                </span>
+               <b>El incremento del cibercrimen,</b> los ataques a gran escala y las nuevas técnicas aplicadas a la ciberseguridad <b>marcarán este 2018.</b> Las empresas deberán fijar su atención en salvaguardar sus datos. Y no solo las grandes compañías. <br>Los pequeños y medianos negocios también se verán intimidados por esta amenaza que seguirá aumentando a medida que la sociedad se vaya digitalizando. <br>
+<b>¿Te interesa el mundo de la ciberseguridad, te recomendamos el ciclo formativo de 20 semanas de I2 Labs Academy.</b>
+                <br>
+              
+            <div style="text-align:left; background-color:white; background-size:25px; height:25px; padding-top:25px;">
+                <a href="https://i2labsacademy.com/" style="line-height: 31px; padding-right:10px;" target="_blank">
+                   <img class="logo-enterp" src="https://i.imgur.com/92A06kb.png" style="float:right;">
+                </a>
+                
+            
+           
+                
+               
+                        </div>
+       
+                    </i>
+                </span>
+    </div>
+</div>
+</div>
