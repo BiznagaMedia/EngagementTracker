@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consumer_Fade</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>
+    <style>
+        .corona p {
+            margin: 0px
+        }
+
+        .corona .bg.cover-1,
+        .corona .bg.cover-2,
+        .corona .bg.cover-3,
+        .corona {
+            background-size: cover
+        }
+
+        .corona .btn {
+            margin-top: 0;
+            padding-left: 0
+        }
+
+        .corona a,
+        .corona a:hover {
+            text-decoration: none;
+            color: #fff
+        }
+
+        .corona .bzm_wrapper {
+            position: relative;
+            overflow: hidden;
+            color: #000;
+            font-family: Lato, sans-serif
+        }
+
+        .corona .bzm_wrapper.size_300x250 {
+            width: 300px;
+            height: 250px;
+            background-color: #FFF
+        }
+
+         .cta {
+            position: absolute;
+            bottom: 85px;
+            width: 70px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 48%;
+            left: -30px;
+            background-color: #9f0000;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .corona .bzm_cover,
+        .corona .carousel-wrapper {
+            position: relative;
+            width: 100%
+        }
+
+        .corona .bzm_cover {
+            height: 150px
+        }
+
+        .corona .bg.cover-1 {
+            background-image: url(https://i.imgur.com/K70PSPp.jpg)
+        }
+
+        .corona .bg.cover-2 {
+            background-image: url(https://i.imgur.com/4l5wUsL.jpg)
+        }
+
+        .corona .bg.cover-3 {
+            background-image: url(https://i.imgur.com/oCyI1jJ.jpg)
+        }
+
+        .corona .bzm_cover.bzm_pos_tl {
+            top: 3%;
+            left: 3%
+        }
+
+        .corona .bzm_pos_tr {
+            top: 3%;
+            right: 3%
+        }
+
+        .corona .bzm_pos_bl {
+            bottom: 3%;
+            left: 3%
+        }
+
+        .corona .bzm_pos_br {
+            bottom: 3%;
+            right: 3%
+        }
+
+        .corona .bzm_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%)
+        }
+
+        .corona .bzm_text {
+            padding: 6px 0 0 .3em;
+            line-height: 1.1;
+            color: #000;
+            text-align: center;
+            margin-top: 10px;
+            
+        }
+
+        .corona .bzm_text_title {
+            font-size: 18px;
+            color: #000;
+            width:95%;
+        }
+
+        .corona .bzm_text_light {
+            font-size: 10px;
+            font-weight: 0
+        }
+
+        .corona .bzm_text_medium {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.7
+        }
+
+        .corona .bzm_text_bold {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1
+        }
+
+        .corona .bzm_text_small {
+            font-size: 10px;
+            line-height: 1
+        }
+
+        .corona .carousel-wrapper {
+            height: auto;
+            margin: 0 auto
+        }
+
+        .corona .carousel-item1 {
+            position: absolute;
+            opacity: 0;
+            transition: all .5s ease-in-out
+        }
+
+        .corona [id^=item] {
+            display: none
+        }
+
+        .corona .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 14s infinite;
+            -webkit-animation: fade 14s infinite
+        }
+
+        .corona .item-2 {
+            animation: fade2 14s infinite;
+            -webkit-animation: fade2 14s infinite
+        }
+
+        .corona .item-3 {
+            animation: fade3 14s infinite;
+            -webkit-animation: fade3 14s infinite
+        }
+
+        @keyframes fade {
+            0%,
+            100% {
+                opacity: 1
+            }
+            25%,
+            50%,
+            50% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade2 {
+            0%,
+            100%,
+            50%,
+            50% {
+                opacity: 0
+            }
+            25% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade3 {
+            0%,
+            100%,
+            25%,
+            50% {
+                opacity: 0
+            }
+            50% {
+                opacity: 1
+            }
+        }
+
+        .corona .bzm_button {
+            position: absolute;
+            bottom: 7px;
+            left: 3%;
+            text-transform: uppercase;
+            background-color: #6cbd44;
+            color: #fff;
+            border-radius: 50%;
+            padding: 4px;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer
+        }
+
+        .corona .bzm_button:hover {
+            background-color: #579e38
+        }
+
+        .corona .carousel-container {
+            width: 300px;
+            height: 150px;
+            overflow-y: hidden
+        }
+
+        .corona #botones-para-compartir {
+            text-align:left;
+            margin-left: 12px
+            
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+    </style>
+</head>
+
+<body class="corona" style="margin:0px;">
+   <div class="bzm_wrapper carousel-wrapper size_300x250">
+        <div class="cta"><span class="bzm_text_title bzm_text_bold" style="font-size:80%; color: white;">Infórmate</span></div>
+        <a href="https://www.nissan.com.mx/leaf/" style="display: block;" target="_blank">
+            <div class="carousel-container">
+                <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
+                <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
+                <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
+            </div>
+            <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000;line-height:1;font-size:20px;text-align:center;"> Este nuevo gadget tiene 4 ruedas y no contamina…</span></div>
+            <div style="bottom:0px;height:40px;text-align:right ;margin-top:5px; margin-right: 5px;"> <img src="https://i.imgur.com/9ptFf7O.png" style="height:39px;margin-top:1px;">
+                <div id="botones-para-compartir" style="display:inline;float:left;margin-top:-34px;"> <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.nissan.com.mx/leaf/" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="23" src="https://i.imgur.com/0TbvEn4.png" title="compartir en facebook" width="23" /></a><a class="shared" href="https://plus.google.com/share?url=https://www.nissan.com.mx/leaf/" target="_blank"> <img alt="compartir en google+" class="googlei" height="23" src="https://i.imgur.com/ct3Z8bp.png" title="compartir en google+" width="23" /></a><a class="shared" href="https://twitter.com/home?status=https://www.nissan.com.mx/leaf/" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="23" src="https://i.imgur.com/WIKgKGv.png" title="compartir en twitter" width="23" /></a> </span></div>
+            </div>
+        </a>
+    </div>
+
+    <!--<div class="EurowingsFade"></div>
+	<script src="bundle.js"></script>
+	<script>
+		EurowingsFade.show('EurowingsFade')
+	</script>-->
+</body>
+</html>
