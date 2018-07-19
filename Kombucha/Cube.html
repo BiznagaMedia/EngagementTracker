@@ -478,167 +478,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
-/*#/#*//*#i4.i20.shape.css:shape/base/css*/
-#i20 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
-#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i4.i130.image.css:image/base/css*/
-#i130 { opacity: 1; }
-/*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
-#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 160px;
-        -ms-transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
-}
-/*#/#*//*#i4.i229.image.css:image/base/css*/
-#i229 { opacity: 1; }
-/*#/#*//*#i229.i230.positioning.css:positioning/base/css.1*/
-#i229 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-}
-/*#/#*//*#i4.i241.text.css:text/base/css*/
-#i241 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Josefin Sans"; font-size: 20px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#i241.i242.positioning.css:positioning/base/css.1*/
-#i241 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 43px;
-        -ms-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-}
-/*#/#*//*#i4.i247.button.css:button/base/css*/
-#i247 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(242,12,150,1); font-family: "Josefin Sans"; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 20px; border-color: rgba(242,12,150,1); border-width: 1px; margin:-1px; border-style: solid; }
-#i247:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-#i247:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-/*#/#*//*#i247.i248.positioning.css:positioning/base/css.1*/
-#i247 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 75px; height: 30px;
-        -ms-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
-        transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
-}
-/*#/#*//*#i4.i251.image.css:image/base/css*/
-#i251 { opacity: 1; }
-/*#/#*//*#i251.i252.positioning.css:positioning/base/css.1*/
-#i251 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 42px; height: 41px;
-        -ms-transform: translate(0, 0) translate(255px, 205px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(255px, 205px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(255px, 205px) rotate(0deg);
-        transform: translate(0, 0) translate(255px, 205px) rotate(0deg);
-}
-/*#/#*//*#i4.i255.image.css:image/base/css*/
-#i255 { opacity: 1; }
-/*#/#*//*#i255.i256.positioning.css:positioning/base/css.1*/
-#i255 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
-}
-/*#/#*//*#i4.i259.image.css:image/base/css*/
-#i259 { opacity: 1; }
-/*#/#*//*#i259.i260.positioning.css:positioning/base/css.1*/
-#i259 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 26px;
-        -ms-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-}
-/*#/#*//*#i4.i91.shape.css:shape/base/css*/
-#i91 { background-color: #dedede; opacity: 0.00;
-}
-/*#/#*//*#i177.i178.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i91 { cursor: pointer; }
-/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
-#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i4 { cursor: pointer; }
-/*#/#*//*#i5.i30.shape.css:shape/base/css*/
-#i30 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
-#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i5.i58.image.css:image/base/css*/
-#i58 { opacity: 1; }
-/*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
-#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 160px;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i5.i227.image.css:image/base/css*/
-#i227 { opacity: 1; }
-/*#/#*//*#i227.i228.positioning.css:positioning/base/css.1*/
-#i227 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-}
-/*#/#*//*#i5.i231.image.css:image/base/css*/
-#i231 { opacity: 1; }
-/*#/#*//*#i231.i232.positioning.css:positioning/base/css.1*/
-#i231 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 26px;
-        -ms-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-}
-/*#/#*//*#i5.i245.button.css:button/base/css*/
-#i245 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(242,12,150,1); font-family: "Josefin Sans"; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 20px; border-color: rgba(242,12,150,1); border-width: 1px; margin:-1px; border-style: solid; }
-#i245:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-#i245:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-/*#/#*//*#i245.i246.positioning.css:positioning/base/css.1*/
-#i245 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 75px; height: 30px;
-        -ms-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
-        transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
-}
-/*#/#*//*#cube.css:cube/globalcss.1*/
+/*#cube.css:cube/globalcss.1*/
 
 .transformation {
     -webkit-transform: translateZ(-1000px);
@@ -767,6 +607,175 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
+/*#/#*//*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/*#/#*//*#i4.i20.shape.css:shape/base/css*/
+#i20 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
+#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i279.image.css:image/base/css*/
+#i279 { opacity: 1; }
+/*#/#*//*#i279.i280.positioning.css:positioning/base/css.1*/
+#i279 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 262px; height: 56px;
+        -ms-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+}
+/*#/#*//*#i4.i130.image.css:image/base/css*/
+#i130 { opacity: 1; }
+/*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
+#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 160px;
+        -ms-transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i229.image.css:image/base/css*/
+#i229 { opacity: 1; }
+/*#/#*//*#i229.i230.positioning.css:positioning/base/css.1*/
+#i229 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
+        -ms-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+        transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+}
+/*#/#*//*#i4.i247.button.css:button/base/css*/
+#i247 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(242,12,150,1); font-family: "Josefin Sans"; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 20px; border-color: rgba(242,12,150,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i247:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i247:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i247.i248.positioning.css:positioning/base/css.1*/
+#i247 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 75px; height: 30px;
+        -ms-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
+        transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
+}
+/*#/#*//*#i4.i251.image.css:image/base/css*/
+#i251 { opacity: 1; }
+/*#/#*//*#i251.i252.positioning.css:positioning/base/css.1*/
+#i251 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 42px; height: 41px;
+        -ms-transform: translate(0, 0) translate(255px, 205px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(255px, 205px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(255px, 205px) rotate(0deg);
+        transform: translate(0, 0) translate(255px, 205px) rotate(0deg);
+}
+/*#/#*//*#i4.i255.image.css:image/base/css*/
+#i255 { opacity: 1; }
+/*#/#*//*#i255.i256.positioning.css:positioning/base/css.1*/
+#i255 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
+        -ms-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
+        transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
+}
+/*#/#*//*#i4.i259.image.css:image/base/css*/
+#i259 { opacity: 1; }
+/*#/#*//*#i259.i260.positioning.css:positioning/base/css.1*/
+#i259 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 26px;
+        -ms-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+        transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+}
+/*#/#*//*#i4.i91.shape.css:shape/base/css*/
+#i91 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i177.i178.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i91 { cursor: pointer; }
+/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
+#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i4 { cursor: pointer; }
+/*#/#*//*#i5.i30.shape.css:shape/base/css*/
+#i30 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i5.i277.image.css:image/base/css*/
+#i277 { opacity: 1; }
+/*#/#*//*#i277.i278.positioning.css:positioning/base/css.1*/
+#i277 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 262px; height: 56px;
+        -ms-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+}
+/*#/#*//*#i5.i58.image.css:image/base/css*/
+#i58 { opacity: 1; }
+/*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
+#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 160px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i5.i227.image.css:image/base/css*/
+#i227 { opacity: 1; }
+/*#/#*//*#i227.i228.positioning.css:positioning/base/css.1*/
+#i227 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
+        -ms-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+        transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+}
+/*#/#*//*#i5.i231.image.css:image/base/css*/
+#i231 { opacity: 1; }
+/*#/#*//*#i231.i232.positioning.css:positioning/base/css.1*/
+#i231 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 26px;
+        -ms-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+        transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+}
+/*#/#*//*#i5.i245.button.css:button/base/css*/
+#i245 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(242,12,150,1); font-family: "Josefin Sans"; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 20px; border-color: rgba(242,12,150,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i245:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i245:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i245.i246.positioning.css:positioning/base/css.1*/
+#i245 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 75px; height: 30px;
+        -ms-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
+        transform: translate(0, 0) translate(113px, 145px) rotate(0deg);
+}
 /*#/#*//*#i5.i249.image.css:image/base/css*/
 #i249 { opacity: 1; }
 /*#/#*//*#i249.i250.positioning.css:positioning/base/css.1*/
@@ -784,15 +793,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
         transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
-}
-/*#/#*//*#i5.i273.text.css:text/base/css*/
-#i273 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Josefin Sans"; font-size: 20px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#i273.i274.positioning.css:positioning/base/css.1*/
-#i273 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 43px;
-        -ms-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
 }
 /*#/#*//*#i5.i95.shape.css:shape/base/css*/
 #i95 { background-color: #dedede; opacity: 0.00;
@@ -817,6 +817,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i6.i275.image.css:image/base/css*/
+#i275 { opacity: 1; }
+/*#/#*//*#i275.i276.positioning.css:positioning/base/css.1*/
+#i275 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 262px; height: 56px;
+        -ms-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
+        transform: translate(0, 0) translate(21px, 169px) rotate(0deg);
 }
 /*#/#*//*#i6.i60.image.css:image/base/css*/
 #i60 { opacity: 1; }
@@ -874,15 +883,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
         transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
 }
-/*#/#*//*#i6.i275.text.css:text/base/css*/
-#i275 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Josefin Sans"; font-size: 20px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#i275.i276.positioning.css:positioning/base/css.1*/
-#i275 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 43px;
-        -ms-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(-5px, 76px) rotate(0deg);
-}
 /*#/#*//*#i6.i99.shape.css:shape/base/css*/
 #i99 { background-color: #dedede; opacity: 0.00;
 }
@@ -938,12 +938,12 @@ url('fonts/Brandon_blk..svg') format('svg');
 <div id="i4" class="panel-content-holder">
     <!--#i4.i20.shape.html:shape/html-->
 <div id="i20"></div>
+<!--#/#--><!--#i4.i279.image.html:image/html-->
+<img id="i279" src="https://i.imgur.com/W6F20Nm.png"/>
 <!--#/#--><!--#i4.i130.image.html:image/html-->
 <img id="i130" src="https://i.imgur.com/mdeaaDl.png"/>
 <!--#/#--><!--#i4.i229.image.html:image/html-->
 <img id="i229" src="https://i.imgur.com/pb0ckbL.png"/>
-<!--#/#--><!--#i4.i241.text.html:text/html-->
-<div id="i241">Do you know the inmortal health elixir?</div>
 <!--#/#--><!--#i4.i247.button.html:button/html-->
 <button id="i247">Try it!!</button>
 <!--#/#--><!--#i4.i251.image.html:image/html-->
@@ -960,6 +960,8 @@ url('fonts/Brandon_blk..svg') format('svg');
 <div id="i5" class="panel-content-holder">
     <!--#i5.i30.shape.html:shape/html-->
 <div id="i30"></div>
+<!--#/#--><!--#i5.i277.image.html:image/html-->
+<img id="i277" src="https://i.imgur.com/W6F20Nm.png"/>
 <!--#/#--><!--#i5.i58.image.html:image/html-->
 <img id="i58" src="https://i.imgur.com/Dymg963.png"/>
 <!--#/#--><!--#i5.i227.image.html:image/html-->
@@ -972,8 +974,6 @@ url('fonts/Brandon_blk..svg') format('svg');
 <img id="i249" src="https://i.imgur.com/351arWH.png"/>
 <!--#/#--><!--#i5.i253.image.html:image/html-->
 <img id="i253" src="https://i.imgur.com/aWe1A4G.png"/>
-<!--#/#--><!--#i5.i273.text.html:text/html-->
-<div id="i273">Do you know the inmortal health elixir?</div>
 <!--#/#--><!--#i5.i95.shape.html:shape/html-->
 <div id="i95"></div>
 <!--#/#-->
@@ -982,6 +982,8 @@ url('fonts/Brandon_blk..svg') format('svg');
 <div id="i6" class="panel-content-holder">
     <!--#i6.i40.shape.html:shape/html-->
 <div id="i40"></div>
+<!--#/#--><!--#i6.i275.image.html:image/html-->
+<img id="i275" src="https://i.imgur.com/W6F20Nm.png"/>
 <!--#/#--><!--#i6.i60.image.html:image/html-->
 <img id="i60" src="https://i.imgur.com/0fv73mz.png"/>
 <!--#/#--><!--#i6.i205.image.html:image/html-->
@@ -994,8 +996,6 @@ url('fonts/Brandon_blk..svg') format('svg');
 <img id="i243" src="https://i.imgur.com/351arWH.png"/>
 <!--#/#--><!--#i6.i257.image.html:image/html-->
 <img id="i257" src="https://i.imgur.com/xirMWRx.png"/>
-<!--#/#--><!--#i6.i275.text.html:text/html-->
-<div id="i275">Do you know the inmortal health elixir?</div>
 <!--#/#--><!--#i6.i99.shape.html:shape/html-->
 <div id="i99"></div>
 <!--#/#-->
@@ -1041,9 +1041,17 @@ document.getElementById('i2').addEventListener('showPrevious', function(e){
 document.getElementById('i2').addEventListener('showNext', function(e){
     cube_i2.rotate(cube_i2.ROTATE_NEXT)
 });
+/*#/#*//*#i4.i279.image.js:image/base/js*/
+
 /*#/#*//*#i4.i130.image.js:image/base/js*/
 
 /*#/#*//*#i4.i229.image.js:image/base/js*/
+
+/*#/#*//*#i4.i251.image.js:image/base/js*/
+
+/*#/#*//*#i4.i255.image.js:image/base/js*/
+
+/*#/#*//*#i4.i259.image.js:image/base/js*/
 
 /*#/#*//*#i91.i177.actions.js:actions/base/js*/
 /* Name: On Click; */
@@ -1052,22 +1060,22 @@ document.getElementById('i91').addEventListener('click', function(e){
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.clearlykombucha.com/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
-/*#/#*//*#i4.i251.image.js:image/base/js*/
-
-/*#/#*//*#i4.i255.image.js:image/base/js*/
-
-/*#/#*//*#i4.i259.image.js:image/base/js*/
-
 /*#/#*//*#i4.i50.actions.js:actions/base/js*/
 /* Name: On Click; */
 
 /*#/#*//*#i50.i51.actions-clicktag.js:actions-clicktag/base/js.1*/
     
+/*#/#*//*#i5.i277.image.js:image/base/js*/
+
 /*#/#*//*#i5.i58.image.js:image/base/js*/
 
 /*#/#*//*#i5.i227.image.js:image/base/js*/
 
 /*#/#*//*#i5.i231.image.js:image/base/js*/
+
+/*#/#*//*#i5.i249.image.js:image/base/js*/
+
+/*#/#*//*#i5.i253.image.js:image/base/js*/
 
 /*#/#*//*#i95.i175.actions.js:actions/base/js*/
 /* Name: On Click; */
@@ -1076,20 +1084,22 @@ document.getElementById('i95').addEventListener('click', function(e){
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.clearlykombucha.com/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
-/*#/#*//*#i5.i249.image.js:image/base/js*/
-
-/*#/#*//*#i5.i253.image.js:image/base/js*/
-
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
 /* Name: On Click; */
 
 /*#/#*//*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
     
+/*#/#*//*#i6.i275.image.js:image/base/js*/
+
 /*#/#*//*#i6.i60.image.js:image/base/js*/
 
 /*#/#*//*#i6.i205.image.js:image/base/js*/
 
 /*#/#*//*#i6.i209.image.js:image/base/js*/
+
+/*#/#*//*#i6.i243.image.js:image/base/js*/
+
+/*#/#*//*#i6.i257.image.js:image/base/js*/
 
 /*#/#*//*#i99.i179.actions.js:actions/base/js*/
 /* Name: On Click; */
@@ -1098,10 +1108,6 @@ document.getElementById('i99').addEventListener('click', function(e){
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'https://www.clearlykombucha.com/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
-/*#/#*//*#i6.i243.image.js:image/base/js*/
-
-/*#/#*//*#i6.i257.image.js:image/base/js*/
-
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
 /* Name: On Click; */
 
@@ -1128,6 +1134,11 @@ customName: 1;
 name: Background;
 /*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i4.i279.image.meta:image/meta*/
+name: W6F20Nm.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i279.i280.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i4.i130.image.meta:image/meta*/
 name: Imagen de Cuadro; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
@@ -1138,10 +1149,6 @@ name: pb0ckbL.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i229.i230.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i4.i241.text.meta:text/meta*/
-name: Texto; customName: 1;
-/*#/#*//*#i241.i242.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i247.button.meta:button/meta*/
 name: Try it!!;
 customName: false;
@@ -1172,6 +1179,11 @@ data: /*!*/{}/*!*/;
 name: Background;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i5.i277.image.meta:image/meta*/
+name: W6F20Nm.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i277.i278.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i5.i58.image.meta:image/meta*/
 name: Imagen de Cuadro; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
@@ -1202,10 +1214,6 @@ name: aWe1A4G.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i253.i254.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i5.i273.text.meta:text/meta*/
-name: Texto; customName: 1;
-/*#/#*//*#i273.i274.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i95.shape.meta:shape/meta*/
 name: Link;
 /*#/#*//*#i95.i96.positioning.meta:positioning/meta.1*/
@@ -1216,6 +1224,11 @@ data: /*!*/{}/*!*/;
 name: Background;
 /*#/#*//*#i40.i41.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i275.image.meta:image/meta*/
+name: W6F20Nm.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i275.i276.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i6.i60.image.meta:image/meta*/
 name: Imagen de Cuadro; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
@@ -1246,10 +1259,6 @@ name: xirMWRx.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i257.i258.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i6.i275.text.meta:text/meta*/
-name: Texto; customName: 1;
-/*#/#*//*#i275.i276.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i6.i99.shape.meta:shape/meta*/
 name: Link;
 /*#/#*//*#i99.i100.positioning.meta:positioning/meta.1*/
