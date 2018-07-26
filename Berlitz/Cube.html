@@ -654,10 +654,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
 /*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
 #i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 58px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 87px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 87px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 87px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 87px) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) translate(0px, 90px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 90px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 90px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 90px) rotate(0deg);
 }
 /*#/#*//*#i4.i181.button.css:button/base/css*/
 #i181 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(9,49,150,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 25px; border-color: rgba(9,49,150,1); border-width: 1px; margin:-1px; border-style: solid; }
@@ -1120,7 +1120,11 @@ if ('click' === 'click') {
 }
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i5').addEventListener('click', function(e){
+    /*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i6.i60.image.js:image/base/js*/
 
 /*#/#*//*#i6.i237.image.js:image/base/js*/
