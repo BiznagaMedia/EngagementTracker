@@ -101,8 +101,21 @@
         }
 
         .bg.cover-1 {
+            background: url("https://i.imgur.com/6x5vVg6.jpg");
+            background-size: cover;
+        }
+        
+        .bg.cover-2 {
             background: url("https://i.imgur.com/Eg4B2fh.jpg");
             background-size: cover;
+
+            
+        }
+
+        .bg.cover-3 {
+            background: url("https://i.imgur.com/A1Bqevg.jpg");
+            background-size: cover;
+          
         }
 
    
@@ -243,6 +256,52 @@
         .item-3 {
             animation: fade3 8s infinite;
             -webkit-animation: fade3 8s infinite;
+        }
+         
+        
+          @keyframes fade {
+            0% {
+                opacity: 1
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade2 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 1
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 1
+            }
+            100% {
+                opacity: 0
+            }
         }
 
        
