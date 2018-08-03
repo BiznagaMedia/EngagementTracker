@@ -6,17 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="ad.size" content="width=320, height=480" />
-    <title>300-600 kombucha</title>
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet" type='text/css'>
+    <title>300-600 antojeria</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
     <style>
-        
-       
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:700');
-
-        body.kombucha {
+        body.antojeria {
             background-color: #FFFFFF;
             color: black;
-            font-family: Josefin Sans;
+            font-family: Source Sans Pro;
             margin: 0;
             padding: 0;
         }
@@ -27,36 +24,36 @@
             color: white;
         }
 
-        .kombucha_wrapper {
+        .antojeria_wrapper {
             position:absolute;
             overflow:hidden;
             cursor: pointer;
-            font-family: Josefin Sans;
+            font-family: Source Sans Pro;
             border: 1px solid #c5c5c5
                 
         }
 
-        .kombucha_wrapper.size_300x250 {
+        .antojeria_wrapper.size_300x250 {
             width: 298px;
             height: 248px;
         }
 
-        .kombucha_wrapper.size_320x480 {
+        .antojeria_wrapper.size_320x480 {
             width: 300px;
             height: 600px;
         }
 
-        .kombucha_wrapper.size_320x50 {
+        .antojeria_wrapper.size_320x50 {
             width: 318px;
             height: 48px;
         }
 
-        .kombucha_wrapper.size_728x90 {
+        .antojeria_wrapper.size_728x90 {
             width: 400px;
             height: 88px;
         }
 
-        .kombucha_cover {
+        .antojeria_cover {
             position: relative;
             width: 100%;
             height: 65%;
@@ -80,70 +77,68 @@
           
         }
 
-        .kombucha_cover .kombucha_logo {
-            position: fixed;
-            margin-top: 373px;
+        .antojeria_cover .antojeria_logo {
+            position: absolute;
+            bottom: -15px;
             width:105px;
             line-height: 1.3em;
             z-index: 2;
-            margin-left:91px;
-           
+            margin-left: 42%;
+            left: -30px;
             background-color: #105491;
             padding: 5px;
             border-radius: 20px;
             text-align: center;
         }
 
-        .kombucha_cover .kombucha_logo span {
+        .antojeria_cover .antojeria_logo span {
             color: white;
         }
 
-        .kombucha_logo img {
+        .antojeria_logo img {
             width: 100%;
             height: auto;
         }
 
-        .kombucha_pos_tl {
+        .antojeria_pos_tl {
             top: 3%;
             left: 3%;
         }
 
-        .kombucha_pos_tr {
+        .antojeria_pos_tr {
             top: 3%;
             right: 3%;
         }
 
-        .kombucha_pos_bl {
+        .antojeria_pos_bl {
             bottom: 3%;
             left: 3%;
         }
 
-        .kombucha_pos_br {
+        .antojeria_pos_br {
             bottom: 3%;
             right: 3%;
         }
 
-        .kombucha_pos_bm {
+        .antojeria_pos_bm {
             bottom: 3%;
             left: calc(100% - 70%);
         }
 
         /* cover height + 5% */
 
-        .kombucha_text {
+        .antojeria_text {
             position: absolute;
-            top: 66%;
+            top: 65%;
             left: 7.5px;
-            width: 99%;
+            width: 97%;
             padding: 0.3em;
             line-height: 1em;
             color: #453936;
-            font-size: 17px;
-            font-family: 
         }
 
-        .kombucha_text_title {
-            font-size: 185%;
+        .antojeria_text_title {
+            font-size: 220%;
             color: #453936;
             display: inline-block;
             width: 97%;
@@ -154,19 +149,19 @@
             line-height: 1.05em
         }
 
-        .kombucha_text_light {
+        .antojeria_text_light {
             font-weight: 400;
         }
 
-        .kombucha_text_medium {
+        .antojeria_text_medium {
             font-weight: 700;
         }
 
-        .kombucha_text_bold {
+        .antojeria_text_bold {
             font-weight: 900;
         }
 
-        .kombucha_text_small {
+        .antojeria_text_small {
             font-size: 110%;
         }
 
@@ -265,17 +260,17 @@
             }
         }
 
-        .kombucha_sponsoredby {
+        .antojeria_sponsoredby {
             position: absolute;
             z-index: 99;
         }
 
-        .kombucha_sponsoredby.kombucha_pos_br {
+        .antojeria_sponsoredby.antojeria_pos_br {
             right: 1%;
             bottom: 0% !important;
         }
 
-        .kombucha_sponsoredby .sponsor {
+        .antojeria_sponsoredby .sponsor {
             font-size: 9px;
             display: inline-block;
             float: left;
@@ -283,18 +278,18 @@
             margin-top: 7px;
         }
 
-        .kombucha_sponsoredby:hover .sponsor {
+        .antojeria_sponsoredby:hover .sponsor {
             opacity: 1;
         }
 
-        .kombucha_sponsoredby .kombucha_logo {
+        .antojeria_sponsoredby .antojeria_logo {
             width: 70px;
             display: inline-block;
             float: right;
              font-family: 'Lato', sans-serif;
         }
 
-        .kombucha_button {
+        .antojeria_button {
             position: absolute;
             bottom: 5px;
             left: 85%;
@@ -308,7 +303,7 @@
             cursor: pointer;
         }
 
-        .kombucha_button:hover {
+        .antojeria_button:hover {
             background-color: #d34100;
         }
         
@@ -330,28 +325,26 @@
     </script>
 </head>
 
-<body class="kombucha">
-    <div class="kombucha_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+<body class="antojeria">
+    <div class="antojeria_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
        
-        <div class="kombucha_cover bg cover-1 carousel-item item-1">
-          <div class="kombucha_logo"><span class="kombucha_text_bold kombucha_text_small">¡Visítanos!</span></div> 
+        <div class="antojeria_cover bg cover-1 carousel-item item-1">
+            <div class="antojeria_logo"><span class="antojeria_text_bold antojeria_text_small">¡Visítanos!</span></div>
         </div>
-        <div class="kombucha_cover bg cover-2 carousel-item item-2">
-            <div class="kombucha_logo"><span class="kombucha_text_bold kombucha_text_small">¡Visítanos!</span></div>
+        <div class="antojeria_cover bg cover-2 carousel-item item-2">
+            <div class="antojeria_logo"><span class="antojeria_text_bold antojeria_text_small">¡Visítanos!</span></div>
         </div>
-        <div class="kombucha_cover bg cover-3 carousel-item item-3">
-           <div class="kombucha_logo"><span class="kombucha_text_bold kombucha_text_small">¡Visítanos!</span></div>
+        <div class="antojeria_cover bg cover-3 carousel-item item-3">
+            <div class="antojeria_logo"><span class="antojeria_text_bold antojeria_text_small">¡Visítanos!</span></div>
         </div>
-        <div class="kombucha_text"> 
-            <span class="kombucha_text_title kombucha_text_bold">
-             Te haremos sentir <br> de vacaciones #MoodPacificoOn
+        <div class="antojeria_text"> 
+            <span class="antojeria_text_title antojeria_text_bold">
+              Te haremos sentir <br> de vacaciones #MoodPacificoOn
             </span>
             <br/>  
+           
             
-            
-             <div id="botones-para-compartir" style="display:inline;float:left;margin-top:45px;margin-left:7px;"> <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=www.antojeriadelmar.com" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/kblzHXh.png" title="compartir en facebook" width="22" /></a><a class="shared" href="https://plus.google.com/share?url=www.antojeriadelmar.com" target="_blank"> <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/8UttOVm.png" title="compartir en google+" width="22" /></a><a class="shared" href="https://twitter.com/home?status=www.antojeriadelmar.com" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/BMKNVRz.png" title="compartir en twitter" width="22" /></a> </span> </div>
-             
-             <img src="https://i.imgur.com/vgC3St9.png" style="height:45px; margin-left:112px;margin-top: 35px;"> 
+             <div id="botones-para-compartir" style="display:inline;float:left;margin-top:25px;margin-left:7px;"> <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=www.antojeriadelmar.com" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/kblzHXh.png" title="compartir en facebook" width="22" /></a><a class="shared" href="https://plus.google.com/share?url=www.antojeriadelmar.com" target="_blank"> <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/8UttOVm.png" title="compartir en google+" width="22" /></a><a class="shared" href="https://twitter.com/home?status=www.antojeriadelmar.com" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/BMKNVRz.png" title="compartir en twitter" width="22" /></a><img src="https://i.imgur.com/DEtkPjc.png" style="height:30px; margin-left: 100px;"> </span></div>
             </div>
             
             
