@@ -470,7 +470,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#cube.css:cube/globalcss.1*/
+/*#i5.i95.shape.css:shape/base/css*/
+#i95 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#cube.css:cube/globalcss.1*/
 
 .transformation {
     -webkit-transform: translateZ(-1000px);
@@ -599,29 +602,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
-/*#/#*//*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
 /*#/#*//*#i4.i20.shape.css:shape/base/css*/
 #i20 { background-color: #fafafa; opacity: 1;
 }
@@ -709,15 +689,18 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 }
 /*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i4 { cursor: pointer; }
+/*#/#*//*#i5.i235.shape.css:shape/base/css*/
+#i235 { background-color: #ffffff; opacity: 1;
+}
 /*#/#*//*#i5.i30.shape.css:shape/base/css*/
 #i30 { background-color: #fafafa; opacity: 1;
 }
 /*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
-#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+#i30 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 81.6%;
+        -ms-transform: translate(0, 0) translate(0px, 46px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 46px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 46px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 46px) rotate(0deg);
 }
 /*#/#*//*#i5.i24.text.css:text/base/css*/
 #i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 18px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px; margin-left: 5px;}
@@ -731,11 +714,11 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i5.i58.image.css:image/base/css*/
 #i58 { opacity: 1; }
 /*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
-#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 317px; height: 169px;
-        -ms-transform: translate(0, 0) translate(-17px, -7px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(-17px, -7px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(-17px, -7px) rotate(0deg);
-        transform: translate(0, 0) translate(-17px, -7px) rotate(0deg);
+#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 157px;
+        -ms-transform: translate(0, 0) translate(0px, 14px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 14px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 14px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 14px) rotate(0deg);
 }
 /*#/#*//*#i5.i231.button.css:button/base/css*/
 #i231 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(0,123,150,1); font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 20px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
@@ -757,17 +740,41 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(182px, 220px) rotate(0deg);
         transform: translate(0, 0) translate(182px, 220px) rotate(0deg);
 }
-/*#/#*//*#i5.i95.shape.css:shape/base/css*/
-#i95 { background-color: #dedede; opacity: 0.00;
+/*#/#*//*#visibility.css:visibility/globalcss*/
+.visibility-hidden, .visibility-hidden * {
+    visibility: hidden !important;
 }
+/*#/#*//*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
 /*#/#*//*#i175.i176.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i95 { cursor: pointer; }
 /*#/#*//*#i95.i96.positioning.css:positioning/base/css.1*/
-#i95 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+#i95 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 31.4%;
+        -ms-transform: translate(0, 0) translate(0px, 93px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 93px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 93px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 93px) rotate(0deg);
 }
 /*#/#*//*#i5.i193.image.css:image/base/css*/
 #i193 { opacity: 1; }
@@ -795,6 +802,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(9px, 220px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(9px, 220px) rotate(0deg);
         transform: translate(0, 0) translate(9px, 220px) rotate(0deg);
+}
+/*#/#*//*#i235.i236.positioning.css:positioning/base/css.2*/
+#i235 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i52.i53.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i5 { cursor: pointer; }
@@ -924,12 +938,14 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 </div>
 <!--#/#--><!--#i2.i5.cube-panel.html:cube-panel/html-->
 <div id="i5" class="panel-content-holder">
-    <!--#i5.i30.shape.html:shape/html-->
+    <!--#i5.i235.shape.html:shape/html-->
+<div id="i235"></div>
+<!--#/#--><!--#i5.i30.shape.html:shape/html-->
 <div id="i30"></div>
 <!--#/#--><!--#i5.i24.text.html:text/html-->
 <div id="i24">¿Quieres una promo 4x3 en lentes de contacto?</div>
 <!--#/#--><!--#i5.i58.image.html:image/html-->
-<img id="i58" src="https://i.imgur.com/xeeM9Vw.jpg"/>
+<img id="i58" src="https://i.imgur.com/qlZZmKG.jpg"/>
 <!--#/#--><!--#i5.i231.button.html:button/html-->
 <button id="i231">Ver más</button>
 <!--#/#--><!--#i5.i189.image.html:image/html-->
@@ -1124,6 +1140,8 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
+/*#/#*//*#i235.i236.positioning.js:positioning/base/js.2*/
+bmShow('i235');
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
 /* Name: On Click; */
 
@@ -1192,6 +1210,16 @@ if ('click' === 'click') {
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
 /* Name: On Click; */
 
+/*#/#*//*#i237.visibility.js:visibility/js*/
+function bmShow(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('visibility-hidden');
+}
+
+function bmHide(id) {
+    var el = document.getElementById(id);
+    el.classList.add('visibility-hidden');
+}
 /*#/#*/
 
   function next(){
@@ -1253,6 +1281,10 @@ customName: false;
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.i5.cube-panel.meta:cube-panel/meta*/
     name: Cube Panel 2;
+/*#/#*//*#i5.i235.shape.meta:shape/meta*/
+name: Shape 1;
+/*#/#*//*#i235.i236.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i30.shape.meta:shape/meta*/
 name: Background;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.1*/
