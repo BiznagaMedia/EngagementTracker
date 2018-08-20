@@ -943,7 +943,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i5.i30.shape.html:shape/html-->
 <div id="i30"></div>
 <!--#/#--><!--#i5.i24.text.html:text/html-->
-<div id="i24">¿Quieres adquirir 4x3 en lentes de contacto?</div>
+<div id="i24">¿Quieres una oferta de 4x3 en lentes de contacto?</div>
 <!--#/#--><!--#i5.i58.image.html:image/html-->
 <img id="i58" src="https://i.imgur.com/qlZZmKG.jpg"/>
 <!--#/#--><!--#i5.i231.button.html:button/html-->
@@ -1083,7 +1083,11 @@ if ('click' === 'click') {
 }
 /*#/#*//*#i4.i50.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i4').addEventListener('click', function(e){
+    /*#i50.i51.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i5.i58.image.js:image/base/js*/
 
 /*#/#*//*#i5.i189.image.js:image/base/js*/
@@ -1144,7 +1148,11 @@ if ('click' === 'click') {
 bmShow('i235');
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i5').addEventListener('click', function(e){
+    /*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i6.i60.image.js:image/base/js*/
 
 /*#/#*//*#i6.i191.image.js:image/base/js*/
@@ -1209,7 +1217,11 @@ if ('click' === 'click') {
 }
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i6').addEventListener('click', function(e){
+    /*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i237.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
