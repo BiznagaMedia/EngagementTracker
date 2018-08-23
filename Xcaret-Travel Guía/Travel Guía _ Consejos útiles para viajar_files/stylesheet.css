@@ -1,0 +1,70 @@
+.sp_recomendados .recomendados {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+
+    list-style: none;
+    margin-left: 0;
+}
+
+/******* Layout GRID ********/
+.sp_recomendados .recomendados.layout-grid {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.sp_recomendados .layout-grid .recomendados__item {
+    -webkit-flex: 1 0 151px;
+    -ms-flex: 1 0 151px;
+    flex: 1 0 151px;
+    
+    min-width: 151px;
+    margin-bottom: 2rem;
+    padding: .5rem;
+
+    list-style: none;
+}
+
+.sp_recomendados .layout-grid .recomendados__item img {
+    width: 100%;
+    height: auto;
+}
+
+.sp_recomendados .layout-grid .recomendados__item__content {
+    padding: 1rem;
+}
+
+/******* Layout LIST *******/
+.sp_recomendados .recomendados.layout-list {
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+}
+
+.sp_recomendados .layout-list .recomendados__item { display: table; margin-top: 1rem; margin-bottom: 0 !important; }
+.sp_recomendados .layout-list .recomendados__item .recomendados__item__img { display: table-caption; width: 100%; }
+@media (min-width: 720px) {
+    .sp_recomendados .layout-list .recomendados__item .recomendados__item__img { display: table-cell; width: 50%; }
+}
+@media (min-width: 1024px) {
+    .sp_recomendados .layout-list .recomendados__item .recomendados__item__img { width: 30%; }
+}
+
+.sp_recomendados .layout-list .recomendados__item img {
+    width: 100%;
+    height: auto;
+}
+.sp_recomendados .layout-list .recomendados__item .recomendados__item__content { display: table-cell; vertical-align: middle; margin-top: 0; padding-left: 1rem; }

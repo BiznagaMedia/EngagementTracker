@@ -1,0 +1,1467 @@
+$.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+			$(this).trigger("animationEnd");
+        });
+    }
+});
+
+
+var pub = $('.to_fix');
+var pub2 = $('.to_fix_2');
+var share = $('.share');
+var tope = 0;
+var tope2 = 0;
+var topeShare = 0;
+var start = 0;
+var start2 = 0;
+var start3 = 0;
+
+
+$(document).ready(function() {
+
+	$('body').append('<div class="overlay"/>');
+
+	var funResize = function(){
+
+		var wdW = $(window).width();
+		var wdH = $(window).height();
+
+		if(wdW <= 736 && wdW > wdH){//moblandscape
+			$('body').removeAttr('class');
+			$('body').addClass('mobile-land');
+				$('.suscribe').insertBefore('nav > ul');
+
+				$('header .publicidad:not(.movil)').remove();
+				$('footer .publicidad:not(.movil)').remove();
+				$('.publicidad.billboard').remove();
+
+
+		}
+		else if(wdW <= 736 && wdW < wdH){//mobportrait
+			$('body').removeAttr('class');
+			$('body').addClass('mobile-port');
+				$('.suscribe').insertBefore('nav > ul');
+
+				$('header .publicidad:not(.movil)').remove();
+				$('footer .publicidad:not(.movil)').remove();
+				$('.publicidad.billboard').remove();
+
+		}
+		else if(wdW >= 736 && wdW < wdH){//tabletport
+			$('body').removeAttr('class');
+			$('body').addClass('tablet-port');
+				$('.suscribe').insertBefore('header form');
+
+				$('.publicidad.movil').remove();
+		}
+		else if(wdW >= 736 && wdW > wdH && wdW < 1100){//tabletland
+			$('body').removeAttr('class');
+			$('body').addClass('tablet-land');
+				$('.suscribe').insertBefore('header form');
+
+				$('.publicidad.movil').remove();
+		}
+		else{
+			$('body').removeAttr('class');
+			$('body').addClass('normalize');
+				$('.suscribe').insertBefore('header form');
+
+				$('.publicidad.movil').remove();
+		}
+	};
+
+	funResize();
+
+
+
+	var headerFix = function(){
+			var topH = $('.billboard').offset().top;
+			var navH = $('nav').outerHeight();
+			var start = topH;
+			console.log(start);
+			$(window).on('scroll.header',function(){
+
+				var scrolL = $(window).scrollTop();
+
+				if(scrolL >= start){
+
+
+
+					$('body').css('margin-top',start);
+					$('header').addClass('fixed animated fadeInDown nopub');
+
+					if( $('body').hasClass('mobile-port') ||  $('body').hasClass('mobile-lands')){
+					}
+					else{
+						$('nav').addClass('fixed');
+					}
+
+
+				}
+				else{
+
+
+					if( $('html').hasClass('mobile') ){
+						$('body').css('margin-top','inherit');
+						$('header').removeClass('fixed fadeInDown nopub');
+						$('nav').removeClass('fixed');
+						$('#progressbar').hide();
+					}
+					else{
+						$('body').css('margin-top','inherit').removeClass('nopub');
+						$('header').removeClass('fixed animated fadeInDown slideToNav slideCloseNav nopub');
+						$('main,footer').removeClass('slideToNav');//.addClass('slideCloseNav');
+						$('nav').removeClass('fixed open');
+						$('.open_nav').removeClass('active');
+
+					}
+
+
+
+				}
+			});
+	};
+
+
+
+
+
+
+
+
+
+
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == true) {
+		$('html').addClass('mobile');
+
+
+		$('.menu-item-has-children > a').each(function(index,element){
+			$(this).click(function(e){
+				if( $(this).hasClass('active') ){
+					window.location = this.href;
+				}
+				else{
+					e.preventDefault();
+					$(this).siblings('ul').slideDown();
+					$(this).addClass('active');
+				}
+			})
+		});
+
+		//SCRIPT PARA MOSTRAR PUBLICIDAD MOBILE TABOOLA
+		var script = $('<script type="text/javascript">');
+		script.text('window._taboola = window._taboola || []; _taboola.push({ mode: "thumbnails-b", container: "taboola-below-article-mobile", placement: "Below Article Mobile", target_type: "mix" });')
+	 	$(script).insertAfter( "#taboola-below-article-mobile");
+
+		var myInterval = setInterval(function() {
+			if( $('header .publicidad.movil iframe').length ){
+
+				clearInterval(myInterval);
+				$('header .publicidad.movil').css('height', $('header .publicidad.movil iframe').height() );
+
+
+			}
+			else{
+				//console.log('nohay');
+			}
+		}, 500);
+
+		$(window).on('touchmove', function(event) {
+
+				$('header').addClass('nopub');
+
+		});
+		$(window).on('scroll', function(event) {
+				var scrolL = $(window).scrollTop();
+				if(scrolL  == 0){
+					$('header').removeClass('nopub');
+				}
+		});
+
+	} else { //DESKTOP
+
+		//SCRIPT PARA MOSTRAR PUBLICIDAD TABOOLA DESKTOP
+		var script = $('<script type="text/javascript">');
+		script.text('window._taboola = window._taboola || []; _taboola.push({ mode: "thumbnails-d", container: "taboola-below-article-thumbnails", placement: "Below Article Thumbnails No Feed", target_type: "mix"});')
+		$(script).insertAfter( "#taboola-below-article-thumbnails");
+
+		//para headerfijo y publicidad
+		var myInterval = setInterval(function() {
+			if( $('header .publicidad iframe').length ){
+
+				//console.log('hay');
+				clearInterval(myInterval);
+				$('header .publicidad').css('height', $('header .publicidad iframe').height() );
+
+				headerFix();
+
+			}
+			else{
+				//console.log('nohay');
+			}
+		}, 500);
+
+
+
+
+		//pubfix
+		if( $('.note:not(.ficha.escapada)').length ){
+
+			setTimeout(function(){	
+				$('.widgetg21 img').attr('data-pin-no-hover','true');
+			},10000);
+
+			if( $('.mainImg iframe').length == false && $('.gallery').length == false){
+				console.log('noes')
+				$(window).on('scroll.pub',function(){
+					var scrollTop = $(window).scrollTop();
+
+					if(scrollTop >= start && scrollTop < tope ){
+						pub.addClass('fixed');
+						pub.removeClass('absolute');
+						pub.css('margin-right',0);
+					}
+					else if(scrollTop >= tope){
+						pub.removeClass('fixed');
+						pub.addClass('absolute');
+						pub.removeAttr('style');
+					}
+					else{
+						pub.removeClass('fixed');
+						pub.removeAttr('style');
+						pub.removeClass('absolute');
+					}
+				});
+			}
+
+			$(window).on('scroll.pub2',function(){
+				var scrollTop = $(window).scrollTop();
+
+				if(scrollTop >= start2 && scrollTop < tope2 ){
+					pub2.addClass('fixed');
+					pub2.removeClass('absolute');
+					pub2.css('margin-right',0);
+				}
+				else if(scrollTop >= tope2){
+					pub2.removeClass('fixed');
+					pub2.addClass('absolute');
+					pub2.removeAttr('style');
+				}
+				else{
+					pub2.removeClass('fixed');
+					pub2.removeAttr('style');
+					pub2.removeClass('absolute');
+				}
+			});
+
+			$(window).on('scroll.share',function(){
+				var scrollTop = $(window).scrollTop();
+
+				if(scrollTop >= start3 && scrollTop < topeShare){
+					share.addClass('fixed');
+					share.removeClass('absolute');
+					share.css('margin-right',0);
+				}
+				else if(scrollTop >= topeShare){
+					share.removeClass('fixed');
+					share.addClass('absolute');
+					share.removeAttr('style');
+				}
+				else{
+					share.removeClass('fixed');
+					share.removeAttr('style');
+					share.removeClass('absolute');
+				}
+			});
+
+
+
+				function onElementHeightChange(elm, callback){
+					var lastHeight = elm.clientHeight, newHeight;
+					(function run(){
+						newHeight = elm.clientHeight;
+						if( lastHeight != newHeight )
+							callback();
+						lastHeight = newHeight;
+
+						if( elm.onElementHeightChangeTimer )
+							clearTimeout(elm.onElementHeightChangeTimer);
+
+						elm.onElementHeightChangeTimer = setTimeout(run, 200 );
+					})();
+				}
+				onElementHeightChange(document.body, function(){
+
+					$('.to_fix').removeClass('fixed');
+					$('.to_fix_2').removeClass('fixed');
+					$('.share').removeClass('fixed');
+
+
+					tope = $('.note .wrapper.tope').offset().top - $('.to_fix').height() - 97;
+					tope2 = $('footer').offset().top - $('.to_fix_2').height() - 127;
+					topeShare = $('.note .wrapper.tope').offset().top - $('.share').height() - 130;
+					start = $('.to_fix').offset().top - 97;
+					start2 = $('.to_fix_2').offset().top - 97;
+					start3 = $('.share').offset().top - 97;
+
+
+
+
+					$(window).trigger('scroll');
+				});
+
+
+
+
+		}//pubfix
+		else if( $('.note.ficha.escapada').length ){
+
+			console.log('entro');
+
+			$(window).on('scroll.share',function(){
+				var scrollTop = $(window).scrollTop();
+
+				if(scrollTop >= start && scrollTop < topeShare){
+					share.addClass('fixed');
+					share.removeClass('absolute');
+					share.css('margin-right',0);
+				}
+				else if(scrollTop >= topeShare){
+					share.removeClass('fixed');
+					share.addClass('absolute');
+					share.removeAttr('style');
+				}
+				else{
+					share.removeClass('fixed');
+					share.removeAttr('style');
+					share.removeClass('absolute');
+				}
+			});
+
+
+
+				function onElementHeightChange(elm, callback){
+					var lastHeight = elm.clientHeight, newHeight;
+					(function run(){
+						newHeight = elm.clientHeight;
+						if( lastHeight != newHeight )
+							callback();
+						lastHeight = newHeight;
+
+						if( elm.onElementHeightChangeTimer )
+							clearTimeout(elm.onElementHeightChangeTimer);
+
+						elm.onElementHeightChangeTimer = setTimeout(run, 200 );
+					})();
+				}
+				onElementHeightChange(document.body, function(){
+
+					$('.share').removeClass('fixed');
+
+
+					topeShare = $('footer').offset().top - $('.share').height() - 120;
+					start = $('.share').offset().top - 97;
+
+
+
+
+					$(window).trigger('scroll');
+				});
+		}//else ficha escapadas
+
+
+	}//else mobile
+
+	//resizeEvt
+	var resizeTimer;
+	$(window).on('resize', function(e) {
+	  clearTimeout(resizeTimer);
+	  resizeTimer = setTimeout(function() {
+			// Run code here, resizing has "stopped"
+			funResize();
+
+
+			$('header').removeClass('fixed animated slideInDown');
+
+			$('main').removeAttr('style');
+
+			//headerFix();
+
+
+
+	  }, 250);
+	});
+
+
+
+	$('.open_search,.close_search').click(function(e){
+		e.preventDefault();
+		if( $('.open_search').hasClass('active') ){
+			$('.open_search').removeClass('active');
+			$('.search').animateCss('fadeOut');
+			setTimeout(function(){
+				$('.search').hide().removeClass('animated fadeOut');
+			},800);
+			$('.search input:hidden').trigger('blur');
+		}
+		else{
+			$('.open_search').addClass('active');
+			$('.search').show().animateCss('fadeIn');
+			$('.search input:visible').focus();
+		}
+	});
+	
+	
+	
+	
+	var generalOptions = {
+		// data: ["Guanajuato", "Ciudad de México", "Oaxaca", "Querétaro", "Campeche", "Coahuila", "Chihuahua"],
+		url: function(phrase) {
+				return "/search-posts/?s="+phrase+"&just-state=true";
+		},
+		getValue: "name",
+		list: {
+			onSelectItemEvent: function() {
+				$('#s').addClass('active');
+			},
+			match: {
+				enabled: true
+			}
+		}
+	};
+	
+	$("#s").easyAutocomplete(generalOptions);
+
+	
+	
+
+	$('.magazine').click(function(e){
+		e.preventDefault();
+		$('.md_magazine').removeClass('hide slideCloseMag').addClass('slideMag');
+		$('.overlay').addClass('opened');
+	});
+	$('.close_mag,.overlay').click(function(e){
+		e.preventDefault();
+		$('.md_magazine').removeClass('hide slideMagMag').addClass('slideCloseMag');
+		$('.overlay').removeClass('opened');
+	});
+
+
+
+	$('.open_nav').click(function(e){
+		e.preventDefault();
+		if( $(this).hasClass('active') ){
+			$('main,header,footer').removeClass('slideToNav').addClass('slideCloseNav animated');
+			setTimeout(function(){
+				$('main,header,footer').removeClass('slideCloseNav animated');
+			},1000)
+			$('nav').removeClass('open');
+			$(this).removeClass('active');
+		}
+		else{
+			$('main,header,footer').addClass('slideToNav animated').removeClass('slideCloseNav');
+			$('nav').addClass('open');
+			$(this).addClass('active');
+		}
+		$('header').removeClass('slideInDown');
+	});
+
+
+	$('.overlay.menu_nav').click(function(e){
+		e.preventDefault();
+		$('html').removeClass('menu_open');
+		$(this).removeClass('opened');
+		$('.open_nav i').addClass('fa-bars');
+		$('.open_nav i').removeClass('fa-times');
+		//$('nav > ul > li > ul').slideUp();
+		//$('nav > ul > li > a').removeClass('active');
+	});
+
+
+	// $('nav ul li:first ul li:eq(1)').click(function(e){
+	// 	e.preventDefault();
+	// 	$('head').append('<script type="text/javascript" src="wp-content/themes/md2017/js/jq.vmap.js"></script>');
+	// 	$('head').append('<script type="text/javascript" src="wp-content/themes/md2017/js/map_mx.js"></script>');
+	// 	$('body').append('<article class="mapa active"><div id="vmap"></div><section class="combo_states"><ul><li data-title="Aguascalientes"><a href="https://www.mexicodesconocido.com.mx/aguascalientes">Aguascalientes</a></li><li data-title="Baja California"><a href="https://www.mexicodesconocido.com.mx/baja-california">Baja California</a></li><li data-title="Baja California Sur"><a href="https://www.mexicodesconocido.com.mx/baja-california-sur">Baja California Sur</a></li><li data-title="Campeche"><a href="https://www.mexicodesconocido.com.mx/campeche">Campeche</a></li><li data-title="Chiapas"><a href="https://www.mexicodesconocido.com.mx/chiapas">Chiapas</a></li><li data-title="Chihuahua"><a href="https://www.mexicodesconocido.com.mx/chihuahua">Chihuahua</a></li><li data-title="Ciudad de México"><a href="https://www.mexicodesconocido.com.mx/ciudad-de-mexico">Ciudad de México</a></li><li data-title="Coahuila"><a href="https://www.mexicodesconocido.com.mx/coahuila">Coahuila</a></li><li data-title="Colima"><a href="https://www.mexicodesconocido.com.mx/colima">Colima</a></li><li data-title="Durango"><a href="https://www.mexicodesconocido.com.mx/durango">Durango</a></li><li data-title="Estado de México"><a href="https://www.mexicodesconocido.com.mx/estado-de-mexico">Estado de México</a></li><li data-title="Guanajuato"><a href="https://www.mexicodesconocido.com.mx/guanajuato">Guanajuato</a></li><li data-title="Guerrero"><a href="https://www.mexicodesconocido.com.mx/guerrero">Guerrero</a></li><li data-title="Hidalgo"><a href="https://www.mexicodesconocido.com.mx/hidalgo">Hidalgo</a></li><li data-title="Jalisco"><a href="https://www.mexicodesconocido.com.mx/jalisco">Jalisco</a></li><li data-title="Michoacán"><a href="https://www.mexicodesconocido.com.mx/michoacan">Michoacán</a></li><li data-title="Morelos"><a href="https://www.mexicodesconocido.com.mx/morelos">Morelos</a></li><li data-title="Nayarit"><a href="https://www.mexicodesconocido.com.mx/nayarit">Nayarit</a></li><li data-title="Nuevo León"><a href="https://www.mexicodesconocido.com.mx/nuevo-leon">Nuevo León</a></li><li data-title="Oaxaca"><a href="https://www.mexicodesconocido.com.mx/oaxaca">Oaxaca</a></li><li data-title="Puebla"><a href="https://www.mexicodesconocido.com.mx/puebla">Puebla</a></li><li data-title="Querétaro"><a href="https://www.mexicodesconocido.com.mx/queretaro">Querétaro</a></li><li data-title="Quintana Roo"><a href="https://www.mexicodesconocido.com.mx/quintana-roo">Quintana Roo</a></li><li data-title="San Luis Potosí"><a href="https://www.mexicodesconocido.com.mx/san-luis-potosi">San Luis Potosí</a></li><li data-title="Sinaloa"><a href="https://www.mexicodesconocido.com.mx/sinaloa">Sinaloa</a></li><li data-title="Sonora"><a href="https://www.mexicodesconocido.com.mx/sonora">Sonora</a></li><li data-title="Tabasco"><a href="https://www.mexicodesconocido.com.mx/tabasco">Tabasco</a></li><li data-title="Tamaulipas"><a href="https://www.mexicodesconocido.com.mx/tamaulipas">Tamaulipas</a></li><li data-title="Tlaxcala"><a href="https://www.mexicodesconocido.com.mx/tlaxcala">Tlaxcala</a></li><li data-title="Veracruz"><a href="https://www.mexicodesconocido.com.mx/veracruz">Veracruz</a></li><li data-title="Yucatán"><a href="https://www.mexicodesconocido.com.mx/yucatan">Yucatán</a></li><li data-title="Zacatecas"><a href="https://www.mexicodesconocido.com.mx/zacatecas">Zacatecas</a></li></ul></section></article><div class="overlay_map"></div>');
+		
+	// 	$('.overlay_map').click(function(e){
+	// 		e.preventDefault();
+	// 		$('.mapa').remove();
+	// 		$('.overlay_map').remove();
+			
+	// 		$('head').find('<script type="text/javascript" src="wp-content/themes/md2017/js/jq.vmap.js"></script>').remove();
+	// 		$('head').find('<script type="text/javascript" src="wp-content/themes/md2017/js/map_mx.js"></script>').remove();
+	// 	});
+
+	// 	if(  $('body').hasClass('tablet-port') || $('body').hasClass('tablet-land') ||  $('body').hasClass('normalize')){
+	// 		$('#vmap').vectorMap({
+	// 			map: 'mx_en',
+	// 			backgroundColor: false,
+	// 			borderColor: '#eee',
+	// 			borderOpacity: 0.4,
+	// 			borderWidth: 1,
+	// 			color: '#444',
+	// 			hoverColor: '#ec2a58',
+	// 			selectedColor: '#ec2a58',
+	// 			enableZoom:false,
+	// 			onRegionOver: function(event,code, region){
+	// 				$('.combo_states li').removeClass('active');
+	// 				$('.combo_states li[data-title="'+region+'"]').addClass('active');
+	// 			},
+	// 			onRegionOut: function(event, code, region){
+	// 				$('.combo_states li').removeClass('active');
+	// 			},
+	// 			onRegionClick:function(element, code, region){
+	// 				window.location.replace( $('.combo_states li[data-title="'+region+'"] a').attr('href') );
+	// 			},
+	// 		});
+	// 	}
+
+	// 	$('.combo_states li a').each(function (index) {
+	// 		$(this).hover(function (e) {
+	// 				e.preventDefault();
+	// 				var ind = index+1;
+	// 				$('#vmap #jqvmap1_'+ind).attr('fill','#ec2a58');
+	// 			},function(){
+	// 				$('#vmap .jqvmap-region').attr('fill','#444');
+	// 		});
+	// 	});
+
+	// });
+
+
+
+	var carouselHome = $('.carousel_home.normal');
+	carouselHome.owlCarousel({
+		margin: 20,
+		loop: true,
+		responsive:{
+			0: {
+				items: 2,
+				margin:10
+			},
+			450:{
+				items: 2
+			},
+			800:{
+				items: 4
+			}
+		},
+		center:false,
+		autoplay:false,
+		nav:true,
+		autoHeight:true,
+	});
+
+	if( $('.gallery').length ){
+		var gallery = $('.gallery');
+		gallery.owlCarousel({
+			margin: 0,
+			loop: false,
+			responsive:{
+				0: {
+					items: 1,
+				},
+				450:{
+					items: 1
+				}
+			},
+			responsiveBaseElement:".mainImg",
+			center:false,
+			autoplay:false,
+			nav:true,
+			autoHeight:true,
+			singleItem:true
+		});
+		$('.gallery img').each(function() {
+			var imgSlide = $(this).attr('src');
+			$(this).parent().css({
+				'background-image': 'url("'+imgSlide+'")',
+			});
+		});
+		$('.gallery article').each(function(index,element) {
+			var ind = index+1;
+			var total = $('.gallery img').length;
+			$(this).append('<span>'+ind+' / '+total+'</span>');
+		});
+
+		$('.expand_gallery').click(function(e){
+			e.preventDefault();
+			$(this).children('i').toggleClass('fa-expand fa-compress');
+			$('.mainImg').toggleClass('full');
+			gallery.trigger('destroy.owl.carousel');
+			gallery.html(gallery.find('.owl-stage-outer').html()).removeClass('owl-loaded');
+			gallery.owlCarousel({
+				margin: 0,
+				loop: true,
+				items:1,
+				center:true,
+				autoplay:false,
+				nav:true,
+			});
+		})
+	}
+
+
+	var carouselHomeImg = $('.carousel_home.imagenes');
+	carouselHomeImg.owlCarousel({
+		margin: 20,
+		loop: true,
+		responsive:{
+			0: {
+				items: 2,
+				margin:10
+			},
+			450:{
+				items: 4
+			},
+			800:{
+				items: 5
+			}
+		},
+		center:false,
+		autoplay:false,
+		nav:true,
+		autoHeight:true,
+	});
+	$('.carousel_home img').each(function() {
+		var imgSlide = $(this).attr('src');
+		$(this).parent().css({
+			'background-image': 'url("'+imgSlide+'")',
+		});
+	});
+
+	$('.toVideo').click(function(e){
+		e.preventDefault();
+
+		$('.principal.video iframe').clone(true,true).lightbox_me({
+			centered: true,
+			destroyOnClose: true,
+			onLoad: function(){
+				console.log(this);
+				var autoplay = $('body > iframe').attr('src');
+				autoplay = autoplay + '&autoplay=1';
+				$('body > iframe').attr('src',autoplay);
+			},
+		});
+	});
+
+
+
+	//tabs de fichas
+	/*$('.tabs_go').each(function(){
+		var tabs = $(this).children('.content_choose').children('section');
+		$(this).children('.choose').children('a').click(function(e){
+			$(this).siblings('a').removeClass('active');
+			e.preventDefault();
+			$(this).addClass('active');
+			tabs.removeClass('active');
+			tabs.filter(this.hash).addClass('active');
+		});
+	});*/
+
+	$('.tabs_go').each(function(){
+		var tabs = $(this).children('.content_choose').children('section');
+		$(this).children('.choose').children('a').click(function(e){
+			$(this).siblings('a').removeClass('active');
+			e.preventDefault();
+			$(this).addClass('active');
+			tabs.removeClass('active');
+			tabs.filter(this.hash).addClass('active');
+		}).filter(':first').click();
+	});
+
+
+
+	//eventos moviles
+	/*if( $('html').hasClass('mobile') && $('body').hasClass('mobile-lands') || $('html').hasClass('mobile') && $('body').hasClass('mobile-port') ){
+		$('nav > ul > li > a').click(function(e){
+			e.preventDefault();
+			if($(this).hasClass('active')){
+				$(this).removeClass('active');
+				$(this).siblings('ul').slideUp();
+			}
+			else{
+				$('nav ul li ul').slideUp();
+				$('nav ul li a').removeClass('active');
+				$(this).toggleClass('active');
+				$(this).siblings('ul').slideToggle();
+			}
+		});
+		$('.login_sesion > ul > li:has(ul)').doubleTapToGo();
+	}
+	else if($('html').hasClass('mobile') && $('body').hasClass('tablet-land') || $('html').hasClass('mobile') && $('body').hasClass('tablet-port')){
+		$('nav > ul > li:has(ul),.login_sesion > ul > li:has(ul)').doubleTapToGo();
+	}*/
+
+
+
+	//lightbox agregar
+	$('.addtrip').click(function(e){
+		e.preventDefault();
+		$('label.select').hide();
+		$(this).parent().hide();
+		$('label.formtrip').css({'display':'block'});
+		newTravel = true; //Indica que el boton de crear viaje fue seleccionado
+	});
+	$('.alert a').click(function(e){
+		e.preventDefault();
+		$(this).parent().hide();
+	});
+
+
+	$('.login_sesion > ul>li>a').click(function(e){
+		e.preventDefault();
+	});
+	$('#indications-modal i.fa-times').click(function(){
+		$('#indications-modal').hide();
+	});
+
+	//lightboxes
+	$('#intSesion_text').click(function(e){
+		e.preventDefault();
+		if($(this).is('.light_sesion')){
+			$('.lightbox.sesion').lightbox_me({
+			centered: true,
+			});
+
+		}
+	});
+
+	$('.light_newsletter').click(function(e){
+		e.preventDefault();
+		$('.lightbox.newsletter').lightbox_me({
+			centered: true,
+			onLoad: function(){
+				if( $('.overlay:has(.opened)') ){
+					$('.overlay').trigger('click');
+				}
+			},
+        });
+	});
+
+  sendformdata = function(){
+  	//$('#messageForm').empty();
+  	$.ajax({
+  	  type: 'POST',
+  	  url: $("#form").attr("action"),
+  	  data: $("#form").serialize(),
+  	  //or your custom data either as object {foo: "bar", ...} or foo=bar&...
+  	  success: function(response) { if(response=='GOOD') {
+  				$('#nombre').val('')
+  				$('#email').val('')
+  				$('#telefono').val('')
+  				$('#personas').val('')
+  				$('#fecha').val('')
+  				ga('send', 'event', { eventCategory: 'mundomex', eventAction: 'click', eventLabel: $('h1.line').text() });
+          $('#messageForm').append('<h4>Tu mensaje ha sido enviado exitosamente, en breve te contactaremos</h4>')
+  		  }
+  		  else {
+          $('#messageForm').append('<h4>Tu mensaje no pudo ser entregado, podrías intentar más tarde por favor</h4>')
+  			}
+  	  },
+  	});
+  }
+	/*$('.exp_mundomex .form button').click(function(e){
+		e.preventDefault();
+
+
+	});*/
+
+	/*Se conecta al webservice para recuperar los viajes de un usuario*/
+	var loadSelectUserTravels = function(){
+		jQuery.ajax({
+			type: "GET",
+			url: 'https://destinos.mexicodesconocido.com.mx/assets/php/scriptsFichasDestino/TravelsWebService.php?methodName=getTravelsByUserId&userId='+userId,
+			dataType: 'json',
+			//data: {functionname: 'add', arguments: [1, 2]},
+
+			success: function (obj, textstatus) {
+				if( !('error' in obj) ) {
+				    data = obj.items
+				    var sel = $("#edit-trip");
+				    sel.empty();
+				    for (var i=0; i<data.length; i++) {
+				    sel.append('<option value="' + data[i].travelId + '">' + data[i].travelTitle + '</option>');
+				  }
+				}
+				else {
+				    console.log(obj.error);
+				}
+			  }
+		});
+	};
+
+
+	/*Se conecta al webservice para insertar en un viaje existente un nuevo destino los viajes de un usuario*/
+	$('#edit-submit--6').click(function(e){
+		e.preventDefault();
+		if (newTravel) {
+			var nombreViaje =  $("#edit-name-AddTravel").val();
+			if(nombreViaje.trim().length > 0 ){
+				jQuery.ajax({
+				type: "GET",
+				url: "https://destinos.mexicodesconocido.com.mx/assets/php/scriptsFichasDestino/TravelsWebService.php?methodName=createNewTravel&userId="+userId+"&titleTravel="+nombreViaje+"&fichaId="+docID+"&name="+name,
+				dataType: 'json',
+				//data: {functionname: 'add', arguments: [1, 2]},
+
+				success: function (obj, textstatus) {
+					if( !('error' in obj) ) {
+					    console.log(obj.message);
+					     nombreViaje =  nombreViaje.replace(/ /g,"-")+".html";
+					    $("#linkMisViajesForm").attr("href", "https://www.mexicodesconocido.com.mx/users/"+nickname+"/mis-viajes/"+nombreViaje);
+					    $("#addDestinationForm").remove();
+					    $(".succces_btn").show()
+					}
+					else {
+					    console.log(obj.error);
+					}
+				  }
+			});
+			}else{
+				$('#TravelNameEmpty').show();
+			}
+
+		}else{
+			//Agrega un destino a un viaje existente
+			var tripId = $("#edit-trip option:selected" ).val();
+			var nombreViaje =  $("#edit-trip option:selected" ).text().replace(/ /g,"-")+".html";
+			jQuery.ajax({
+				type: "GET",
+				url: "https://destinos.mexicodesconocido.com.mx/assets/php/scriptsFichasDestino/TravelsWebService.php?methodName=addDestination&userId="+userId+"&tripId="+tripId+"&fichaId="+docID,
+				dataType: 'json',
+				//data: {functionname: 'add', arguments: [1, 2]},
+
+				success: function (obj, textstatus) {
+					if( !('error' in obj) ) {
+					    console.log(obj.message);
+					    $("#linkMisViajesForm").attr("href", "https://www.mexicodesconocido.com.mx/users/"+nickname+"/mis-viajes/"+nombreViaje);
+					    $("#addDestinationForm").remove();
+					    $(".succces_btn").show()
+					}
+					else {
+					    console.log(obj.error);
+					}
+				  },
+				  error: function (request, status, error) {
+					   console.log(request.responseText);
+					     $('#DestinatonExist').show();
+				}
+			});
+		}
+	});
+
+
+	$('#btnAgregar').click(function(e){
+		e.preventDefault();
+		if($(this).is('.light_agregar')){
+			if (userId <= 0) {//userId es inicializada desde el archivo validUserSesion.php
+				$( ".light_sesion" ).trigger( "click" );
+			}else{
+				loadSelectUserTravels();//Conecta a webservice para recuperar los datos desde drupal
+				$('.lightbox.agregar').lightbox_me({
+				centered: true,
+				});
+			}
+		}
+
+	});
+	$('.light_photos').click(function(e){
+		e.preventDefault();
+		if (userId <= 0) {
+			$( ".light_sesion" ).trigger( "click" );
+		}else{
+			$('.lightbox.photos').lightbox_me({
+			centered: true,
+			});
+		}
+	});
+
+	 $('.modal a').attr('target', '_blank');
+
+	 $('.modal .close').each(function(){
+		 $(this).click(function(e){
+			 e.preventDefault();
+			 $(this).parent().hide();
+			 $('html').removeClass('modal_open');
+		 });
+	 });
+
+
+
+
+	$('.top_section_img img').each(function() {
+		var imgSlide = $(this).attr('src');
+		$(this).parent().css({
+			'background-image': 'url("'+imgSlide+'")',
+		});
+	});
+
+	$('.top_section_img .inner > a').click(function(e){
+		e.preventDefault();
+		$('.mapa').addClass('active');
+		$('.overlay.maps').addClass('opened');
+	});
+
+
+
+	$('.collapsable h3').each(function() {
+		$(this).click(function(){
+			if( $(this).hasClass('active') ){
+				$(this).next('div').slideUp();
+				$(this).removeClass('active');
+				$(this).children('i').removeClass('fa-angle-up');
+			}
+			else{
+				$('.collapsable h3').removeClass('active');
+				$('.collapsable h3 i').removeClass('fa-angle-up');
+				$('.collaps').slideUp();
+				$(this).next('div').slideDown();
+				$(this).addClass('active');
+				$(this).children('i').addClass('fa-angle-up');
+			}
+		});
+	});
+	
+	
+	if( $('.im_sorry').length ){
+		
+		
+		var imagesError = [];
+		$('.notes img').each(function(index,item){
+			imagesError.push($(item).attr('src'));
+		});
+		
+		var srcPrint = imagesError[Math.floor(Math.random() * 9) + 1];
+		var srcFinal = srcPrint.replace("-300x188", "");
+	   
+		
+		var imgEr = '<figure class="bg_error"><img src="'+srcFinal+'"></figure>';
+		
+		$('.wrapper.error').prepend(imgEr);
+		
+	 }
+	
+	if( $('.top_especiales').length ){
+		
+		
+		var imagesEspeciales = [];
+		$('.main_note img').each(function(index,item){
+			imagesEspeciales.push($(item).attr('src'));
+		});
+		
+		var srcPrint = imagesEspeciales[Math.floor(Math.random() * 9) + 1];
+		var srcFinal = srcPrint.replace("-300x188", "");
+	   
+		
+		//var imgEr = '<img src="'+srcFinal+'">';
+		
+		$('.top_especiales figure').css('background-image','url('+srcFinal+')');
+		
+	 }
+
+
+
+	/* ////////// escapate //////// */
+
+	var images = [];
+		$('.gallery img').each(function(index,item){
+			images.push($(item).attr('src'));
+		});
+
+
+		$.each(images,function(key,value){
+			var imT = '<figure><img src="'+value+'"></figure>';
+			$(imT).appendTo('.thumbs');
+		})
+
+		$('.thumbs img').each(function(index, element) {
+            $(this).click(function(){
+				$('.modal.imagenes').fadeIn();
+				$('html').addClass('modal_open');
+				gallery.trigger('destroy.owl.carousel');
+				gallery.html(gallery.find('.owl-stage-outer').html()).removeClass('owl-loaded');
+				gallery.owlCarousel({
+					margin: 0,
+					loop: true,
+					items:1,
+					center:true,
+					autoplay:false,
+					nav:true,
+				});
+
+				$('.gallery img').each(function(index, element) {
+                    var img = $(this).attr('src');
+					$(this).parent('figure').css('background-image','url("'+img+'")');
+					$(this).hide();
+                });
+
+				gallery.trigger('to.owl.carousel',[index, 0]);
+
+				$('.gallery .owl-dot').each(function(index, element) {
+					$(this).css({
+						'background-image': 'url("'+images[index]+'")',
+					});
+				});
+
+				if( $('html').is('.mobile') && $('body').is('.mobile-port') || $('html').is('.mobile') && $('body').is('.mobile-land') ){
+					console.log('images')
+					$(".gallery div figure").click(function(){
+						$(".modal.imagenes").toggleClass('viewer')
+					});
+				}
+
+				console.log(index)
+			})
+        });
+
+
+	$('.modal.imagenes .close').click(function(e){
+		e.preventDefault()
+		$('.modal').hide();
+		$('html').removeClass('modal_open');
+	});
+
+
+
+
+	var topDestinations = $('.top_destinations');
+	topDestinations.owlCarousel({
+		margin: 20,
+		loop: true,
+		nav:true,
+		center:false,
+		autoplay:true,
+		autoplayTimeout:7000,
+		autoplayHoverPause:true,
+		dots:false,
+		autoHeight:false,
+		responsive:{
+        0:{
+            items:1
+        },
+        740:{
+            items:2
+        },
+        1000:{
+            items:2
+        },
+        1023:{
+            items:3
+        }
+    }
+	});
+
+
+	if( $('.list.allstates').length ){
+
+
+		$('.allstates').prepend( '<div class="pagados" />' );
+
+		$('a.pagado').each(function(){
+			console.log( $(this) );
+
+			var clonado = $(this).clone();
+			$('.pagados').prepend( clonado );
+
+		});
+
+	}
+
+	/*$('a.states').click(function(e){
+		e.preventDefault();
+		$('.mapa').addClass('active');
+		$('.overlay.maps').addClass('opened');
+	});*/
+	if( $('#vmap').length ){
+
+		$('body').append('<div class="overlay maps"></div>');
+
+		$('.overlay.maps').click(function(e){
+			e.preventDefault();
+			$('.mapa').removeClass('active');
+			$('.overlay.maps').removeClass('opened');
+		});
+
+
+		if(  $('body').hasClass('tablet-port') || $('body').hasClass('tablet-land') ||  $('body').hasClass('normalize')){
+
+			$('#vmap').vectorMap({
+				map: 'mx_en',
+				backgroundColor: false,
+				borderColor: '#eee',
+				borderOpacity: 0.4,
+				borderWidth: 1,
+				color: '#444',
+				hoverColor: '#ec2a58',
+				selectedColor: '#ec2a58',
+				enableZoom:false,
+				onRegionOver: function(event,code, region){
+					/*if (code == 2 || code ==3 || code ==7 || code ==8 || code ==9 || code ==18 || code ==26 || code ==18 || code ==27 || code ==28 || code ==30 || code ==32){
+						event.preventDefault();
+						$(this).hover(function(){
+							$(this).addClass('disabled')
+						});
+					}*/
+					$('.combo_states li').removeClass('active');
+					$('.combo_states li[data-title="'+region+'"]').addClass('active');
+				},
+				onRegionOut: function(event, code, region){
+					$('.combo_states li').removeClass('active');
+				},
+				onRegionClick:function(element, code, region){
+					window.location.replace( $('.combo_states li[data-title="'+region+'"] a').attr('href') );
+				},
+			});
+		}
+	};
+	$('.combo_states li a').each(function (index) {
+		$(this).hover(function (e) {
+				e.preventDefault();
+				var ind = index+1;
+				$('#vmap #jqvmap1_'+ind).attr('fill','#ec2a58');
+			},function(){
+				$('#vmap .jqvmap-region').attr('fill','#444');
+		});
+	});
+
+	var options = {
+		//data: ["Ciudad de Mexico", "Teotihuacan", "Comala", "Zacatecas", "San Luis Potosi", "Cancun", "Holbox"],
+		url : function(phrase){
+			return "/wp-json/wp/v2/escapadas/?search="+phrase+"&categoria_escapada=47,51&per_page=100";
+		},
+		// url: "/wp-json/wp/v2/escapadas/?categoria_escapada=47",
+		getValue: function(e){
+			return e.title.rendered;
+		},
+		list: {
+			onSelectItemEvent: function(e) {
+				var data = $('#donde').getSelectedItemData();
+				window.location.href = data.link;
+				console.log(e);
+				$('#donde').addClass('active')
+			},
+			match: {
+				enabled: true
+			}
+		}
+	};
+	
+
+	if( $('#donde').length ) {
+		$("#donde").easyAutocomplete(options);
+	}
+
+	// $('.tabb .forms label ul li').each(function(index,element) {
+	// 	$(this).click(function(){
+	// 		var txt = $(this).text();
+	// 		$('.exp').val(txt).addClass('active')
+	// 		$('.tabb .forms label ul').hide();
+	// 	})
+	// });
+
+	$('.tabb .forms label.experiencias').hover(function() {
+		$(this).children('ul').stop().show(100);
+	},
+	function() {
+		$( this ).children('ul').stop().hide(100);
+	});
+
+
+	$('.ver_mas_info').click(function(e){
+		e.preventDefault()
+		$(this).next('.content_text').slideToggle();
+		$(this).remove();
+	});
+
+
+	$('.prov').click(function(e){
+		e.preventDefault();
+		$('.proveedores').lightbox_me({
+			centered: true,
+	        destroyOnClose: false,
+		});
+	});
+
+	$('.info_destination .llegar').click(function(e){
+		e.preventDefault();
+		$('.modal.llegar').show();
+		$('html').addClass('modal_open');
+		window.redrawMap();
+		// if(window.map){
+		// 	google.maps.event.trigger(window.map, 'resize');
+		// }
+	});
+
+	$('.info_destination .fiestas').click(function(e){
+		e.preventDefault();
+		$('.modal.fiestas').show();
+		$('html').addClass('modal_open');
+	});
+
+
+	if( $('#dias').length ) {
+		$('#dias').daterangepicker({
+			locale: {
+				format: 'YY-MMM-DD',
+				"monthNames": [
+					"Enero",
+					"Febrero",
+					"Marzo",
+					"Abril",
+					"Mayo",
+					"Junio",
+					"Julio",
+					"Agosto",
+					"Septiembre",
+					"Octubre",
+					"Noviembre",
+					"Diciembre"
+				],
+				"daysOfWeek": [
+					"do",
+					"lu",
+					"ma",
+					"mi",
+					"ju",
+					"vi",
+					"sá"
+				],
+			},
+			"autoApply": true,
+			"autoUpdateInput": false,
+			startDate: moment(),
+			minDate: moment().min(1,'days'),
+			maxDate: moment().add(90,'days'),
+			//parentEl: $('.advanced_search')
+			//endDate: moment().add(4,'days')
+		},
+		function(start, end, label) {
+			//$('#dias').val("Del " + start.format('DD MMM YY') + ' al ' + end.format('DD MMM YY') )
+			$('#llegada').val(start.format('DD MMM'));
+			$('#salida').val(end.format('DD MMM'));
+
+			$('#llegada').change(function(){
+				var when = $(this).val();
+				$('.llegada').text(when)
+			});
+		});
+	}
+
+	$('#dias,#dias2').attr('readonly',true);
+
+	$('#dias').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val('Del ' + picker.startDate.format('DD MMM YYYY') + ' al ' + picker.endDate.format('DD MMM YYYY'));
+	  });
+
+
+
+
+	var carouselThumbs = $('.thumbs_list .carousel');
+	carouselThumbs.owlCarousel({
+		margin: 10,
+		loop: true,
+		items:4,
+		center:false,
+		autoplay:false,
+		nav:true,
+		dots:false,
+		autoHeight:true,
+	});
+
+	$('.mid input[type="radio"]').change(function(){
+		var thisVal = $(this).val();
+		if( $(this).is(':checked') ){
+			if( $(this).val() == 'hotel' ){
+				console.log('hotel si');
+				$('.forms_proveedores .form article').hide();
+				$('.forms_proveedores .form article.hotel_opc').fadeIn(200);
+
+			}
+			else if( $(this).val() == 'restaurante' ){
+				$('.forms_proveedores .form article').hide();
+				$('.forms_proveedores .form article.restaurante_opc').fadeIn(200);
+			}
+			else if( $(this).val() == 'tour' ){
+				$('.forms_proveedores .form article').hide();
+				$('.forms_proveedores .form article.tour_opc').fadeIn(200);
+			}
+
+		};
+	});
+
+	$('.btn_sesion').click(function(e){
+        e.preventDefault();
+        $('.lightbox.sesion').lightbox_me({
+            centered: true,
+			closeSelector:".close",
+        });
+    });
+
+	$('.principal img').each(function() {
+		var imgSlide = $(this).attr('src');
+		$(this).parent().css({
+			'background-image': 'url("'+imgSlide+'")',
+		});
+	});
+
+	/******* INICIO CLICK PAGINADO******/
+	$('.ver_mas').click(paginado_ajax);
+	/******* FIN CLICK AJAX PAGINADO*****/
+
+	/******* INICIO CLICK PAGINADO******/
+	$('#ver_mas_especiales').click(paginado_especiales_ajax);
+	/******* FIN CLICK AJAX PAGINADO*****/
+
+	/******* INICIO CLICK AJAX CALENDARIO *******/
+	$('#calendario_eventos section a').click(eventos_mes)
+	/******* FIN CLICK AJAX CALENDARIO *********/
+
+
+	$('.open_hubspotform').click(function(e){
+           e.preventDefault();
+           $('.lightbox_hubspotform').lightbox_me({
+			centered:true,
+	        lightboxSpeed: 600,
+			showOverlay:true,
+        	closeClick: true,
+        	closeSelector: ".close",
+	        destroyOnClose: false,
+        	overlayCSS: {background: '#000', opacity: .7},
+			onLoad: function() {
+			}
+		});
+    });
+	
+	
+
+
+});// fin de document.ready (creo jajajaa)
+
+
+/***************************************************
+*
+* FUNCIÓN PARA EL PAGINADO DE SECCIONES
+*
+***************************************************/
+function paginado_ajax(e) {
+	e.stopPropagation();
+	e.preventDefault();
+	var docId = parseInt($('#idDoc').val());
+	var cat_name = $('#cat_name').val();
+	var idsNotFound = $('input#idsNotFound:last').val();
+
+
+	// Envio de datos para el ajax
+	var ajax_datos = {
+		action : 'paginacion_ajax_function',
+		id 			: docId,
+		category	: cat_name,
+		idsNotFound : idsNotFound
+   };
+
+	$.ajax({
+		url  : '/wp-admin/admin-ajax.php', //PARA SERVIDOR LINUX O PRODUCCION
+		//url  : '/md2017/wp-admin/admin-ajax.php', //para localhost
+		type : 'post',
+		data : ajax_datos,
+		beforeSend : inicio,
+		success : paginado
+	});
+}
+
+/***************************************************
+*
+* FUNCIÓN PARA EL PAGINADO DE ESPECIALES
+*
+***************************************************/
+function paginado_especiales_ajax(e) {
+	e.preventDefault();
+	var docId = parseInt($('#idDoc').val());
+	var cat_name = $('#cat_name').val();
+	var idsNotFound = $('input#idsNotFound:last').val();
+
+
+	// Envio de datos para el ajax
+	var ajax_datos = {
+		action : 'paginacion_especiales_ajax_function',
+		id 			: docId,
+		category	: cat_name,
+		idsNotFound : idsNotFound
+   };
+
+	$.ajax({
+		url  : '/wp-admin/admin-ajax.php', //PARA SERVIDOR LINUX O PRODUCCION
+		//url  : '/md2017/wp-admin/admin-ajax.php', //para localhost
+		type : 'post',
+		data : ajax_datos,
+		beforeSend : inicio,
+		success : paginado_especial
+	});
+}
+
+function inicio(e){
+  $('body').append('<i class="fa fa-spinner fa-spin loader"></i>');
+}
+
+function paginado(data){
+
+	var className = $('main .inner:last-child').attr('class');
+	var data = JSON.parse(data);
+	$('i.loader').remove();
+	$('main').append(data.a);
+	$('#idsNotFound').val(data.b);
+
+	var classNameAfter = $('main .inner:last-child').attr('class');
+
+	if(className === classNameAfter){
+		$('main .inner:last-child').removeClass('rtl');
+	}
+}
+
+function paginado_especial(data) {
+	var data = JSON.parse(data);
+	$('i.loader').remove();
+	$('.lo_ultimo').append(data.a);
+	$('#idsNotFound').val(data.b);
+}
+
+/***********************************************
+ *
+ * CALENDARIO DE EVENTOS
+ *
+ ***********************************************/
+function eventos_mes(e) {
+	e.preventDefault();
+	var IDmes = $(this).attr("id");
+	var anio = $(this).attr("name");
+	if( IDmes.length < 2 ){
+		IDmes = 0+IDmes;
+	}
+
+	// Envio de datos para el ajax
+	var ajax_datos = {
+		action	: 'eventos_function',
+		Id_mes 	: IDmes,
+		anio    : anio
+    };
+
+	$.ajax({
+		url  : '/wp-admin/admin-ajax.php', //PARA SERVIDOR LINUX O PRODUCCION
+		//url  : '/md2017/wp-admin/admin-ajax.php', //para localhost
+		type : 'post',
+		data : ajax_datos,
+		beforeSend : inicio,
+		success : eventos
+	});
+
+}
+
+function eventos(data) {
+	$('i.loader').remove();
+	$('.calendar').html(data);
+}
+/********** FIN CALENDARIO *****************/

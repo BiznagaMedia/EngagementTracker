@@ -1,0 +1,263 @@
+html,
+body,
+div,
+a,
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+body{
+    font-family: 'Roboto', sans-serif; 
+}
+.font-preloader{
+  font-family:'Roboto';
+  visibility:hidden;
+  width:0; 
+  height:0;
+}
+
+
+body,
+#ad,
+#ad_container {
+  position: absolute;
+  overflow: hidden;
+  width: 300px;
+  height: 600px;
+  cursor: pointer; }
+
+#ad_container {
+  visibility: hidden; }
+  
+
+.ie-fallback{
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+}
+  
+
+#ad {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid 1px #000;
+  position: relative;
+  background-color: #fff; }
+
+.shift {
+  left: -1px;
+  top: -1px; }
+
+.pos {
+  position: absolute; }
+
+.rez {
+  width: 300px;
+  height: 600px; }
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: 700; }
+
+span, li {
+  font-family: 'Roboto', sans-serif;
+  color: #444444;
+  font-weight: 300; }
+
+sup {
+  font-weight: 100;
+  font-family: Arial;
+  font-size: 8px;
+  position: relative;
+  top: 2px;
+  padding: 0px;
+  margin: 0px; }
+  
+
+.top-copy {
+  text-transform: uppercase;
+  position: absolute;
+  width: 300px;
+  left: 0px;
+  font-size: 28px;
+  line-height: 30px;
+  text-align: center; }
+
+.legal {
+  position: absolute;
+  width: 300px;
+  left: 0px;
+  font-size: 10px;
+  line-height: 13px;
+  text-align: center;
+  top: 465px;
+   letter-spacing: 0 }
+
+.legal-2 {
+  position: absolute;
+  width: 300px;
+  left: 0px;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  top: 465px; }
+
+.scrn-size {
+  text-transform: uppercase;
+  position: absolute;
+  width: 300px;
+  left: 5px;
+  font-size: 12px;
+  top: 270px;
+  letter-spacing: 0.4px; }
+  .scrn-size * {
+    font-weight: 500; }
+
+.model {
+  text-transform: uppercase;
+  position: absolute;
+  width: 300px;
+  left: 0px;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  top: 465px;
+   /*letter-spacing: .05em; */}
+  .model * {
+    font-weight: 700; }
+
+.bg {
+  width: 300px;
+  height: 600px; }
+
+.cpu-legal {
+  position: absolute;
+  width: 300px;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  bottom:12px;
+  overflow: hidden; }
+  .cpu-legal * {
+    display: inline-block;
+    position: relative; }
+  .cpu-legal .a {
+    letter-spacing: -.05em; }
+  .cpu-legal .b {
+    white-space: nowrap;
+    letter-spacing: -.05em; }
+	
+
+.cta {
+ position: absolute;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  background: #444444;
+  left: 102px;
+  top: 205px;
+  display: block;
+  z-index: 99;
+   padding: 7px 10px 6px 10px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: bolder;
+  vertical-align: middle;
+  }
+  
+  @-moz-document url-prefix() { 
+  .cta {padding: 5px 6px 6px 6px;}
+}
+
+
+.copy-1 {
+  top: 136px; }
+  .copy-1 * {
+    display: block;
+    position: relative; }
+  .copy-1 .a {
+    letter-spacing: 0.7px; }
+  .copy-1 .b {
+    font-weight: 700;
+    letter-spacing: 1.35px; }
+
+.copy-2, .copy-3, .copy-4 {
+  top: 136px; }
+  .copy-2 *, .copy-3 *, .copy-4 * {
+    display: inline-block;
+    position: relative; }
+  .copy-2 .a, .copy-3 .a, .copy-4 .a {
+    letter-spacing: 0.7px;
+    padding-right: 6px; 
+      font-weight: 700; }
+  .copy-2 .b, .copy-3 .b, .copy-4 .b {
+    letter-spacing: 1.0px;
+}
+
+/*.copy-4 .b {
+  letter-spacing: 1.35px;
+  font-weight: 700; }
+*/
+.copy-5 {
+  top: 136px; }
+  .copy-5 * {
+    display: inline-block;
+    position: relative;
+    letter-spacing: 1.3px; }
+  .copy-5 .a {
+    font-weight: 700; }
+
+
+.logos-dell {
+  position: absolute;
+  width: 49px;
+  height: 49px;
+  left:124px;
+  top:48px;
+
+}
+
+.logos-intel {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left:124px;
+  bottom:51px; }
+
+
+.product-1 {
+  position: absolute;
+  left:-1px;
+  top:270px;
+  width: 300px;
+  height: 205px; }
+
+.screens {
+  left: -1px;
+  top: 0px;
+  position: absolute;
+  width: 892px;
+  height: 122px; }
+
+.screens-container {
+  position: absolute;
+  width: 219px;
+  height: 122px;
+  overflow: hidden;
+  left: 40px;
+  top: 290px; }
+
+.product-container {
+  position: absolute;
+  width: 300px;
+  height: 122px;
+  left: 0px;
+  top: 0px; }
+
+/*# sourceMappingURL=style.css.map */

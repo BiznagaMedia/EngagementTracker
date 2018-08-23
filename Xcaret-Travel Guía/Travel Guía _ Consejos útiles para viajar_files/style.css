@@ -1,0 +1,103 @@
+/*
+Theme Name: Storm
+Theme URI: http://themeforest.net/user/bkninja
+Description: Storm is a clean magazine & blog WordPress theme.
+License: GNU General Public License version 3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Author: BK-Ninja
+Author URI: http://themeforest.net/user/bkninja
+Text Domain: bkninja
+Tags: light, two-columns, three-columns, responsive-layout, custom-header, custom-menu, featured-images, post-formats, rtl-language-support, translation-ready
+Version: 1.2.4
+*/
+
+.site-container {
+	background-color: transparent !important;
+}
+
+.page-wrap {
+	background-color: transparent !important;
+}
+
+.site-container.boxed .main-body {
+    background-color: white !important;
+}
+
+.main-nav {
+	background-color: white !important;
+	padding-bottom: 25px;
+	padding-top: 10px;
+}
+
+.header-wrap {
+    margin-bottom: 0 !important;
+
+}
+
+#ads_mob{position: fixed; bottom: 0;  background: #ffffff; margin: 0 ; z-index: 1000000; text-align: center; width: 100%;}
+
+.bloque-tematico{
+	border-top: 2px dashed #16a085;
+	display: block;
+	margin: 20px 0;
+}
+
+.widget_related_posts{}
+.widget_related_posts ul li{
+	text-align: center;
+	margin-bottom: 20px;
+	background: white;
+	padding: 0 0 10px;
+}
+.widget_related_posts ul li a{
+	font-weight: bold;
+}
+.widget_related_posts ul li img{
+	margin-bottom: 10px;
+}
+
+.pie{
+	padding: 5px 0 10px;
+	text-align: right;
+	display: block;
+	overflow: hidden;
+}
+@media screen and (max-width: 1023px) {
+	.header {
+	    text-align: center;
+	    margin: -20px;
+	}
+	.header .logo img {
+    display: inline-block;
+    width: 65%;
+		float: right;
+	}
+	.single .post-title-single {
+    font-size: 25px !important;
+		font-family: "PT Sans";
+		font-weight: 600;
+		font-style: normal;
+		text-transform: none;
+	}
+	.single .post-article h2 {
+		font-size: 20px;
+		font-family: "PT Sans";
+		font-weight: 600;
+		font-style: normal;
+	}
+	.site-container.boxed {
+	    width: 353px !important;
+	}
+	.header-inner {
+    width: 353px !important;
+    margin: -10px 0px 0px 0px !important;
+	}
+	.content.has-sidebar {
+    width: 100%;
+    margin-top: -35px;
+	}
+	.single .article-thumb {
+    margin-bottom: 5px;
+    overflow: hidden;
+	}
+}

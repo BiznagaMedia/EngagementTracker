@@ -1,0 +1,163 @@
+//-----------
+function get(id) {
+    var el = document.querySelector(id);
+    return el;
+}
+//------------
+var tlMain = new TimelineMax({repeat:0, repeatDelay:3});
+var startTime;
+var displayObjects = [];
+var copy1a = get(".copy-1 .a");
+var copy1b = get(".copy-1 .b");
+var copy2a = get(".copy-2 .a");
+var copy2b = get(".copy-2 .b");
+var copy3a = get(".copy-3 .a");
+var copy3b = get(".copy-3 .b");
+var copy4a = get(".copy-4 .a");
+var copy4b = get(".copy-4 .b");
+var copy5a = get(".copy-5 .a");
+var legal = get(".legal");
+var legal2 = get(".legal-2");
+
+var scrnsize = get(".scrn-size");
+var model = get(".model");
+var cpuLegal = get(".cpu-legal");
+var cta = get(".cta");
+//var logos = get(".logos");
+var logosd = get(".logos-dell");
+var logosi = get(".logos-intel");
+var screens0 = get(".screens");
+var product1 = get(".product-1");
+// var productContainer = get(".product-container");
+var screensContainer0 = get(".screens-container");
+window.onload = function () {
+    startTime = new Date();
+    tlMain.play("frame_1");
+    //--------------------------
+}
+var BLUR_DOM_COPY = 1.5;
+var productContainerObj = {blur: 5}
+// Setup timelines
+setupTimelineMain();
+function setupTimelineMain() {
+    tlMain
+        .timeScale(1)
+        .add('start')
+        .set([screensContainer0, product1], {x: -300})
+        .set([screens0], {x: -(335*2)})
+        .set(cpuLegal, {autoAlpha:0})
+
+
+
+        .set([copy1a, copy1b, copy2b, copy2a, copy3b, copy3a, copy4a, copy4b, copy5a, cta], {autoAlpha: 1, x: -300})
+        .set([copy1a, copy1b, copy2b, copy2a, copy3b, copy3a, copy4a, copy4b, copy5a, cta], {webkitFilter: "blur(" + BLUR_DOM_COPY + "px)"})
+        .set("#ad_container", {autoAlpha: 1})
+        .add("frame_1", "+=0.25")
+        //-----
+        .to([screensContainer0, product1], 0.35, {x: "+=300", ease: Back.easeOut.config(0.6)}, "frame_1+=0.5")
+        //----------
+        .call(elementsInDOM, [copy1b, copy1a], this, "frame_1+=0.5")
+        .add("frame_2", "+=2.75")
+        .call(elementsOutDOM, [copy1b, copy1a], this, "frame_2+=0")
+        .call(elementsInDOM, [copy2b, copy2a], this, "frame_2+=0.45")
+        //.to(logos, 0.5, {autoAlpha: 0, ease: Power3.easeIn}, "frame_2+=0.0")
+		.to(logosd, 0.5, {autoAlpha: 0, ease: Power3.easeIn}, "frame_2+=0.0")
+		.to(logosi, 0.5, {autoAlpha: 0, ease: Power3.easeIn}, "frame_2+=0.0")
+        .from(legal, 0.5, {autoAlpha: 0, ease: Power3.easeIn}, "frame_2+=0.25")
+        .add("frame_3", "+=2.75")
+        .call(elementsOutDOM, [copy2b, copy2a], this, "frame_3+=0")
+        .call(elementsInDOM, [copy3b, copy3a], this, "frame_3+=" + (0.45))
+        .call(nextFrame, [Back.easeInOut.config(0.6), 2], "frame_3+=" + (0.45 - 0.15))
+        .add("frame_4", "+=3.0")
+        .call(elementsOutDOM, [copy3b, copy3a], this, "frame_4+=0")
+        .call(elementsInDOM, [copy4b, copy4a], this, "frame_4+=0.45")
+        .call(nextFrame, [Sine.easeInOut, 2], "frame_4+=" + (0.45))
+
+
+        .to(legal, 0.35, {autoAlpha: 0, ease: Power3.easeIn}, "frame_4+=0.25")
+        .from(legal2, 0.35, {autoAlpha: 0, ease: Power3.easeIn}, "frame_4+=0.25")
+
+
+        .add("frame_5", "+=3.0")
+        .call(elementsOutDOM, [copy4b, copy4a], this, "frame_5+=0")
+        .to(legal2, 0.5, {autoAlpha: 0, ease: Power3.easeIn}, "frame_5+=0.25")
+        .call(elementsInDOM, [copy5a, cta], this, "frame_5+=0.45")
+    
+        .call(nextFrame, [Sine.easeInOut, 2], "frame_5+=" + (0.45))
+    
+        .from([model, scrnsize], 0.5, {autoAlpha: 0, ease: Power3.easeIn}, "frame_5+=0.5")
+        .to([logosd, logosi, cpuLegal], 0.5, {autoAlpha: 1, ease: Power3.easeIn}, "frame_5+=0.85");
+}
+function nextFrame(ease0, blurX) {
+    var time0 = 0.3 + 0.075;
+    TweenMax.to(screens0, time0, {x: "+=224-2", autoAlpha: 1, ease: ease0, delay: 0});
+    //---
+    var tweenObj = {blur1: 0};
+    TweenMax.to(tweenObj, time0 / 2, {
+        blur1: blurX,
+        onUpdate: applyBlur,
+        onUpdateParams: ['blur1'],
+        delay: 0,
+        ease: Sine.easeOut
+    });
+    TweenMax.to(tweenObj, time0 / 2, {
+        blur1: 0,
+        onUpdate: applyBlur,
+        onUpdateParams: ['blur1'],
+        delay: time0 / 2,
+        ease: Sine.easeIn
+    });
+        TweenMax.to(tweenObj, time0 / 2, {
+        blur1: 0,
+        onUpdate: applyBlur,
+        onUpdateParams: ['blur1'],
+        delay: time0 / 4,
+        ease: Sine.easeIn
+    });    
+    function applyBlur(propName) {
+        TweenMax.set(screens0, {webkitFilter: "blur(" + tweenObj[propName] + "px)"});
+    };
+}
+function elementsInDOM(copyA, copyB) {
+    TweenMax.staggerTo(arguments, 0.35, {x: 0, autoAlpha: 1, ease: Back.easeOut.config(0.6)}, 0.075);
+    //---
+    var tweenObj = {blur1: BLUR_DOM_COPY, blur2: BLUR_DOM_COPY};
+    TweenMax.to(tweenObj, 0.15, {blur1: 0, onUpdate: applyBlur, onUpdateParams: [copyA, 'blur1'], delay: 0.15});
+    TweenMax.to(tweenObj, 0.15 + 0.075, {blur2: 0, onUpdate: applyBlur, onUpdateParams: [copyB, 'blur2'], delay: 0.15});
+    function applyBlur(el, propName) {
+        TweenMax.set(el, {webkitFilter: "blur(" + tweenObj[propName] + "px)"});
+    };
+}
+function elementsOutDOM(copyA, copyB) {
+    if (copyA) {
+        TweenMax.to(copyA, 0.4, {x: 300, ease: Power4.easeIn});
+    }
+    if (copyB) {
+        TweenMax.to(copyB, 0.5, {x: 300, ease: Expo.easeIn});
+    }
+    //---
+    var tweenObj = {blur1: 0, blur2: 0};
+    TweenMax.to(tweenObj, 0.275, {
+        blur1: BLUR_DOM_COPY,
+        onUpdate: applyBlur,
+        onUpdateParams: [copyA, 'blur1'],
+        ease: Power4.easeIn
+    });
+    TweenMax.to(tweenObj, 0.375, {
+        blur2: BLUR_DOM_COPY,
+        onUpdate: applyBlur,
+        onUpdateParams: [copyB, 'blur2'],
+        ease: Expo.easeIn
+    });
+    function applyBlur(el, propName) {
+        TweenMax.set(el, {webkitFilter: "blur(" + tweenObj[propName] + "px)"});
+    };
+    //---
+    //---
+}
+function completeHandler() {
+    var seconds = (new Date() - startTime) / 1000 % 60;
+    console.log(seconds);
+}
+
+
