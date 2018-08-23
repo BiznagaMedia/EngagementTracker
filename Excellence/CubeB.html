@@ -901,7 +901,7 @@ cube_i2.init({
     autoRotateEnabled: true,
     autoRotateDelay: 3,
     autoRotateDirection: 'rotateNext',
-    defaultButtonsOnPanels: true,
+    defaultButtonsOnPanels: false,
     transition: 0.8
 });
 
@@ -929,7 +929,11 @@ bmShow('i181');
 bmShow('i196');
 /*#/#*//*#i4.i50.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i4').addEventListener('click', function(e){
+    /*#i50.i51.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i5.i192.image.js:image/base/js*/
 
 /*#/#*//*#i186.i187.positioning.js:positioning/base/js.2*/
@@ -947,7 +951,11 @@ document.getElementById('i95').addEventListener('click', function(e){
 });
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i5').addEventListener('click', function(e){
+    /*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i6.i194.image.js:image/base/js*/
 
 /*#/#*//*#i99.i179.actions.js:actions/base/js*/
@@ -965,7 +973,11 @@ bmShow('i198');
 bmShow('i202');
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i6').addEventListener('click', function(e){
+    /*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i183.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
