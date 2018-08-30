@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KnightFall_Fade</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>
+	 <style>
+		.ClaroScroll p {margin:0px;}
+		.ClaroScroll .btn{margin-top:0;padding-left:0;}
+		.ClaroScroll a,.ClaroScroll a:hover{text-decoration:none;color:#fff}
+
+		.ClaroScroll .bzm_wrapper{position:relative;overflow:hidden;color:#000;font-family:Lato,sans-serif;}
+		.ClaroScroll .bzm_wrapper.size_320x480{width:320px;height:480px;background-color:#FFF;overflow-y: auto;}
+		.ClaroScroll .bzm_cover,.ClaroScroll .carousel-wrapper{position:relative;width:100%}
+		.ClaroScroll .bzm_cover{height:150px}
+	
+		.ClaroScroll .bzm_cover.bzm_pos_tl{top:3%;left:3%}
+
+		.ClaroScroll .bzm_pos_tr{top:3%;right:3%}
+		.ClaroScroll .bzm_pos_bl{bottom:3%;left:3%}
+		.ClaroScroll .bzm_pos_br{bottom:3%;right:3%}
+		.ClaroScroll .bzm_pos_bm{bottom:3%;left:calc(100% - 70%)}
+
+		.ClaroScroll .bzm_text{padding:6px 0 0 .3em;line-height:1.1;color:#000}
+		.ClaroScroll .bzm_text_title{font-size:18px;color:#000}
+		.ClaroScroll .bzm_text_light{font-size:10px;font-weight:0}
+		.ClaroScroll .bzm_text_medium{font-size:14px;font-weight:500;line-height:1.4}
+		.ClaroScroll .bzm_text_bold{font-size:16px;font-weight:700;line-height:1}
+		.ClaroScroll .bzm_text_small{font-size:10px;line-height:1}
+
+		.ClaroScroll .carousel-wrapper{height:auto;margin:0 auto}
+	
+
+		.ClaroScroll .bzm_button{position:absolute;bottom:7px;left:3%;text-transform:uppercase;background-color:#6cbd44;color:#fff;border-radius:50%;padding:4px;text-align:center;font-size:90%;cursor:pointer}
+		.ClaroScroll .bzm_button:hover{background-color:#579e38}
+		.ClaroScroll .carousel-container{width:300px;height:150px;overflow-y:hidden}
+
+		.ClaroScroll #botones-para-compartir { text-align:right;}.likedini:hover, .facebooki:hover, .twitteri:hover, .googlei:hover,.pinteresti:hover {border-radius:25px 25px 25px 25px;transition:all .3s ease-out;box-shadow: 0px 0px 5px #000; /* Sombra */-moz-transition: all .5s;-webkit-transition: all .5s;-o-transition: all .5s;}.likedini, .facebooki, .twitteri, .googlei, .pinteresti {transition:all .3s ease-out;-moz-transition: all .5s;-webkit-transition: all .5s;-o-transition: all .5s;}
+
+		.ClaroScroll .logo {
+			width: 52%;
+			line-height: 1.3em;
+			right: -2px;
+			top: 108px;
+			z-index: 2;
+			background-color: #d63123;
+			
+			border-radius: 2px;
+			float:right;
+			height: 30px;
+			text-align:center;
+		}
+
+		.ClaroScroll #botones-para-compartir { text-align:right;}.likedini:hover, .facebooki:hover, .twitteri:hover, .googlei:hover,.pinteresti:hover {border-radius:25px 25px 25px 25px;transition:all .3s ease-out;box-shadow: 0px 0px 5px #000; /* Sombra */-moz-transition: all .5s;-webkit-transition: all .5s;-o-transition: all .5s;}.likedini, .facebooki, .twitteri, .googlei, .pinteresti {transition:all .3s ease-out;-moz-transition: all .5s;-webkit-transition: all .5s;-o-transition: all .5s;}
+
+		.ClaroScroll #Sup-botones-para-compartir { text-align:right;}.likedini:hover, .facebooki:hover, .twitteri:hover, .googlei:hover,.pinteresti:hover {border-radius:25px 25px 25px 25px;transition:all .3s ease-out;box-shadow: 0px 0px 5px #000; /* Sombra */-moz-transition: all .5s;-webkit-transition: all .5s;-o-transition: all .5s;}.likedini, .facebooki, .twitteri, .googlei, .pinteresti {transition:all .3s ease-out;-moz-transition: all .5s;-webkit-transition: all .5s;-o-transition: all .5s;}
+
+	 </style>
+</head>
+<body class="ClaroScroll" style="margin:0px;">
+
+	<div class="bzm_wrapper carousel-wrapper size_320x480">
+		<a href=" https://puntosmedios.com/" style="display: block;" target="_blank"><div style="background-image: url(https://i.imgur.com/tqBnc9V.png);background-size: cover;width:315px;height:150px;"></div></a>
+				<div class="bzm_text">
+					<a href=" https://puntosmedios.com/" style="display: block;" target="_blank"><span class="bzm_text_title  bzm_text_bold" style="color:#000;line-height:1;font-size:19px; text-align: center;">Jose Cuervo te ayuda a encontrar a tus amigos con el Webapp 
+PUNTOS MEDIOS
+</span></a>
+					<!--<div id="Sup-botones-para-compartir" style="display:inline;float:left;margin-left:8px;margin-top:13px;">
+						<span>  
+							<a class="shared" href="https://www.facebook.com/sharer/sharer.php?u= https://puntosmedios.com/ "  target="block">    
+							<img alt="compartir en facebook" class="facebooki" height="20" src="http://4.bp.blogspot.com/-2W3Fr7nS-T0/Uh1HrkLe5wI/AAAAAAAAAiQ/0-_aC8Yici4/s1600/facebook.png" title="compartir en facebook" width="20" /></a>
+
+							<a class="shared" href="https://plus.google.com/share?url= https://puntosmedios.com/ " target="block">
+							<img alt="compartir en google+" class="googlei" height="20" src="http://3.bp.blogspot.com/-Ioy5JWv_nwk/Uh1HlxE8urI/AAAAAAAAAhc/q_uUabDAhsU/s1600/Google%252B%2Balt.png" title="compartir en google+" width="20" /></a>
+
+							<a class="shared" href="https://twitter.com/home?status= https://puntosmedios.com/ " target="block">
+							<img alt="compartir en twitter" class="twitteri" height="20" src="http://3.bp.blogspot.com/-TgonF6vzJs0/Uh1Hmxqk8aI/AAAAAAAAAiA/MdT4pRWKRbI/s1600/twitter.png" title="compartir en twitter" width="20" /></a>
+						</span>
+					</div>-->
+				
+					<span class="bzm_text_title  bzm_text_medium" style="display:block;color:#000;margin-top: -7px;margin-bottom: 8px;padding-top:30px; text-align: center;">
+						<strong>¿Cómo funciona?</strong>
+					</span>
+				</div>
+			
+			<div class="bzm_text">
+				<a href=" https://puntosmedios.com/" style="display: block;  float: left;margin-left: 10px;" target="_blank">
+				<div style="background-image: url(https://i.imgur.com/nKnSqhi.png);background-size: cover;width:150px;height:248px;"></div></a>
+				<a href=" https://puntosmedios.com/" style="display: block;margin-left: 10px;" target="_blank"><span class="bzm_text_title  bzm_text_bold" style="color:#000;line-height:1; text-align: justify,padding-right: 10px;"><br></span></a>
+				<span class="bzm_text_title  bzm_text_medium" style="display:block;color:#000;"><strong>1.</strong> <i>Inicia sesión con tu cuenta de Facebook o crea una cuenta de <strong>Puntos Medios  </strong> con tu correo electrónico. </i></span><br>
+				<br> <br> <br> <br> <br> <br> 
+			</div>
+
+			<div class="bzm_text">
+				<a href=" https://puntosmedios.com/" style="display: block;padding-left: 10px; float: right;margin-top: 15px;" target="_blank"><div style="background-image: url(https://i.imgur.com/YE9MAZn.png);background-size: cover;width:150px;height:248px;"></div></a>
+				<a href=" https://puntosmedios.com/" style="display: block;margin-top: 15px;" target="_blank"><span class="bzm_text_title  bzm_text_medium" style="color:#000; "><br> <strong>2.</strong> <i> Elige la fecha y hora del día en la que quieras reunirte con tus amigos.</i></span></a> <br>
+				<br> <br> <br> <br> <br> <br> <br> <br>
+				
+				
+				<div class="bzm_text">
+				<a href=" https://puntosmedios.com/" style="display: block;  float: left; margin-left: 10px; margin-top: 15px" target="_blank">
+				<div style="background-image: url(https://i.imgur.com/lolkUTX.png);background-size: cover;width:130px;height:215px;"></div></a>
+				
+				<a href=" https://puntosmedios.com/" style="display: block; float: right; margin-left: 10px; margin-top: 15px" target="_blank">
+				<div style="background-image: url(https://i.imgur.com/DQWrz7X.png);background-size: cover;width:130px;height:215px;"></div></a>
+				
+				<a href=" https://puntosmedios.com/" style="display: block;margin-left: 10px;" target="_blank"><span class="bzm_text_title  bzm_text_bold" style="color:#000;line-height:1; text-align: justify,padding-right: 10px;"><br></span></a>
+				<span class="bzm_text_title  bzm_text_medium" style="display:block;color:#000;"> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <strong>3.</strong> <i> <strong> Busca tu punto de partida</strong>, puede ser tu oficina, tu casa o el lugar de donde saldrás  el día del evento, puedes hacerlo escribiendo la dirección o arrastrando el pin. <br> <br>
+
+<strong>  Puntos Medios </strong> toma en cuenta la ubicación de todos los amigos con los que quieres reunirte para un cumpleaños, celebración o simplemente con el pretexto de verse. Esta webapp sugiere el punto perfecto para juntarse sin que nadie tenga que trasladarse demasiado. 
+ </i></span><br>
+				
+			</div>
+
+			<div class="bzm_text">
+				<a href=" https://puntosmedios.com/" style="display: block;padding-left: 10px; float: right;margin-top: 15px;" target="_blank"><div style="background-image: url(https://i.imgur.com/YE9MAZn.png);background-size: cover;width:150px;height:248px;"></div></a>
+				<a href=" https://puntosmedios.com/" style="display: block;margin-top: 15px;" target="_blank"><span class="bzm_text_title  bzm_text_medium" style="color:#000; "><br> <strong>2.</strong> <i> Elige la fecha y hora del día en la que quieras reunirte con tus amigos.</i></span></a> <br>
+				<br> <br> <br> <br> <br> <br> <br> <br>
+				
+				
+
+			<div class="bzm_text">
+				<a href=" https://puntosmedios.com/" style="display: block;" target="_blank"><div style="background-image: url(https://i.imgur.com/YE9MAZn.png);background-size: cover;width:315px;height:150px;"></div></a>
+				<a href=" https://puntosmedios.com/" style="display: block;" target="_blank"><span class="bzm_text_title  bzm_text_bold" style="color:#000;line-height:1;"></br>¡No esperes más! Activa el servicio sin costo adicional. </span></a>
+				<span class="bzm_text_title  bzm_text_medium" style="display:block;color:#000;margin-top: 5px;margin-bottom: 5px;"></br><i><a href=" https://puntosmedios.com/" style="display: inline;color:#000000; text-decoration:underline;font-weight:bold;" target="_blank">*Activa el servicio*</a> sin costo adicional antes de viajar para que sigas escuchando las sonrisas de tus seres queridos y comunicándote durante todo tu viaje.</i></span></br>
+			</div>
+
+				<div style="text-align: right;background-color: white;background-size: 25px;height: 50px;left: 0;bottom: 0;">
+					<a href=" https://puntosmedios.com/" style="line-height: 31px;" target="_blank"><img src="https://i.imgur.com/8xxE9I1.png" style="height:25px; float:left;"></a>
+					<div id="botones-para-compartir" style="display:inline;float:left;margin-left:8px;margin-top:13px;">
+							<span>  
+								<a class="shared" href="https://www.facebook.com/sharer/sharer.php?u= https://puntosmedios.com/ "  target="block">    
+								<img alt="compartir en facebook" class="facebooki" height="16" src="http://4.bp.blogspot.com/-2W3Fr7nS-T0/Uh1HrkLe5wI/AAAAAAAAAiQ/0-_aC8Yici4/s1600/facebook.png" title="compartir en facebook" width="16" /></a>
+
+									<a class="shared" href="https://plus.google.com/share?url= https://puntosmedios.com/ " target="block">
+									<img alt="compartir en google+" class="googlei" height="16" src="http://3.bp.blogspot.com/-Ioy5JWv_nwk/Uh1HlxE8urI/AAAAAAAAAhc/q_uUabDAhsU/s1600/Google%252B%2Balt.png" title="compartir en google+" width="16" /></a>
+
+									<a class="shared" href="https://twitter.com/home?status= https://puntosmedios.com/ " target="block">
+									<img alt="compartir en twitter" class="twitteri" height="16" src="http://3.bp.blogspot.com/-TgonF6vzJs0/Uh1Hmxqk8aI/AAAAAAAAAiA/MdT4pRWKRbI/s1600/twitter.png" title="compartir en twitter" width="16" /></a>
+							</span>
+						</div>
+					<div class="logo">
+						<a href=" https://puntosmedios.com/" style="line-height: 31px;" target="_blank"><span style="font-size: 11.5px;font-weight:800">Activa Hoy tu Roaming</span></a>
+					</div>
+				</div>
+		</div>
+	</div>
+
+<!--
+	<div class="ClaroScroll"></div>
+	<script src="bundle.js"></script>
+	<script>
+		ClaroScroll.show('ClaroScroll')
+	</script>-->
+</body>
+</html>
+
