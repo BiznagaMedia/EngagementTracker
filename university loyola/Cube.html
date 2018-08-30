@@ -470,128 +470,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
-/*#/#*//*#i4.i20.shape.css:shape/base/css*/
-#i20 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
-#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
-/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
-#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 280px; height: 49px;
-        -ms-transform: translate(-50%, -50%) translate(-1px, 82px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(-1px, 82px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(-1px, 82px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(-1px, 82px) rotate(0deg);
-}
-/*#/#*//*#i4.i130.image.css:image/base/css*/
-#i130 { opacity: 1; }
-/*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
-#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 170px;
-        -ms-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
-}
-/*#/#*//*#i4.i181.button.css:button/base/css*/
-#i181 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(161,0,0,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(128,5,5,1); border-radius: 20px; border-color: rgba(128,5,5,1); border-width: 1px; margin:-1px; border-style: solid; }
-#i181:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-#i181:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-/*#/#*//*#i181.i182.positioning.css:positioning/base/css.2*/
-#i181 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 109px; height: 30px;
-        -ms-transform: translate(0, 0) translate(98px, 146px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(98px, 146px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(98px, 146px) rotate(0deg);
-        transform: translate(0, 0) translate(98px, 146px) rotate(0deg);
-}
-/*#/#*//*#i4.i190.image.css:image/base/css*/
-#i190 { opacity: 1; }
-/*#/#*//*#i190.i191.positioning.css:positioning/base/css.2*/
-#i190 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 59px; height: 32px;
-        -ms-transform: translate(0, 0) translate(237px, 215px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(237px, 215px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(237px, 215px) rotate(0deg);
-        transform: translate(0, 0) translate(237px, 215px) rotate(0deg);
-}
-/*#/#*//*#i4.i91.shape.css:shape/base/css*/
-#i91 { background-color: #dedede; opacity: 0.00;
-}
-/*#/#*//*#i177.i178.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i91 { cursor: pointer; }
-/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
-#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 99.6%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i4 { cursor: pointer; }
-/*#/#*//*#i5.i30.shape.css:shape/base/css*/
-#i30 { background-color: #fafafa; opacity: 1;
-}
-/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
-#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i5.i192.image.css:image/base/css*/
-#i192 { opacity: 1; }
-/*#/#*//*#i192.i193.positioning.css:positioning/base/css.1*/
-#i192 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 170px;
-        -ms-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
-}
-/*#/#*//*#i5.i194.button.css:button/base/css*/
-#i194 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(161,0,0,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(161,0,0,1); border-radius: 20px; border-color: rgba(161,0,0,1); border-width: 1px; margin:-1px; border-style: solid; }
-#i194:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-#i194:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-/*#/#*//*#i194.i195.positioning.css:positioning/base/css.2*/
-#i194 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 109px; height: 30px;
-        -ms-transform: translate(0, 0) translate(96px, 146px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(96px, 146px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(96px, 146px) rotate(0deg);
-        transform: translate(0, 0) translate(96px, 146px) rotate(0deg);
-}
-/*#/#*//*#visibility.css:visibility/globalcss*/
-.visibility-hidden, .visibility-hidden * {
-    visibility: hidden !important;
-}
-/*#/#*//*#i5.i196.text.css:text/base/css*/
-#i196 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#cube.css:cube/globalcss.1*/
+/*#cube.css:cube/globalcss.1*/
 
 .transformation {
     -webkit-transform: translateZ(-1000px);
@@ -720,6 +599,127 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
+/*#/#*//*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/*#/#*//*#visibility.css:visibility/globalcss*/
+.visibility-hidden, .visibility-hidden * {
+    visibility: hidden !important;
+}
+/*#/#*//*#i4.i20.shape.css:shape/base/css*/
+#i20 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
+#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i14.text.css:text/base/css*/
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 280px; height: 49px;
+        -ms-transform: translate(-50%, -50%) translate(-1px, 82px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(-1px, 82px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(-1px, 82px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(-1px, 82px) rotate(0deg);
+}
+/*#/#*//*#i4.i130.image.css:image/base/css*/
+#i130 { opacity: 1; }
+/*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
+#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 170px;
+        -ms-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
+}
+/*#/#*//*#i4.i181.button.css:button/base/css*/
+#i181 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(161,0,0,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(128,5,5,1); border-radius: 20px; border-color: rgba(128,5,5,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i181:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i181:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i181.i182.positioning.css:positioning/base/css.2*/
+#i181 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 109px; height: 30px;
+        -ms-transform: translate(0, 0) translate(98px, 146px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(98px, 146px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(98px, 146px) rotate(0deg);
+        transform: translate(0, 0) translate(98px, 146px) rotate(0deg);
+}
+/*#/#*//*#i4.i190.image.css:image/base/css*/
+#i190 { opacity: 1; }
+/*#/#*//*#i190.i191.positioning.css:positioning/base/css.2*/
+#i190 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 59px; height: 32px;
+        -ms-transform: translate(0, 0) translate(237px, 215px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(237px, 215px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(237px, 215px) rotate(0deg);
+        transform: translate(0, 0) translate(237px, 215px) rotate(0deg);
+}
+/*#/#*//*#i4.i91.shape.css:shape/base/css*/
+#i91 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i177.i178.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i91 { cursor: pointer; }
+/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
+#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 99.6%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i4 { cursor: pointer; }
+/*#/#*//*#i5.i30.shape.css:shape/base/css*/
+#i30 { background-color: #fafafa; opacity: 1;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i5.i192.image.css:image/base/css*/
+#i192 { opacity: 1; }
+/*#/#*//*#i192.i193.positioning.css:positioning/base/css.1*/
+#i192 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 170px;
+        -ms-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -9px) rotate(0deg);
+}
+/*#/#*//*#i5.i194.button.css:button/base/css*/
+#i194 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(161,0,0,1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(161,0,0,1); border-radius: 20px; border-color: rgba(161,0,0,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i194:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i194:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i194.i195.positioning.css:positioning/base/css.2*/
+#i194 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 109px; height: 30px;
+        -ms-transform: translate(0, 0) translate(96px, 146px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(96px, 146px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(96px, 146px) rotate(0deg);
+        transform: translate(0, 0) translate(96px, 146px) rotate(0deg);
+}
+/*#/#*//*#i5.i196.text.css:text/base/css*/
+#i196 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
 /*#/#*//*#i196.i197.positioning.css:positioning/base/css.1*/
 #i196 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 277px; height: 50px;
         -ms-transform: translate(-50%, -50%) translate(-1px, 81px) rotate(0deg);
@@ -792,11 +792,11 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i6.i214.text.css:text/base/css*/
 #i214 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
 /*#/#*//*#i214.i215.positioning.css:positioning/base/css.1*/
-#i214 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 41px;
-        -ms-transform: translate(-50%, -50%) translate(-1px, 76px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(-1px, 76px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(-1px, 76px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(-1px, 76px) rotate(0deg);
+#i214 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 46px;
+        -ms-transform: translate(-50%, -50%) translate(-1px, 79px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(-1px, 79px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(-1px, 79px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(-1px, 79px) rotate(0deg);
 }
 /*#/#*//*#i6.i220.shape.css:shape/base/css*/
 #i220 { background-color: #dedede; opacity: 0.00;
