@@ -470,7 +470,9 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#cube.css:cube/globalcss.1*/
+/*#i5.i194.image.css:image/base/css*/
+#i194 { opacity: 1; }
+/*#/#*//*#cube.css:cube/globalcss.1*/
 
 .transformation {
     -webkit-transform: translateZ(-1000px);
@@ -599,35 +601,12 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
-/*#/#*//*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
 /*#/#*//*#visibility.css:visibility/globalcss*/
 .visibility-hidden, .visibility-hidden * {
     visibility: hidden !important;
 }
 /*#/#*//*#i4.i20.shape.css:shape/base/css*/
-#i20 { background-color: #fafafa; opacity: 1;
+#i20 { background-color: #ffffff; opacity: 1;
 }
 /*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
 #i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
@@ -689,7 +668,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i4 { cursor: pointer; }
 /*#/#*//*#i5.i30.shape.css:shape/base/css*/
-#i30 { background-color: #fafafa; opacity: 1;
+#i30 { background-color: #ffffff; opacity: 1;
 }
 /*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
 #i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
@@ -718,8 +697,29 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(98px, 145px) rotate(0deg);
         transform: translate(0, 0) translate(98px, 145px) rotate(0deg);
 }
-/*#/#*//*#i5.i194.image.css:image/base/css*/
-#i194 { opacity: 1; }
+/*#/#*//*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
 /*#/#*//*#i194.i195.positioning.css:positioning/base/css.2*/
 #i194 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 70px; height: 26px;
         -ms-transform: translate(0, 0) translate(225px, 219px) rotate(0deg);
@@ -736,9 +736,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(-50%, -50%) translate(0px, 85px) rotate(0deg);
         transform: translate(-50%, -50%) translate(0px, 85px) rotate(0deg);
 }
-/*#/#*//*#i5.i95.shape.css:shape/base/css*/
-#i95 { background-color: #dedede; opacity: 0.00;
-}
 /*#/#*//*#i175.i176.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i95 { cursor: pointer; }
 /*#/#*//*#i95.i96.positioning.css:positioning/base/css.1*/
@@ -751,7 +748,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i52.i53.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i5 { cursor: pointer; }
 /*#/#*//*#i6.i40.shape.css:shape/base/css*/
-#i40 { background-color: #fafafa; opacity: 1;
+#i40 { background-color: #ffffff; opacity: 1;
 }
 /*#/#*//*#i40.i41.positioning.css:positioning/base/css.1*/
 #i40 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
@@ -818,6 +815,9 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i5.i95.shape.css:shape/base/css*/
+#i95 { background-color: #dedede; opacity: 0.00;
 }
 /*#/#*/
 </style>
@@ -921,7 +921,7 @@ document.getElementById('i2').addEventListener('showNext', function(e){
 /* Name: On Click; */
 document.getElementById('i91').addEventListener('click', function(e){
     /*#i177.i178.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.realmadrid.com/area-vip'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.realmadrid.com/area-vip?utm_source=RTB&utm_medium=OnNative_Esp&utm_campaign=Temporada_18_19'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i181.i182.positioning.js:positioning/base/js.2*/
@@ -939,7 +939,7 @@ bmShow('i184');
 /* Name: On Click; */
 document.getElementById('i95').addEventListener('click', function(e){
     /*#i175.i176.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.realmadrid.com/area-vip'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.realmadrid.com/area-vip?utm_source=RTB&utm_medium=OnNative_Esp&utm_campaign=Temporada_18_19'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i186.i187.positioning.js:positioning/base/js.2*/
@@ -957,7 +957,7 @@ bmShow('i194');
 /* Name: On Click; */
 document.getElementById('i99').addEventListener('click', function(e){
     /*#i179.i180.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.realmadrid.com/area-vip'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.realmadrid.com/area-vip?utm_source=RTB&utm_medium=OnNative_Esp&utm_campaign=Temporada_18_19'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i188.i189.positioning.js:positioning/base/js.2*/
