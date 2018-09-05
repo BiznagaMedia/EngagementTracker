@@ -1000,7 +1000,7 @@ cube_i2.init({
     autoRotateEnabled: true,
     autoRotateDelay: 3,
     autoRotateDirection: 'rotateNext',
-    defaultButtonsOnPanels: true,
+    defaultButtonsOnPanels: false,
     transition: 0.8
 });
 
@@ -1217,11 +1217,7 @@ if ('click' === 'click') {
 }
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
 /* Name: On Click; */
-document.getElementById('i6').addEventListener('click', function(e){
-    /*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
-/*#/#*/
-});
+
 /*#/#*//*#i183.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
