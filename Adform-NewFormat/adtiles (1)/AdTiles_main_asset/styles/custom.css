@@ -38,3 +38,14 @@
     display: block;
     content: '';
 }
+.bzm_text_small {
+            font-size: 10px;
+            line-height: -2;
+            margin-top: 4px
+        }
+}
+
+.bzm_text_title {
+     font-size: 14px;
+            color: #fff;
+}
