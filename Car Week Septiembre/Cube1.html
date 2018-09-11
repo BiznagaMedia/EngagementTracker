@@ -470,8 +470,132 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#i175.i176.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i95 { cursor: pointer; }
+/*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
+}
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/*#/#*//*#i4.i20.shape.css:shape/base/css*/
+#i20 { background-color: #ffffff; opacity: 1;
+}
+/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
+#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i130.image.css:image/base/css*/
+#i130 { opacity: 1; }
+/*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
+#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 160px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i14.text.css:text/base/css*/
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 19px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 280px; height: 49px;
+        -ms-transform: translate(-50%, -50%) translate(1px, 81px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(1px, 81px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(1px, 81px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(1px, 81px) rotate(0deg);
+}
+/*#/#*//*#i4.i212.image.css:image/base/css*/
+#i212 { opacity: 1; }
+/*#/#*//*#i212.i213.positioning.css:positioning/base/css.2*/
+#i212 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 31px; height: 31px;
+        -ms-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
+        transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
+}
+/*#/#*//*#i4.i218.button.css:button/base/css*/
+#i218 { position: absolute; cursor: pointer; opacity: 1.00; background-color: rgba(0,56,255,1); font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(0,56,255,1); border-radius: 20px; border-color: rgba(0,56,255,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i218:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i218:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i218.i219.positioning.css:positioning/base/css.2*/
+#i218 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 116px; height: 30px;
+        -ms-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+        transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+}
+/*#/#*//*#i4.i91.shape.css:shape/base/css*/
+#i91 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i177.i178.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i91 { cursor: pointer; }
+/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
+#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i4 { cursor: pointer; }
+/*#/#*//*#i5.i30.shape.css:shape/base/css*/
+#i30 { background-color: #ffffff; opacity: 1;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i5.i186.image.css:image/base/css*/
+#i186 { opacity: 1; }
+/*#/#*//*#i186.i187.positioning.css:positioning/base/css.1*/
+#i186 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 160px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i5.i214.text.css:text/base/css*/
+#i214 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 20px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+/*#/#*//*#i214.i215.positioning.css:positioning/base/css.1*/
+#i214 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 275px; height: 43px;
+        -ms-transform: translate(-50%, -50%) translate(1px, 77px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(1px, 77px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(1px, 77px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(1px, 77px) rotate(0deg);
+}
+/*#/#*//*#i5.i220.image.css:image/base/css*/
+#i220 { opacity: 1; }
+/*#/#*//*#i220.i221.positioning.css:positioning/base/css.2*/
+#i220 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 31px; height: 31px;
+        -ms-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
+        transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
+}
+/*#/#*//*#i5.i277.button.css:button/base/css*/
+#i277 { position: absolute; cursor: pointer; opacity: 1.00; background-color: rgba(0,56,255,1); font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(0,56,255,1); border-radius: 20px; border-color: rgba(0,56,255,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i277:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i277:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
 /*#/#*//*#cube.css:cube/globalcss.1*/
 
 .transformation {
@@ -605,148 +729,24 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 .visibility-hidden, .visibility-hidden * {
     visibility: hidden !important;
 }
-/*#/#*//*#i4.i20.shape.css:shape/base/css*/
-#i20 { background-color: #ffffff; opacity: 1;
-}
-/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
-#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i4.i130.image.css:image/base/css*/
-#i130 { opacity: 1; }
-/*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
-#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 160px;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 19px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
-/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
-#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 280px; height: 49px;
-        -ms-transform: translate(-50%, -50%) translate(1px, 81px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(1px, 81px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(1px, 81px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(1px, 81px) rotate(0deg);
-}
-/*#/#*//*#i4.i212.image.css:image/base/css*/
-#i212 { opacity: 1; }
-/*#/#*//*#i212.i213.positioning.css:positioning/base/css.2*/
-#i212 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 31px; height: 31px;
-        -ms-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
-        transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
-}
-/*#/#*//*#i4.i218.button.css:button/base/css*/
-#i218 { position: absolute; cursor: pointer; opacity: 1.00; background-color: rgba(0,56,255,1); font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(0,56,255,1); border-radius: 20px; border-color: rgba(0,56,255,1); border-width: 1px; margin:-1px; border-style: solid; }
-#i218:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-#i218:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-/*#/#*//*#i218.i219.positioning.css:positioning/base/css.2*/
-#i218 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 116px; height: 30px;
-        -ms-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
-        transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
-}
-/*#/#*//*#i4.i91.shape.css:shape/base/css*/
-#i91 { background-color: #dedede; opacity: 0.00;
-}
-/*#/#*//*#i177.i178.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i91 { cursor: pointer; }
-/*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
-#i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
-#i4 { cursor: pointer; }
-/*#/#*//*#i5.i30.shape.css:shape/base/css*/
-#i30 { background-color: #ffffff; opacity: 1;
-}
-/*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
-#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i5.i186.image.css:image/base/css*/
-#i186 { opacity: 1; }
-/*#/#*//*#i186.i187.positioning.css:positioning/base/css.1*/
-#i186 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 160px;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i5.i214.text.css:text/base/css*/
-#i214 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 20px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#i214.i215.positioning.css:positioning/base/css.1*/
-#i214 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 275px; height: 43px;
-        -ms-transform: translate(-50%, -50%) translate(1px, 77px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(1px, 77px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(1px, 77px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(1px, 77px) rotate(0deg);
-}
-/*#/#*//*#i5.i220.image.css:image/base/css*/
-#i220 { opacity: 1; }
-/*#/#*//*#i220.i221.positioning.css:positioning/base/css.2*/
-#i220 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 31px; height: 31px;
-        -ms-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
-        transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
-}
-/*#/#*//*#i5.i95.shape.css:shape/base/css*/
-#i95 { background-color: #dedede; opacity: 0.00;
-}
-/*#/#*//*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
-/*#/#*//*#i95.i96.positioning.css:positioning/base/css.1*/
-#i95 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i5.i277.button.css:button/base/css*/
-#i277 { position: absolute; cursor: pointer; opacity: 1.00; background-color: rgba(0,56,255,1); font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(0,56,255,1); border-radius: 20px; border-color: rgba(0,56,255,1); border-width: 1px; margin:-1px; border-style: solid; }
-#i277:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-#i277:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
 /*#/#*//*#i277.i278.positioning.css:positioning/base/css.2*/
 #i277 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 116px; height: 30px;
         -ms-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
         -webkit-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
         transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+}
+/*#/#*//*#i5.i95.shape.css:shape/base/css*/
+#i95 { background-color: #dedede; opacity: 0.00;
+}
+/*#/#*//*#i175.i176.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i95 { cursor: pointer; }
+/*#/#*//*#i95.i96.positioning.css:positioning/base/css.1*/
+#i95 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
 /*#/#*//*#i52.i53.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i5 { cursor: pointer; }
@@ -787,6 +787,17 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
         transform: translate(0, 0) translate(261px, 214px) rotate(0deg);
 }
+/*#/#*//*#i248.i279.button.css:button/base/css*/
+#i279 { position: absolute; cursor: pointer; opacity: 1.00; background-color: rgba(0,56,255,1); font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(0,56,255,1); border-radius: 20px; border-color: rgba(0,56,255,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i279:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+#i279:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i279.i280.positioning.css:positioning/base/css.2*/
+#i279 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 116px; height: 30px;
+        -ms-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+        transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
+}
 /*#/#*//*#i248.i259.shape.css:shape/base/css*/
 #i259 { background-color: #dedede; opacity: 0.00;
 }
@@ -799,10 +810,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i248.i279.button.css:button/base/css*/
-#i279 { position: absolute; cursor: pointer; opacity: 1.00; background-color: rgba(0,56,255,1); font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(0,56,255,1); border-radius: 20px; border-color: rgba(0,56,255,1); border-width: 1px; margin:-1px; border-style: solid; }
-#i279:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-#i279:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
 /*#/#*//*#i275.i276.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i248 { cursor: pointer; }
 /*#/#*//*#i2.i3.positioning.css:positioning/base/css.1*/
@@ -811,13 +818,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-}
-/*#/#*//*#i279.i280.positioning.css:positioning/base/css.2*/
-#i279 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 116px; height: 30px;
-        -ms-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
-        transform: translate(0, 0) translate(92px, 145px) rotate(0deg);
 }
 /*#/#*/
 </style>
@@ -834,7 +834,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i4.i130.image.html:image/html-->
 <img id="i130" src="https://i.imgur.com/OIPSVYU.png"/>
 <!--#/#--><!--#i4.i14.text.html:text/html-->
-<div id="i14">Llegan a México los autos más lujosos y de culto</div>
+<div id="i14">Llegan a México los autos más lujosos y de culto.</div>
 <!--#/#--><!--#i4.i212.image.html:image/html-->
 <img id="i212" src="https://i.imgur.com/oAJM198.png"/>
 <!--#/#--><!--#i4.i218.button.html:button/html-->
@@ -851,13 +851,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <img id="i186" src="https://i.imgur.com/NoAuIuE.png"/>
 <!--#/#--><!--#i5.i214.text.html:text/html-->
 <div id="i214">Septiembre es el mes de 
-CAR WEEK</div>
+CAR WEEK.</div>
 <!--#/#--><!--#i5.i220.image.html:image/html-->
 <img id="i220" src="https://i.imgur.com/oAJM198.png"/>
-<!--#/#--><!--#i5.i95.shape.html:shape/html-->
-<div id="i95"></div>
 <!--#/#--><!--#i5.i277.button.html:button/html-->
 <button id="i277">¿Te subes?</button>
+<!--#/#--><!--#i5.i95.shape.html:shape/html-->
+<div id="i95"></div>
 <!--#/#-->
 </div>
 <!--#/#--><!--#i2.i248.cube-panel.html:cube-panel/html-->
@@ -867,13 +867,13 @@ CAR WEEK</div>
 <!--#/#--><!--#i248.i251.image.html:image/html-->
 <img id="i251" src="https://i.imgur.com/nUHqDPe.png"/>
 <!--#/#--><!--#i248.i255.text.html:text/html-->
-<div id="i255">History le hablará durante una semana a los fanáticos de los autos</div>
+<div id="i255">History le hablará durante una semana a los fanáticos de los autos.</div>
 <!--#/#--><!--#i248.i257.image.html:image/html-->
 <img id="i257" src="https://i.imgur.com/oAJM198.png"/>
-<!--#/#--><!--#i248.i259.shape.html:shape/html-->
-<div id="i259"></div>
 <!--#/#--><!--#i248.i279.button.html:button/html-->
 <button id="i279">¿Te subes?</button>
+<!--#/#--><!--#i248.i259.shape.html:shape/html-->
+<div id="i259"></div>
 <!--#/#-->
 </div>
 <!--#/#-->
@@ -925,7 +925,7 @@ bmShow('i218');
 /* Name: On Click; */
 document.getElementById('i91').addEventListener('click', function(e){
     /*#i177.i178.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www2.chubb.com/mx-es/claims/'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.tuhistory.com/CarWeek'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i4.i50.actions.js:actions/base/js*/
@@ -943,7 +943,7 @@ bmShow('i220');
 /* Name: On Click; */
 document.getElementById('i95').addEventListener('click', function(e){
     /*#i175.i176.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www2.chubb.com/mx-es/claims/'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.tuhistory.com/CarWeek'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i277.i278.positioning.js:positioning/base/js.2*/
@@ -952,7 +952,7 @@ bmShow('i277');
 /* Name: On Click; */
 
 /*#/#*//*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
-   
+  
 /*#/#*//*#i248.i251.image.js:image/base/js*/
 
 /*#/#*//*#i248.i257.image.js:image/base/js*/
@@ -963,7 +963,7 @@ bmShow('i257');
 /* Name: On Click; */
 document.getElementById('i259').addEventListener('click', function(e){
     /*#i260.i261.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www2.chubb.com/mx-es/claims/'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.tuhistory.com/CarWeek'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i279.i280.positioning.js:positioning/base/js.2*/
@@ -1045,14 +1045,14 @@ name: oAJM198.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i220.i221.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i5.i95.shape.meta:shape/meta*/
-name: Link;
-/*#/#*//*#i95.i96.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i277.button.meta:button/meta*/
 name: ¿Te subes?;
 customName: false;
 /*#/#*//*#i277.i278.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i5.i95.shape.meta:shape/meta*/
+name: Link;
+/*#/#*//*#i95.i96.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i2.i248.cube-panel.meta:cube-panel/meta*/
     name: Cube Panel 2 copy;
@@ -1074,14 +1074,14 @@ name: oAJM198.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i257.i258.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i248.i259.shape.meta:shape/meta*/
-name: Link;
-/*#/#*//*#i259.i262.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i248.i279.button.meta:button/meta*/
 name: ¿Te subes?;
 customName: false;
 /*#/#*//*#i279.i280.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i248.i259.shape.meta:shape/meta*/
+name: Link;
+/*#/#*//*#i259.i262.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
