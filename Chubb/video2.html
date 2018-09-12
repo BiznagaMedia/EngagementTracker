@@ -274,16 +274,56 @@
 <body class="videonew">
     <div class="videonew_wrapper carousel-wrapper size_320x480" id="cta">
         <div class="carousel-container">
-            <script>
-                        var playersrc;
-
-                    </script>
-                    <iframe class="videonew" id="JSytplayer" width="300" height="160" src="https://www.youtube.com/embed/4s4au9oWPMI?rel=0&autoplay=1&modestbranding=0&loop=1&controls=0&mute=1" onmouseover="this.src=playersrc+'=0'" onmouseout="this.src=playersrc+'mute=0'"frameborder="0" allow="autoplay=1; encrypted-media" allowfullscreen></iframe>
-                    <script>
-                        playersrc = document.getElementById('JSytplayer').src;
-
-                    </script>
+            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)">
+           
+            </div>
         </div>
+        <script>
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+ 
+            var player;
+            function onYouTubeIframeAPIReady() {
+                ytplayer = new YT.Player('ytplayer', {
+                    height: '160',
+                    width: '300',
+                    videoId: '4s4au9oWPMI',
+                    autoplay: 1,
+                    playerVars: {
+                        loop: 1,
+                        controls: 0
+                    },
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
+                    }
+                })
+            };
+ 
+ 
+            function SetYoutubeVolume(pakata) {
+                if (pakata == true){
+                    ytplayer.setVolume(80);
+                }else{
+                    ytplayer.setVolume(0);
+                }
+            }
+ 
+            function onPlayerReady(event) {
+                ytplayer.playVideo();
+                ytplayer.setVolume(0);
+            }
+ 
+            function onPlayerStateChange(event) {
+                if (event.data == YT.PlayerState.ENDED) {
+                    ytplayer.playVideo();
+                }
+                event.target.setVolume(0);
+            }
+ 
+        </script>
         <div onclick="openUrl();">
        
            <div class="tgx_logo"><span class="tgx_text_bold" style="font-size:70%; color: #fff;">¿Minimiza riesgos?</span></div>
