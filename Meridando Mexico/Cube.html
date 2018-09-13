@@ -827,10 +827,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 15px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px;}
 /*#/#*//*#i34.i35.positioning.css:positioning/base/css.1*/
 #i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 285px; height: 43px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 74px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 74px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 74px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 74px) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) translate(0px, 76px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 76px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 76px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 76px) rotate(0deg);
 }
 /*#/#*//*#i6.i186.image.css:image/base/css*/
 #i186 { opacity: 1; }
@@ -1000,7 +1000,7 @@ cube_i2.init({
     autoRotateEnabled: true,
     autoRotateDelay: 3,
     autoRotateDirection: 'rotateNext',
-    defaultButtonsOnPanels: true,
+    defaultButtonsOnPanels: false,
     transition: 0.8
 });
 
@@ -1196,11 +1196,7 @@ bmShow('i188');
 /* Name: On Click; */
 var el = document.getElementById('i188');
 
-el.addEventListener('click', function(e){
-    /*#i210.i211.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://www.facebook.com/sharer/sharer.php?u=https://www.maridandomexico.com/'), dhtml.getVar('landingPageTarget', '_blank'));
-/*#/#*/
-});
+
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
