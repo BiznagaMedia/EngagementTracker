@@ -2,6 +2,44 @@
 <html lang="en">
 
 <head>
+
+    <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+     <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'http://www.tuhistory.com/CarWeek';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -60,36 +98,24 @@
         }
 
         .bg.cover-1 {
-            background: url("https://i.imgur.com/yKFmYNw.jpg");
+            background: url("https://i.imgur.com/aMJQLMe.jpg");
             background-size: cover;
         }
 
         .bg.cover-2 {
-            background: url("https://i.imgur.com/F2yiolD.jpg");
+            background: url("https://i.imgur.com/Xe7tj70.jpg");
             background-size: cover;
 
             
         }
 
         .bg.cover-3 {
-            background: url("https://i.imgur.com/H6EMfLU.jpg");
+            background: url("https://i.imgur.com/m3JQyLl.jpg");
             background-size: cover;
           
         }
 
-        .bluefade_cover .bluefade_logo {
-            position: absolute;
-            bottom: -210px;
-            width:100px;
-            line-height: 1.3em;
-            z-index: 5;
-            margin-left: 60%;
-           
-            background-color: #3399FE;
-            padding: 5px;
-            border-radius: 20px;
-            text-align: center;
-        }
+        
 
         .bluefade_cover .bluefade_logo span {
             color: white;
@@ -129,7 +155,7 @@
 
         .bluefade_text {
             position: absolute;
-            top: 50%;
+            top: 52%;
             left: 7.5px;
             width: 98%;
             padding: 0.3em;
@@ -138,7 +164,7 @@
         }
 
         .bluefade_text_title {
-            font-size: 135%;
+            font-size: 165%;
             color: #453936;
             display: inline-block;
             width: 95%;
@@ -162,7 +188,7 @@
         }
 
         .bluefade_text_small {
-            font-size: 94%;
+            font-size: 120%;
         }
 
         ul {
@@ -310,11 +336,12 @@
          .logo {
             width: 41%;
             z-index: 2;
-            float: left;
-            height: 30px;
+            float: right;
+            
             text-align: center;
             margin-top: -9px;
-            margin-left: -10px; 
+            margin-right: -10px;
+             
            
         }
 
@@ -328,45 +355,38 @@
 
 <body class="bluefade">
     <div class="bluefade_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
-       
+        <a href="%%c1;cpdir=" target="_blank">
         <div class="bluefade_cover bg cover-1 carousel-item item-1">
-            <div class="bluefade_logo"><span class="bluefade_text_bold bluefade_text_small">¡Conéctate ya!</span></div>
+            <div class="bluefade_logo"><span class="bluefade_text_bold bluefade_text_small"></span></div>
         </div>
         <div class="bluefade_cover bg cover-2 carousel-item item-2">
-            <div class="bluefade_logo"><span class="bluefade_text_bold bluefade_text_small">¡Conéctate ya!</span></div>
+            <div class="bluefade_logo"><span class="bluefade_text_bold bluefade_text_small"></span></div>
         </div>
         <div class="bluefade_cover bg cover-3 carousel-item item-3">
-            <div class="bluefade_logo"><span class="bluefade_text_bold bluefade_text_small">¡Conéctate ya!</span></div>
+            <div class="bluefade_logo"><span class="bluefade_text_bold bluefade_text_small"></span></div>
         </div>
         <div class="bluefade_text"> 
             <span class="bluefade_text_title bluefade_text_bold">
-              Contrata Internet sin cables, sin complicaciones
+             Enciende tu automóvil y tu televisor, llegó Car Week.
             </span>
             <br/>  
             <span class="bluefade_text_light bluefade_text_small" style="color:black;">
-                <p style="margin-right:10px; text-align: justify; width: 90%; margin-top: 7px; line-height: 1.2em">
-                    Ahora la vida es más fácil. <br>
-
-Hoy existe  <strong>Blue Telecomm Inalámbrico </strong>para tu hogar.<br> 
-
-Navega en 3 pasos:<br>
-<strong>1. Contrata<br>
-2. Enchufa<br>
-3. Conéctate</strong>
+                <p style="margin-right:10px; text-align: justify; width: 90%; margin-top: 10px; line-height: 1.2em">
+                   En septiembre y por una semana,<b> History</b> trae para ti <b> Car Week, </b> el primer especial de autos y motos.
 
 
 
                 </p> 
             </span> 
-            <div style="bottom:0px;height: 1px;text-align:left;margin-top:1.5%">
+            <div>
                     
                     <div class="logo">
-                        <img src="https://i.imgur.com/paFqWw8.png" style="height:25px">
+                        <img src="https://i.imgur.com/oAJM198.png" style="height:35px">
                     </div>
                 </div>
         
         </div>
-        
+        </a>
     </div>
     
     

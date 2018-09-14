@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "b572c25ece65bccd6cb4385d512306c3",
+    "title": "CarWeek-slider-300x600",
+    "description": "",
+    "width": 300,
+    "height": 600,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http://www.tuhistory.com/CarWeek"
+    },
+    "source": "Sliderbig.html"
+}
