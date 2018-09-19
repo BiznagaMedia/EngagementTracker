@@ -23,6 +23,7 @@
             color: white;
         }
 
+       
         .videonew_wrapper {
             position: relative;
             overflow: hidden;
@@ -76,6 +77,7 @@
             background-position-x: -40px;
         }
 
+        
         .videonew_cover .videonew_logo span {
             color: white;
         }
@@ -248,12 +250,12 @@
         
         .videonew .tgx_logo {
             position: absolute;
-            bottom: 300px;
+            bottom: 310px;
             width: 120px;
             line-height: 1.3em;
             z-index: 2;
-            margin-left: 40%;
-            left: -30px;
+            margin-left: 85px;
+            
             background-color: #fa820a;
             padding: 5px;
             border-radius: 20px;
@@ -276,21 +278,23 @@
 <body class="videonew">
     <div class="videonew_wrapper carousel-wrapper size_320x480" id="cta">
         <div class="carousel-container">
-            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)">
+            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)" style="margin-left: -135px;">
            
             </div>
         </div>
         <script>
-            var tag = document.createElement('script');
+            var tag = document.body.style.rightMargin="100px";
+            var tag = document.createElement('script') ;
             tag.src = "https://www.youtube.com/iframe_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
+            var firstScriptTag = document.getElementsByTagName('script') [0];
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
  
             var player;
-            function onYouTubeIframeAPIReady() {
+            function onYouTubeIframeAPIReady(){
                 ytplayer = new YT.Player('ytplayer', {
-                    height: '350',
-                    width: '300',
+
+                    height: '270',
+                    width: '570',
                     videoId: 'aRDdLP-lum8',
                     autoplay: 1,
                     playerVars: {
@@ -327,6 +331,8 @@
  
         </script>
         <div onclick="openUrl();">
+
+           
        
            <div class="tgx_logo"><span class="tgx_text_bold" style="font-size:70%; color: #fff;">Regístrate ahora</span></div>
            
