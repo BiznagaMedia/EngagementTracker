@@ -112,7 +112,7 @@
 
         .videonew_text {
             position: absolute;
-            top: 70%;
+            top: 73%;
             left: 5px;
             width: 98%;
             padding: 0.3em;
@@ -246,7 +246,7 @@
         
         .videonew .tgx_logo {
             position: absolute;
-            bottom: 75px;
+            bottom: 65px;
             width: 120px;
             line-height: 1.3em;
             z-index: 2;
@@ -274,7 +274,7 @@
 <body class="videonew">
     <div class="videonew_wrapper carousel-wrapper size_320x480" id="cta">
         <div class="carousel-container">
-            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)">
+            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)" style=" margin-left: -40px">
            
             </div>
         </div>
@@ -287,8 +287,8 @@
             var player;
             function onYouTubeIframeAPIReady() {
                 ytplayer = new YT.Player('ytplayer', {
-                    height: '160',
-                    width: '300',
+                    height: '170',
+                    width: '380',
                     videoId: 'aRDdLP-lum8',
                     autoplay: 1,
                     playerVars: {
