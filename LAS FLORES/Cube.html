@@ -466,12 +466,29 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#i4.i229.image.css:image/base/css*/
-#i229 { opacity: 1; }
-/*#/#*//*#visibility.css:visibility/globalcss*/
-.visibility-hidden, .visibility-hidden * {
-    visibility: hidden !important;
+/*#i2.cube.css:cube/base/css.1*/
+#i2.shape-holder {
+    position: absolute;
+
+    -ms-touch-action: none;
+    background: transparent;
+
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s, scale 0.8s;
 }
+
+#i2 .cube-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    overflow: hidden;
+}
+
 /*#/#*//*#i4.i20.shape.css:shape/base/css*/
 #i20 { background-color: #fafafa; opacity: 1;
 }
@@ -503,22 +520,22 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(77px, 151px) rotate(0deg);
 }
 /*#/#*//*#i4.i279.text.css:text/base/css*/
-#i279 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 16px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+#i279 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 14px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
 /*#/#*//*#i279.i280.positioning.css:positioning/base/css.1*/
 #i279 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 280px; height: 42px;
-        -ms-transform: translate(0, 0) translate(11px, 183px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(11px, 183px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(11px, 183px) rotate(0deg);
-        transform: translate(0, 0) translate(11px, 183px) rotate(0deg);
+        -ms-transform: translate(0, 0) translate(9px, 181px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(9px, 181px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(9px, 181px) rotate(0deg);
+        transform: translate(0, 0) translate(9px, 181px) rotate(0deg);
 }
 /*#/#*//*#i4.i313.image.css:image/base/css*/
 #i313 { opacity: 1; }
 /*#/#*//*#i313.i314.positioning.css:positioning/base/css.1*/
-#i313 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 63px; height: 63px;
-        -ms-transform: translate(0, 0) translate(235px, 194px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(235px, 194px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(235px, 194px) rotate(0deg);
-        transform: translate(0, 0) translate(235px, 194px) rotate(0deg);
+#i313 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 55px; height: 55px;
+        -ms-transform: translate(0, 0) translate(244px, 201px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(244px, 201px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(244px, 201px) rotate(0deg);
+        transform: translate(0, 0) translate(244px, 201px) rotate(0deg);
 }
 /*#/#*//*#i4.i91.shape.css:shape/base/css*/
 #i91 { background-color: #dedede; opacity: 0.00;
@@ -527,58 +544,37 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i91 { cursor: pointer; }
 /*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
 #i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(-24px, -17px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(-24px, -17px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(-24px, -17px) rotate(0deg);
-        transform: translate(0, 0) translate(-24px, -17px) rotate(0deg);
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
+/*#/#*//*#i4.i229.image.css:image/base/css*/
+#i229 { opacity: 1; }
 /*#/#*//*#i229.i230.positioning.css:positioning/base/css.1*/
-#i229 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+#i229 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
+        transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
 }
-/*#/#*//*#i2.cube.css:cube/base/css.1*/
-#i2.shape-holder {
-    position: absolute;
-
-    -ms-touch-action: none;
-    background: transparent;
-
-    opacity: 0;
-    -webkit-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s, scale 0.8s;
-}
-
-#i2 .cube-Panel {
-    -webkit-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility: visible;
-    backface-visibility:hidden;
-    background-size: cover;
-    overflow: hidden;
-}
-
 /*#/#*//*#i4.i259.image.css:image/base/css*/
 #i259 { opacity: 1; }
 /*#/#*//*#i259.i260.positioning.css:positioning/base/css.1*/
-#i259 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+#i259 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(70px, 222px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(70px, 222px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(70px, 222px) rotate(0deg);
+        transform: translate(0, 0) translate(70px, 222px) rotate(0deg);
 }
 /*#/#*//*#i4.i315.image.css:image/base/css*/
 #i315 { opacity: 1; }
 /*#/#*//*#i315.i316.positioning.css:positioning/base/css.2*/
-#i315 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
+#i315 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(11px, 222px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(11px, 222px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(11px, 222px) rotate(0deg);
+        transform: translate(0, 0) translate(11px, 222px) rotate(0deg);
 }
 /*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i4 { cursor: pointer; }
@@ -624,14 +620,14 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i5.i249.image.css:image/base/css*/
 #i249 { opacity: 1; }
 /*#/#*//*#i249.i250.positioning.css:positioning/base/css.1*/
-#i249 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 57px; height: 38px;
-        -ms-transform: translate(0, 0) translate(239px, 211px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(239px, 211px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(239px, 211px) rotate(0deg);
-        transform: translate(0, 0) translate(239px, 211px) rotate(0deg);
+#i249 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 54px; height: 54px;
+        -ms-transform: translate(0, 0) translate(243px, 202px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(243px, 202px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(243px, 202px) rotate(0deg);
+        transform: translate(0, 0) translate(243px, 202px) rotate(0deg);
 }
 /*#/#*//*#i5.i283.text.css:text/base/css*/
-#i283 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 17px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+#i283 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 14px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
 /*#/#*//*#cube.css:cube/globalcss.1*/
 
 .transformation {
@@ -761,12 +757,16 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
+/*#/#*//*#visibility.css:visibility/globalcss*/
+.visibility-hidden, .visibility-hidden * {
+    visibility: hidden !important;
+}
 /*#/#*//*#i283.i284.positioning.css:positioning/base/css.1*/
-#i283 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 288px; height: 41px;
-        -ms-transform: translate(0, 0) translate(5px, 183px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(5px, 183px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(5px, 183px) rotate(0deg);
-        transform: translate(0, 0) translate(5px, 183px) rotate(0deg);
+#i283 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 278px; height: 49px;
+        -ms-transform: translate(0, 0) translate(15px, 180px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(15px, 180px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(15px, 180px) rotate(0deg);
+        transform: translate(0, 0) translate(15px, 180px) rotate(0deg);
 }
 /*#/#*//*#i5.i95.shape.css:shape/base/css*/
 #i95 { background-color: #dedede; opacity: 0.00;
@@ -783,7 +783,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i5.i253.image.css:image/base/css*/
 #i253 { opacity: 1; }
 /*#/#*//*#i253.i254.positioning.css:positioning/base/css.1*/
-#i253 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
+#i253 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
         -ms-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
         -webkit-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
@@ -792,20 +792,20 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i5.i303.image.css:image/base/css*/
 #i303 { opacity: 1; }
 /*#/#*//*#i303.i304.positioning.css:positioning/base/css.1*/
-#i303 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(39px, 218px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(39px, 218px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(39px, 218px) rotate(0deg);
-        transform: translate(0, 0) translate(39px, 218px) rotate(0deg);
+#i303 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(36px, 219px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(36px, 219px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(36px, 219px) rotate(0deg);
+        transform: translate(0, 0) translate(36px, 219px) rotate(0deg);
 }
 /*#/#*//*#i5.i231.image.css:image/base/css*/
 #i231 { opacity: 1; }
 /*#/#*//*#i231.i232.positioning.css:positioning/base/css.1*/
-#i231 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+#i231 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(64px, 220px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(64px, 220px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(64px, 220px) rotate(0deg);
+        transform: translate(0, 0) translate(64px, 220px) rotate(0deg);
 }
 /*#/#*//*#i52.i53.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i5 { cursor: pointer; }
@@ -842,20 +842,20 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i6.i243.image.css:image/base/css*/
 #i243 { opacity: 1; }
 /*#/#*//*#i243.i244.positioning.css:positioning/base/css.1*/
-#i243 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 57px; height: 38px;
-        -ms-transform: translate(0, 0) translate(236px, 213px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(236px, 213px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(236px, 213px) rotate(0deg);
-        transform: translate(0, 0) translate(236px, 213px) rotate(0deg);
+#i243 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 55px; height: 55px;
+        -ms-transform: translate(0, 0) translate(243px, 200px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(243px, 200px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(243px, 200px) rotate(0deg);
+        transform: translate(0, 0) translate(243px, 200px) rotate(0deg);
 }
 /*#/#*//*#i6.i287.text.css:text/base/css*/
-#i287 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+#i287 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 14px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
 /*#/#*//*#i287.i288.positioning.css:positioning/base/css.1*/
-#i287 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 279px; height: 40px;
-        -ms-transform: translate(0, 0) translate(11px, 182px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(11px, 182px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(11px, 182px) rotate(0deg);
-        transform: translate(0, 0) translate(11px, 182px) rotate(0deg);
+#i287 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 279px; height: 50px;
+        -ms-transform: translate(0, 0) translate(12px, 179px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(12px, 179px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(12px, 179px) rotate(0deg);
+        transform: translate(0, 0) translate(12px, 179px) rotate(0deg);
 }
 /*#/#*//*#i6.i99.shape.css:shape/base/css*/
 #i99 { background-color: #dedede; opacity: 0.00;
@@ -872,7 +872,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i6.i209.image.css:image/base/css*/
 #i209 { opacity: 1; }
 /*#/#*//*#i209.i210.positioning.css:positioning/base/css.1*/
-#i209 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
+#i209 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
         -ms-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
         -webkit-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(8px, 220px) rotate(0deg);
@@ -881,20 +881,20 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i6.i205.image.css:image/base/css*/
 #i205 { opacity: 1; }
 /*#/#*//*#i205.i206.positioning.css:positioning/base/css.1*/
-#i205 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(40px, 220px) rotate(0deg);
+#i205 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(37px, 219px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(37px, 219px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(37px, 219px) rotate(0deg);
+        transform: translate(0, 0) translate(37px, 219px) rotate(0deg);
 }
 /*#/#*//*#i6.i257.image.css:image/base/css*/
 #i257 { opacity: 1; }
 /*#/#*//*#i257.i258.positioning.css:positioning/base/css.1*/
-#i257 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
-        transform: translate(0, 0) translate(72px, 220px) rotate(0deg);
+#i257 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(66px, 219px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(66px, 219px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(66px, 219px) rotate(0deg);
+        transform: translate(0, 0) translate(66px, 219px) rotate(0deg);
 }
 /*#/#*//*#i54.i55.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i6 { cursor: pointer; }
@@ -921,7 +921,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i4.i247.button.html:button/html-->
 <button id="i247">¡Regístrate ahora!</button>
 <!--#/#--><!--#i4.i279.text.html:text/html-->
-<div id="i279">Departamentos en San Angel  desde $6,700,00MXN</div>
+<div id="i279">Departamentos de Lujo en San Ángel desde $41,500 Mensuales. Invierte con Nosotros.</div>
 <!--#/#--><!--#i4.i313.image.html:image/html-->
 <img id="i313" src="https://i.imgur.com/bPA5u0M.png"/>
 <!--#/#--><!--#i4.i91.shape.html:shape/html-->
@@ -945,9 +945,9 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i5.i245.button.html:button/html-->
 <button id="i245">¡Regístrate ahora!</button>
 <!--#/#--><!--#i5.i249.image.html:image/html-->
-<img id="i249" src="https://i.imgur.com/32Ks9oh.png"/>
+<img id="i249" src="https://i.imgur.com/bPA5u0M.png"/>
 <!--#/#--><!--#i5.i283.text.html:text/html-->
-<div id="i283">Tu familia y tú os merecéis subir al siguiente nivel.</div>
+<div id="i283">Departamentos de Lujo en San Ángel desde $41,500 Mensuales. Invierte con Nosotros.</div>
 <!--#/#--><!--#i5.i95.shape.html:shape/html-->
 <div id="i95"></div>
 <!--#/#--><!--#i5.i253.image.html:image/html-->
@@ -967,9 +967,9 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i6.i237.button.html:button/html-->
 <button id="i237">¡Regístrate ahora!</button>
 <!--#/#--><!--#i6.i243.image.html:image/html-->
-<img id="i243" src="https://i.imgur.com/32Ks9oh.png"/>
+<img id="i243" src="https://i.imgur.com/bPA5u0M.png"/>
 <!--#/#--><!--#i6.i287.text.html:text/html-->
-<div id="i287">Con Alberca techada, Fitness Center, Sky Lounge...</div>
+<div id="i287">Departamentos de Lujo en San Ángel desde $41,500 Mensuales. Invierte con Nosotros.</div>
 <!--#/#--><!--#i6.i99.shape.html:shape/html-->
 <div id="i99"></div>
 <!--#/#--><!--#i6.i209.image.html:image/html-->
@@ -1099,6 +1099,11 @@ if ('click' === 'click') {
 /* Name: On Click; */
 var el = document.getElementById('i227');
 
+el.addEventListener('click', function(e){
+    /*#i301.i302.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
@@ -1120,7 +1125,11 @@ document.getElementById('i95').addEventListener('click', function(e){
 /* Name: On Click; */
 var el = document.getElementById('i253');
 
-
+el.addEventListener('click', function(e){
+    /*#i297.i298.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
@@ -1131,7 +1140,11 @@ if ('click' === 'click') {
 /* Name: On Click; */
 var el = document.getElementById('i303');
 
-
+el.addEventListener('click', function(e){
+    /*#i305.i306.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
@@ -1142,7 +1155,11 @@ if ('click' === 'click') {
 /* Name: On Click; */
 var el = document.getElementById('i231');
 
-
+el.addEventListener('click', function(e){
+    /*#i299.i300.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
@@ -1169,7 +1186,11 @@ document.getElementById('i99').addEventListener('click', function(e){
 /* Name: On Click; */
 var el = document.getElementById('i209');
 
-
+el.addEventListener('click', function(e){
+    /*#i307.i308.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
@@ -1195,7 +1216,11 @@ if ('click' === 'click') {
 /* Name: On Click; */
 var el = document.getElementById('i257');
 
-
+el.addEventListener('click', function(e){
+    /*#i311.i312.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
@@ -1243,7 +1268,7 @@ customName: false;
 /*#/#*//*#i247.i248.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i279.text.meta:text/meta*/
-name: Departamentos en San Angel  desde $6,700,00MXN; customName: false;
+name: Departamentos de Lujo en San Ángel desde $41,500 Mensuales. Invierte con Nosotros.; customName: false;
 /*#/#*//*#i279.i280.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i313.image.meta:image/meta*/
@@ -1292,12 +1317,12 @@ customName: false;
 /*#/#*//*#i245.i246.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i249.image.meta:image/meta*/
-name: 32Ks9oh.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: bPA5u0M.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i249.i250.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i5.i283.text.meta:text/meta*/
-name: Tu familia y tú os merecéis subir al siguiente nivel.; customName: false;
+name: Departamentos de Lujo en San Ángel desde $41,500 Mensuales. Invierte con Nosotros.; customName: false;
 /*#/#*//*#i283.i284.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i95.shape.meta:shape/meta*/
@@ -1336,12 +1361,12 @@ customName: false;
 /*#/#*//*#i237.i238.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i6.i243.image.meta:image/meta*/
-name: 32Ks9oh.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: bPA5u0M.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i243.i244.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i6.i287.text.meta:text/meta*/
-name: Con Alberca techada, Fitness Center, Sky Lounge...; customName: false;
+name: Departamentos de Lujo en San Ángel desde $41,500 Mensuales. Invierte con Nosotros.; customName: false;
 /*#/#*//*#i287.i288.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i6.i99.shape.meta:shape/meta*/
