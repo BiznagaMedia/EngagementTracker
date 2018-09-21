@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="ad.size" content="width=320, height=480" />
+    <title>300-600 cafe</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
+    <style>
+        body.cafe {
+            background-color: #FFFFFF;
+            color: black;
+            font-family: Source Sans Pro;
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .cafe_wrapper {
+            position:absolute;
+            overflow:hidden;
+            cursor: pointer;
+            font-family: Source Sans Pro;
+            border: 1px solid #c5c5c5
+                
+        }
+
+        .cafe_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
+        }
+
+        .cafe_wrapper.size_320x480 {
+            width: 298px;
+            height: 598px;
+        }
+
+        .cafe_wrapper.size_320x50 {
+            width: 318px;
+            height: 48px;
+        }
+
+        .cafe_wrapper.size_728x90 {
+            width: 400px;
+            height: 88px;
+        }
+
+        .cafe_cover {
+            position: relative;
+            width: 100%;
+            height: 60%;
+        }
+
+        .bg.cover-1 {
+            background: url("https://i.imgur.com/ItJq0pp.jpg");
+            background-size: cover;
+        }
+
+        .bg.cover-2 {
+            background: url("https://i.imgur.com/0LhCgCe.jpg");
+            background-size: cover;
+
+            
+        }
+
+        .bg.cover-3 {
+            background: url("https://i.imgur.com/QEzpKNI.jpg");
+            background-size: cover;
+          
+        }
+
+       
+
+        .cafe_cover .cafe_logo span {
+            color: white;
+        }
+
+        .cafe_logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .cafe_pos_tl {
+            top: 3%;
+            left: 3%;
+        }
+
+        .cafe_pos_tr {
+            top: 3%;
+            right: 3%;
+        }
+
+        .cafe_pos_bl {
+            bottom: 3%;
+            left: 3%;
+        }
+
+        .cafe_pos_br {
+            bottom: 3%;
+            right: 3%;
+        }
+
+        .cafe_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%);
+        }
+
+        /* cover height + 5% */
+
+        .cafe_text {
+            position: absolute;
+            top: 57%;
+            left: 7px;
+            width: 98%;
+            padding: 0.3em;
+            line-height: 1.4em;
+            color: #453936;
+        }
+
+        .cafe_text_title {
+            font-size: 155%;
+            color: #453936;
+            display: inline-block;
+            width: 98%;
+            margin-bottom: -30px;
+            margin-top: 28px;
+            text-align: center;
+            margin-left: -5px;
+            line-height: 1.05em
+        }
+
+        .cafe_text_light {
+            font-weight: 400;
+        }
+
+        .cafe_text_medium {
+            font-weight: 700;
+        }
+
+        .cafe_text_bold {
+            font-weight: 900;
+        }
+
+        .cafe_text_small {
+            font-size: 100%;
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
+
+        /*Carousel in Cover */
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /*Select every element*/
+
+        [id^="item"] {
+            display: none;
+        }
+
+        .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 8s infinite;
+            -webkit-animation: fade 8s infinite;
+        }
+
+        .item-2 {
+            animation: fade2 8s infinite;
+            -webkit-animation: fade2 8s infinite;
+        }
+
+        .item-3 {
+            animation: fade3 8s infinite;
+            -webkit-animation: fade3 8s infinite;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade2 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 1
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 1
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        .cafe_sponsoredby {
+            position: absolute;
+            z-index: 99;
+        }
+
+        .cafe_sponsoredby.cafe_pos_br {
+            right: 1%;
+            bottom: 0% !important;
+        }
+
+        .cafe_sponsoredby .sponsor {
+            font-size: 9px;
+            display: inline-block;
+            float: left;
+            margin-right: 3px;
+            margin-top: 7px;
+        }
+
+        .cafe_sponsoredby:hover .sponsor {
+            opacity: 1;
+        }
+
+        .cafe_sponsoredby .cafe_logo {
+            width: 70px;
+            display: inline-block;
+            float: right;
+             font-family: 'Lato', sans-serif;
+        }
+
+        .cafe_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #e97000;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
+
+        .cafe_button:hover {
+            background-color: #d34100;
+        }
+        
+         .logo {
+            width: 41%;
+            z-index: 2;
+            float: right;
+            height: 30px;
+            text-align: center;
+            margin-top: -45px;
+            margin-right: 20px;
+        }
+
+    </style>
+    <script>
+        function openUrl() {
+            window.open("https://www.nestle.com.pe/productos/cafes");
+        }
+    </script>
+</head>
+
+<body class="cafe">
+    <div class="cafe_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+       
+        <div class="cafe_cover bg cover-1 carousel-item item-1">
+            <div class="cafe_logo"><span class="cafe_text_bold cafe_text_small"></span></div>
+        </div>
+        <div class="cafe_cover bg cover-2 carousel-item item-2">
+            <div class="cafe_logo"><span class="cafe_text_bold cafe_text_small"></span></div>
+        </div>
+        <div class="cafe_cover bg cover-3 carousel-item item-3">
+            <div class="cafe_logo"><span class="cafe_text_bold cafe_text_small"></span></div>
+        </div>
+        <div class="cafe_text"> 
+            <span class="cafe_text_title cafe_text_bold">
+             ¡Descubre nuestra selecta variedad de café!
+            </span>
+            <br/>  
+            <span class="cafe_text_light cafe_text_small" style="color:black;">
+                <p style="margin-right:10px; text-align: justify; width: 90%; margin-top: 1px;">
+    Disfruta de nuestra gran variedad de café <b>100% de calidad.</b> Ya sea un rico <b>Cappucino, un café tradicional o un refinado Gold Blend,</b> Haz una pausa y degustalo ya sea en tu casa u oficina.
+
+
+                </p> 
+            </span> 
+            
+             <div id="botones-para-compartir" style="display:inline;float:left;margin-top:-15px;"> <img src="https://i.imgur.com/cdakT76.png" style="height:45px; margin-left: 220px;"> </span></div>
+            </div>
+            
+            
+               
+              
+        
+        </div>
+   
+    
+    
+
+</body>
+
+</html>
