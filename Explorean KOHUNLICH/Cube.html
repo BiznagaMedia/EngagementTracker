@@ -504,13 +504,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
 /*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 15px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 14px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
 /*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
 #i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 50px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 76px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 76px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 76px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 76px) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 80px) rotate(0deg);
 }
 /*#/#*//*#i4.i130.image.css:image/base/css*/
 #i130 { opacity: 1; }
@@ -729,10 +729,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 15px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px; margin-left: 5px;}
 /*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
 #i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 287px; height: 49px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 75px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 75px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 75px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 75px) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) translate(0px, 79px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 79px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 79px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 79px) rotate(0deg);
 }
 /*#/#*//*#i5.i58.image.css:image/base/css*/
 #i58 { opacity: 1; }
@@ -913,7 +913,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     <!--#i4.i20.shape.html:shape/html-->
 <div id="i20"></div>
 <!--#/#--><!--#i4.i14.text.html:text/html-->
-<div id="i14">¿Planificando tus próximas vacaciones? En Explorean Kohunlinch tendrás muchas opciones para elegir!</div>
+<div id="i14">¿Planificando tus próximas vacaciones? 
+En Explorean Kohunlinch tendrás muchas opciones para elegir!</div>
 <!--#/#--><!--#i4.i130.image.html:image/html-->
 <img id="i130" src="https://i1380.photobucket.com/albums/ah185/biznagamedia/KOHUNLICH06_zpsnnv1ytyt.png"/>
 <!--#/#--><!--#i4.i188.button.html:button/html-->
@@ -1066,7 +1067,13 @@ if ('click' === 'click') {
 bmShow('i181');
 /*#/#*//*#i181.i200.actions.js:actions/base/js.1*/
 /* Name: On Click; */
+var el = document.getElementById('i181');
 
+el.addEventListener('click', function(e){
+    /*#i200.i201.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.facebook.com/sharer/sharer.php?u=http://www.explorean.com/kohunlich.html'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
