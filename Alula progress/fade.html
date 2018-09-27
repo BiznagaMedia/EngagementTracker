@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="ad.size" content="width=320, height=480" />
+    <title>300-600 alula</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
+    <style>
+        body.alula {
+            background-color: #FFFFFF;
+            color: black;
+            font-family: Source Sans Pro;
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .alula_wrapper {
+            position:absolute;
+            overflow:hidden;
+            cursor: pointer;
+            font-family: Source Sans Pro;
+            border: 1px solid #c5c5c5
+                
+        }
+
+        .alula_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
+        }
+
+        .alula_wrapper.size_320x480 {
+            width: 300px;
+            height: 600px;
+        }
+
+        .alula_wrapper.size_320x50 {
+            width: 318px;
+            height: 48px;
+        }
+
+        .alula_wrapper.size_728x90 {
+            width: 400px;
+            height: 88px;
+        }
+
+        .alula_cover {
+            position: relative;
+            width: 100%;
+            height: 55%;
+        }
+
+        .bg.cover-1 {
+            background: url("https://i1380.photobucket.com/albums/ah185/biznagamedia/3_zpsjdscoice.jpg");
+            background-size: cover;
+        }
+
+        .bg.cover-2 {
+            background: url("https://i1380.photobucket.com/albums/ah185/biznagamedia/2_zpsntxuef92.jpg");
+            background-size: cover;
+
+            
+        }
+
+        .bg.cover-3 {
+            background: url("https://i1380.photobucket.com/albums/ah185/biznagamedia/1_zps2tog2bfg.jpg");
+            background-size: cover;
+          
+        }
+
+        
+
+        .alula_cover .alula_logo span {
+            color: white;
+        }
+
+        .alula_logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .alula_pos_tl {
+            top: 3%;
+            left: 3%;
+        }
+
+        .alula_pos_tr {
+            top: 3%;
+            right: 3%;
+        }
+
+        .alula_pos_bl {
+            bottom: 3%;
+            left: 3%;
+        }
+
+        .alula_pos_br {
+            bottom: 3%;
+            right: 3%;
+        }
+
+        .alula_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%);
+        }
+
+        /* cover height + 5% */
+
+        .alula_text {
+            position: absolute;
+            top: 52%;
+            left: 7.5px;
+            width: 98%;
+            padding: 0.3em;
+            line-height: 1em;
+            color: #453936;
+        }
+
+        .alula_text_title {
+            font-size: 145%;
+            color: #453936;
+            display: inline-block;
+            width: 98%;
+            margin-bottom: -40px;
+            margin-top: 28px;
+            text-align: center;
+            margin-left: -5px;
+            line-height: 1.05em
+        }
+
+        .alula_text_light {
+            font-weight: 400;
+        }
+
+        .alula_text_medium {
+            font-weight: 700;
+        }
+
+        .alula_text_bold {
+            font-weight: 900;
+        }
+
+        .alula_text_small {
+            font-size: 93%;
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
+
+        /*Carousel in Cover */
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /*Select every element*/
+
+        [id^="item"] {
+            display: none;
+        }
+
+        .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 8s infinite;
+            -webkit-animation: fade 8s infinite;
+        }
+
+        .item-2 {
+            animation: fade2 8s infinite;
+            -webkit-animation: fade2 8s infinite;
+        }
+
+        .item-3 {
+            animation: fade3 8s infinite;
+            -webkit-animation: fade3 8s infinite;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade2 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 1
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 1
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        .alula_sponsoredby {
+            position: absolute;
+            z-index: 99;
+        }
+
+        .alula_sponsoredby.alula_pos_br {
+            right: 1%;
+            bottom: 0% !important;
+        }
+
+        .alula_sponsoredby .sponsor {
+            font-size: 9px;
+            display: inline-block;
+            float: left;
+            margin-right: 3px;
+            margin-top: 7px;
+        }
+
+        .alula_sponsoredby:hover .sponsor {
+            opacity: 1;
+        }
+
+        .alula_sponsoredby .alula_logo {
+            width: 70px;
+            display: inline-block;
+            float: right;
+             font-family: 'Lato', sans-serif;
+        }
+
+        .alula_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #e97000;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
+
+        .alula_button:hover {
+            background-color: #d34100;
+        }
+        
+         .logo {
+            width: 41%;
+            z-index: 2;
+            float: right;
+            height: 30px;
+            text-align: center;
+            margin-top: -45px;
+            margin-right: 20px;
+        }
+
+    </style>
+    <script>
+        function openUrl() {
+            window.open("http://www.progressgold.pe/");
+        }
+    </script>
+</head>
+
+<body class="alula">
+    <div class="alula_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+       
+        <div class="alula_cover bg cover-1 carousel-item item-1">
+            <div class="alula_logo"><span class="alula_text_bold alula_text_small"></span></div>
+        </div>
+        <div class="alula_cover bg cover-2 carousel-item item-2">
+            <div class="alula_logo"><span class="alula_text_bold alula_text_small"></span></div>
+        </div>
+        <div class="alula_cover bg cover-3 carousel-item item-3">
+            <div class="alula_logo"><span class="alula_text_bold alula_text_small"></span></div>
+        </div>
+        <div class="alula_text"> 
+            <span class="alula_text_title alula_text_bold">
+             ¿Porque elegir Alula Progress Gold para tu niño?
+            </span>
+            <br/>  
+            <span class="alula_text_light alula_text_small" style="color:black;">
+                <p style="margin-right:10px; text-align: justify; width: 90%; margin-top: 10px; line-height: 1.2em">
+    Lo que tu hijo <b>coma hoy impactara su salud por el resto de su vida.</b> Por ello, complementa su alimentación con <b>Alula Progress Gold</b> con proteinas de <b>alto valor, calcio, nutrientes sin azúcares libres o añadidos</b> que contribuyen a la <b>formación y crecimiento</b> adecuado de tu pequeño.
+
+
+                </p> 
+            </span> 
+            
+             <div id="botones-para-compartir" style="display:inline;float:left;margin-top:-11px;margin-left:190px;"> <span> <img src="https://i1380.photobucket.com/albums/ah185/biznagamedia/logobanner_zpsuufrjjsg.jpg" style="height:45px;"> </span></div>
+            </div>
+            
+            
+               
+              
+        
+        </div>
+   
+    
+    
+
+</body>
+
+</html>
