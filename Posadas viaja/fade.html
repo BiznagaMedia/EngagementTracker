@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <script src="//ns.sascdn.com/diff/templates/js/banner/sas-clicktag-3.0.js">
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -318,15 +320,17 @@
         }
 
     </style>
-    <script>
-        function openUrl() {
-            window.open("https://www.fiestamericana.com/buenasnoches/");
-        }
+
+     <script type="text/javascript">
+    // CLICKTAG OPTION 1
+    var clickTag0 = "https://www.fiestamericana.com/buenasnoches/";
+    
     </script>
 </head>
 
 <body class="value">
-    <div class="value_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+    <div class="value_wrapper carousel-wrapper size_320x480">
+         <a href="javascript:window.open(window.clickTag0, '_blank')" id="click-area0">
        
         <div class="value_cover bg cover-1 carousel-item item-1">
             <div class="value_logo"><img class="img" src="https://i.imgur.com/4fli91p.png"></img></div>
@@ -356,10 +360,32 @@
             
                
               
-        
+        </a>
         </div>
    
-    
+    <script type="text/javascript">
+    // CLICKTAG OPTION 1: get element by id and add event listener
+    var clickArea = document.getElementById("click-area0");
+
+    clickArea.onclick = function () {
+        window.open(clickTag0, 'blank');
+    };
+
+    // CLICKTAG OPTION 2: get element by id and set link with a custom function
+    // Notice, that this is only working, if the creative was uploaded to smart
+    // (in case you might wonder, that it doesn't redirect you now)
+    function init() {
+        var clickArea = document.getElementById("click-area0");
+        clickArea.href = clickTag0;
+        clickArea.target = 'blank';
+    }
+
+    // calls the custom function
+    sas.clicktag.register(function () {
+        init();
+    });
+</script>
+
     
 
 </body>
