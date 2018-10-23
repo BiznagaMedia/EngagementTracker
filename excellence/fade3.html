@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="ad.size" content="width=300, height=600" />
+    <title>value2</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
+    <style>
+        body.value2 {
+            background-color: #FFFFFF;
+            color: black;
+            font-family: Source Sans Pro;
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .value2_wrapper {
+            position:absolute;
+            overflow:hidden;
+            cursor: pointer;
+            font-family: Source Sans Pro;
+            border: 1px solid #c5c5c5
+                
+        }
+
+        .value2_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
+        }
+
+        .value2_wrapper.size_320x480 {
+            width: 298px;
+            height: 598px;
+        }
+
+        .value2_wrapper.size_320x50 {
+            width: 318px;
+            height: 48px;
+        }
+
+        .value2_wrapper.size_728x90 {
+            width: 400px;
+            height: 88px;
+        }
+
+        .value2_cover {
+            position: relative;
+            width: 100%;
+            height: 55%;
+        }
+
+        .bg.cover-1 {
+            background: url("https://i.imgur.com/hINdt7Y.jpg");
+            background-size: cover;
+        }
+
+        .bg.cover-2 {
+            background: url("https://i.imgur.com/7JsvF9s.jpg");
+            background-size: cover;
+
+            
+        }
+
+        .bg.cover-3 {
+            background: url("https://i.imgur.com/RKgmY7j.jpg");
+            background-size: cover;
+          
+        }
+
+        .value2_cover .value2_logo {
+            position: absolute;
+            bottom: -15px;
+            width:105px;
+            line-height: 1.3em;
+            z-index: 2;
+            margin-left: 40%;
+            left: -30px;
+            background-color: #ad8b3a;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .value2_cover .value2_logo span {
+            color: white;
+        }
+
+        .value2_logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .value2_pos_tl {
+            top: 3%;
+            left: 3%;
+        }
+
+        .value2_pos_tr {
+            top: 3%;
+            right: 3%;
+        }
+
+        .value2_pos_bl {
+            bottom: 3%;
+            left: 3%;
+        }
+
+        .value2_pos_br {
+            bottom: 3%;
+            right: 3%;
+        }
+
+        .value2_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%);
+        }
+
+        /* cover height + 5% */
+
+        .value2_text {
+            position: absolute;
+            top: 53%;
+            left: 7.5px;
+            width: 97%;
+            padding: 0.3em;
+            line-height: 1em;
+            color: #453936;
+        }
+
+        .value2_text_title {
+            font-size: 270%;
+            color: #453936;
+            display: inline-block;
+            width: 97%;
+            margin-bottom: -40px;
+            margin-top: 28px;
+            text-align: center;
+            margin-left: -5px;
+            line-height: 1.05em
+        }
+
+        .value2_text_light {
+            font-weight: 400;
+        }
+
+        .value2_text_medium {
+            font-weight: 700;
+        }
+
+        .value2_text_bold {
+            font-weight: 900;
+        }
+
+        .value2_text_small {
+            font-size: 140%;
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
+
+        /*Carousel in Cover */
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /*Select every element*/
+
+        [id^="item"] {
+            display: none;
+        }
+
+        .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 8s infinite;
+            -webkit-animation: fade 8s infinite;
+        }
+
+        .item-2 {
+            animation: fade2 8s infinite;
+            -webkit-animation: fade2 8s infinite;
+        }
+
+        .item-3 {
+            animation: fade3 8s infinite;
+            -webkit-animation: fade3 8s infinite;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade2 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 1
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 1
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        .value2_sponsoredby {
+            position: absolute;
+            z-index: 99;
+        }
+
+        .value2_sponsoredby.value2_pos_br {
+            right: 1%;
+            bottom: 0% !important;
+        }
+
+        .value2_sponsoredby .sponsor {
+            font-size: 9px;
+            display: inline-block;
+            float: left;
+            margin-right: 3px;
+            margin-top: 7px;
+        }
+
+        .value2_sponsoredby:hover .sponsor {
+            opacity: 1;
+        }
+
+        .value2_sponsoredby .value2_logo {
+            width: 70px;
+            display: inline-block;
+            float: right;
+             font-family: 'Lato', sans-serif;
+        }
+
+        .value2_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #e97000;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
+
+        .value2_button:hover {
+            background-color: #d34100;
+        }
+        
+         .logo {
+            width: 41%;
+            z-index: 2;
+            float: right;
+            height: 30px;
+            text-align: center;
+            margin-top: -45px;
+            margin-right: 20px;
+        }
+
+    </style>
+    <script>
+        function openUrl() {
+            window.open("https://www.excellenceresorts.com/?utm_source=mosaic&utm_medium=display&utm_campaign=branding&utm_content=native-excellenceday&gdp=cntv");
+        }
+    </script>
+</head>
+
+<body class="value2">
+    <div class="value2_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+       
+        <div class="value2_cover bg cover-1 carousel-item item-1">
+            <div class="value2_logo"><span class="value2_text_bold value2_text_small">Book now</span></div>
+        </div>
+        <div class="value2_cover bg cover-2 carousel-item item-2">
+            <div class="value2_logo"><span class="value2_text_bold value2_text_small">Book now</span></div>
+        </div>
+        <div class="value2_cover bg cover-3 carousel-item item-3">
+            <div class="value2_logo"><span class="value2_text_bold value2_text_small">Book now</span></div>
+        </div>
+        <div class="value2_text"> 
+            <span class="value2_text_title value2_text_bold">
+           Think of it!
+            </span>
+            <br/>  
+            <span class="value2_text_light value2_text_small" style="color:black;">
+                <p style="margin-right:15px; text-align: center; width: 92%; margin-top: 10px; line-height: 1.1em">
+    <b> There is always a special occasion to share unforgettable moments with the people you care the most. You deserve to celebrate in style! </b> 
+
+
+                </p> 
+            </span> 
+            
+             <div id="botones-para-compartir" style="display:inline;float:left;margin-top:-15px;margin-left:7px;"> <span> </a><img src="https://i.imgur.com/AEpSopb.png" style="height:25px; margin-left: 150px;"> </span></div>
+            </div>
+            
+            
+               
+              
+        
+        </div>
+   
+    
+    
+
+</body>
+
+</html>
