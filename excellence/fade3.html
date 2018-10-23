@@ -2,6 +2,44 @@
 <html lang="en">
 
 <head>
+    <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+     <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.excellenceresorts.com/?utm_source=mosaic&utm_medium=display&utm_campaign=branding&utm_content=native-excellenceday&gdp=cntv';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -138,7 +176,7 @@
         }
 
         .value2_text_title {
-            font-size: 270%;
+            font-size: 200%;
             color: #453936;
             display: inline-block;
             width: 97%;
@@ -162,7 +200,7 @@
         }
 
         .value2_text_small {
-            font-size: 140%;
+            font-size: 130%;
         }
 
         ul {
@@ -318,14 +356,11 @@
         }
 
     </style>
-    <script>
-        function openUrl() {
-            window.open("https://www.excellenceresorts.com/?utm_source=mosaic&utm_medium=display&utm_campaign=branding&utm_content=native-excellenceday&gdp=cntv");
-        }
-    </script>
+    
 </head>
 
 <body class="value2">
+    <a href="%%c1;cpdir=" target="_blank">
     <div class="value2_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
        
         <div class="value2_cover bg cover-1 carousel-item item-1">
@@ -339,12 +374,12 @@
         </div>
         <div class="value2_text"> 
             <span class="value2_text_title value2_text_bold">
-           Think of it!
+           Well Deserved Scape
             </span>
             <br/>  
             <span class="value2_text_light value2_text_small" style="color:black;">
                 <p style="margin-right:15px; text-align: center; width: 92%; margin-top: 10px; line-height: 1.1em">
-    <b> There is always a special occasion to share unforgettable moments with the people you care the most. You deserve to celebrate in style! </b> 
+    <b> Think of it; there is always a special occasion to share unforgettable moments with the people you care the most. You deserve to celebrate in style! </b> 
 
 
                 </p> 
@@ -356,7 +391,8 @@
             
                
               
-        
+        </div>
+    </a>
         </div>
    
     
