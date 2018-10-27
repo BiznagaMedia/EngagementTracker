@@ -2,11 +2,50 @@
 <html lang="en">
 
 <head>
+     <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+     <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://servicio.vw.com.mx/productos-de-servicio/mantenimiento/precios';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="ad.size" content="width=320, height=480" />
-    <title>320x480 - Argeta</title>
+    <title>300x600 - tiguan</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
     <style>
         body.tgx {
@@ -322,15 +361,12 @@
         }
 
     </style>
-    <script>
-        function openUrl() {
-            window.open("https://servicio.vw.com.mx/productos-de-servicio/mantenimiento/precios");
-        }
-    </script>
+    
 </head>
 
 <body class="tgx">
-    <div class="tgx_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+    <a href="%%c1;cpdir=" target="_blank">
+    <div class="tgx_wrapper carousel-wrapper size_320x480">
        
         <div class="tgx_cover bg cover-1 carousel-item item-1">
             <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small"></span></div>
@@ -351,19 +387,7 @@
                 <p style="margin-right:3px; text-align: justify; width: 98%; margin-top: 8px; line-height: 1.2em">
   Sabemos lo que tu <b> Tiguan </b> significa para tí, por eso te ofrecemos grandes oportunidades para que estés al día con su <b> Servicio de Mantenimiento.</b>
             
-               <!-- <div style="bottom:0px;height: 1px;text-align:left;margin-top:20px">
-                <div id="botones-para-compartir" style="display:inline;float:left;margin-left:4px;margin-top:-12px;">
-                    <span>  
-                        <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://servicio.vw.com.mx/productos-de-servicio/mantenimiento/precios"  target="block">    
-                        <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/xG92ta0.png" title="compartir en facebook" width="22" /></a>
-
-                            <a class="shared" href="https://plus.google.com/share?url=https://servicio.vw.com.mx/productos-de-servicio/mantenimiento/precios" target="block">
-                            <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/ufeiYwy.png" title="compartir en google+" width="22" /></a>
-
-                            <a class="shared" href="https://twitter.com/home?status=https://servicio.vw.com.mx/productos-de-servicio/mantenimiento/precios" target="block">
-                            <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/KZRu00X.png" title="compartir en twitter" width="22" /></a>
-                    </span>
-                </div> -->
+              
                 <div class="logo">
                     <img src="https://i.imgur.com/SJiK7WX.png" style="height:48px">
                 </div>
@@ -373,7 +397,10 @@
         </div>   
     </div>
     </div>
-    
+    </p>
+</div>
+</div>
+</a>
 </body>
 
 </html>
