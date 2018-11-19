@@ -848,7 +848,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     <!--#i5.i30.shape.html:shape/html-->
 <div id="i30"></div>
 <!--#/#--><!--#i5.i24.text.html:text/html-->
-<div id="i24">Sabemos lo que tu Tiguan significa para ti.</div>
+<div id="i24">Mereces la mejor versión de una SUV.</div>
 <!--#/#--><!--#i5.i58.image.html:image/html-->
 <img id="i58" src="https://i.imgur.com/9JMNMRw.jpg"/>
 <!--#/#--><!--#i5.i184.image.html:image/html-->
@@ -864,7 +864,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     <!--#i6.i40.shape.html:shape/html-->
 <div id="i40"></div>
 <!--#/#--><!--#i6.i34.text.html:text/html-->
-<div id="i34">Llegó Tu Momento Tiguan.</div>
+<div id="i34">Mereces una edición ejecutiva.</div>
 <!--#/#--><!--#i6.i60.image.html:image/html-->
 <img id="i60" src="https://i.imgur.com/aKWmyLh.jpg"/>
 <!--#/#--><!--#i6.i186.image.html:image/html-->
@@ -929,7 +929,11 @@ document.getElementById('i91').addEventListener('click', function(e){
 });
 /*#/#*//*#i4.i50.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i4').addEventListener('click', function(e){
+    /*#i50.i51.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i5.i58.image.js:image/base/js*/
 
 /*#/#*//*#i5.i184.image.js:image/base/js*/
@@ -947,7 +951,11 @@ document.getElementById('i95').addEventListener('click', function(e){
 });
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i5').addEventListener('click', function(e){
+    /*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i6.i60.image.js:image/base/js*/
 
 /*#/#*//*#i6.i186.image.js:image/base/js*/
@@ -965,7 +973,11 @@ document.getElementById('i99').addEventListener('click', function(e){
 bmShow('i192');
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
 /* Name: On Click; */
-
+document.getElementById('i6').addEventListener('click', function(e){
+    /*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 /*#/#*//*#i183.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
