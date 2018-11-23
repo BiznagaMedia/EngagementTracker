@@ -1,0 +1,20 @@
+{
+    "version": "1.0",
+    "uniqueId": "be8050aafaf911249dcc6e269fd0e394",
+    "title": "cubo1-300x250",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/bit.vodafone.es\/?did=VDF_BIT:dt-20181112:cp-vdf_brand_particulares:cn-Display:kw-:cc-:cl-no_cliente:sp-WEBADS:cr-1200x627:gk-:st-prospecting:ta-:md-NOLONECESITO:ds-responsive:pr-2P:wn-brand:pl-WEBADS_AW_AL_CM_NOLONECESITO_BIT_NTV_Dinamico_1200x627",
+        "clickTAG2": "https:\/\/bit.vodafone.es\/?did=VDF_BIT:dt-20181112:cp-vdf_brand_particulares:cn-Display:kw-:cc-:cl-no_cliente:sp-WEBADS:cr-1200x627:gk-:st-prospecting:ta-:md-NOLONECESITO:ds-responsive:pr-2P:wn-brand:pl-WEBADS_AW_AL_CM_NOLONECESITO_BIT_NTV_Dinamico_1200x627",
+        "clickTAG3": "https:\/\/bit.vodafone.es\/?did=VDF_BIT:dt-20181112:cp-vdf_brand_particulares:cn-Display:kw-:cc-:cl-no_cliente:sp-WEBADS:cr-1200x627:gk-:st-prospecting:ta-:md-NOLONECESITO:ds-responsive:pr-2P:wn-brand:pl-WEBADS_AW_AL_CM_NOLONECESITO_BIT_NTV_Dinamico_1200x627",
+        
+    },
+    "source": "Cube.html"
+}
