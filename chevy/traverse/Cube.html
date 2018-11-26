@@ -509,7 +509,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
 /*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 17px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
+#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: LouisRegular; font-size: 17px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
 /*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
 #i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 58px;
         -ms-transform: translate(-50%, -50%) translate(0px, 72px) rotate(0deg);
@@ -560,7 +560,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i5.i24.text.css:text/base/css*/
-#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 16px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px; margin-left: 5px;}
+#i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: LouisRegular; font-size: 16px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px; margin-left: 5px;}
 /*#/#*//*#i24.i25.positioning.css:positioning/base/css.1*/
 #i24 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 280px; height: 52px;
         -ms-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
@@ -740,7 +740,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i6.i34.text.css:text/base/css*/
-#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 19px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px;}
+#i34 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: LouisRegular; font-size: 19px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px;}
 /*#/#*//*#i34.i35.positioning.css:positioning/base/css.1*/
 #i34 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 257px; height: 55px;
         -ms-transform: translate(-50%, -50%) translate(0px, 70px) rotate(0deg);
@@ -787,6 +787,18 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
+/*#/#*//*#i228.font-local.css:font/font-local/css*/
+/*#i228.i229.font-local.css:font-local/css.1*/
+@font-face {
+font-family: 'LouisRegular';
+src: url('fonts/');
+src: url('fonts/?#iefix') format('embedded-opentype'),
+url('fonts/') format('woff'),
+url('fonts/LouisRegular.ttf') format('truetype'),
+url('fonts/') format('opentype'),
+url('fonts/') format('svg');
+}
+/*#/#*/
 /*#/#*/
 </style>
 <!--#/#--></head>
@@ -850,6 +862,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         <span>Swipe</span>
     </div>
 </div>
+<!--#/#--><!--#i228.font.html:font/html-->
 <!--#/#--><!--#/#--><!--#js:common/js-->
 <script>
 /*#i2.cube.js:cube/js.1*/
@@ -884,12 +897,14 @@ bmShow('i181');
 /* Name: On Click; */
 document.getElementById('i91').addEventListener('click', function(e){
     /*#i177.i178.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.chevrolet.com.pe/all-new-traverse-suv/fotos-exterior.html'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.chevrolet.com.pe/all-new-traverse-suv.html'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i4.i50.actions.js:actions/base/js*/
 /* Name: On Click; */
 
+/*#/#*//*#i50.i51.actions-clicktag.js:actions-clicktag/base/js.1*/
+   
 /*#/#*//*#i5.i58.image.js:image/base/js*/
 
 /*#/#*//*#i5.i224.image.js:image/base/js*/
@@ -900,12 +915,14 @@ bmShow('i224');
 /* Name: On Click; */
 document.getElementById('i95').addEventListener('click', function(e){
     /*#i175.i176.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.chevrolet.com.pe/all-new-traverse-suv/fotos-exterior.html'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.chevrolet.com.pe/all-new-traverse-suv.html'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
 /* Name: On Click; */
 
+/*#/#*//*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
+    
 /*#/#*//*#i6.i60.image.js:image/base/js*/
 
 /*#/#*//*#i6.i226.image.js:image/base/js*/
@@ -916,12 +933,14 @@ bmShow('i226');
 /* Name: On Click; */
 document.getElementById('i99').addEventListener('click', function(e){
     /*#i179.i180.actions-clicktag.js:actions-clicktag/base/js.1*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'https://www.chevrolet.com.pe/all-new-traverse-suv/fotos-exterior.html'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.chevrolet.com.pe/all-new-traverse-suv.html'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 /*#/#*//*#i6.i54.actions.js:actions/base/js*/
 /* Name: On Click; */
 
+/*#/#*//*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
+  
 /*#/#*//*#i183.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
@@ -1021,4 +1040,6 @@ name: Link;
 data: /*!*/{}/*!*/;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i228.font.meta:font/meta*/
+name: Web Font: LouisRegular; type: font-local; customName: ;
 /*#/#*/--><!--#/#-->
