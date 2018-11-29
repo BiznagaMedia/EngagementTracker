@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <title>Properati-geo</title>
+    <style>
+        .PapaJohnFijo a,
+        .PapaJohnFijo a:hover {
+            text-decoration: none;
+            color: white
+        }
+
+        .PapaJohnFijo .te-container {
+            width: 300px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            
+        }
+
+        .PapaJohnFijo .te-wrapper {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            overflow: hidden;
+            font-family: Source Sans Pro;
+        }
+
+        .PapaJohnFijo .bzm_text {
+            
+            margin-left: 5px;
+            text-align: center;
+        }
+
+        .PapaJohnFijo .bzm_text_bold,
+        .PapaJohnFijo .bzm_text_medium {
+            line-height: 2;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .PapaJohnFijo .bzm_text_bold {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .PapaJohnFijo .bzm_text_medium {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /*******************************************************/
+
+        /****************** Unfold Effects *********************/
+
+        /*******************************************************/
+
+        .PapaJohnFijo .te-perspective {
+            -webkit-perspective: 1000;
+        }
+
+        .PapaJohnFijo .te-cover,
+        .PapaJohnFijo .te-transition {
+            width: 320px;
+            height: 160px;
+        }
+
+        .PapaJohnFijo .te-cover.te-hide,
+        .PapaJohnFijo .te-transition,
+        .PapaJohnFijo .te-images {
+            display: none;
+                    }
+
+        .PapaJohnFijo .te-images {
+            width: 300px;
+            height: 250px;
+        }
+
+        .PapaJohnFijo .te-cover>img,
+        .PapaJohnFijo .te-images>img {
+            width: 300px;
+            height: 250px;
+        }
+
+        .PapaJohnFijo .te-transition.te-show {
+            display: block;
+        }
+
+        .PapaJohnFijo .te-back,
+        .PapaJohnFijo .te-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .PapaJohnFijo .te-front {
+            z-index: 2;
+        }
+
+        .PapaJohnFijo .te-back {
+            z-index: 1;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .PapaJohnFijo .te-transition img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        /***************** example3 ********************/
+
+        .PapaJohnFijo .te-example3 .te-front {
+            z-index: 1;
+        }
+
+        .PapaJohnFijo .te-example3 .te-back {
+            z-index: 2;
+        }
+
+        .PapaJohnFijo .te-example3.te-show .te-back {
+            -webkit-animation: example3Back 0.4s ease-out forwards;
+        }
+
+        @-webkit-keyframes example3Back {
+            0% {
+                -webkit-transform: rotate(40deg) scale(1.5) translate(200px, 10px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotate(0deg) scale(1) translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        .PapaJohnFijo #botones-para-compartir {
+            text-align: right;
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 0px 0px 0px 0px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 0px #000;
+            /* Sombra */
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .PapaJohnFijo .logo {
+            z-index: 2;
+            background-color: transparent;
+            border-radius: 1px;
+            
+            text-align: center;
+            
+            margin-left: 0px
+        }
+
+        .PapaJohnFijo .ctaButton {
+            position: absolute;
+            cursor: pointer;
+            opacity: 1;
+            background-color: #9d32b1;
+            font-family: "Roboto";
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: bold;
+            font-style: normal;
+            text-decoration: none;
+            text-align: center;
+            line-height: 100%;
+            letter-spacing: 0px;
+            text-shadow: 0px 0px 0px rgba(214, 214, 214, 1);
+            border-radius: 5px;
+            border-color: rgba(0, 100, 150, 0);
+            border-width: 1px;
+            margin: -1px;
+            border-style: solid;
+            width: 96px;
+            height: 24px;
+            margin-left: -92px;
+            margin-top: 42.5px
+        }
+
+        @media screen and (max-width: 480px) {
+            .ctaButton {
+                font-size: 10px!important;
+                font-weight: normal;
+            }
+        }
+
+        .cta {
+            position: absolute;
+            top: 441px;
+            width: 200px;
+            line-height: 1.5em;
+            z-index: 5;
+            margin-left: 40px;
+            
+            background-color: #000;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+            
+            }
+    </style>
+</head>
+
+<body class="PapaJohnFijo" style="margin:0px;">
+    <div class="te-container">
+        <a href="https://www.properati.com.co/proyectos/irati#sug_src" target="_blank">
+            <div id="te-wrapper" class="te-wrapper"> 
+            
+
+                         
+                <div class="te-cover"> 
+                <img src="https://i.imgur.com/OAG5UOd.gif" alt="" /> </div>
+                <div class="te-transition">
+                    <div class="te-front"></div>
+                    <div class="te-back"></div>
+                </div>
+                
+                
+                
+                <div style="margin-top:100px; margin-left: 2px; margin-right: 10px;">
+                    <div class="bzm_text">
+                        <span class="bzm_text_title  bzm_text_bold" style="color: black;line-height:1.1; font-size:28px; margin-left:0px; margin-right:0px;text-align: left; width: 90%;">
+						    ¿Quieres un hogar con todas las cómodidades para tu familia?
+						</span>
+                       <span class="bzm_text_medium" style="color: black;line-height:em; font-size:15px; width:95%; text-align:justify;">
+                        <p style="margin-top: 0px; line-height: 1.3em; margin-left: 3px; ">
+                           Contamos con una <b>ubicación privilegiada,</b> para disfrutar en familia las mejores<b> vistas naturales</b> en residencias amplias y hermosas en la ciudad de <b> Barranquilla.</b> </p>
+
+   <div class="cta">  <a href="https://goo.gl/maps/BfKrukFq8zE2" target="_blank"> 
+       <span class="bzm_text_title bzm_text_bold" style="font-size:80%; color: white;">LLÉVAME A MI NUEVO HOGAR </span></a></div>
+               
+                       
+                      <!-- <div id="botones-para-compartir" style="display:inline;float:left;margin-top:5px;margin-left:7px;"> <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://goo.gl/maps/ddKqd48NGv52" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/eaRHI5v.png" title="compartir en facebook" width="22" /></a><a class="shared" href="https://plus.google.com/share?url=https://goo.gl/maps/ddKqd48NGv52" target="_blank"> <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/eKhQpjs.png" title="compartir en google+" width="22" /></a><a class="shared" href="https://twitter.com/home?status=https://goo.gl/maps/ddKqd48NGv52" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/YpoMgUY.png" title="compartir en twitter" width="22" /></a></div>-->
+                       
+                       
+                         <div id="botones-para-compartir" style="margin-top: 8px; height: 319px;"> <span> <a class="logo" href="https://goo.gl/maps/iVY6z5QwxRo" target="_blank"> <img alt="compartir en facebook" class="facebooki"  src="https://i.imgur.com/GP4qk0x.jpg" title="Concesionaria más cercana"  /></a>
+                         
+                           <!--  <img class="logo" href="https://goo.gl/maps/7XHvPLLb6Jv" src="https://i.imgur.com/crzbpTh.png" alt="" style="margin-top: 10px;">-->
+                    
+                
+                        </span>
+    </div>
+                        </span>
+                </div>
+            </div>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
