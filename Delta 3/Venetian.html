@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 <title>HTML5 STUDIO BUILDER: Venetian v 1.5</title>
-<meta charset="UTF-8">
+
 <!-- Adform API Script -->
 <script type="text/javascript">
 document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
@@ -2216,6 +2216,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
+/*#/#*//*#i44.image.css:image/base/css*/
+#i44 { opacity: 1; }
+/*#/#*//*#i44.i45.positioning.css:positioning/base/css.2*/
+#i44 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 280px; height: 30px;
+        -ms-transform: translate(0, 0) translate(10px, 564px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(10px, 564px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(10px, 564px) rotate(0deg);
+        transform: translate(0, 0) translate(10px, 564px) rotate(0deg);
+}
 /*#/#*//*#i14.button.css:button/base/css*/
 #i14 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(166,48,48,1); font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 0px; border-color: rgba(166,48,48,1); border-width: 1px; margin:-1px; border-style: solid; }
 #i14:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
@@ -2238,15 +2247,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(1px, 0px) rotate(0deg);
 }
-/*#/#*//*#i44.image.css:image/base/css*/
-#i44 { opacity: 1; }
-/*#/#*//*#i44.i45.positioning.css:positioning/base/css.2*/
-#i44 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 224px; height: 28px;
-        -ms-transform: translate(0, 0) translate(67px, 565px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(67px, 565px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(67px, 565px) rotate(0deg);
-        transform: translate(0, 0) translate(67px, 565px) rotate(0deg);
-}
 /*#/#*/
 </style>
 <!--#/#--></head>
@@ -2267,12 +2267,12 @@ o Los Ángeles?
 <dataimg id="i6" src="https://i.imgur.com/PDpsHSy.png"></dataimg>
 <!--#/#-->
 </div>
+<!--#/#--><!--#i44.image.html:image/html-->
+<img id="i44" src="https://i.imgur.com/TtttbSf.jpg"/>
 <!--#/#--><!--#i14.button.html:button/html-->
 <button id="i14">Conoce más</button>
 <!--#/#--><!--#i26.button.html:button/html-->
 <button id="i26"></button>
-<!--#/#--><!--#i44.image.html:image/html-->
-<img id="i44" src="http://i.imgur.com/47wMV5o.jpg"/>
 <!--#/#--><!--#/#--><!--#js:common/js-->
 <script>
 /*#i30.i31.positioning.js:positioning/base/js.2*/
@@ -2323,6 +2323,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*#/#*//*#i2.i6.slice-image.js:slice-image/base/js*/
 
+/*#/#*//*#i44.image.js:image/base/js*/
+
+/*#/#*//*#i44.i45.positioning.js:positioning/base/js.2*/
+bmShow('i44');
 /*#/#*//*#i14.i15.positioning.js:positioning/base/js.2*/
 bmShow('i14');
 /*#/#*//*#i26.i27.positioning.js:positioning/base/js.2*/
@@ -2340,10 +2344,6 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i44.image.js:image/base/js*/
-
-/*#/#*//*#i44.i45.positioning.js:positioning/base/js.2*/
-bmShow('i44');
 /*#/#*//*#i9.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
@@ -2376,6 +2376,11 @@ name: cJLv0eJ.png; fileId: ; sourceTypeId: externalUrl;
 name: PDpsHSy.png; fileId: ; sourceTypeId: externalUrl;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i44.image.meta:image/meta*/
+name: TtttbSf.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i44.i45.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i14.button.meta:button/meta*/
 name: Conoce más;
 customName: false;
@@ -2386,9 +2391,4 @@ name: ;
 customName: false;
 /*#/#*//*#i26.i27.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i44.image.meta:image/meta*/
-name: 47wMV5o.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: false;
-/*#/#*//*#i44.i45.positioning.meta:positioning/meta.2*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*/--><!--#/#-->
