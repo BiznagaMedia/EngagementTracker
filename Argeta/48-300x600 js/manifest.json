@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "title": "300x600",
+  "description": null,
+  "width": 300,
+  "height": 600,
+  "source": "index.html",
+  "eventsCapable": false,
+  "events": null,
+  "clickTags": null
+}

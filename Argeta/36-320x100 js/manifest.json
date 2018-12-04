@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "33cfebf01f0ccf9ce585e56cc9722d4b",
+    "title": "Standard_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 100,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http:\/\/usa.argeta.com\/?utm_source=Display&utm_medium=Animatedgif&utm_campaign=argeta_usa"
+    },
+    "source": "index.html"
+}

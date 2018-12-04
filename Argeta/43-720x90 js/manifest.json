@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "title": "728x90",
+  "description": null,
+  "width": 728,
+  "height": 90,
+  "source": "index.html",
+  "eventsCapable": false,
+  "events": null,
+  "clickTags": null
+}

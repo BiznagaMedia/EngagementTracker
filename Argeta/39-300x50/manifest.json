@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "da22dc57d40d5bdb8fd1bcc188d0cebe",
+    "title": "300x50-1",
+    "description": "",
+    "width": 300,
+    "height": 50,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http://usa.argeta.com/?utm_source=Programatic&utm_medium=Native&utm_campaign=argeta_usa"
+    },
+    "source": "index.html"
+}

@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "77982bce1afef772f5148bea37e2ad87",
+    "title": "Standard_main_asset",
+    "description": "",
+    "width": 728,
+    "height": 90,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http://usa.argeta.com/?utm_source=Programatic&utm_medium=Native&utm_campaign=argeta_usa"
+    },
+    "source": "index.html"
+}
