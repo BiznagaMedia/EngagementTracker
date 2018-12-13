@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "5e725b43cbc5ccd685d52ce6b12306c3",
+    "title": "fade-300x600",
+    "description": "",
+    "width": 300,
+    "height": 600,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https://servicio.vw.com.mx/productos-de-servicio/mantenimiento/precios"
+    },
+    "source": "FadeBig.html"
+}
