@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<head>
+<title>HTML5 STUDIO BUILDER: Responsive Carousel v 1.5</title>
+
+<!-- Adform API Script -->
+<script type="text/javascript">
+document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+</script>
+
+<style>
+body {
+  background: #fff;
+}
+</style>
+
+<!--#head:common/head-->
+<!--#carousel.head:carousel/globalhead-->
+<script>
+    (function (Adf) {
+        'use strict';
+        var dummyElem = document.createElement('div');
+        var prefixes = ['Ms', 'ms', 'Webkit', 'webkit', 'Moz', 'moz', 'O', 'o'];
+
+        function getPrefixedPropName(object, propertyName, prefixes) {
+            var i;
+            var prefixedPropertyName;
+            if (propertyName in object) {
+                return propertyName;
+            }
+            propertyName = propertyName.charAt(0).toUpperCase() + propertyName.slice(1);
+            for (i = 0; i < prefixes.length; i++) {
+                prefixedPropertyName = prefixes[i] + propertyName;
+                if (prefixedPropertyName in object) {
+                    return prefixedPropertyName;
+                }
+            }
+            return null;
+        }
+
+        function getStylePropName(propertyName) {
+            return getPrefixedPropName(dummyElem.style, propertyName, prefixes);
+        }
+
+        function isfunction(param) {
+            return typeof param === 'function';
+        }
+
+        function fail(message) {
+            throw new Error(message);
+        }
+
+        function clamp(value, min, max) {
+            return Math.min(Math.max(value, min), max);
+        }
+
+        function wrapIndex(index, length) {
+            if (index > 0) {
+                index = index % length;
+            } else if (index < 0) {
+                index = (index + 1) % length + length - 1;
+            }
+            return index;
+        }
+
+        function isDefined(param) {
+            return typeof param !== 'undefined';
+        }
+
+        function parseProp(object, prop, parser, test, testOptions, fallback) {
+            var value = object[prop],
+                    parsedValue;
+            if (arguments.length > 5 && !isDefined(value)) {
+                return fallback;
+            }
+            parsedValue = parser ? parser(value) : value;
+            if (test) {
+                try {
+                    test(parsedValue, testOptions);
+                } catch (error) {
+                    var newMsg = 'Invalid ' + prop + ': ' + value + '; ' + error.message;
+                    throw new Error(newMsg);
+                }
+            }
+            return parsedValue;
+        }
+        var VALUE_MUST_BE = 'Value must be ';
+
+        function testIsInRange(value, rangeOptions) {
+            var threshold;
+            threshold = rangeOptions['<'];
+            if ((isDefined(threshold)) && !(value < threshold)) {
+                fail(VALUE_MUST_BE + 'less than ' + threshold);
+            }
+            threshold = rangeOptions['<='];
+            if ((isDefined(threshold)) && !(value <= threshold)) {
+                fail(VALUE_MUST_BE + 'less than or equal to ' + threshold);
+            }
+            threshold = rangeOptions['>'];
+            if ((isDefined(threshold)) && !(value > threshold)) {
+                fail(VALUE_MUST_BE + 'greater than ' + threshold);
+            }
+            threshold = rangeOptions['>='];
+            if ((isDefined(threshold)) && !(value >= threshold)) {
+                fail(VALUE_MUST_BE + 'greater than or equal to ' + threshold);
+            }
+        }
+
+        function testIsOneOf(value, expectedValues) {
+            var i;
+            for (i = 0; i < expectedValues.length; i++) {
+                if (expectedValues[i] === value) {
+                    return;
+                }
+            }
+            fail(VALUE_MUST_BE + 'one of the following: ' + expectedValues.join(', '));
+        }
+
+        function debounce(callback, delay, immediate) {
+            var timeout = null;
+            return function () {
+                var context = this,
+                        args = arguments,
+                        callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    timeout = null;
+                    if (!immediate) {
+                        callback.apply(context, args);
+                    }
+                }, delay);
+                if (callNow) {
+                    callback.apply(context, args);
+                }
+            };
+        }
+
+        function forEachComplementRange(aMin, aMax, bMin, bMax, callback) {
+            if (aMin === null || aMax === null) {
+                return;
+            }
+            if (bMin === null || bMax === null || bMin > aMax || bMax < aMin) {
+                callback(aMin, aMax);
+                return;
+            }
+            if (aMax > bMax) {
+                if (aMin < bMin) {
+                    callback(aMin, bMin - 1);
+                    callback(bMax + 1, aMax);
+                    return;
+                }
+                callback(bMax + 1, aMax);
+            } else if (aMin < bMin) {
+                callback(aMin, bMin - 1);
+            }
+        }
+
+        function ScrollHelper(options) {
+            var itemCount = Math.max(0, parseInt(options.itemCount)) || 0,
+                    onUpdate = options.onUpdate,
+                    scroll = 0,
+                    size = 0,
+                    index = null,
+                    indexMin = null,
+                    indexMax = null;
+
+            function hideIndexRange(min, max) {
+                for (index = min; index <= max; index++) {
+                    onUpdate(wrapIndex(index, itemCount), false, index - scroll, 0);
+                }
+            }
+            this.setScroll = function (newScroll) {
+                scroll = parseFloat(newScroll) || 0;
+                return this;
+            };
+            this.getScroll = function () {
+                return scroll;
+            };
+            this.setSize = function (newSize) {
+                size = Math.max(0, parseFloat(newSize)) || 0;
+                return this;
+            };
+            this.getSize = function () {
+                return size;
+            };
+            this.update = function () {
+                var adjustedSize = Math.min(size, itemCount - 1),
+                        scrollCenterOffset = -adjustedSize / 2 + 0.5,
+                        newIndexMin,
+                        newIndexMax;
+                if (size > 0) {
+                    newIndexMin = Math.floor(scroll + scrollCenterOffset);
+                    newIndexMax = Math.ceil(scroll + scrollCenterOffset + adjustedSize - 1);
+                } else {
+                    // WHAT
+                    newIndexMin = 0;
+                    newIndexMax = 0;
+                }
+                // Hide items that are no longer visible
+                forEachComplementRange(indexMin, indexMax, newIndexMin, newIndexMax, hideIndexRange);
+                // Update positions of all visible items
+                var shouldFadeEdge = itemCount - 1 < size,
+                        edgeFadeDistance = adjustedSize / 2 + 0.5,
+                        position,
+                        edgeFadeRatio;
+                for (index = newIndexMin; index <= newIndexMax; index++) {
+                    position = index - scroll;
+                    edgeFadeRatio = shouldFadeEdge ? clamp(0, 1, (edgeFadeDistance - Math.abs(position)) * 2) : 1;
+                    onUpdate(wrapIndex(index, itemCount), true, position, edgeFadeRatio);
+                }
+                indexMin = newIndexMin;
+                indexMax = newIndexMax;
+                return this;
+            };
+        }
+        var PI = Math.PI;
+        var TAU = PI * 2;
+
+        function findAngle(ax, ay, bx, by, cx, cy) {
+            var bax = bx - ax,
+                    bay = by - ay,
+                    bcx = bx - cx,
+                    bcy = by - cy,
+                    cax = cx - ax,
+                    cay = cy - ay,
+                    ba = bax * bax + bay * bay,
+                    bc = bcx * bcx + bcy * bcy,
+                    ca = cax * cax + cay * cay;
+            return Math.acos(Math.max(-1, Math.min(1, (bc + ba - ca) / Math.sqrt(4 * bc * ba))));
+        }
+
+        function CubeTransformer() {
+            // Input params
+            var carouselSize = 0, // Desired carousel size on screen in pixels
+                    carouselPerspective = 0, // Carousel perspective in pixels
+                    panelSize = 0, // Carousel panel size in pixels
+                    rotationAxis = 'Y';
+            // Computed params
+            var needsUpdate = false,
+                    compPerimeterPanelCount = 0, // Number of panels that fit around the carousel
+                    compProjectionSize = 0, // Actual carousel size on screen in pixels
+                    compProjectionPanelCount = 0, // Maximum number of panels visible on screen at resting position (float)
+                    compPanelAngleDelta = 0, // 2 * PI / panelCount
+                    compInnerRadius = 0,
+                    compOuterRadius = 0;
+
+            function computeProjection() {
+                compPanelAngleDelta = TAU / compPerimeterPanelCount;
+                compInnerRadius = Math.tan((PI - compPanelAngleDelta) / 2) / 2 * panelSize;
+                compOuterRadius = 0.5 / Math.cos((PI - compPanelAngleDelta) / 2) * panelSize;
+                // Loop through carousel edges, calculate their positions on screen, find the furthest one
+                var startAngle = PI / 2 + compPanelAngleDelta / 2,
+                        panelCount = Math.ceil(compPerimeterPanelCount / 2),
+                        maxAbsX = 0,
+                        i;
+                for (i = 0; i < panelCount; i++) {
+                    var angle = startAngle + compPanelAngleDelta * i,
+                            x = Math.cos(angle) * compOuterRadius,
+                            z = Math.sin(angle) * compOuterRadius - compInnerRadius,
+                            pw = carouselPerspective ? -1 / carouselPerspective * z + 1 : 1,
+                            projectedAbsX = Math.abs(x / pw);
+                    if (projectedAbsX > maxAbsX) {
+                        maxAbsX = projectedAbsX;
+                    } else {
+                        break;
+                    }
+                }
+                compProjectionSize = maxAbsX * 2;
+                compProjectionPanelCount = Math.max(1, i * 2 - 1);
+            }
+
+            function update() {
+                if (!needsUpdate || !carouselSize || !carouselPerspective || !panelSize) {
+                    return;
+                }
+                compPerimeterPanelCount = carouselSize * PI / panelSize;
+                // Calculate carousel projection (perspective causes things to appear smaller the further they are, find the
+                // actual screen size of a carousel with the predicted amount of panels)
+                computeProjection();
+                // Increase panel count until carousel projection (actual carousel size on screen) is close to carouselSize
+                var iterationsLeft = 20,
+                        perimeterPanelCountIncrease = compPerimeterPanelCount / 2;
+                while (Math.abs(carouselSize - compProjectionSize) > 1 && iterationsLeft) {
+                    compPerimeterPanelCount += perimeterPanelCountIncrease;
+                    computeProjection();
+                    if (compProjectionSize > carouselSize) {
+                        compPerimeterPanelCount -= perimeterPanelCountIncrease;
+                        perimeterPanelCountIncrease /= 2;
+                    }
+                    iterationsLeft--;
+                }
+                // At this point carousel parameters are known, however it would be nice to prevent it from folding into
+                // triangle prism or something weirder. Make sure that it's a cube in worst case
+                if (compPerimeterPanelCount < 4) {
+                    compPerimeterPanelCount = 4;
+                    computeProjection();
+                }
+                needsUpdate = false;
+            }
+            this.setParams = function (newCarouselSize, newPanelSize, newCarouselPerspective, isVerticalRotation) {
+                carouselSize = Math.max(0, parseFloat(newCarouselSize));
+                carouselPerspective = Math.max(2, parseFloat(newCarouselPerspective));
+                panelSize = Math.max(0, parseFloat(newPanelSize));
+                rotationAxis = isVerticalRotation ? 'X' : 'Y';
+                needsUpdate = true;
+                return this;
+            };
+            this.getPanelCount = function () {
+                update();
+                return compProjectionPanelCount;
+            };
+            /**
+             * @param {{worldSpaceAngle: number, screenSpaceAngle: number, transform: string}} data
+             * @param {number} normalizedPosition
+             */
+            this.putPanelData = function (data, normalizedPosition) {
+                update();
+                var currentRadius = Math.cos((Math.abs(normalizedPosition) % 1 - 0.5) * compPanelAngleDelta) * compOuterRadius,
+                        panelAngle = normalizedPosition * compPanelAngleDelta,
+                        panelAngleSign = panelAngle < 0 ? -1 : 1,
+                        carouselX = 0,
+                        carouselZ = -currentRadius,
+                        cameraX = 0,
+                        cameraZ = carouselPerspective,
+                        panelX = carouselX + Math.sin(panelAngle) * compInnerRadius,
+                        panelZ = carouselZ + Math.cos(panelAngle) * compInnerRadius;
+                data.worldSpaceAngle = panelAngle;
+                data.screenSpaceAngle = (PI - findAngle(cameraX, cameraZ, panelX, panelZ, 0, carouselZ)) * panelAngleSign;
+                data.transform = 'translateZ(' + -currentRadius + 'px) rotate' + rotationAxis + '(' + panelAngle + 'rad) translateZ(' + compInnerRadius + 'px)';
+            };
+        }
+
+        function isfunction$1(param) {
+            return typeof param === 'function';
+        }
+        function nullListeners(listenerDataArray, listener) {
+            var nulledCount = 0;
+            var i;
+            for (i = 0; i < listenerDataArray.length; i++) {
+                var listenerData = listenerDataArray[i];
+                if (listenerData && listenerData.listener === listener) {
+                    listenerDataArray[i] = null;
+                    nulledCount++;
+                }
+            }
+            return nulledCount;
+        }
+
+        function filterListeners(listenerDataArray, listener) {
+            var oldLength = listenerDataArray.length;
+            var newLength = 0;
+            var i;
+            // Filter and compact array
+            for (i = 0; i < oldLength; i++) {
+                var listenerData = listenerDataArray[i];
+                if (listenerData && listenerData.listener !== listener) {
+                    if (i !== newLength) {
+                        listenerDataArray[newLength] = listenerData;
+                    }
+                    newLength++;
+                }
+            }
+            listenerDataArray.length = newLength;
+            return oldLength - newLength;
+        }
+        /**
+         * @constructor
+         */
+        function EventEmitter() {
+            this._map = {};
+        }
+        var proto = EventEmitter.prototype;
+        /**
+         * @param {string} eventName
+         * @param {function} listener
+         * @param {*} context
+         * @return {EventEmitter}
+         */
+        proto.on = function (eventName, listener, context) {
+            if (!isfunction$1(listener)) {
+                throw new TypeError('Argument 2 (listener) is not a function.');
+            }
+            var eventData = this._map[eventName];
+            if (!eventData) {
+                eventData = this._map[eventName] = {
+                    listenerDataArray: [], // Array.<{listener: function, context: *}|null>
+                    isDirty: false, // Indicates whether listenerDataArray contains null entries
+                    activeEmitCount: 0 // Indicates how many EventEmitter#emit are currently being executed for this event
+                };
+            }
+            eventData.listenerDataArray.push({
+                listener: listener,
+                context: context
+            });
+            return this;
+        };
+        /**
+         * @param {string} eventName
+         * @param {function=} listener
+         * @return {EventEmitter}
+         */
+        proto.off = function (eventName, listener) {
+            if (listener != null && !isfunction$1(listener)) { // Intentional non-strict equals
+                throw new TypeError('Argument 2 (listener) is not a function.');
+            }
+            var eventData = this._map[eventName];
+            if (!eventData) {
+                return this;
+            }
+            var listenerDataArray = eventData.listenerDataArray;
+            if (eventData.activeEmitCount > 0) {
+                // If EventEmitter#emit is being executed for this particular eventName at the moment, listenerDataArray length
+                // must stay the same, otherwise some listeners might get skipped. Instead of removing only null out matches and
+                // EventEmitter#emit will handle cleanup
+                eventData.isDirty |= !!nullListeners(listenerDataArray, listener);
+            } else {
+                // If EventEmitter#emit is not being executed for this particular eventName at the moment, it's safe to remove
+                // entries from listenerDataArray...
+                if (listener) {
+                    filterListeners(listenerDataArray, listener);
+                }
+                // ... or delete eventData entirely
+                if (!listener || !listenerDataArray.length) {
+                    delete this._map[eventName];
+                }
+            }
+            return this;
+        };
+        /**
+         * @param {string} eventName
+         * @param {*=} param2
+         * @param {*=} param3
+         * @param {*=} param4
+         * @return {EventEmitter}
+         */
+        proto.emit = function (eventName, param2, param3, param4) {
+            var eventData = this._map[eventName];
+            if (!eventData) {
+                return this;
+            }
+            var listenerDataArray = eventData.listenerDataArray,
+                    listenerError,
+                    i = null;
+            eventData.activeEmitCount++;
+            try {
+                for (i = 0; i < listenerDataArray.length; i++) {
+                    var listenerData = listenerDataArray[i];
+                    if (!listenerData) {
+                        continue; //not clear
+                    }
+                    var listener = listenerData.listener,
+                            context = listenerData.context;
+                    // This seems a little convoluted, however there is a huge performance penalty for using
+                    // Array.prototype.slice on arguments. See http://jsperf.com/event-emitter-performance-array-slice
+                    switch (arguments.length) {
+                        case 1:
+                            listener.call(context);
+                            break;
+                        case 2:
+                            listener.call(context, param2);
+                            break;
+                        case 3:
+                            listener.call(context, param2, param3);
+                            break;
+                        case 4:
+                            listener.call(context, param2, param3, param4);
+                            break;
+                        default:
+                            listener.apply(context, Array.prototype.slice.call(arguments, 1));
+                    }
+                }
+            } catch (error) {
+                listenerError = error;
+            }
+            eventData.activeEmitCount--;
+            if (!eventData.activeEmitCount && eventData.isDirty) {
+                filterListeners(listenerDataArray, null);
+                eventData.isDirty = false;
+                if (!listenerDataArray.length) {
+                    delete this._map[eventName];
+                }
+            }
+            if (listenerError) {
+                throw listenerError;
+            }
+            return this;
+        };
+        proto.hasListener = function (eventName) {
+            var eventData = this._map[eventName];
+            if (!eventData) {
+                return false;
+            }
+            if (!eventData.isDirty) {
+                return !!eventData.listenerDataArray.length;
+            }
+            var listenerDataArray = eventData.listenerDataArray;
+            var i;
+            for (i = 0; i < listenerDataArray.length; i++) {
+                if (listenerDataArray[i]) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        /**
+         * @param {object} event
+         * @param {object} eventInfo
+         * @param {string} event.pointerId
+         * @param {string} event.changedTouches
+         */
+        var MOUSE_SYNTH_THRESHOLD = 25;
+        var KIND_POINTER = 'pointer';
+        var KIND_TOUCH = 'touch';
+        var KIND_MOUSE = 'mouse';
+        var rePointer = /^(?:ms)?pointer/i;
+        var reTouch = /^touch/i;
+        var reMouse = /^mouse/i;
+
+        function addEvent(elem, eventName, listener, capture) {
+            return elem.addEventListener(eventName, listener, capture);
+        }
+
+        function getEventKind(event) {
+            var eventType = event.type,
+                    kind = null;
+            if (rePointer.test(eventType)) {
+                kind = KIND_POINTER;
+            } else if (reTouch.test(eventType)) {
+                kind = KIND_TOUCH;
+            } else if (reMouse.test(eventType)) {
+                kind = KIND_MOUSE;
+            }
+            return kind;
+        }
+
+        function findTouchById(touchList, id) {
+            var i;
+            for (i = 0; i < touchList.length; i++) {
+                if (touchList[i].identifier === id) {
+                    return touchList[i];
+                }
+            }
+            return null;
+        }
+
+        function getEventClientXy(event, eventInfo) {
+            var kind = getEventKind(event),
+                    position = null;
+            if (kind && eventInfo && kind === eventInfo.kind) {
+                if (kind === KIND_POINTER && event.pointerId === eventInfo.id) {
+                    position = event;
+                } else if (kind === KIND_TOUCH) {
+                    position = findTouchById(event.changedTouches, eventInfo.id);
+                } else if (kind === KIND_MOUSE) {
+                    position = event;
+                }
+            }
+            return position ? {
+                x: position.clientX,
+                y: position.clientY
+            } : null;
+        }
+
+        function getEventInfo(event) {
+            var kind = getEventKind(event),
+                    id = null;
+            if (kind === KIND_POINTER) {
+                id = event.pointerId;
+            } else if (kind === KIND_TOUCH) {
+                id = event.changedTouches[0].identifier;
+            } else if (kind === KIND_MOUSE) {
+                id = null;
+            }
+            return {
+                kind: kind,
+                id: id
+            };
+        }
+
+        function eventMatchesInfo(event, eventInfo) {
+            var kind = getEventKind(event),
+                    matches = false;
+            if (kind && eventInfo && kind === eventInfo.kind) {
+                if (kind === KIND_POINTER) {
+                    matches = event.pointerId === eventInfo.id;
+                } else if (kind === KIND_TOUCH) {
+                    matches = !!findTouchById(event.changedTouches, eventInfo.id);
+                } else if (kind === KIND_MOUSE) {
+                    matches = true;
+                }
+            }
+            return matches;
+        }
+
+        function SinglePointerTracker(elem, listeners) {
+            var activeEventInfo = null;
+            var mouseSynthPosition = null;
+
+            function onDown(event) {
+                event.stopPropagation();
+                var eventInfo = getEventInfo(event),
+                        eventPosition = getEventClientXy(event, eventInfo);
+                if (eventInfo.kind === KIND_TOUCH) {
+                    mouseSynthPosition = eventPosition;
+                } else if (eventInfo.kind === KIND_MOUSE && mouseSynthPosition &&
+                        Math.abs(mouseSynthPosition.x - eventPosition.x) <= MOUSE_SYNTH_THRESHOLD &&
+                        Math.abs(mouseSynthPosition.y - eventPosition.y) <= MOUSE_SYNTH_THRESHOLD) {
+                    mouseSynthPosition = null;
+                    return;
+                }
+                if (activeEventInfo !== null) {
+                    listeners.onCancel && listeners.onCancel(null);
+                }
+                activeEventInfo = eventInfo;
+                listeners.onDown && listeners.onDown(event, eventPosition.x, eventPosition.y);
+            }
+
+            function onMove(event) {
+                event.stopPropagation();
+                if (eventMatchesInfo(event, activeEventInfo)) {
+                    var eventPosition = getEventClientXy(event, activeEventInfo);
+                    listeners.onMove && listeners.onMove(event, eventPosition.x, eventPosition.y);
+                }
+            }
+
+            function onUp(event) {
+                if (eventMatchesInfo(event, activeEventInfo)) {
+                    var eventPosition = getEventClientXy(event, activeEventInfo);
+                    if (activeEventInfo.kind === KIND_TOUCH) {
+                        mouseSynthPosition = eventPosition;
+                    }
+                    listeners.onUp && listeners.onUp(event, eventPosition.x, eventPosition.y);
+                }
+                activeEventInfo = null;
+            }
+
+            function onCancel(event) {
+                if (eventMatchesInfo(event, activeEventInfo)) {
+                    listeners.onCancel && listeners.onCancel(event);
+                }
+                activeEventInfo = null;
+            }
+            if (navigator.pointerEnabled) {
+                addEvent(elem, "pointerdown", onDown, false);
+                addEvent(elem, "pointermove", onMove, false);
+                addEvent(elem, "pointerup", onUp, false);
+                addEvent(elem, "pointerleave", function (event) {
+                    if (event.target === elem) {
+                        onUp(event);
+                    }
+                }, true);
+            } else if (navigator.msPointerEnabled) {
+                addEvent(elem, 'MSPointerDown', onDown, false);
+                addEvent(elem, 'MSPointerMove', onMove, false);
+                addEvent(elem, 'MSPointerUp', onUp, false);
+                addEvent(elem, 'MSPointerLeave', function (event) {
+                    if (event.target === elem) {
+                        onUp(event);
+                    }
+                }, true);
+            } else {
+                if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
+                    addEvent(elem, 'touchstart', onDown, false);
+                    addEvent(elem, 'touchmove', onMove, false);
+                    addEvent(elem, 'touchend', onUp, false);
+                    addEvent(elem, 'touchcancel', onCancel, false);
+                }
+                addEvent(elem, 'mousedown', onDown, false);
+                addEvent(elem, 'mousemove', onMove, false);
+                addEvent(elem, 'mouseup', onUp, false);
+                addEvent(elem, 'mouseleave', function (event) {
+                    if (event.target === elem) {
+                        onUp(event);
+                    }
+                }, true);
+            }
+        }
+        var PREFIXES = ['ms', 'moz', 'webkit', 'o'];
+        var ANIMATION_FRAME = 'AnimationFrame';
+        var REQUEST = 'Request';
+        var CANCEL = 'Cancel';
+        var win = window;
+        var isFallback = false;
+        var winRequestFrame;
+        var winCancelFrame;
+        var fallbackTimeZero;
+        var fallbackTimeLast;
+        var patt = new RegExp("(iphone|ipod|ipad).* os ([1-8])_.*safari", "i");
+        var isIOSLE8 = patt.test(navigator.userAgent);
+        if (!isIOSLE8) {
+            var i;
+            winRequestFrame = win['request' + ANIMATION_FRAME];
+            winCancelFrame = win['cancel' + ANIMATION_FRAME];
+            for (i = 0; i < PREFIXES.length && !(winRequestFrame && winCancelFrame); i++) {
+                winRequestFrame = win[PREFIXES[i] + REQUEST + ANIMATION_FRAME];
+                winCancelFrame = win[PREFIXES[i] + CANCEL + ANIMATION_FRAME] || win[PREFIXES[i] + CANCEL + REQUEST + ANIMATION_FRAME];
+            }
+        }
+        if (!(winRequestFrame && winCancelFrame)) {
+            isFallback = true;
+            fallbackTimeZero = Date.now();
+            fallbackTimeLast = fallbackTimeZero;
+            winRequestFrame = function (callback) {
+                var timeCurrent = Date.now(),
+                        timeWait = Math.max(0, 16 - (timeCurrent - fallbackTimeLast)),
+                        timeNext = timeCurrent + timeWait;
+                fallbackTimeLast = timeNext;
+                return setTimeout(function () {
+                    callback(timeNext - fallbackTimeZero);
+                }, timeWait);
+            };
+            winCancelFrame = function (id) {
+                clearTimeout(id);
+            };
+        }
+        var idCounter = 0;
+        var idToOptions = {};
+        var currentFrameIds = [];
+        var nextFrameIds = [];
+        var frameRequestId = null;
+        var lastFrameWorldTime = Date.now();
+        if (!isFallback) {
+            wakeUpNativeFrame();
+        }
+
+        function wakeUpNativeFrame() {
+            if (frameRequestId !== null && Date.now() - lastFrameWorldTime > 1500) {
+                winCancelFrame(frameRequestId);
+                frameRequestId = winRequestFrame(onFrame);
+            }
+            setTimeout(wakeUpNativeFrame, 1500);
+        }
+
+        function rethrowDelayed(error) {
+            setTimeout(function () {
+                throw error;
+            }, 0);
+        }
+
+        function enqueue() {
+            if (frameRequestId === null && nextFrameIds.length) {
+                frameRequestId = winRequestFrame(onFrame);
+            }
+        }
+
+        function onFrame(time) {
+            var temp,
+                    id,
+                    options,
+                    i;
+            frameRequestId = null;
+            lastFrameWorldTime = Date.now();
+            temp = currentFrameIds;
+            currentFrameIds = nextFrameIds;
+            nextFrameIds = temp;
+            for (i = 0; i < currentFrameIds.length; i++) {
+                try {
+                    id = currentFrameIds[i];
+                    options = idToOptions[id];
+                    if (options) {
+                        if (options.isRepeating) {
+                            nextFrameIds.push(id);
+                        } else {
+                            cancelFrame(id);
+                        }
+                        options.callback.call(options.context, time);
+                    }
+                } catch (error) {
+                    rethrowDelayed(error);
+                }
+            }
+            currentFrameIds.length = 0;
+            enqueue();
+        }
+
+        function requestFrame(callback, context, isRepeating) {
+            var id = idCounter++;
+            nextFrameIds.push(id);
+            idToOptions[id] = {
+                callback: callback,
+                context: context == null ? window : context,
+                isRepeating: !!isRepeating
+            };
+            enqueue();
+            return id;
+        }
+
+        function cancelFrame(id) {
+            id = parseInt(id);
+            if (idToOptions[id]) {
+                delete idToOptions[id];
+            }
+        }
+
+        function linear(t) {
+            return t;
+        }
+
+        function outQuad(t) {
+            return -t * (t - 2);
+        }
+
+        function inOutQuad(t) {
+            return 1 > (t *= 2) ?
+            0.5 * t * t :
+            -0.5 * (--t * (t - 2) - 1);
+        }
+
+        function Tween(value) {
+            this._animations = [];
+            this._tid = null;
+            this._listeners = [];
+            this._isFirstFrame = false;
+            this.currentValue = value;
+            this.targetValue = value;
+        }
+        var proto$1 = Tween.prototype;
+        proto$1.isActive = function () {
+            return this._tid !== null;
+        };
+        proto$1._updateTime = function (time) {
+            var listeners = this._listeners,
+                    animations = this._animations,
+                    lastValue = this.currentValue,
+                    currentValue = this.targetValue,
+                    newLength = 0,
+                    didUpdate = false,
+                    animation,
+                    progress,
+                    i;
+            for (i = 0; i < animations.length; i++) {
+                animation = animations[i];
+                if (animation.ts === null) {
+                    animation.ts = time + animation.tw;
+                }
+                if (time >= animation.ts) {
+                    progress = !animation.td ? 1 : Math.min((time - animation.ts) / animation.td, 1);
+                    currentValue += (1 - animation.ease(progress)) * animation.vd;
+                    didUpdate = true;
+                } else {
+                    progress = 0;
+                    currentValue += animation.vd;
+                }
+                // Compact array, only keep animations that still need updates
+                if (progress < 1) {
+                    if (i !== newLength) {
+                        animations[newLength] = animation;
+                    }
+                    newLength++;
+                }
+            }
+            animations.length = newLength;
+            this.currentValue = currentValue;
+            var isFirstFrame = this._isFirstFrame && didUpdate,
+                    isLastFrame = !newLength;
+            if (isFirstFrame) {
+                this._isFirstFrame = false;
+            }
+            if (isLastFrame) {
+                cancelFrame(this._tid);
+                this._tid = null;
+            }
+            if (currentValue !== lastValue || isFirstFrame || isLastFrame) {
+                for (i = 0; i < listeners.length; i++) {
+                    listeners[i](currentValue, isFirstFrame, isLastFrame);
+                }
+            }
+        };
+        /**
+         * @param {number} targetValue
+         * @param {number=} duration
+         * @param {number=} delay
+         * @param {function=} easingFunction
+         */
+        proto$1.to = function (targetValue, duration, delay, easingFunction) {
+            targetValue = parseFloat(targetValue) || 0;
+            this._animations.push({
+                vd: this.targetValue - targetValue, // Value delta
+                ts: null, // Time start
+                td: parseFloat(duration) || 0, // Time duration
+                tw: parseFloat(delay) || 0, // Time wait (delay)
+                ease: easingFunction || linear // Easing function
+            });
+            this.targetValue = targetValue;
+            if (this._tid === null) {
+                this._tid = requestFrame(this._updateTime, this, true);
+                this._isFirstFrame = true;
+            }
+            return this;
+        };
+        /**
+         * Called each time {@link Tween#currentValue} changes
+         * @callback tweenUpdateListener
+         * @param {number} currentValue - Current animation value
+         * @param {boolean} isFirstFrame - Indicates animation start
+         * @param {boolean} isLastFrame - Indicates animation end
+         * @this Tween
+         */
+        /**
+         * @param {tweenUpdateListener} listener
+         */
+        proto$1.addListener = function (listener) {
+            this._listeners.push(listener);
+            return this;
+        };
+        /**
+         * Clears all active animations
+         */
+        proto$1.clear = function () {
+            this._animations.length = 0;
+            this.targetValue = this.currentValue;
+            return this;
+        };
+
+        var FOCUS_ON = 'panelCentered';
+        var FOCUS_OFF = 'panelNotCentered';
+        function makeEvent(name) {
+            var event = document.createEvent('Event');
+            event.initEvent(name, false, true);
+
+            return event
+        }
+
+        function CreatePanel(panelElem) {
+            var elem = null,
+                centered = false,
+                initialized = false;
+            var eventEmitter = new EventEmitter();
+            this.onAttach = function (cube, panelElem, panelIndex) {
+                elem = panelElem;
+            };
+            this.onMove = function (visible, screenSpaceAngle) {
+                var newVisible = Math.abs(screenSpaceAngle) < 0.01;
+                if (visible && !initialized) {
+                    initialized = true;
+                }
+                if (centered !== newVisible) {
+                    centered = newVisible;
+                    this.onVisibilityChange(centered);
+                }
+            };
+            this.onVisibilityChange = function (visible) {
+                if (visible) {
+                    panelElem.dispatchEvent(makeEvent(FOCUS_ON));
+                    eventEmitter.emit(FOCUS_ON);
+                } else {
+                    panelElem.dispatchEvent(makeEvent(FOCUS_OFF));
+                    eventEmitter.emit(FOCUS_OFF);
+                }
+            };
+        }
+        var TRANSFORM = getStylePropName('transform');
+        var DIRECTION_HORIZONTAL = 'horizontal';
+        var DIRECTION_VERTICAL = 'vertical';
+        var DIRECTION_AUTO = 'auto';
+        var DIRECTIONS = [DIRECTION_HORIZONTAL, DIRECTION_VERTICAL, DIRECTION_AUTO];
+        var ROTATION_START = 'rotationStart';
+        var ROTATION_END = 'rotationEnd';
+        var PANEL_NEXT = 'rotateNext';
+        var PANEL_PREV = 'rotatePrevious';
+        var PANEL_HANDLER_PROPS = ['onAttach', 'onMove'];
+        var TOUCH_ACTION = getStylePropName('touchAction');
+        var INTERACTION = 'interaction';
+        Adf.Carousel = function (options) {
+            var carouselElement = document.querySelector('#' + options.elementId);
+            var wrapperElem = document.querySelector('#' + options.elementId + ' > .adf-Shape');
+            var wrapperStyle = wrapperElem.style;
+            var wrapperWidth = 0;
+            var wrapperHeight = 0;
+            var panelStates = [];
+            var panelWidth = parseProp(options, 'panelWidth', parseInt, testIsInRange, {
+                '>': 0
+            });
+            var panelHeight = parseProp(options, 'panelHeight', parseInt, testIsInRange, {
+                '>': 0
+            });
+            var panelSpacing = parseProp(options, 'panelSpacing', parseInt, testIsInRange, {
+                '>=': 0
+            });
+            var perspective = parseProp(options, 'perspective', parseInt, testIsInRange, {
+                '>=': 100,
+                '<=': 9999999
+            }, 800);
+			var maxSidePadding = parseProp(options, 'maxSidePadding', parseInt, testIsInRange, {
+                '>=': 0
+            });
+            var rotationDuration = parseProp(options, 'rotationDuration', parseFloat, testIsInRange, {
+                        '>': 0
+                    }, 0.5) * 1000;
+            var rotationDirection = parseProp(options, 'rotationDirection', false, testIsOneOf, DIRECTIONS, DIRECTION_AUTO);
+            var autoRotationEnabled = (options.autoRotationEnabled == 'true');
+            var autoRotationDelay = parseProp(options, 'autoRotationDelay', parseFloat, testIsInRange, {
+                '>=': 0
+            }, 3);
+            var autoRotation = autoRotationEnabled ? (parseProp(options, 'autoRotation', parseInt, testIsInRange, {
+                '>': autoRotationDelay
+            }, 28)) : 0;
+            var carouselStage = wrapperElem.parentNode;
+			var carouselWidth = carouselStage.offsetWidth - ((maxSidePadding && rotationDirection === DIRECTION_HORIZONTAL) ? 2 * maxSidePadding : 0);
+			var carouselHeight = carouselStage.offsetHeight - ((maxSidePadding && rotationDirection === DIRECTION_VERTICAL) ? 2 * maxSidePadding : 0);
+            var panels = document.querySelectorAll('#' + options.elementId + ' > .adf-Shape > .adf-Carousel-Panel');
+            var eventEmitter = new EventEmitter();
+            var tween = new Tween(0).addListener(onTweenUpdate);
+            var scrollHelper = new ScrollHelper({
+                itemCount: panels.length,
+                onUpdate: onScrollHelperUpdate
+            });
+            var cubeTransformer = new CubeTransformer();
+            var vertical = false;
+            var scrollCaptured = false;
+            var i = null;
+            var panelPreTransform = '';
+            var _this = this;
+            for (i = 0; i < panels.length; i++) {
+                var panelElem = panels[i];
+                var panelStyle = panelElem.style;
+                var panelHandler = new CreatePanel(panelElem);
+                PANEL_HANDLER_PROPS.forEach(function (prop) {
+                    if (!isfunction (panelHandler[prop])) {
+                        throw new TypeError('panels[' + i + '].' + prop + ' is not a function');
+                    }
+                });
+                panelElem.classList.add('hidden');
+                panelStyle.position = 'absolute';
+                panelStyle.left = 0;
+                panelStyle.top = 0;
+                panelStyle.width = panelWidth + 'px';
+                panelStyle.height = panelHeight + 'px';
+                panelStyle.outline = '1px solid transparent';
+                panelStates.push({
+                    elem: panelElem,
+                    data: panelHandler,
+                    visible: false,
+                    worldSpaceAngle: 0,
+                    screenSpaceAngle: 0,
+                    transform: ''
+                });
+                panelHandler.onAttach(this, panelElem, i);
+            }
+            var rotationInterval = new FrameInterval((1*autoRotationDelay + rotationDuration/1000), function (timeLeft) {
+                if (!timeLeft) {
+                    setTimeout(function () {
+                        _this.moveBy(1);
+                    }, 200);
+                }
+            });
+            
+            var resizeCarousel = function () {
+                carouselWidth = carouselStage.offsetWidth - ((maxSidePadding && rotationDirection === DIRECTION_HORIZONTAL) ? 2 * maxSidePadding : 0);
+                carouselHeight = carouselStage.offsetHeight - ((maxSidePadding && rotationDirection === DIRECTION_VERTICAL) ? 2 * maxSidePadding : 0);
+                _this.resize(carouselWidth, carouselHeight);
+            };
+
+            function addEvents() {
+                document.body.addEventListener('touchmove', function (event) {
+                    event.preventDefault();
+                }, { passive: false }); // accomodates Chrome 56+ which defaults touch events to passive: true; older browsers treat as useCapture true
+                Adform.lib.addEvent(window, 'resize', resizeCarousel);
+                Adform.on('visibilityData', function (data) {
+                    rotationInterval.paused = data.visibleArea < 50;
+                });
+                setTimeout(resizeCarousel, 0);
+            }
+            this.init = function () {
+                _this.resize(carouselWidth, carouselHeight);
+                rotationInterval.start();
+                setTimeout(function () {
+                    rotationInterval.stop();
+                }, autoRotation * 1000);
+                addDefaultButtons();
+                addEvents();
+                return this;
+            };
+
+            function addDefaultButtons() {
+                function makeAButton(direction) {
+                    var button = document.createElement('div');
+                    button.className = "adf-Controls--" + direction + ' ' + options.rotationDirection;
+                    button.addEventListener('click', function (event) {
+                        var amount = (direction === PANEL_NEXT) ? 1 : -1;
+                        rotationInterval.stop();
+                        _this.moveBy(amount);
+                    });
+                    return button;
+                }
+                if (options.defaultButtons == 'true') {
+                    wrapperElem.parentElement.appendChild(makeAButton(PANEL_NEXT));
+                    wrapperElem.parentElement.appendChild(makeAButton(PANEL_PREV));
+                }
+            }
+
+            function onTweenUpdate(value, firstFrame, lastFrame) {
+                if (firstFrame) {
+                    eventEmitter.emit(ROTATION_START);
+                    carouselElement.dispatchEvent(makeEvent(ROTATION_START));
+                }
+                scrollHelper.setScroll(value).update();
+                if (lastFrame && !scrollCaptured) {
+                    eventEmitter.emit(ROTATION_END);
+                    carouselElement.dispatchEvent(makeEvent(ROTATION_END));
+                }
+            }
+
+            function onScrollHelperUpdate(panelIndex, visible, currentPosition, opacity) {
+                var panelState = panelStates[panelIndex];
+                var panelStyle = panelState.elem.style;
+                var targetPosition = currentPosition + tween.currentValue - tween.targetValue;
+                if (vertical) {
+                    currentPosition *= -1;
+                    targetPosition *= -1;
+                }
+                cubeTransformer.putPanelData(panelState, currentPosition);
+                if (visible && Math.abs(panelState.screenSpaceAngle) < Math.PI / 2) {
+                    panelState.visible = true;
+                    panelState.data.onMove(true, panelState.screenSpaceAngle, currentPosition, targetPosition, scrollCaptured);
+                    panelState.elem.classList.remove('hidden');
+                    panelStyle.opacity = opacity;
+                    panelStyle[TRANSFORM] = panelPreTransform + panelState.transform;
+                    panelStyle.zIndex = Math.round(1000 - Math.abs(currentPosition));
+                } else if (panelState.visible) {
+                    panelState.visible = false;
+                    panelState.data.onMove(false, panelState.screenSpaceAngle, currentPosition, currentPosition, scrollCaptured);
+                    panelState.elem.classList.add('hidden');
+                    panelStyle.opacity = 0;
+                }
+            }
+            (function () {
+                var onLazyMouseWheel = debounce(function (event) {
+                    var direction = (event.detail < 0 || event.wheelDelta > 0) ? 1 : -1;
+                    if (!vertical) {
+                        direction *= -1;
+                    }
+                    tween.to(tween.targetValue + direction, rotationDuration, 0, inOutQuad);
+                }, 200, true);
+
+                function onMouseWheel(event) {
+                    event.preventDefault();
+                    onLazyMouseWheel(event);
+                    rotationInterval.stop();
+                }
+                wrapperElem.addEventListener('mousewheel', onMouseWheel);
+                wrapperElem.addEventListener('DOMMouseScroll', onMouseWheel);
+            }());
+            (function () {
+                if (vertical) {
+                    wrapperElem.style[TOUCH_ACTION] = 'none';
+                    wrapperElem.addEventListener('touchmove', function (event) {
+                        event.preventDefault();
+                    });
+                } else {
+                    wrapperElem.style[TOUCH_ACTION] = 'pan-y';
+                }
+                var CAPTURE_THRESHOLD = 25;
+                var down = false;
+                var scrollCaptureTimeStart = null;
+                var scrollCaptureValue = scrollHelper.getScroll();
+                var downX = null;
+                var downY = null;
+                var lastX = null;
+                var lastY = null;
+                var lastVelX = 0;
+                var lastVelY = 0;
+
+                function stopEvent(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                var setDisableClick = (function () {
+                    var clickDisabled = false;
+                    return function setDisableClick(value) {
+                        value = !!value;
+                        if (clickDisabled !== value) {
+                            clickDisabled = value;
+                            wrapperElem[(value ? 'add' : 'remove') + 'EventListener']('click', stopEvent, true);
+                        }
+                    };
+                }());
+                new SinglePointerTracker(wrapperElem, {
+                    onDown: onDown,
+                    onMove: onMove,
+                    onUp: onUp,
+                    onCancel: onCancel
+                });
+                wrapperElem.addEventListener('dragstart', function (event) {
+                    event.preventDefault();
+                }, true);
+
+                function onDown(event, x, y) {
+                    if (!down) {
+                        down = true;
+                        downX = x;
+                        downY = y;
+                        lastX = x;
+                        lastY = y;
+                        lastVelX = 0;
+                        lastVelY = 0;
+                        scrollCaptureValue = scrollHelper.getScroll();
+                    }
+                    eventEmitter.emit(INTERACTION);
+                    rotationInterval.stop();
+                }
+
+                function onMove(event, x, y) {
+                    if (!down) {
+                        return;
+                    }
+                    lastX = x;
+                    lastY = y;
+                    if (!scrollCaptured) {
+                        var dx = downX - x;
+                        var dy = downY - y;
+                        if (Math.sqrt(dx * dx + dy * dy) > CAPTURE_THRESHOLD) {
+                            downX = x;
+                            downY = y;
+                            scrollCaptured = true;
+                            scrollCaptureTimeStart = Date.now();
+                            scrollCaptureValue = scrollHelper.getScroll();
+                            setDisableClick(scrollCaptured);
+                            tween.clear();
+                        }
+                    } else {
+                        tween.to(scrollCaptureValue - (vertical ? (y - downY) / panelHeight : (x - downX) / panelWidth));
+                    }
+                }
+
+                function onUp() {
+                    if (!down) {
+                        return;
+                    }
+                    if (scrollCaptured) {
+                        var capturedDuration = (Date.now() - scrollCaptureTimeStart) / 1000;
+                        lastVelX = (lastX - downX) / capturedDuration;
+                        lastVelY = (lastY - downY) / capturedDuration;
+                        setTimeout(function () {
+                            setDisableClick(scrollCaptured);
+                        }, 500);
+                    }
+                    handleSwipe(downX, downY, lastX, lastY, lastVelX, lastVelY);
+                    down = false;
+                    scrollCaptured = false;
+                }
+
+                function onCancel() {
+                    if (!down) {
+                        return;
+                    }
+                    if (scrollCaptured) {
+                        setTimeout(function () {
+                            setDisableClick(scrollCaptured);
+                        }, 500);
+                    }
+                    var scrollTargetValue = Math.round(scrollHelper.getScroll());
+                    if (scrollTargetValue !== tween.targetValue) {
+                        tween.to(scrollTargetValue, 500, 0, inOutQuad);
+                    }
+                    down = false;
+                    scrollCaptured = false;
+                }
+
+                function handleSwipe(startX, startY, currX, currY, velX, velY) {
+                    var delta;
+                    var panelSize;
+                    var wrapperSize;
+                    var velocity;
+                    if (vertical) {
+                        delta = currY - startY;
+                        panelSize = panelHeight + panelSpacing;
+                        wrapperSize = wrapperHeight;
+                        velocity = velY;
+                    } else {
+                        delta = currX - startX;
+                        panelSize = panelWidth + panelSpacing;
+                        wrapperSize = wrapperWidth;
+                        velocity = velX;
+                    }
+                    var scrollDelta = delta / panelSize + velocity / panelSize / 4;
+                    var maxScrollDelta = Math.max(1, wrapperSize / panelSize);
+                    var scrollTargetValue = Math.round(scrollCaptureValue - clamp(scrollDelta, -maxScrollDelta, maxScrollDelta));
+                    if (scrollTargetValue !== tween.targetValue) {
+                        tween.to(scrollTargetValue, 500, 0, outQuad);
+                    }
+                }
+            }());
+            this.resize = function (width, height) {
+                wrapperWidth = parseInt(width) || 0;
+                wrapperHeight = parseInt(height) || 0;
+                wrapperStyle.width = wrapperWidth + 'px';
+                wrapperStyle.height = wrapperHeight + 'px';
+                vertical = rotationDirection === DIRECTION_VERTICAL || (rotationDirection === DIRECTION_AUTO && wrapperHeight > wrapperWidth);
+                var wrapperSize = vertical ? wrapperHeight : wrapperWidth;
+                var panelSize = (vertical ? panelHeight : panelWidth) + panelSpacing;
+                var panelOffsetX = Math.round((wrapperWidth - panelWidth) / 2);
+                var panelOffsetY = Math.round((wrapperHeight - panelHeight) / 2);
+                cubeTransformer.setParams(wrapperSize, panelSize, perspective, vertical);
+                panelPreTransform = 'translate(' + panelOffsetX + 'px,' + panelOffsetY + 'px) perspective(' + perspective + 'px)';
+                scrollHelper.setSize(cubeTransformer.getPanelCount()).update();
+                return this;
+            };
+            this.getElement = function () {
+                return wrapperElem;
+            };
+            this.moveBy = function (amount) {
+                tween.to(tween.targetValue + amount, rotationDuration, 0, inOutQuad);
+                return this;
+            };
+            this.on = function (eventName, listener) {
+                eventEmitter.on(eventName, listener, this);
+                return this;
+            };
+            this.off = function (eventName, listener) {
+                eventEmitter.off(eventName, listener);
+                return this;
+            };
+            _this.rotationInterval = rotationInterval;
+            _this.autoRotationDelay = autoRotationDelay;
+        };
+
+        var MAX_FRAME_DURATION = 50;
+
+        function FrameInterval(delay, callback) {
+            delay = Math.max(0, parseFloat(delay) || 0) * 1000;
+            if (delay === 0) {
+                throw new Error('Invalid delay');
+            }
+            if (typeof callback !== 'function') {
+                throw new TypeError('Argument 2 (callback) is not a function');
+            }
+            var _this = this;
+            var tid = null; // ticker id
+            var paused = false;
+            var timeLeft = delay;
+            var lastTimestamp = null;
+
+            function isActive() {
+                return tid !== null;
+            }
+
+            function onFrame(timestamp) {
+                if (paused) {
+                    return;
+                }
+                var frameDuration = lastTimestamp === null ? 0 : (timestamp - lastTimestamp);
+                lastTimestamp = timestamp;
+                timeLeft -= clamp(frameDuration, 0, MAX_FRAME_DURATION);
+                try {
+                    callback(Math.max(0, timeLeft));
+                } finally {
+                    if (timeLeft <= 0) {
+                        timeLeft = delay;
+                    }
+                }
+            }
+            this.start = function () {
+                if (!isActive()) {
+                    tid = requestFrame(onFrame, _this, true);
+                }
+            };
+            this.stop = function () {
+                if (isActive()) {
+                    cancelFrame(tid);
+                    tid = null;
+                }
+            };
+            Object.defineProperty(this, 'paused', {
+                get: function () {
+                    return paused;
+                },
+                set: function (value) {
+                    paused = !!value;
+                }
+            });
+            Object.defineProperty(this, 'active', {
+                get: function () {
+                    return isActive();
+                }
+            });
+        }
+    }(Adf = window.Adf || {}));
+
+</script>
+<!--#/#--><!--#panelSlide.head:panelSlide/globalhead-->
+<script>
+    (function (Adf) {
+        Adf.PanelsSlide = function() {
+            var lib = Adform.lib;
+
+            var element,
+                slides,
+                slideElements;
+
+            var SLIDE_CHANGE_START = 'transitionStarted',
+                SLIDE_CHANGE_END = 'transitionEnded',
+                SLIDE_NEXT = 'showNextSlide',
+                SLIDE_PREV = 'showPreviousSlide',
+                EventEmitter = Adform.RMB.EventEmitter,
+                emitter = new EventEmitter();
+
+            var slideWidth,
+                slideHeight,
+                numberOfSlides,
+                slideDeltaY = 0,
+                slideDeltaX = 0,
+                slidePointerY = 0,
+                slidePointerX = 0,
+                isPointerDown = false,
+                isSlideAnimating = false,
+                slideIndex = parseInt(dhtml.getVar('slideToStart', '0'), 10),
+                slidingIsEnabled = true,
+                isMouseMoving = false,
+                wasSlideMoving = false,
+                swipeDelta = 10;
+
+            var _settings = {
+                elementId: '',
+                direction: 'vertical'
+            };
+
+            /* POLYFILL EVENTS */
+
+            var defineProperty = Object.defineProperty || function (object, property, descriptor) {
+                    if (hOP.call(descriptor, 'value')) {
+                        object[property] = descriptor.value;
+                    } else {
+                        if (hOP.call(descriptor, 'get')) {
+                            object.__defineGetter__(property, descriptor.get);
+                        }
+                        if (hOP.call(descriptor, 'set')) {
+                            object.__defineSetter__(property, descriptor.set);
+                        }
+                    }
+                    return object;
+                };
+
+            function enoughArguments(length, name) {
+                if (!length) {
+                    throw new Error(
+                        'Failed to construct ' +
+                        name +
+                        ': 1 argument required, but only 0 present.'
+                    );
+                }
+            }
+
+            // window.Event as constructor
+            try {
+                new Event('_');
+            } catch (o_O) {
+                /* jshint -W022 */
+                o_O = (function ($Event) {
+                    function Event(type, init) {
+                        enoughArguments(arguments.length, 'Event');
+                        var out = document.createEvent('Event');
+                        if (!init) {
+                            init = {};
+                        }
+                        out.initEvent(
+                            type, !!init.bubbles, !!init.cancelable
+                        );
+                        return out;
+                    }
+                    Event.prototype = $Event.prototype;
+                    return Event;
+                }(window.Event || function Event() {}));
+                defineProperty(window, 'Event', {
+                    value: o_O
+                });
+                // Android 4 gotcha
+                if (Event !== o_O) {
+                    Event = o_O;
+                }
+            }
+            /* END POLYFILL EVENT */
+
+            function setup(settings) {
+                for (var prop in settings) {
+                    if (_settings[prop] instanceof Object) {
+                        for (var prop2 in settings[prop]) {
+                            _settings[prop][prop2] = settings[prop][prop2];
+                        }
+                    } else {
+                        _settings[prop] = settings[prop];
+                    }
+                }
+                return this;
+            }
+
+            var i;
+            var init = function(settings) {
+                setup(settings);
+
+                findElements();
+
+                element = dhtml.byId(_settings.elementId);
+
+                setTimeout(function() {
+                    slideWidth = element.offsetWidth;
+                    slideHeight = element.offsetHeight;
+                    for (i = 0; i < slideElements.length; i ++) {
+                        slideElements[i].style.width = slideWidth + 'px';
+                        slideElements[i].style.height = slideHeight + 'px';
+                    }
+                    moveSlides(true);
+                }, 100);
+
+                element.addEventListener(SLIDE_NEXT, function(e){
+                    nextSlide(e);
+                });
+                element.addEventListener(SLIDE_PREV, function(e){
+                    prevSlide(e);
+                });
+
+                addDefaultButtons();
+
+                assignEvents();
+            };
+
+            function addDefaultButtons() {
+                function makeAButton(direction) {
+                    var button = document.createElement('div');
+                    button.className = "adf-Controls--" + direction + ' ' + _settings.direction;
+
+                    button.addEventListener('click', function(event) {
+                        slide(direction, event);
+                    });
+                    return button;
+                }
+
+                if (_settings.defaultButtonsOnPanels) {
+                    element.parentElement.appendChild(makeAButton(SLIDE_NEXT));
+                    element.parentElement.appendChild(makeAButton(SLIDE_PREV));
+                }
+
+                [].slice.call(slideElements).forEach(function(slideElement, index) {
+                    var nextButton = makeAButton(SLIDE_NEXT),
+                        prevButton = makeAButton(SLIDE_PREV);
+
+
+                    if ([].indexOf(index) !== -1) {
+                        slideElement.appendChild(nextButton);
+                        slideElement.appendChild(prevButton);
+                    }
+                });
+            }
+
+            function stopPropagation(event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            var appendToBack;
+
+            function nextSlide(event) {
+                stopPropagation(event);
+
+                if (isSlideAnimating) {
+                    return;
+                }
+
+                slideIndex++;
+                appendToBack = true;
+                moveSlides();
+            }
+
+            function prevSlide(event) {
+                stopPropagation(event);
+
+                if (isSlideAnimating) {
+                    return;
+                }
+
+                slideIndex--;
+                appendToBack = false;
+                moveSlides();
+            }
+
+            var enableSlide = function() {
+                slidingIsEnabled = true;
+            };
+
+            var disableSlide = function() {
+                slidingIsEnabled = false;
+            };
+
+            function fingerDown(event) {
+                if (isSlideAnimating || !slidingIsEnabled || event.target.className.indexOf('panelSlide-Button') != -1) {
+                    return;
+                }
+
+                isMouseMoving = false;
+                wasSlideMoving = false;
+                isPointerDown = true;
+                slideDeltaY = 0;
+                slideDeltaX = 0;
+                slidePointerY = event.clientY || event.touches[0].clientY;
+                slidePointerX = event.clientX || event.touches[0].clientX;
+            }
+
+            function fingerMove(event) {
+                isMouseMoving = true;
+                wasSlideMoving = true;
+                if (!isPointerDown || isSlideAnimating) {
+                    stopPropagation(event);
+                    return;
+                }
+
+                if (event.target.id != 'termscontent') {
+
+                    if (event.touches) {
+                        slideDeltaY = parseInt(event.touches[0].clientY - slidePointerY, 10);
+                        slideDeltaX = parseInt(event.touches[0].clientX - slidePointerX, 10);
+                    } else {
+                        slideDeltaY = parseInt(event.clientY - slidePointerY, 10);
+                        slideDeltaX = parseInt(event.clientX - slidePointerX, 10);
+                    }
+
+                    if (_settings.direction === 'horizontal') {
+                        if (Math.abs(slideDeltaX) >= Math.abs(slideDeltaY)) {
+                            stopPropagation(event);
+                        }
+                    } else {
+                        if (Math.abs(slideDeltaX) <= Math.abs(slideDeltaY)) {
+                            stopPropagation(event);
+                        }
+                    }
+
+                    var slideMoveDelta = swipeDelta;
+                    if (_settings.direction === 'horizontal') {
+                        if (slideDeltaX <= -slideMoveDelta || slideDeltaX >= slideMoveDelta) {
+                            fingerUp(event);
+                        }
+                    } else {
+                        if (slideDeltaY <= -slideMoveDelta || slideDeltaY >= slideMoveDelta) {
+                            fingerUp(event);
+                        }
+                    }
+
+                    moveSlides(true);
+                }
+            }
+
+            var fireEvent = true,
+                shouldCancelClick;
+
+            function fingerUp(event) {
+                if (wasSlideMoving) {
+                    wasSlideMoving = false;
+                } else if (slideDeltaX === 0 && slideDeltaY === 0) {
+                    isMouseMoving = false;
+                }
+                if (!isPointerDown || isSlideAnimating || !slidingIsEnabled) {
+                    return;
+                }
+
+                var slideMoveDelta = swipeDelta;
+                if (_settings.direction === 'horizontal') {
+                    if (slideDeltaX <= -slideMoveDelta || slideDeltaX >= slideMoveDelta) {
+                        shouldCancelClick = true;
+                        slideIndex += slideDeltaX <= -slideMoveDelta ? 1 : -1;
+                        appendToBack = slideDeltaX <= -slideMoveDelta;
+                        wasSlideMoving = true;
+                        moveSlides();
+                    } else {
+                        shouldCancelClick = false;
+                        fireEvent = false;
+                        slideDeltaX = 0;
+                        setTimeout(function() {
+                            moveSlides();
+                        });
+                    }
+                } else {
+                    if (slideDeltaY <= -slideMoveDelta || slideDeltaY >= slideMoveDelta) {
+                        shouldCancelClick = true;
+                        slideIndex += slideDeltaY <= -slideMoveDelta ? 1 : -1;
+                        appendToBack = slideDeltaY <= -slideMoveDelta;
+                        wasSlideMoving = true;
+                        moveSlides();
+                    } else {
+                        shouldCancelClick = false;
+                        fireEvent = false;
+                        slideDeltaY = 0;
+                        setTimeout(function() {
+                            moveSlides();
+                        });
+                    }
+                }
+                isPointerDown = false;
+                slidePointerY = slidePointerX = slideDeltaY = slideDeltaX = 0;
+            }
+
+            function moveElement(toBack, slideMove, callback) {
+                var timeoutInMs = 0,
+                    slide,
+                    translateDirection = _settings.direction === 'horizontal' ? 'translateX' : 'translateY';
+
+                if (toBack) {
+                    if (slideIndex > 1) {
+                        slide = slideElements[0];
+                        slides.appendChild(slide);
+
+                        dhtml.removeClass(slides, 'panelstransition');
+                        setTransformation(translateDirection, -(slideIndex -2), slideMove);
+
+                        timeoutInMs = 50;
+                    }
+                } else {
+                    if (slideIndex === -1) {
+                        slide = slideElements[slideElements.length - 1];
+                        slides.insertBefore(slide, slideElements[0]);
+
+                        dhtml.removeClass(slides, 'panelstransition');
+                        setTransformation(translateDirection, slideIndex, slideMove);
+
+                        timeoutInMs = 50;
+                    }
+                }
+
+                setTimeout(callback, timeoutInMs);
+            }
+
+            function onAnimationEnd() {
+                setTimeout(function() {
+                    isSlideAnimating = false;
+                    dhtml.removeClass(slides, 'panelstransition');
+
+                    if (fireEvent) {
+                        emitter.emit(SLIDE_CHANGE_END, slideIndex);
+                        element.dispatchEvent(new Event(SLIDE_CHANGE_END));
+                    }
+                    fireEvent = true;
+                }, parseFloat(_settings.transition) * 1000);
+            }
+
+            function moveSlides(skipAnimation) {
+                if (isSlideAnimating || !slidingIsEnabled) {
+                    return;
+                }
+
+                if (!skipAnimation) {
+                    isSlideAnimating = true;
+                }
+
+                // TODO REMOVE
+                slideElements = dhtml.byId(_settings.elementId).parentElement.querySelectorAll('#' + _settings.elementId + ' > .adf-PanelsWrapper' + ' > .adf-PanelParent');
+
+                var slideIndexForEvent = slideIndex !== -1 ? slideIndex : 0;
+
+                var slideMoveDelta = _settings.direction === 'horizontal' ? slideDeltaX : slideDeltaY,
+                    translateDirection = _settings.direction === 'horizontal' ? 'translateX' : 'translateY';
+
+                if (!skipAnimation) {
+                    var slide;
+
+                    if (fireEvent) {
+                        emitter.emit(SLIDE_CHANGE_START, slideIndexForEvent);
+                        element.dispatchEvent(new Event(SLIDE_CHANGE_START));
+                        dhtml.sendEvent(2, 'Slide Changed');
+                    }
+
+                    if (appendToBack) {
+                        moveElement(true, slideMoveDelta, function() {
+                            dhtml.addClass(slides, 'panelstransition');
+
+                            slideIndex = slideIndex > 1 ? -(slideIndex -1) : -slideIndex;
+                            setTransformation(translateDirection, slideIndex);
+
+                            slideIndex = 1;
+                            onAnimationEnd();
+                        });
+                    } else {
+                        moveElement(false, slideMoveDelta, function() {
+                            dhtml.addClass(slides, 'panelstransition');
+
+                            slideIndex = slideIndex ? slideIndex : -1;
+                            setTransformation(translateDirection, (slideIndex + 1));
+
+                            slideIndex = 0;
+                            onAnimationEnd();
+                        });
+                    }
+                } else {
+                    dhtml.removeClass(slides, 'panelstransition');
+
+                    var slideMove = slideMoveDelta;
+                    if (isPointerDown) {
+                        slideMove -= slideIndexForEvent === 0 ? 0 : _settings.direction === 'horizontal' ? slideWidth : slideHeight;
+                    }
+
+                    slides.style.transform = translateDirection + '(' + slideMove + 'px)';
+                    slides.style.webkitTransform = translateDirection + '(' + slideMove + 'px)';
+                    slides.style.MozTransform = translateDirection + '(' + slideMove + 'px)';
+                    slides.style['-ms-transform'] = translateDirection + '(' + slideMove + 'px)';
+                }
+            }
+
+            function setTransformation(translateDirection, coefficient, slideMoveDelta) {
+                var slideMove = _settings.direction === 'horizontal' ? slideWidth * coefficient : slideHeight * coefficient;
+
+                if (!isNaN(slideMoveDelta)) {
+                    slideMove += slideMoveDelta;
+                }
+
+                slides.style.transform = translateDirection + '(' + slideMove + 'px)';
+                slides.style.webkitTransform = translateDirection + '(' + slideMove + 'px)';
+                slides.style.MozTransform = translateDirection + '(' + slideMove + 'px)';
+                slides.style['-ms-transform'] = translateDirection + '(' + slideMove + 'px)';
+            }
+
+            function findElements() {
+                var placement = dhtml.byId(_settings.elementId).parentElement;
+
+                slides = placement.querySelector('#' + _settings.elementId + ' > .adf-PanelsWrapper');
+                slides.style['-ms-touch-action'] = 'none';
+                slideElements = placement.querySelectorAll('#' + _settings.elementId + ' > .adf-PanelsWrapper' + ' > .adf-PanelParent');
+
+                numberOfSlides = slides.querySelectorAll('#' + _settings.elementId + ' > .adf-PanelsWrapper' + ' > .adf-PanelParent').length;
+
+                if (_settings.direction === 'horizontal') {
+                    dhtml.addClass(slides, 'panels--horizontal');
+                }
+            }
+
+            function assignEvents() {
+                lib.addEvent(slides, 'touchstart', fingerDown, false);
+                lib.addEvent(slides, 'touchmove', fingerMove, false);
+                lib.addEvent(slides, 'touchend', fingerUp, false);
+                slides.addEventListener('click', cancelClick, true);
+
+                if (window.navigator.pointerEnabled) {
+                    lib.addEvent(slides, 'pointerdown', fingerDown, false);
+                    lib.addEvent(slides, 'pointermove', fingerMove, false);
+                    lib.addEvent(slides, 'pointerup', fingerUp, false);
+                    lib.addEvent(slides, 'pointerleave', fingerUp, false);
+                } else if (window.navigator.msPointerEnabled) {
+                    lib.addEvent(slides, 'MSPointerDown', fingerDown, false);
+                    lib.addEvent(slides, 'MSPointerMove', fingerMove, false);
+                    lib.addEvent(slides, 'MSPointerUp', fingerUp, false);
+                    lib.addEvent(slides, 'MSPointerLeave', fingerUp, false);
+                } else {
+                    lib.addEvent(slides, 'mousedown', function(event) {
+                        lib.addEvent(slides, 'mousemove', fingerMove, false);
+                        fingerDown(event);
+                    }, false);
+                    lib.addEvent(slides, 'mouseup', function(event) {
+                        lib.removeEvent(slides, 'mousemove', fingerMove);
+                        fingerUp(event);
+                    }, false);
+                    lib.addEvent(slides, 'mouseleave', function(event) {
+                        lib.removeEvent(slides, 'mousemove', fingerMove);
+                        fingerUp(event);
+                    }, false);
+                }
+            }
+
+            function cancelClick(event) {
+                if (shouldCancelClick) {
+                    stopPropagation(event);
+                    shouldCancelClick = false;
+                }
+            }
+
+            function slide(direction, event) {
+                if (direction === SLIDE_NEXT) {
+                    nextSlide(event);
+                } else {
+                    prevSlide(event);
+                }
+            }
+
+            return {
+                init: init,
+                setup: setup,
+
+                disableSlide: disableSlide,
+                enableSlide: enableSlide,
+
+                slide: slide,
+
+                SLIDE_CHANGE_START: SLIDE_CHANGE_START,
+                SLIDE_CHANGE_END: SLIDE_CHANGE_END,
+                SLIDE_NEXT: SLIDE_NEXT,
+                SLIDE_PREV: SLIDE_PREV,
+                on: function() {
+                    emitter.on.apply(emitter, arguments);
+                },
+                off: function() {
+                    emitter.off.apply(emitter, arguments);
+                },
+                once: function() {
+                    emitter.once.apply(emitter, arguments);
+                }
+            };
+        };
+    })(Adf = window.Adf || {});
+</script>
+<!--#/#--><!--#i75.font-google.head:font/font-google/head-->
+<!--#i75.i76.font-google.head:font-google/head-->
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<!--#/#-->
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#i5.shape.css:shape/base/css*/
+#i5 { background-color: #ffffff; opacity: 1;
+}
+/*#/#*//*#i5.i6.positioning.css:positioning/base/css.1*/
+#i5 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i3.carousel.css:carousel/base/css*/
+#i3.adf-Carousel {
+    position: absolute;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    -ms-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -ms-touch-action: none;
+    background: transparent;
+}
+
+#i3 .adf-Carousel-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    background-size: cover;
+    width: 228px;
+    height: 190px;
+}
+
+/*#/#*//*#i7.i136.image.css:image/base/css*/
+#i136 { opacity: 1; }
+/*#/#*//*#i136.i137.positioning.css:positioning/base/css.1*/
+#i136 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i8.i60.image.css:image/base/css*/
+#i60 { opacity: 1; }
+/*#/#*//*#i79.i80.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i60 { cursor: pointer; }
+/*#/#*//*#i60.i61.positioning.css:positioning/base/css.1*/
+#i60 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i9.i14.panelSlide.css:panelSlide/base/css*/
+#i14 .panelstransition {
+    -webkit-transition: -webkit-transform 0.4s;
+    -moz-transition: -moz-transform 0.4s;
+    -o-transition: -o-transform 0.4s;
+    transition: transform 0.4s;
+}
+/*#/#*//*#i16.i17.image.css:image/base/css*/
+#i17 { opacity: 1; }
+/*#/#*//*#i81.i82.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i17 { cursor: pointer; }
+/*#/#*//*#i17.i18.positioning.css:positioning/base/css.1*/
+#i17 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i19.i20.image.css:image/base/css*/
+#i20 { opacity: 1; }
+/*#/#*//*#i83.i84.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i20 { cursor: pointer; }
+/*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
+#i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i22.i23.image.css:image/base/css*/
+#i23 { opacity: 1; }
+/*#/#*//*#i85.i86.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i23 { cursor: pointer; }
+/*#/#*//*#i23.i24.positioning.css:positioning/base/css.1*/
+#i23 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i25.i26.image.css:image/base/css*/
+#i26 { opacity: 1; }
+/*#/#*//*#i87.i88.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i26 { cursor: pointer; }
+/*#/#*//*#actions-visibility.css:actions-visibility/globalcss*/
+    .visibility-hidden, .visibility-hidden * {
+        visibility: hidden !important;
+    }
+/*#/#*//*#carousel.css:carousel/globalcss*/
+.adf-Carousel .hidden {
+    visibility: hidden
+}
+.adf-Carousel .adf-Shape {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0; 
+	bottom: 0; 
+	left: 0; 
+	right: 0;
+}
+
+/* nav controls*/
+.adf-Carousel .adf-Controls--rotatePrevious, .adf-Carousel .adf-Controls--rotateNext {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OC4xMjEsNC40MjMgTDIwLjU0NCwzMi4wMDAgTDQ4LjEyMSw1OS41NzcgQzQ4LjkwMiw2MC4zNTggNDguOTAyLDYxLjYyNSA0OC4xMjEsNjIuNDA2IEw0Ny40MTQsNjMuMTEzIEM0Ni42MzMsNjMuODk0IDQ1LjM2Nyw2My44OTQgNDQuNTg2LDYzLjExMyBMMTUuNTk0LDM0LjEyMSBMMTQuODg3LDMzLjQxNCBDMTQuMTA2LDMyLjYzMyAxNC4xMDYsMzEuMzY3IDE0Ljg4NywzMC41ODYgTDQ0LjU4NiwwLjg4NyBDNDUuMzY3LDAuMTA2IDQ2LjYzMywwLjEwNiA0Ny40MTQsMC44ODcgTDQ4LjEyMSwxLjU5NCBDNDguOTAyLDIuMzc1IDQ4LjkwMiwzLjY0MiA0OC4xMjEsNC40MjMgWiIgc3R5bGU9ImZpbGw6ICMwMDVGOEM7DQpmaWxsLXJ1bGU6IGV2ZW5vZGQ7Ii8+DQo8L3N2Zz4=') 50% 50% no-repeat;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    z-index:9999;
+    cursor:pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.adf-Carousel .adf-Controls--rotatePrevious.horizontal, .adf-Carousel .adf-Controls--rotateNext.horizontal {
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 0px;
+}
+
+.adf-Carousel .adf-Controls--rotatePrevious.vertical, .adf-Carousel .adf-Controls--rotateNext.vertical {
+    left: 50%;
+    -webkit-transform: translate(-50%) rotate(90deg);
+    -moz-transform: translate(-50%) rotate(90deg);
+    -ms-transform: translate(-50%) rotate(90deg);
+    -o-transform: translate(-50%) rotate(90deg);
+    transform: translate(-50%) rotate(90deg);
+    top: 0px;
+}
+
+.adf-Carousel .adf-Controls--rotateNext {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OS4xMTMsMzMuNDE0IEw0OC40MDYsMzQuMTIxIEwxOS40MTQsNjMuMTEzIEMxOC42MzMsNjMuODk0IDE3LjM2Nyw2My44OTQgMTYuNTg2LDYzLjExMyBMMTUuODc5LDYyLjQwNiBDMTUuMDk4LDYxLjYyNSAxNS4wOTgsNjAuMzU4IDE1Ljg3OSw1OS41NzcgTDQzLjQ1NiwzMi4wMDAgTDE1Ljg3OSw0LjQyMyBDMTUuMDk4LDMuNjQyIDE1LjA5OCwyLjM3NSAxNS44NzksMS41OTQgTDE2LjU4NiwwLjg4NyBDMTcuMzY3LDAuMTA2IDE4LjYzMywwLjEwNiAxOS40MTQsMC44ODcgTDQ5LjExMywzMC41ODYgQzQ5Ljg5NCwzMS4zNjcgNDkuODk0LDMyLjYzMyA0OS4xMTMsMzMuNDE0IFoiIHN0eWxlPSJmaWxsOiAjMDA1RjhDOw0KZmlsbC1ydWxlOiBldmVub2RkOyIvPg0KPC9zdmc+') 50% 50% no-repeat;
+}
+
+.adf-Carousel .adf-Controls--rotateNext.horizontal {
+    left: auto;
+    right: 0px;
+}
+
+.adf-Carousel .adf-Controls--rotateNext.vertical {
+    top: auto;
+    bottom: 0px;
+}
+
+.adf-Carousel .adf-Controls--rotatePrevious:hover,.adf-Carousel .adf-Controls--rotateNext:hover {
+    background-color: #5AAAD2;
+}
+/*#/#*//*#panelSlide.css:panelSlide/globalcss*/
+.panels-holder {
+    /*overflow: hidden;*/
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+.panels--horizontal {
+    white-space: nowrap;
+    font-size: 0;
+    zoom: 1;
+}
+.panels--horizontal * {
+    font-size: initial;
+}
+.panels--horizontal > .adf-PanelParent {
+    display: inline-block
+}
+.adf-PanelParent {
+    position: relative;
+    cursor: pointer;
+    font-size: medium;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.adf-Panel {
+    width: 100%;
+    height: 100%;
+}
+.Adform-clicktag {
+    position: absolute;
+}
+
+/* nav controls*/
+.adf-Controls--showPreviousSlide, .adf-Controls--showNextSlide {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    z-index:9999;
+    cursor:pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.adf-Controls--showPreviousSlide {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OC4xMjEsNC40MjMgTDIwLjU0NCwzMi4wMDAgTDQ4LjEyMSw1OS41NzcgQzQ4LjkwMiw2MC4zNTggNDguOTAyLDYxLjYyNSA0OC4xMjEsNjIuNDA2IEw0Ny40MTQsNjMuMTEzIEM0Ni42MzMsNjMuODk0IDQ1LjM2Nyw2My44OTQgNDQuNTg2LDYzLjExMyBMMTUuNTk0LDM0LjEyMSBMMTQuODg3LDMzLjQxNCBDMTQuMTA2LDMyLjYzMyAxNC4xMDYsMzEuMzY3IDE0Ljg4NywzMC41ODYgTDQ0LjU4NiwwLjg4NyBDNDUuMzY3LDAuMTA2IDQ2LjYzMywwLjEwNiA0Ny40MTQsMC44ODcgTDQ4LjEyMSwxLjU5NCBDNDguOTAyLDIuMzc1IDQ4LjkwMiwzLjY0MiA0OC4xMjEsNC40MjMgWiIgc3R5bGU9ImZpbGw6ICMwMDVGOEM7DQpmaWxsLXJ1bGU6IGV2ZW5vZGQ7Ii8+DQo8L3N2Zz4=') 50% 50% no-repeat;
+}
+.adf-Controls--showNextSlide {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OS4xMTMsMzMuNDE0IEw0OC40MDYsMzQuMTIxIEwxOS40MTQsNjMuMTEzIEMxOC42MzMsNjMuODk0IDE3LjM2Nyw2My44OTQgMTYuNTg2LDYzLjExMyBMMTUuODc5LDYyLjQwNiBDMTUuMDk4LDYxLjYyNSAxNS4wOTgsNjAuMzU4IDE1Ljg3OSw1OS41NzcgTDQzLjQ1NiwzMi4wMDAgTDE1Ljg3OSw0LjQyMyBDMTUuMDk4LDMuNjQyIDE1LjA5OCwyLjM3NSAxNS44NzksMS41OTQgTDE2LjU4NiwwLjg4NyBDMTcuMzY3LDAuMTA2IDE4LjYzMywwLjEwNiAxOS40MTQsMC44ODcgTDQ5LjExMywzMC41ODYgQzQ5Ljg5NCwzMS4zNjcgNDkuODk0LDMyLjYzMyA0OS4xMTMsMzMuNDE0IFoiIHN0eWxlPSJmaWxsOiAjMDA1RjhDOw0KZmlsbC1ydWxlOiBldmVub2RkOyIvPg0KPC9zdmc+') 50% 50% no-repeat;
+}
+.adf-Controls--showPreviousSlide:hover, .adf-Controls--showNextSlide:hover {
+    background-color: #5AAAD2;
+}
+
+.adf-Controls--showPreviousSlide.vertical, .adf-Controls--showNextSlide.vertical {
+    left: 50%;
+    -webkit-transform: translate(-50%) rotate(90deg);
+    -moz-transform: translate(-50%) rotate(90deg);
+    -ms-transform: translate(-50%) rotate(90deg);
+    -o-transform: translate(-50%) rotate(90deg);
+    transform: translate(-50%) rotate(90deg);
+}
+.adf-Controls--showPreviousSlide.vertical {
+    top: 0px;
+}
+.adf-Controls--showNextSlide.vertical {
+    bottom: 0px;
+}
+.adf-Controls--showPreviousSlide.horizontal, .adf-Controls--showNextSlide.horizontal {
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+.adf-Controls--showPreviousSlide.horizontal {
+    left: 0px;
+}
+.adf-Controls--showNextSlide.horizontal {
+    right: 0px;
+}
+/*#/#*//*#i26.i27.positioning.css:positioning/base/css.1*/
+#i26 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i28.i35.image.css:image/base/css*/
+#i35 { opacity: 1; }
+/*#/#*//*#i89.i90.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i35 { cursor: pointer; }
+/*#/#*//*#i35.i36.positioning.css:positioning/base/css.1*/
+#i35 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 115px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i29.i38.image.css:image/base/css*/
+#i38 { opacity: 1; }
+/*#/#*//*#i91.i92.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i38 { cursor: pointer; }
+/*#/#*//*#i38.i39.positioning.css:positioning/base/css.1*/
+#i38 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i30.i41.image.css:image/base/css*/
+#i41 { opacity: 1; }
+/*#/#*//*#i93.i94.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i41 { cursor: pointer; }
+/*#/#*//*#i41.i42.positioning.css:positioning/base/css.1*/
+#i41 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i131.i138.image.css:image/base/css*/
+#i138 { opacity: 1; }
+/*#/#*//*#i138.i139.positioning.css:positioning/base/css.1*/
+#i138 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 228px; height: 114px;
+        -ms-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 38px) rotate(0deg);
+}
+/*#/#*//*#i3.i4.positioning.css:positioning/base/css.1*/
+#i3 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 210px;
+        -ms-transform: translate(0, 0) translate(0px, 40px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 40px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 40px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 40px) rotate(0deg);
+}
+/*#/#*//*#i69.button.css:button/base/css*/
+#i69 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(44,207,229,1); font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 4px; border-color: rgba(44,207,229,1); border-width: 0px; margin:-0px; border-style: solid; }
+#i69:hover { opacity: 1; background-color: #5AAAD2; font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 0px; border-color: #5AAAD2; border-width: 0px; margin:-0px; border-style: solid; }
+#i69:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 0px; border-color: #006496; border-width: 0px; margin:-0px; border-style: solid; }
+/*#/#*//*#i71.i72.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i69 { cursor: pointer; }
+/*#/#*//*#i69.i70.positioning.css:positioning/base/css.1*/
+#i69 { position: absolute; top: 0%; left: 100%; overflow: hidden; width: 100px; height: 30px;
+        -ms-transform: translate(-100%, 0) translate(-15px, 10px) rotate(0deg);
+        -webkit-transform: translate(-100%, 0) translate(-15px, 10px) rotate(0deg);
+        -moz-transform: translate(-100%, 0) translate(-15px, 10px) rotate(0deg);
+        transform: translate(-100%, 0) translate(-15px, 10px) rotate(0deg);
+}
+/*#/#*//*#i132.image.css:image/base/css*/
+#i132 { opacity: 1; }
+/*#/#*//*#i132.i133.positioning.css:positioning/base/css.1*/
+#i132 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100px; height: 75px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i134.text.css:text/base/css*/
+#i134 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Source Sans Pro"; font-size: 32px; color: #799199; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i134.i135.positioning.css:positioning/base/css.1*/
+#i134 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 519px; height: 95px;
+        -ms-transform: translate(0, 0) translate(221px, 10px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(221px, 10px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(221px, 10px) rotate(0deg);
+        transform: translate(0, 0) translate(221px, 10px) rotate(0deg);
+}
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i75.font.html:font/html-->
+<!--#/#--><!--#i5.shape.html:shape/html-->
+<div id="i5"></div>
+<!--#/#--><!--#i3.carousel.html:carousel/html-->
+<div id="i3" class="adf-Carousel">
+    <div class="adf-Shape">
+        <!--#i3.i7.carousel-panel.html:carousel-panel/html-->
+<div id="i7" class="adf-Carousel-Panel panel-content-holder">
+    <!--#i7.i136.image.html:image/html-->
+<img id="i136" src="https://i.imgur.com/I8Nc775.png"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i3.i8.carousel-panel.html:carousel-panel/html-->
+<div id="i8" class="adf-Carousel-Panel panel-content-holder">
+    <!--#i8.i60.image.html:image/html-->
+<img id="i60" src="https://i.imgur.com/DbvDtrw.png"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i3.i9.carousel-panel.html:carousel-panel/html-->
+<div id="i9" class="adf-Carousel-Panel panel-content-holder">
+    <!--#i9.i14.panelSlide.html:panelSlide/html-->
+<div id="i14" class="panels-holder">
+    <div id="panels-wrapper" class="adf-PanelsWrapper">
+        <!--#i14.i16.panelSlide-panel.html:panelSlide-panel/html-->
+<div id="i16" class="adf-PanelParent">
+    <div class="adf-Panel">
+        <!--#i16.i17.image.html:image/html-->
+<img id="i17" src="https://i.imgur.com/EOlbUcq.png"/>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#--><!--#i14.i19.panelSlide-panel.html:panelSlide-panel/html-->
+<div id="i19" class="adf-PanelParent">
+    <div class="adf-Panel">
+        <!--#i19.i20.image.html:image/html-->
+<img id="i20" src="https://i.imgur.com/nEAa0u0.png"/>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#--><!--#i14.i22.panelSlide-panel.html:panelSlide-panel/html-->
+<div id="i22" class="adf-PanelParent">
+    <div class="adf-Panel">
+        <!--#i22.i23.image.html:image/html-->
+<img id="i23" src="https://i.imgur.com/K7yhoKv.png"/>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#--><!--#i14.i25.panelSlide-panel.html:panelSlide-panel/html-->
+<div id="i25" class="adf-PanelParent">
+    <div class="adf-Panel">
+        <!--#i25.i26.image.html:image/html-->
+<img id="i26" src="https://i.imgur.com/PptqA8z.jpg"/>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i3.i28.carousel-panel.html:carousel-panel/html-->
+<div id="i28" class="adf-Carousel-Panel panel-content-holder">
+    <!--#i28.i35.image.html:image/html-->
+<img id="i35" src="https://i.imgur.com/K1xUa85.png"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i3.i29.carousel-panel.html:carousel-panel/html-->
+<div id="i29" class="adf-Carousel-Panel panel-content-holder">
+    <!--#i29.i38.image.html:image/html-->
+<img id="i38" src="https://i.imgur.com/k3crhDA.png"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i3.i30.carousel-panel.html:carousel-panel/html-->
+<div id="i30" class="adf-Carousel-Panel panel-content-holder">
+    <!--#i30.i41.image.html:image/html-->
+<img id="i41" src="https://i.imgur.com/z1ayJfS.png"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i3.i131.carousel-panel.html:carousel-panel/html-->
+<div id="i131" class="adf-Carousel-Panel panel-content-holder">
+    <!--#i131.i138.image.html:image/html-->
+<img id="i138" src="https://i.imgur.com/QglwFVZ.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#--><!--#i69.button.html:button/html-->
+<button id="i69">CONTACT US</button>
+<!--#/#--><!--#i132.image.html:image/html-->
+<img id="i132" src="https://i.imgur.com/SOXPkWv.jpg"/>
+<!--#/#--><!--#i134.text.html:text/html-->
+<div id="i134">SOME OF OUR WORKS</div>
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i3.carousel.js:carousel/js*/
+var carousel_i3 = new Adf.Carousel({
+    elementId: 'i3',
+    panelWidth: '228',
+    panelHeight: '190',
+    panelSpacing: '20',
+    maxSidePadding: '40',
+    perspective: '800',
+    rotationDirection: 'horizontal',
+    rotationDuration: '0.5',
+    autoRotationEnabled: 'false',
+    autoRotationDelay: '3',
+    autoRotation: '28',
+    defaultButtons: 'true'
+});
+
+carousel_i3.init();
+
+document.getElementById('i3').addEventListener('rotatePrevious', function(e){
+    carousel_i3.moveBy(-1);
+});
+
+document.getElementById('i3').addEventListener('rotateNext', function(e){
+    carousel_i3.moveBy(1);
+});
+
+/*AutomaticFunction*/
+     function next(){
+        carousel_i3.moveBy(1);
+        }
+        setInterval(next, 4000);
+/*End Automatic Function*/
+
+/*#/#*//*#i7.i136.image.js:image/base/js*/
+
+/*#/#*//*#i8.i60.image.js:image/base/js*/
+
+/*#/#*//*#i60.i79.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i60').addEventListener('click', function(e){
+    /*#i79.i80.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i8.i56.actions.js:actions/base/js*/
+/* Name: On Panel on Focus; */
+document.getElementById('i8').addEventListener('panelCentered', function(e){
+    /*#i56.i57.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('playVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i8.i58.actions.js:actions/base/js*/
+/* Name: On Panel out of Focus; */
+document.getElementById('i8').addEventListener('panelNotCentered', function(e){
+    /*#i58.i59.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i8.i63.actions.js:actions/base/js*/
+/* Name: On Panel on Focus; */
+document.getElementById('i8').addEventListener('panelCentered', function(e){
+    /*#i63.i64.actions-visibility.js:actions-visibility/base/js*/
+    // Name: Hide i60
+    var el = document.getElementById('i60');
+    if (el) {
+        false ? el.classList.remove('visibility-hidden') : el.classList.add('visibility-hidden');
+    }
+/*#/#*/
+});
+/*#/#*//*#i8.i65.actions.js:actions/base/js*/
+/* Name: On Panel out of Focus; */
+document.getElementById('i8').addEventListener('panelNotCentered', function(e){
+    /*#i65.i66.actions-visibility.js:actions-visibility/base/js*/
+    // Name: Show i60
+    var el = document.getElementById('i60');
+    if (el) {
+        true ? el.classList.remove('visibility-hidden') : el.classList.add('visibility-hidden');
+    }
+/*#/#*/
+});
+/*#/#*//*#i9.i14.panelSlide.js:panelSlide/js*/
+var panelSlide_i14;
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    panelSlide_i14 = new Adf.PanelsSlide();
+
+    panelSlide_i14.init({
+        elementId: 'i14',
+        direction: 'vertical',
+        nextButtonId: '',
+        prevButtonId: '',
+        transition: '0.4s',
+        defaultButtonsOnPanels: true
+    });
+});
+/*#/#*//*#i16.i17.image.js:image/base/js*/
+
+/*#/#*//*#i17.i81.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i17').addEventListener('click', function(e){
+    /*#i81.i82.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i17.i107.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i17').addEventListener('click', function(e){
+    /*#i107.i108.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i19.i20.image.js:image/base/js*/
+
+/*#/#*//*#i20.i83.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i20').addEventListener('click', function(e){
+    /*#i83.i84.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i20.i109.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i20').addEventListener('click', function(e){
+    /*#i109.i110.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i22.i23.image.js:image/base/js*/
+
+/*#/#*//*#i23.i85.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i23').addEventListener('click', function(e){
+    /*#i85.i86.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i23.i111.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i23').addEventListener('click', function(e){
+    /*#i111.i112.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i25.i26.image.js:image/base/js*/
+
+/*#/#*//*#i26.i87.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i26').addEventListener('click', function(e){
+    /*#i87.i88.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i26.i113.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i26').addEventListener('click', function(e){
+    /*#i113.i114.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i28.i35.image.js:image/base/js*/
+
+/*#/#*//*#i35.i89.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i35').addEventListener('click', function(e){
+    /*#i89.i90.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i35.i115.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i35').addEventListener('click', function(e){
+    /*#i115.i116.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i29.i38.image.js:image/base/js*/
+
+/*#/#*//*#i38.i91.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i38').addEventListener('click', function(e){
+    /*#i91.i92.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG5')) : window.open(dhtml.getVar('clickTAG5', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i38.i117.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i38').addEventListener('click', function(e){
+    /*#i117.i118.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i30.i41.image.js:image/base/js*/
+
+/*#/#*//*#i41.i93.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i41').addEventListener('click', function(e){
+    /*#i93.i94.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG6')) : window.open(dhtml.getVar('clickTAG6', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i41.i119.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i41').addEventListener('click', function(e){
+    /*#i119.i120.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i131.i138.image.js:image/base/js*/
+
+/*#/#*//*#i69.i71.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i69').addEventListener('click', function(e){
+    /*#i71.i72.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG11')) : window.open(dhtml.getVar('clickTAG11', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*//*#i69.i103.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i69').addEventListener('click', function(e){
+    /*#i103.i104.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+/*#/#*//*#i132.image.js:image/base/js*/
+
+/*#/#*//*#i2.responsive-externalResize.js:responsive-externalResize/js*/
+dhtml.external && dhtml.external.resize("100%", dhtml.height);
+/*#/#*/
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i75.font.meta:font/meta*/
+name: Web Font: Source Sans Pro; type: font-google; customName: ;
+/*#/#*//*#i75.i76.font-google.meta:font-google/meta*/
+family: Source Sans Pro;
+/*#/#*//*#i5.shape.meta:shape/meta*/
+name: Background;
+/*#/#*//*#i5.i6.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i3.carousel.meta:carousel/meta*/
+name: Carousel 1;
+customName: ;
+/*#/#*//*#i3.i7.carousel-panel.meta:carousel-panel/meta*/
+    name: Carousel Panel 1;
+/*#/#*//*#i7.i136.image.meta:image/meta*/
+name: I8Nc775.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i136.i137.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i3.i8.carousel-panel.meta:carousel-panel/meta*/
+    name: Carousel Panel 2;
+/*#/#*//*#i8.i60.image.meta:image/meta*/
+name: DbvDtrw.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i60.i61.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i3.i9.carousel-panel.meta:carousel-panel/meta*/
+    name: Carousel Panel 3;
+/*#/#*//*#i9.i14.panelSlide.meta:panelSlide/meta*/
+    name: Panel Slide 1;
+/*#/#*//*#i14.i16.panelSlide-panel.meta:panelSlide-panel/meta*/
+name: Panel Slide Panel 1; defaultButtonsInPanel: false;
+/*#/#*//*#i16.i17.image.meta:image/meta*/
+name: EOlbUcq.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i17.i18.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i14.i19.panelSlide-panel.meta:panelSlide-panel/meta*/
+name: Panel Slide Panel 1 copy; defaultButtonsInPanel: false;
+/*#/#*//*#i19.i20.image.meta:image/meta*/
+name: nEAa0u0.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i14.i22.panelSlide-panel.meta:panelSlide-panel/meta*/
+name: Panel Slide Panel 1 copy 2; defaultButtonsInPanel: false;
+/*#/#*//*#i22.i23.image.meta:image/meta*/
+name: K7yhoKv.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i23.i24.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i14.i25.panelSlide-panel.meta:panelSlide-panel/meta*/
+name: Panel Slide Panel 1 copy 3; defaultButtonsInPanel: false;
+/*#/#*//*#i25.i26.image.meta:image/meta*/
+name: PptqA8z.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i26.i27.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i3.i28.carousel-panel.meta:carousel-panel/meta*/
+    name: Carousel Panel 4;
+/*#/#*//*#i28.i35.image.meta:image/meta*/
+name: K1xUa85.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i35.i36.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i3.i29.carousel-panel.meta:carousel-panel/meta*/
+    name: Carousel Panel 5;
+/*#/#*//*#i29.i38.image.meta:image/meta*/
+name: k3crhDA.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i38.i39.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i3.i30.carousel-panel.meta:carousel-panel/meta*/
+    name: Carousel Panel 6;
+/*#/#*//*#i30.i41.image.meta:image/meta*/
+name: z1ayJfS.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i41.i42.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i3.i131.carousel-panel.meta:carousel-panel/meta*/
+    name: Carousel Panel 7;
+/*#/#*//*#i131.i138.image.meta:image/meta*/
+name: QglwFVZ.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i138.i139.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i3.i4.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i69.button.meta:button/meta*/
+name: CONTACT US;
+customName: false;
+/*#/#*//*#i69.i70.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i132.image.meta:image/meta*/
+name: SOXPkWv.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i132.i133.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i134.text.meta:text/meta*/
+name: SOME OF OUR WORKS; customName: false;
+/*#/#*//*#i134.i135.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*/--><!--#/#-->
