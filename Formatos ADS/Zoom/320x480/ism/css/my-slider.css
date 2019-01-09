@@ -39,8 +39,8 @@
 }
 
 .ism-slider li.ism-slide {
-  width: 300px;
-  height: 170px;
+  width: 320px;
+  height: 250px;
   overflow: hidden;
   position: absolute;
   display: block;
@@ -55,8 +55,8 @@
 .ism-slider .ism-img-frame {
   display: block;
   position: absolute;
- width: 300px;
-  height: 170px;
+ width: 320px;
+  height: 250px;
 }
 
 .ism-slider a.ism-image-link {
@@ -66,8 +66,8 @@
   display: block;
   top: 0;
   left: 0;
- width: 300px;
-  height: 170px;
+ width: 320px;
+  height: 250px;
 }
 
 .ism-slider .ism-img {
