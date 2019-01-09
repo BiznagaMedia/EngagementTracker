@@ -11,7 +11,7 @@
   cursor: default;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.1);
-  -webkit-animation: ism-fadein 3s;
+  -webkit-animation: all 0.2s ease-in-out;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -19,6 +19,7 @@
   height: 450px;
 }
 @-webkit-keyframes ism-fadein {
+
   from { opacity: 0; }
   to { opacity: 1; }
 }
@@ -218,8 +219,8 @@ p.ism-badge a.ism-link:hover {
 }
 
 .ism-zoom-in {
-  -webkit-animation: zoomin 0.81s linear 1;
-  animation: zoomin 0.81s linear 1;
+  -webkit-animation: zoomin 0.5s linear 1;
+  animation: zoomin 0.5s linear 1;
 }
 
 @-webkit-keyframes zoomin {
