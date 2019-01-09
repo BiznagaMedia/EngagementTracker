@@ -309,7 +309,7 @@ p.ism-badge a.ism-link:hover {
     
     width: 50px; height: 50px; background-size: 16px 16px; top: 50%; margin-top: -25px;
     color: #fff; background-color: rgba(0, 0, 0, 0.0);
-    display: block; visibility: visible;
+    display: block; visibility: hidden;
 }
 
 #my-slider .ism-button-prev {

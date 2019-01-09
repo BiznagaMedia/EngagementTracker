@@ -11,7 +11,7 @@
   cursor: default;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.1);
-  -webkit-animation: ism-fadein 3s;
+  -webkit-animation: 1s;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -78,6 +78,7 @@
 }
 
 .ism-button, .ism-pause-button {
+  visibility: hidden;
   position: absolute;
   display: block;
   -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
@@ -85,19 +86,22 @@
   outline: none;
   text-align:center;
   z-index: 6;
-  cursor: pointer;
+  cursor: none;
   padding: 0;
   background-repeat: no-repeat;
   background-position: center center;
+  
 }
 
 .ism-pause-button {
   display: none;
   left: 50%;
+   visibility: hidden;
 }
 
 .ism-slider:hover .ism-pause-button {
   display: block;
+   visibility: hidden;
 }
 
 .ism-caption {
@@ -218,17 +222,17 @@ p.ism-badge a.ism-link:hover {
 }
 
 .ism-zoom-in {
-  -webkit-animation: zoomin 0.81s linear 1;
-  animation: zoomin 0.81s linear 1;
+  -webkit-animation: zoomin 1.8s linear 1;
+  animation: zoomin 1.8s linear 1;
 }
 
 @-webkit-keyframes zoomin {
   0% { -webkit-transform: scale(1.0); transform: scale(1.0); }
-  100% { -webkit-transform: scale(3.0); transform: scale(3.0); }
+  100% { -webkit-transform: scale(2.0); transform: scale(2.0); }
 }
 @keyframes zoomin {
   0% { -webkit-transform: scale(1.0); transform: scale(1.0); }
-  100% { -webkit-transform: scale(3.0); transform: scale(3.0); }
+  100% { -webkit-transform: scale(2.0); transform: scale(2.0); }
 }
 
 @-webkit-keyframes fadein {
@@ -257,8 +261,8 @@ p.ism-badge a.ism-link:hover {
 }
 
 .ism-zoom-pan {
-  -webkit-animation: zoompan 20.0s linear 1;
-  animation: zoompan 20.0s linear 1;
+  -webkit-animation: zoompan 0.5s linear 1;
+  animation: zoompan 0.5s linear 1;
 }
 @-webkit-keyframes zoompan {
   0% { -webkit-transform: translate(0, 0) scale(1.0); transform: translate(0, 0) scale(1.0); }
@@ -272,8 +276,8 @@ p.ism-badge a.ism-link:hover {
 }
 
 .ism-zoom-rotate {
-  -webkit-animation: zoomrotate 20.0s linear 1;
-  animation: zoomrotate 20.0s linear 1;
+  -webkit-animation: zoomrotate 6.0s linear 1;
+  animation: zoomrotate 6.0s linear 1;
 }
 @-webkit-keyframes zoomrotate {
   0% { -webkit-transform: rotate(0) scale(1.0); transform: rotate(0) scale(1.0); }
@@ -289,7 +293,7 @@ p.ism-badge a.ism-link:hover {
 
 #my-slider {
     width: 400px;
-    -webkit-border-radius: 5px; border-radius: 5px; 
+    -webkit-border-radius: 1px; border-radius: 1px; 
 }
 
 #my-slider-ism-badge {
@@ -309,7 +313,7 @@ p.ism-badge a.ism-link:hover {
     
     width: 50px; height: 50px; background-size: 16px 16px; top: 50%; margin-top: -25px;
     color: #fff; background-color: rgba(0, 0, 0, 0.0);
-    display: block; visibility: visible;
+    display: block; visibility: hidden;
 }
 
 #my-slider .ism-button-prev {
@@ -389,39 +393,39 @@ p.ism-badge a.ism-link:hover {
 /* CAPTIONS */
 
 #my-slider .ism-slide-0 .ism-caption-0.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-0 .ism-caption-1.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-0 .ism-caption-2.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-1 .ism-caption-0.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-1 .ism-caption-1.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-1 .ism-caption-2.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-2 .ism-caption-0.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-2 .ism-caption-1.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-2 .ism-caption-2.ism-caption-anim {
-    -webkit-animation: fadein 0.5s; animation: fadein 0.5s;
+    -webkit-animation: fadein 0.1s; animation: fadein 0.1s;
 }
 
 #my-slider .ism-slide-0 .ism-caption-0 {
