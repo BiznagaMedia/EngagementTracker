@@ -11,7 +11,7 @@
   cursor: default;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.1);
-  -webkit-animation: all 0.2s ease-in-out;
+  -webkit-animation: ism-fadein 3s;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
