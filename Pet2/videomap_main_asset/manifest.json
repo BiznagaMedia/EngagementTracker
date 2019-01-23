@@ -1,0 +1,20 @@
+{
+    "version": "1.0",
+    "uniqueId": "a59cbb3c8192298fbb54d4fa71e66e5b",
+    "title": "videomap_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 480,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/goo.gl\/maps\/4RMdqPsSKi22",
+        "clickTAG2": "https:\/\/www.facebook.com\/sharer\/sharer.php?u= https:\/\/goo.gl\/maps\/4RMdqPsSKi22",
+        "clickTAG3": "https:\/\/plus.google.com\/share?url= https:\/\/goo.gl\/maps\/4RMdqPsSKi22",
+        "clickTAG4": "https:\/\/twitter.com\/home?status= https:\/\/goo.gl\/maps\/4RMdqPsSKi22"
+    },
+    "source": "Venetian.html"
+}

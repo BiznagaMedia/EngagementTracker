@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<head>
+<title>HTML5 STUDIO BUILDER: Venetian v 1.5</title>
+
+<!-- Adform API Script -->
+<script type="text/javascript">/*#import:common/import*/
+(window.components = window.components || [])
+  /*#video.import:video/import.2*/
+components.push('VideoPlayer')
+/*#/#*/
+  ;
+/*#/#*/
+document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+</script>
+
+<!--#head:common/head-->
+<!--#video.head:video/globalhead.2-->
+<script>
+    function setEventsAndListeners(player, videoContainer) {
+
+        player.video.on('state', function(state){
+            switch(state) {
+                case 'playing':
+                    videoContainer.dispatchEvent(makeEvent('play'));
+                    break;
+                case 'paused':
+                    videoContainer.dispatchEvent(makeEvent('pause'));
+                    break;
+                case 'finished':
+                    videoContainer.dispatchEvent(makeEvent('ended'));
+                    break;
+            }
+        });
+
+        function playVideo() {
+            if (player.video.state !== 'playing') player.video.play();
+        }
+
+        function pauseVideo() {
+            if (player.video.state === 'playing') player.video.pause();
+        }
+
+        function stopVideo() {
+            if (player.video.state === 'playing') player.video.stop();
+        }
+
+        videoContainer.addEventListener('playVideo', playVideo);
+
+        videoContainer.addEventListener('pauseVideo', pauseVideo);
+
+        videoContainer.addEventListener('stopVideo', stopVideo);
+
+        videoContainer.addEventListener('replayVideo', function(){
+            player.video.seek(0);
+            playVideo();
+        });
+
+        videoContainer.addEventListener('muteVideo', function(){
+            player.video.mute(true);
+        });
+
+        videoContainer.addEventListener('unmuteVideo', function(){
+            player.video.mute(false);
+        });
+
+        function makeEvent(name) {
+            var event = document.createEvent('Event');
+            event.initEvent(name, true, true);
+            return event;
+        }
+    }
+</script>
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#video.css:video/globalcss.2*/
+.adform-video-container {
+    background: #000;
+    position: static;
+}
+
+.adform-video-container video,
+.adform-video-container .adform-video-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000 no-repeat 50% 50%;
+}
+
+.no-other .adform-video-seek-bar,
+.no-other .adform-video-full-screen,
+.no-other .adform-video-rewind,
+.no-other .adform-video-stop {
+    display: none;
+}
+.no-other .adform-video-sound {
+    right: 0;
+}
+.no-other .adform-video-play-pause {
+    right: 30px;
+    left: auto;
+}
+.no-play .adform-video-play-pause {
+    display: none;
+}
+.no-sound .adform-video-sound {
+    display: none;
+}
+/*#/#*//*#i30.shape.css:shape/base/css*/
+#i30 { background-color: #ffffff; opacity: 1;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.2*/
+#i30 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+}
+/*#/#*//*#i44.image.css:image/base/css*/
+#i44 { opacity: 1; }
+/*#/#*//*#i16.image.css:image/base/css*/
+#i16 { opacity: 1; }
+/*#/#*//*#i16.i17.positioning.css:positioning/base/css.2*/
+#i16 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 93px; height: 43px;
+        -ms-transform: translate(0, 0) translate(227px, 437px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(227px, 437px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(227px, 437px) rotate(0deg);
+        transform: translate(0, 0) translate(227px, 437px) rotate(0deg);
+}
+/*#/#*//*#visibility.css:visibility/globalcss*/
+.visibility-hidden, .visibility-hidden * {
+    visibility: hidden !important;
+}
+/*#/#*//*#i44.i45.positioning.css:positioning/base/css.2*/
+#i44 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 320px; height: 100px;
+        -ms-transform: translate(0, 0) translate(0px, 338px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 338px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 338px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 338px) rotate(0deg);
+}
+/*#/#*//*#i63.text.css:text/base/css*/
+#i63 { position: absolute; white-space: pre-wrap; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 20px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i63.i64.positioning.css:positioning/base/css.2*/
+#i63 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 316px; height: 65px;
+        -ms-transform: translate(0, 0) translate(0px, 254px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 254px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 254px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 254px) rotate(0deg);
+}
+/*#/#*//*#i65.text.css:text/base/css*/
+#i65 { position: absolute; white-space: pre-wrap; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 17px; color: #000000; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i65.i66.positioning.css:positioning/base/css.2*/
+#i65 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 298px; height: 38px;
+        -ms-transform: translate(0, 0) translate(15px, 316px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(15px, 316px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(15px, 316px) rotate(0deg);
+        transform: translate(0, 0) translate(15px, 316px) rotate(0deg);
+}
+/*#/#*//*#i67.i68.positioning.css:positioning/base/css.2*/
+#i67 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 326px; height: 256px;
+        -ms-transform: translate(0, 0) translate(0px, -7px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -7px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -7px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -7px) rotate(0deg);
+}
+/*#/#*//*#i46.image.css:image/base/css*/
+#i46 { opacity: 1; }
+/*#/#*//*#i46.i47.positioning.css:positioning/base/css.2*/
+#i46 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 171px; height: 50px;
+        -ms-transform: translate(0, 0) translate(77px, 368px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(77px, 368px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(77px, 368px) rotate(0deg);
+        transform: translate(0, 0) translate(77px, 368px) rotate(0deg);
+}
+/*#/#*//*#i75.shape.css:shape/base/css*/
+#i75 { background-color: ; opacity: 1;
+}
+/*#/#*//*#i75.i76.positioning.css:positioning/base/css.2*/
+#i75 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 48.125%;
+        -ms-transform: translate(0, 0) translate(0px, 249px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 249px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 249px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 249px) rotate(0deg);
+}
+/*#/#*//*#i69.image.css:image/base/css*/
+#i69 { opacity: 1; }
+/*#/#*//*#i69.i70.positioning.css:positioning/base/css.2*/
+#i69 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(8px, 454px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(8px, 454px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(8px, 454px) rotate(0deg);
+        transform: translate(0, 0) translate(8px, 454px) rotate(0deg);
+}
+/*#/#*//*#i71.image.css:image/base/css*/
+#i71 { opacity: 1; }
+/*#/#*//*#i71.i72.positioning.css:positioning/base/css.2*/
+#i71 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 23px;
+        -ms-transform: translate(0, 0) translate(37px, 454px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(37px, 454px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(37px, 454px) rotate(0deg);
+        transform: translate(0, 0) translate(37px, 454px) rotate(0deg);
+}
+/*#/#*//*#i73.image.css:image/base/css*/
+#i73 { opacity: 1; }
+/*#/#*//*#i73.i74.positioning.css:positioning/base/css.2*/
+#i73 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 22px; height: 22px;
+        -ms-transform: translate(0, 0) translate(67px, 454px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(67px, 454px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(67px, 454px) rotate(0deg);
+        transform: translate(0, 0) translate(67px, 454px) rotate(0deg);
+}
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i30.shape.html:shape/html-->
+<div id="i30"></div>
+<!--#/#--><!--#i44.image.html:image/html-->
+<img id="i44" src="https://i.imgur.com/Ahh14wQ.jpg"/>
+<!--#/#--><!--#i16.image.html:image/html-->
+<img id="i16" src="https://i.imgur.com/BWUBg8Y.png"/>
+<!--#/#--><!--#i63.text.html:text/html-->
+<div id="i63">Amamos a nuestras mascotas. Pero ¿Que tan bien las conocemos realmente?</div>
+<!--#/#--><!--#i65.text.html:text/html-->
+<div id="i65">¡Ven a verla a Cinemex Cuauhtémoc!</div>
+<!--#/#--><!--#i67.video.html:video/html.2-->
+<div id="i67"></div>
+<!--#/#--><!--#i46.image.html:image/html-->
+<img id="i46" src="https://i.imgur.com/YQ3iHws.png"/>
+<!--#/#--><!--#i75.shape.html:shape/html-->
+<div id="i75"></div>
+<!--#/#--><!--#i69.image.html:image/html-->
+<img id="i69" src="https://i.imgur.com/aWe1A4G.png"/>
+<!--#/#--><!--#i71.image.html:image/html-->
+<img id="i71" src="https://i.imgur.com/ct3Z8bp.png"/>
+<!--#/#--><!--#i73.image.html:image/html-->
+<img id="i73" src="https://i.imgur.com/ecFOGYd.png"/>
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i30.i31.positioning.js:positioning/base/js.2*/
+bmShow('i30');
+/*#/#*//*#i44.image.js:image/base/js*/
+
+/*#/#*//*#i44.i45.positioning.js:positioning/base/js.2*/
+bmShow('i44');
+/*#/#*//*#i44.i48.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i44');
+
+el.addEventListener('click', function(e){
+    /*#i48.i49.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i16.image.js:image/base/js*/
+
+/*#/#*//*#i16.i17.positioning.js:positioning/base/js.2*/
+bmShow('i16');
+/*#/#*//*#i63.i64.positioning.js:positioning/base/js.2*/
+bmShow('i63');
+/*#/#*//*#i65.i66.positioning.js:positioning/base/js.2*/
+bmShow('i65');
+/*#/#*//*#i67.video.js:video/js.2*/
+(function(){
+    var source = [
+        { 'file': dhtml.getAsset(1) },
+        { 'file': "" },
+        { 'file': "" }
+    ];
+
+    var player = Adform.Component.VideoPlayer.create({
+        sources: source,
+        loop: false,
+        muted: true,
+        autoPlay: false,
+        poster: "https://i.imgur.com/ZBgcAw2.jpg",
+        clicktag: "",
+        inview: false,
+        theme: 'v2'
+    });
+
+    var videoContainer = document.getElementById('i67');
+
+    if (player) {
+        player.addClass('');
+        player.appendTo(videoContainer);
+    }
+
+    setEventsAndListeners(player, videoContainer);
+})();
+/*#/#*//*#i67.i68.positioning.js:positioning/base/js.2*/
+bmShow('i67');
+/*#/#*//*#i46.image.js:image/base/js*/
+
+/*#/#*//*#i46.i47.positioning.js:positioning/base/js.2*/
+bmShow('i46');
+/*#/#*//*#i46.i50.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i46');
+
+
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i75.i76.positioning.js:positioning/base/js.2*/
+bmShow('i75');
+/*#/#*//*#i75.i77.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i75');
+
+el.addEventListener('click', function(e){
+    /*#i77.i78.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://goo.gl/maps/4RMdqPsSKi22'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i69.image.js:image/base/js*/
+
+/*#/#*//*#i69.i70.positioning.js:positioning/base/js.2*/
+bmShow('i69');
+/*#/#*//*#i69.i79.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i69');
+
+el.addEventListener('click', function(e){
+    /*#i79.i80.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.facebook.com/sharer/sharer.php?u= https://goo.gl/maps/4RMdqPsSKi22'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i71.image.js:image/base/js*/
+
+/*#/#*//*#i71.i72.positioning.js:positioning/base/js.2*/
+bmShow('i71');
+/*#/#*//*#i71.i81.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i71');
+
+el.addEventListener('click', function(e){
+    /*#i81.i82.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'https://plus.google.com/share?url= https://goo.gl/maps/4RMdqPsSKi22'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i73.image.js:image/base/js*/
+
+/*#/#*//*#i73.i74.positioning.js:positioning/base/js.2*/
+bmShow('i73');
+/*#/#*//*#i73.i83.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i73');
+
+el.addEventListener('click', function(e){
+    /*#i83.i84.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://twitter.com/home?status= https://goo.gl/maps/4RMdqPsSKi22'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i9.visibility.js:visibility/js*/
+function bmShow(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('visibility-hidden');
+}
+
+function bmHide(id) {
+    var el = document.getElementById(id);
+    el.classList.add('visibility-hidden');
+}
+/*#/#*/
+ 
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i30.shape.meta:shape/meta*/
+name: Shape 1;
+/*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i44.image.meta:image/meta*/
+name: Ahh14wQ.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i44.i45.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":false}/*!*/;
+/*#/#*//*#i16.image.meta:image/meta*/
+name: BWUBg8Y.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i16.i17.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i63.text.meta:text/meta*/
+name: Amamos a nuestras mascotas. Pero ¿Que tan bien las conocemos realmente?; customName: false;
+/*#/#*//*#i63.i64.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i65.text.meta:text/meta*/
+name: ¡Ven a verla a Cinemex Cuauhtémoc!; customName: false;
+/*#/#*//*#i65.i66.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i67.video.meta:video/meta.2*/
+name: Video 1; fileId_MP4: 1; fileId_WEBM: ; fileId_OGV: ; clicktag: clickTAG;
+posterSourceType: externalUrl; posterFileId: ;
+/*#/#*//*#i67.i68.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":false}/*!*/;
+/*#/#*//*#i46.image.meta:image/meta*/
+name: YQ3iHws.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i46.i47.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i75.shape.meta:shape/meta*/
+name: Shape 2;
+/*#/#*//*#i75.i76.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i69.image.meta:image/meta*/
+name: aWe1A4G.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i69.i70.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i71.image.meta:image/meta*/
+name: ct3Z8bp.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i71.i72.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i73.image.meta:image/meta*/
+name: ecFOGYd.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i73.i74.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*/--><!--#/#-->
