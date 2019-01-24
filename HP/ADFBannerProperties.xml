@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>fe8410eaa5ddca9081a1a269b01c9e5d</uniqueId>
+      <format>Standard</format>
+      <name>HP VENETIAN</name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName><![CDATA[HP VENETIAN_main_asset]]></fileName>
+        <clickTagNames>
+          <clickTagName>clickTAG</clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[https://www8.hp.com/mx/es/cartridge/ink.html]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+  </banner>
+</adf>
