@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="ad.size" content="width=320, height=480" />
-    <title>320x480 - Argeta</title>
+    <meta name="ad.size" content="width=300, height=600" />
+    <title>300x600-Chubb</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
     <style>
-        body.videonew {
+        body.tgx {
             background-color: #FFFFFF;
             color: black;
             font-family: 'Lato', sans-serif;
@@ -23,34 +23,34 @@
             color: white;
         }
 
-        .videonew_wrapper {
+        .tgx_wrapper {
             position: relative;
             overflow: hidden;
-            
+            border: 1px solid #c5c5c5;
             cursor: pointer;
         }
 
-        .videonew_wrapper.size_300x250 {
+        .tgx_wrapper.size_300x250 {
             width: 298px;
-            height: 248px;
+            height: 320px;
         }
 
-        .videonew_wrapper.size_320x480 {
-            width: 300px;
-            height: 250px;
+        .tgx_wrapper.size_320x480 {
+            width: 298px;
+            height: 598px;
         }
 
-        .videonew_wrapper.size_320x50 {
-            width: 318px;
-            height: 48px;
+        .tgx_wrapper.size_320x50 {
+            width: 298x;
+            height: 598px;
         }
 
-        .videonew_wrapper.size_728x90 {
-            width: 726px;
-            height: 88px;
+        .tgx_wrapper.size_728x90 {
+            width: 800px;
+            height: 100px;
         }
 
-        .videonew_cover {
+        .tgx_cover {
             position: relative;
             width: 100%;
             height: 50%;
@@ -74,77 +74,76 @@
             background-position-x: -40px;
         }
 
-        .videonew_cover .videonew_logo span {
+        .tgx_cover .tgx_logo span {
             color: white;
         }
 
-        .videonew_logo img {
+        .tgx_logo img {
             width: 100%;
             height: auto;
         }
 
-        .videonew_pos_tl {
+        .tgx_pos_tl {
             top: 3%;
             left: 3%;
         }
 
-        .videonew_pos_tr {
+        .tgx_pos_tr {
             top: 3%;
             right: 3%;
         }
 
-        .videonew_pos_bl {
+        .tgx_pos_bl {
             bottom: 3%;
             left: 3%;
         }
 
-        .videonew_pos_br {
+        .tgx_pos_br {
             bottom: 3%;
             right: 3%;
         }
 
-        .videonew_pos_bm {
+        .tgx_pos_bm {
             bottom: 3%;
             left: calc(100% - 70%);
         }
 
         /* cover height + 5% */
 
-        .videonew_text {
+        .tgx_text {
             position: absolute;
-            top: 70%;
+            top: 28px;
             left: 5px;
-            width: 98%;
+            width: 90%;
             padding: 0.3em;
             line-height: 1.4em;
             color: #453936;
         }
 
-        .videonew_text_title {
-            font-size: 120%;
-            color: #453936;
+        .tgx_text_title {
+            font-size: 160%;
+            color: #000;
             display: inline-block;
-            width: 90%;
-            margin-bottom: 20px;
-            text-align:left;
-            line-height: 1.1em;
+            width: 105%;
+            margin-bottom: 8px;
+            line-height: 1.2;
+            text-align: center;
         }
 
-        .videonew_text_light {
-            font-weight: 400;
+        .tgx_text_light {
+            font-weight: 600;
         }
 
-        .videonew_text_medium {
+        .tgx_text_medium {
             font-weight: 700;
         }
 
-        .videonew_text_bold {
+        .tgx_text_bold {
             font-weight: 900;
         }
 
-        .videonew_text_small {
-            font-size:120%;
-            margin-top: 30px;
+        .tgx_text_small {
+            font-size:105%;
         }
 
         ul {
@@ -180,35 +179,35 @@
             float: right;
             height: 30px;
             text-align: center;
-            margin-top: -10px;
-            margin-right: -10px
+            margin-top: -2px;
+            margin-right: -5px;
         }
         
-        .videonew_cover .videonew_logo {
+        .tgx_cover .tgx_logo {
             position: absolute;
-            bottom: -25px;
-            width: 60px;
+            bottom: -15px;
+            width: 120px;
             line-height: 1.3em;
             z-index: 2;
-            margin-left: 50%;
+            margin-left: 40%;
             left: -30px;
-            background-color: #a50f40;
+            background-color: #cc0808;
             padding: 5px;
             border-radius: 20px;
             text-align: center;
         }
         
-        .videonew_sponsoredby {
+        .tgx_sponsoredby {
             position: absolute;
             z-index: 99;
         }
 
-        .videonew_sponsoredby.videonew_pos_br {
+        .tgx_sponsoredby.tgx_pos_br {
             right: 1%;
             bottom: 0% !important;
         }
 
-        .videonew_sponsoredby .sponsor {
+        .tgx_sponsoredby .sponsor {
             font-size: 9px;
             display: inline-block;
             float: left;
@@ -216,17 +215,17 @@
             margin-top: 7px;
         }
 
-        .videonew_sponsoredby:hover .sponsor {
+        .tgx_sponsoredby:hover .sponsor {
             opacity: 1;
         }
 
-        .videonew_sponsoredby .videonew_logo {
+        .tgx_sponsoredby .tgx_logo {
             width: 60px;
             display: inline-block;
             float: right;
         }
 
-        .videonew_button {
+        .tgx_button {
             position: absolute;
             bottom: 5px;
             left: 85%;
@@ -240,41 +239,22 @@
             cursor: pointer;
         }
 
-        .videonew_button:hover {
+        .tgx_button:hover {
             background-color: #d34100;
-        }
-        
-        .videonew .tgx_logo {
-            position: absolute;
-            bottom: 75px;
-            width: 120px;
-            line-height: 1.3em;
-            z-index: 2;
-            margin-left: 40%;
-            left: -30px;
-            background-color: #cc0808;
-            padding: 5px;
-            border-radius: 20px;
-            text-align: center;
-        }
-        
-        .tgx_text_bold {
-            font-weight: 900;
-            
         }
 
     </style>
     <script>
         function openUrl() {
-            window.open("https://www2.chubb.com/mx-es/empresas/tecnologia.aspx");
+            window.open("https://www.lacostena.com.mx/es/recetas/morisqueta-con-costillas/");
         }
     </script>
 </head>
 
-<body class="videonew">
-    <div class="videonew_wrapper carousel-wrapper size_320x480" id="cta">
+<body class="tgx">
+    <div class="tgx_wrapper carousel-wrapper size_320x480" id="cta" >
         <div class="carousel-container">
-            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)">
+            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)" style="margin-left: -50px;">
            
             </div>
         </div>
@@ -287,9 +267,9 @@
             var player;
             function onYouTubeIframeAPIReady() {
                 ytplayer = new YT.Player('ytplayer', {
-                    height: '160',
-                    width: '300',
-                    videoId: '_0PSon_bbco',
+                    height: '230',
+                    width: '400',
+                    videoId: 'FvcYC1kLI0s',
                     autoplay: 1,
                     playerVars: {
                         loop: 1,
@@ -325,35 +305,37 @@
  
         </script>
         <div onclick="openUrl();">
-       
-           <div class="tgx_logo"><span class="tgx_text_bold" style="font-size:70%; color: #fff;">¿Minimiza riesgos?</span></div>
-           
-        <div class="videonew_text"> 
-            <span class="videonew_text_title videonew_text_bold">
-              Si estás innovando en tu empresa, minimiza los riesgos.
-            </span>
-           
-
-            <!--<div style="bottom:0px;height: 1px;text-align:left;margin-top:-12px">
-                <div id="botones-para-compartir" style="display:inline;float:left;margin-left:4px;margin-top:0px;">
-                    <span>  
-                        <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www2.chubb.com/mx-es/empresas/tecnologia.aspx"  target="block">    
-                        <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/mJBNNLr.png" title="compartir en facebook" width="22" /></a>
-
-                            <a class="shared" href="https://plus.google.com/share?url=https://www2.chubb.com/mx-es/empresas/tecnologia.aspx" target="block">
-                            <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/dC7ka2p.png" title="compartir en google+" width="22" /></a>
-
-                            <a class="shared" href="https://twitter.com/home?status=https://www2.chubb.com/mx-es/empresas/tecnologia.aspx" target="block">
-                            <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/YN2Vf5g.png" title="compartir en twitter" width="22" /></a>
-                    </span>
-                </div>-->
-                <div class="logo">
-                    <img src="https://i.imgur.com/GXSl3QV.png" style="height:10px">
-                </div>
+        <div class="tgx_cover">
             
+           
+        <div class="tgx_text">
+            <span class="tgx_text_title tgx_text_bold">
+              ¿ Aún no sabes que cocinar? Descubre todo lo que puedes cocinar con nuestros Frijoles Bayos La Costeña.
+            </span>
+            <span class="tgx_text_light tgx_text_small" style="color:black;">
+                <p style="margin-top: 10px; text-align: justify;"> Los frijoles bayos, de suave textura y sabor, son ideales para acompañar tus platillos méxicanos. ¡Mira nuestra variedad de recetas para tí!</p>
+            </span>
+ 
+           
+                <div class="logo">
+                    <img src="https://i.imgur.com/z6Wi6Hv.png" style="height:45px">
+                </div>
+                 <div id="botones-para-compartir" style="display:inline;float:left;margin-left:4px;margin-top:9px;">
+                    <span>  
+                        <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.lacostena.com.mx/es/recetas/morisqueta-con-costillas/"  target="block">    
+                        <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/7NcsJOE.png" title="compartir en facebook" width="22" /></a>
+
+                            <a class="shared" href="https://plus.google.com/share?url=https://www.lacostena.com.mx/es/recetas/morisqueta-con-costillas/" target="block">
+                            <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/pb0ckbL.png" title="compartir en google+" width="22" /></a>
+
+                            <a class="shared" href="https://twitter.com/home?status=https://www.lacostena.com.mx/es/recetas/morisqueta-con-costillas/" target="block">
+                            <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/5FTo81p.png" title="compartir en twitter" width="22" /></a>
+                    </span>
+                </div>
+            </div>
         </div>
         </div>
-    </div>
+   
 </body>
 
 </html>
