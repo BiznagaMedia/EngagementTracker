@@ -2284,7 +2284,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i63.text.html:text/html-->
 <div id="i63">Estás a unas cuadras de conocer a Van Gogh...</div>
 <!--#/#--><!--#i68.text.html:text/html-->
-<div id="i68">¡Ven a Cinépolis VIP y conócelo hoy mismo!</div>
+<div id="i68">¡ven a Cinépolis VIP y conócelo hoy mismo!</div>
 <!--#/#--><!--#i70.container.html:container/html-->
 <div id="i70">
     
@@ -2343,7 +2343,7 @@ var el = document.getElementById('i2');
 
 el.addEventListener('click', function(e){
     /*#i57.i58.actions-clicktag.js:actions-clicktag/base/js.2*/
-
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://goo.gl/maps/B8VfKXyoMmy'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 

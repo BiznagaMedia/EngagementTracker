@@ -2341,13 +2341,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*#/#*//*#i2.i6.slice-image.js:slice-image/base/js*/
 
-/*#/#*//*#i2.i57.actions.js:actions/base/js.1*/
+/*#/#*//*#i2.i74.actions.js:actions/base/js.1*/
 /* Name: On Click; */
 var el = document.getElementById('i2');
 
 el.addEventListener('click', function(e){
-    /*#i57.i58.actions-clicktag.js:actions-clicktag/base/js.2*/
-
+    /*#i74.i75.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://goo.gl/maps/Po1u2sNmC9K2'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
