@@ -2280,7 +2280,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i63.text.html:text/html-->
 <div id="i63">¿Desayuno en la cama o un cóctel después del trabajo?</div>
 <!--#/#--><!--#i68.text.html:text/html-->
-<div id="i68">Te ofrecemos una variedad de opciones con ambiente para todos los gustos:  Cocktail bars, Restaurantes, Cafeterías y más</div>
+<div id="i68">Te ofrecemos una variedad de opciones con ambiente para todos los gustos:  Cocktail bars, Restaurantes, Cafeterías y más.</div>
 <!--#/#--><!--#i71.shape.html:shape/html-->
 <div id="i71"></div>
 <!--#/#--><!--#/#--><!--#js:common/js-->
@@ -2337,11 +2337,6 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Name: On Click; */
 var el = document.getElementById('i2');
 
-el.addEventListener('click', function(e){
-    /*#i57.i58.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://goo.gl/maps/fHE3Bzbuezo'), dhtml.getVar('landingPageTarget', '_blank'));
-/*#/#*/
-});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
