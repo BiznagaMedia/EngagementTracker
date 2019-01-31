@@ -2245,6 +2245,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(26px, 300px) rotate(0deg);
         transform: translate(0, 0) translate(26px, 300px) rotate(0deg);
 }
+/*#/#*//*#i75.image.css:image/base/css*/
+#i75 { opacity: 1; }
+/*#/#*//*#i75.i76.positioning.css:positioning/base/css.2*/
+#i75 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 173px; height: 47px;
+        -ms-transform: translate(0, 0) translate(76px, 395px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(76px, 395px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(76px, 395px) rotate(0deg);
+        transform: translate(0, 0) translate(76px, 395px) rotate(0deg);
+}
 /*#/#*//*#i71.shape.css:shape/base/css*/
 #i71 { background-color: ; opacity: 1;
 }
@@ -2281,6 +2290,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <div id="i63">¿Desayuno en la cama o un cóctel después del trabajo?</div>
 <!--#/#--><!--#i68.text.html:text/html-->
 <div id="i68">Te ofrecemos una variedad de opciones con ambiente para todos los gustos:  Cocktail bars, Restaurantes, Cafeterías y más.</div>
+<!--#/#--><!--#i75.image.html:image/html-->
+<img id="i75" src="https://i.imgur.com/4RkfFmx.png"/>
 <!--#/#--><!--#i71.shape.html:shape/html-->
 <div id="i71"></div>
 <!--#/#--><!--#/#--><!--#js:common/js-->
@@ -2302,7 +2313,7 @@ document.addEventListener('DOMContentLoaded', function() {
         autoRotationEnabled: 'true',
         autoRotationDelay: '3',
         autoRotationTimeout: '25',
-        shadow: 'rgba(48,48,48,1)',
+        shadow: 'rgba(61,114,252,1)',
         perspective: '500',
         useSinglePerspective: 'false',
         useOffsetCompensation: 'true',
@@ -2353,14 +2364,18 @@ bmShow('i16');
 bmShow('i63');
 /*#/#*//*#i68.i69.positioning.js:positioning/base/js.2*/
 bmShow('i68');
+/*#/#*//*#i75.image.js:image/base/js*/
+
+/*#/#*//*#i75.i76.positioning.js:positioning/base/js.2*/
+bmShow('i75');
 /*#/#*//*#i71.i72.positioning.js:positioning/base/js.2*/
 bmShow('i71');
-/*#/#*//*#i71.i73.actions.js:actions/base/js.1*/
+/*#/#*//*#i71.i77.actions.js:actions/base/js.1*/
 /* Name: On Click; */
 var el = document.getElementById('i71');
 
 el.addEventListener('click', function(e){
-    /*#i73.i74.actions-clicktag.js:actions-clicktag/base/js.2*/
+    /*#i77.i78.actions-clicktag.js:actions-clicktag/base/js.2*/
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://goo.gl/maps/fHE3Bzbuezo'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
@@ -2417,6 +2432,11 @@ data: /*!*/{}/*!*/;
 name: Te ofrecemos una variedad de opciones con ambiente para todos los gustos:  Cocktail bars, Restaurantes, Cafeterías y más; customName: false;
 /*#/#*//*#i68.i69.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i75.image.meta:image/meta*/
+name: 4RkfFmx.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i75.i76.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i71.shape.meta:shape/meta*/
 name: Shape 2;
 /*#/#*//*#i71.i72.positioning.meta:positioning/meta.2*/
