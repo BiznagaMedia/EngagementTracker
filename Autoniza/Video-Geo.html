@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="ad.size" content="width=298, height=598" />
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
     <title>Autoniza</title>
     <style>
@@ -202,12 +203,29 @@
             margin-top: 42.5px
         }
 
+
+         @media only screen and (min-device-width: 560px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* iPhone 5 only */
+}
+
         @media screen and (max-width: 480px) {
-            .ctaButton {
-                font-size: 10px!important;
-                font-weight: normal;
-            }
+            .PapaJohnFijo .te-container .te-wrapper {
+            width: 240px;
+            height: 500px;
+            background-color: #FFF;
+            overflow-y: auto;
         }
+
+        .te-cover, .te-transition, .te-images {
+            width: 240px;
+            height: 300px;
+        }
+
+        .botonesparacompartir {
+           width: 240px;
+            height: 70px;
+        }
+    }
 
         .cta {
             position: absolute;
