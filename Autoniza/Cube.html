@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <head>
-    
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="ad.size" content="width=300, height=250" />
+<meta charset="UTF-8">
+
 <title>HTML5 STUDIO BUILDER: 3D Box v 1.5</title>
 
 <!-- Adform API Script -->
@@ -861,10 +860,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
-
-   @media only screen and (min-device-width: 560px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
-    /* iPhone 5 only */
-}
 /*#/#*/
 </style>
 <!--#/#--></head>
@@ -1159,6 +1154,8 @@ function bmHide(id) {
     var el = document.getElementById(id);
     el.classList.add('visibility-hidden');
 }
+/*#/#*//*#i270.responsive-externalResize.js:responsive-externalResize/js*/
+dhtml.external && dhtml.external.resize("100%", "100%");
 /*#/#*/
 
   function next(){
