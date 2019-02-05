@@ -8,6 +8,14 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
     <title>Autoniza</title>
     <style>
+
+        @media(min-width: 500px){
+            .te-container{
+            width: 300px !important; 
+        }
+        }
+        
+
         .PapaJohnFijo a,
         .PapaJohnFijo a:hover {
             text-decoration: none;
@@ -15,7 +23,7 @@
         }
 
         .PapaJohnFijo .te-container {
-            width: 300px;
+            width: 100%;
             height: 600px;
             margin: 0 auto;
             background-color: #ffffff;
@@ -24,7 +32,7 @@
 
         .PapaJohnFijo .te-wrapper {
             position: relative;
-            width: 300px;
+            width: 100%;
             height: 600px;
             overflow: hidden;
             font-family: Source Sans Pro;
@@ -66,7 +74,7 @@
 
         .PapaJohnFijo .te-cover,
         .PapaJohnFijo .te-transition {
-            width: 320px;
+            width: 100%;
             height: 160px;
         }
 
@@ -77,13 +85,13 @@
                     }
 
         .PapaJohnFijo .te-images {
-            width: 300px;
+            width: 100%;
             height: 250px;
         }
 
         .PapaJohnFijo .te-cover>img,
         .PapaJohnFijo .te-images>img {
-            width: 300px;
+            width: 100%;
             height: 250px;
         }
 
@@ -156,6 +164,10 @@
             -o-transition: all .5s;
         }
 
+        .facebooki{
+            width: 100%;
+        }
+
         .likedini,
         .facebooki,
         .twitteri,
@@ -208,9 +220,9 @@
     /* iPhone 5 only */
 }
 
- @media screen and (max-width: 300px) {
+ @media screen and (max-width: 500px) {
         .PapaJohnFijo .te-container {
-            width: 300px;
+            width: 100%;
             height: 560px;
             background-color: #FFF;
             overflow-y: auto;
@@ -245,7 +257,7 @@
 
                          
                 <div class="te-cover"> 
-                <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)"style="margin-left: 0px;">
+                <div id="ytplayer" style="width: 100% !important; position: absolute" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)"style="margin-left: 0px;">
            
             </div>
         </div>
@@ -259,7 +271,7 @@
             function onYouTubeIframeAPIReady() {
                 ytplayer = new YT.Player('ytplayer', {
                     height: '250',
-                    width: '300',
+                    //width: '100%',
                     videoId: 'Jp_t0J5joko',
                     autoplay: 1,
                     playerVars: {
