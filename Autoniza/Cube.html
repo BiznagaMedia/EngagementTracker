@@ -465,6 +465,66 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     })(Adf = window.Adf || {});
 
 </script>
+<!--#/#--><!--#positioning-scaleMode.head:positioning-scaleMode/globalhead-->
+<script>
+
+    (function(Adf) {
+
+        function ensureAspectRatio(elementSelector, type, aspectRatio, widthPercent, heightPercent, initialWidth, initialHeight) {
+
+            function resize() {
+                var el = document.querySelector(elementSelector);
+
+                if (!el) {
+                    el.style.width = widthPercent + '%';
+                    el.style.height = heightPercent + '%';
+                    return;
+                }
+
+                var cont = el.parentElement;
+
+                var contW;
+                var contH;
+
+                if (el.parentElement === document.body) {
+                     contW = window.innerWidth;
+                     contH = window.innerHeight;
+                } else {
+                    contW = cont.offsetWidth;
+                    contH = cont.offsetHeight;
+                }
+
+                var newW = contW * widthPercent / 100;
+                var newH = contH * heightPercent / 100;
+
+                var adjustedW = newH * aspectRatio;
+                var adjustedH = newW / aspectRatio;
+
+                if (type === 'limit' && newH >= initialHeight && newW >= initialWidth) {
+                    el.style.width = initialWidth + 'px';
+                    el.style.height = initialHeight + 'px';
+                    return;
+                }
+
+                if ((type === 'fit' && adjustedH > newH) || (type === 'fill' && adjustedH < newH) || type === 'height' || (type === 'limit' && adjustedH > newH)) {
+                    el.style.width = adjustedW + 'px';
+                    el.style.height = newH + 'px';
+                } else {
+                    el.style.width = newW + 'px';
+                    el.style.height = adjustedH + 'px';
+                }
+            }
+
+            window.addEventListener('resize', resize);
+
+            setTimeout(resize, 0);
+        }
+
+        Adf.resizeHelpers = Adf.resizeHelpers || {};
+        Adf.resizeHelpers.ensureAspectRatio = ensureAspectRatio;
+    })(Adf = window.Adf || {});
+
+</script>
 <!--#/#--><!--#i8.font-google.head:font/font-google/head-->
 <!--#i8.i9.font-google.head:font-google/head-->
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
@@ -522,10 +582,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i236 { opacity: 1; }
 /*#/#*//*#i236.i237.positioning.css:positioning/base/css.2*/
 #i236 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 141px; height: 11px;
-        -ms-transform: translate(0, 0) translate(123px, 230px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(123px, 230px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(123px, 230px) rotate(0deg);
-        transform: translate(0, 0) translate(123px, 230px) rotate(0deg);
+        -ms-transform: translate(0, 0) translate(150px, 230px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(150px, 230px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(150px, 230px) rotate(0deg);
+        transform: translate(0, 0) translate(150px, 230px) rotate(0deg);
 }
 /*#/#*//*#i4.i130.image.css:image/base/css*/
 #i130 { opacity: 1; }
@@ -738,10 +798,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i260 { opacity: 1; }
 /*#/#*//*#i260.i261.positioning.css:positioning/base/css.2*/
 #i260 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 141px; height: 11px;
-        -ms-transform: translate(0, 0) translate(116px, 231px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(116px, 231px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(116px, 231px) rotate(0deg);
-        transform: translate(0, 0) translate(116px, 231px) rotate(0deg);
+        -ms-transform: translate(0, 0) translate(149px, 231px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(149px, 231px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(149px, 231px) rotate(0deg);
+        transform: translate(0, 0) translate(149px, 231px) rotate(0deg);
 }
 /*#/#*//*#i5.i264.image.css:image/base/css*/
 #i264 { opacity: 1; }
@@ -798,10 +858,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i246 { opacity: 1; }
 /*#/#*//*#i246.i247.positioning.css:positioning/base/css.2*/
 #i246 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 141px; height: 11px;
-        -ms-transform: translate(0, 0) translate(120px, 229px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(120px, 229px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(120px, 229px) rotate(0deg);
-        transform: translate(0, 0) translate(120px, 229px) rotate(0deg);
+        -ms-transform: translate(0, 0) translate(153px, 229px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(153px, 229px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(153px, 229px) rotate(0deg);
+        transform: translate(0, 0) translate(153px, 229px) rotate(0deg);
 }
 /*#/#*//*#i6.i268.image.css:image/base/css*/
 #i268 { opacity: 1; }
@@ -1144,6 +1204,8 @@ if ('click' === 'click') {
 
 /*#/#*//*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
    
+/*#/#*//*#i3.i271.positioning-scaleMode.js:positioning-scaleMode/base/js*/
+Adf.resizeHelpers.ensureAspectRatio('#i2', 'width', 1.2, 100, 100, 300, 250);
 /*#/#*//*#i183.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
