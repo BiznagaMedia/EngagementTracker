@@ -241,7 +241,7 @@
        
         .PapaJohnFijo .cta {
             position: absolute;
-            top: 335px;
+            top: 345px;
             width: 145px;
             line-height: 1.5em;
             z-index: 5;
@@ -259,72 +259,23 @@
 <body class="PapaJohnFijo" style="margin:0px;">
     <div class="te-container">
         <a href="https://api.whatsapp.com/send?phone=573176847704&text=Hola,%20quiero%20agendar%20test%20drive" target="_blank">
-            <div id="te-wrapper" class="te-wrapper"> 
+            <div id="te-wrapper" class="te-wrapper">
+             <div class="te-cover"> 
+                <img src="https://i.imgur.com/rTIqiq3.gif" alt="" /> </div>
+                <div class="te-transition">
+                    <div class="te-front"></div>
+                    <div class="te-back"></div>
+                </div> 
             
 
                          
-                <div class="te-cover"> 
-                <div id="ytplayer" style="width: 100% !important; position: absolute" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)"style="margin-left: 0px;">
-           
-            </div>
-        </div>
-        <script>
-            var tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/iframe_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
- 
-            var player;
-            function onYouTubeIframeAPIReady() {
-                ytplayer = new YT.Player('ytplayer', {
-                    height: '250',
-                    //width: '100%',
-                    videoId: 'Jp_t0J5joko',
-                    autoplay: 1,
-                    playerVars: {
-                        loop: 1,
-                        controls: 0
-                    },
-                    events: {
-                        'onReady': onPlayerReady,
-                        'onStateChange': onPlayerStateChange
-                    }
-                })
-            };
- 
- 
-            function SetYoutubeVolume(pakata) {
-                if (pakata == true){
-                    ytplayer.setVolume(80);
-                }else{
-                    ytplayer.setVolume(0);
-                }
-            }
- 
-            function onPlayerReady(event) {
-                ytplayer.playVideo();
-                ytplayer.setVolume(0);
-            }
- 
-            function onPlayerStateChange(event) {
-                if (event.data == YT.PlayerState.ENDED) {
-                    ytplayer.playVideo();
-                }
-                event.target.setVolume(0);
-            }
- 
-        </script>
-        <div onclick="openUrl();">
-        <div class="tgx_cover">
-            <div class="tgx_logo"><span class="tgx_text_bold" style="font-size:70%;"></span></div>
-        </div>
                 
-                
+       
                 
                 <div style="margin-top:100px; margin-left: 10px; margin-right: 10px;">
                     <div class="bzm_text">
-                        <span class="bzm_text_title  bzm_text_bold" style="color: black;line-height:1.1; font-size:25px; margin-left:0px; margin-right:0px;text-align: left; width: 90%;">
-						    Solo una vida, para qué soñarla si puedes tenerla.
+                        <span class="bzm_text_title  bzm_text_bold" style="color: black;line-height:1.1; font-size:21px; margin-left:0px; margin-right:0px;text-align: left; width: 90%;">
+						   Este puedes ser tú viajando en la Chevrolet Traverse, o disfrutando al máximo en una Trailblazer.
 						</span>
                        <span class="bzm_text_medium" style="color: black;line-height:em; font-size:17px; width:95%; text-align:justify;">
                         <p style="margin-top: 0px; line-height: 1.3em; margin-left: 3px; ">
@@ -337,7 +288,7 @@
                       <!-- <div id="botones-para-compartir" style="display:inline;float:left;margin-top:5px;margin-left:7px;"> <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://goo.gl/maps/ddKqd48NGv52" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/eaRHI5v.png" title="compartir en facebook" width="22" /></a><a class="shared" href="https://plus.google.com/share?url=https://goo.gl/maps/ddKqd48NGv52" target="_blank"> <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/eKhQpjs.png" title="compartir en google+" width="22" /></a><a class="shared" href="https://twitter.com/home?status=https://goo.gl/maps/ddKqd48NGv52" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/YpoMgUY.png" title="compartir en twitter" width="22" /></a></div>-->
                        
                        
-                         <div id="botones-para-compartir" style="margin-top: 13px; height: 319px;"> <span> <a class="logo" href="https://goo.gl/maps/FSZ4JWosa912" target="_blank"> <img alt="compartir en facebook" class="facebooki"  src="https://i.imgur.com/IQ0GYT3.png" title="Concesionaria más cercana"  /></a>
+                         <div id="botones-para-compartir" style="margin-top: 18px; height: 319px;"> <span> <a class="logo" href="https://goo.gl/maps/FSZ4JWosa912" target="_blank"> <img alt="compartir en facebook" class="facebooki"  src="https://i.imgur.com/IQ0GYT3.png" title="Concesionaria más cercana"  /></a>
                          
                            <!--  <img class="logo" href="https://goo.gl/maps/7XHvPLLb6Jv" src="https://i.imgur.com/crzbpTh.png" alt="" style="margin-top: 10px;">-->
                     
