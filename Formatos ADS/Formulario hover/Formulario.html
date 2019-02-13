@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+        
+            body{
+                background:#ffffff;
+                margin:0
+            }
+.form{
+    width:340px;
+    height:440px;
+    background:#ffffff;
+    border-radius:0px;
+    box-shadow:0 0 0px 0px #fff;
+    margin:calc(50vh - 220px) auto;
+    padding:20px 30px;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+    position:relative
+            }
+            
+h2{
+    margin:10px 0;
+    padding-bottom:10px;
+    width:180px;
+    color:#78788c;
+    border-bottom:3px solid #78788c
+            }
+            
+input{
+    width:100%;
+    padding:10px;
+    box-sizing:border-box;
+    background:none;
+    outline:none;
+    resize:none;
+    border:0;
+    font-family:'Montserrat',sans-serif;
+    transition:all .3s;
+    border-bottom:2px solid #bebed2
+            }
+            
+input:focus{
+    border-bottom:2px solid #78788c
+            }
+            
+p:before{
+    content:attr(type);
+    display:block;
+    margin:28px 0 0;
+    font-size:14px;
+    color:#5a5a5a
+            }
+            
+button{
+    float:right;
+    padding:8px 12px;
+    margin:8px 0 0;
+    font-family:'Montserrat',sans-serif;
+    border:2px solid #78788c;
+    background:0;color:#5a5a6e;
+    cursor:pointer;
+    transition:all .3s
+            }
+            
+button:hover{
+    background:#78788c;
+    color:#fff
+            }
+            
+div{content:'Hi';
+    position:absolute;
+    bottom:-15px;
+    right:-20px;
+    background:#50505a;
+    color:#fff;
+    width:320px;
+    padding:16px 4px 16px 0;
+    border-radius:6px;
+    font-size:13px;
+    box-shadow:10px 10px 40px -14px #000
+            }
+            
+span{
+    margin:0 5px 0 15px;
+            }
+
+          
+        
+        </style>
+    
+    <form class="form">
+        <span style="bottom:0px; text-align:center ; float:center; margin-top:-500px; margin-right: 0px; background-color: #fff;"> <img src="https://i.imgur.com/llL3jat.png" style="height:60px; text-decoration: none; border-radius:0px;
+    box-shadow:0 0 0px 0px #fff;"></span>
+  <!--<h2>CONTÁCTANOS</h2>-->
+  <p type="Nombre:"><input placeholder="Escribe tu nombre:"></input></p>
+  <p type="E-mail:"><input placeholder="Déjanos saber cómo te conatactaremos."></input></p>
+   <!--<p type="MeNSAJE:"><input placeholder="¿Qué quisieras decirnos?"></input></p>-->
+ 
+
+<form action="procesar_datos.php" method="post" style="margin-top: 100px;">
+  <label for="condiciones"><a href="https://www.up.edu.mx/sites/default/files/up_mexico_vf-aviso_aspirantes_internet_0.pdf" target="_blank"> He leído y acepto los términos y condiciones.</a></label><input type="checkbox" name="condiciones" />
+
+<button value="Enviar un email" onclick="parent.location='angelica.design89@gmail.com'" style="margin-top: 20px;text-align: center;">ENVIAR</button>
+</form>
+
+
+
+   
+</form>
+
+     <script language=”php”>
+
+            <?php 
+  if( isset( $_POST['condiciones'] ) ) { 
+    // El cliente aceptó las condiciones 
+  } else { 
+    // El cliente no aceptó las condiciones 
+  } 
+?>
+
+
+            </script>
+
+
+    
+    
+    </head>
+    <body>
+     
+    </body>
+</html>
