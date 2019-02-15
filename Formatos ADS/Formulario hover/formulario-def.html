@@ -116,13 +116,13 @@
     
     /*-------------------------------------*/
     
-    .FR{
+.FR{
     width:300px;
     height:600px;
     background:#ffffff;
     border-radius:0px;
     box-shadow:0 0 0px 0px #fff;
-    margin:calc(30vh - 220px) auto;
+    /*margin:calc(30vh - 220px) auto;*/
     padding:20px 30px;
     max-width:calc(100vw - 40px);
     box-sizing:border-box;
@@ -245,19 +245,48 @@
             </div>
 
             <div class="FR red">
-                 <span style=" text-align:center ; float:center; margin-right: 0px; background-color: #fff;"> <img src="https://i.imgur.com/llL3jat.png" style="height:80px; margin-top: 20px; text-decoration: none; border-radius:0px; margin-left: -10px;
+                
+                <span class="s-I" style=""> 
+                    <img src="https://i.imgur.com/llL3jat.png" style="height:80px; text-decoration: none; border-radius:0px;
     box-shadow:0 0 0px 0px #fff;"></span>
 
-    <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-left:15px; text-align:left; font-size: 18px; width: 98%; ">
+                <span class="s-II bzm_text_title  bzm_text_medium" style="">
 
-                        <img src="https://i.imgur.com/vi5eiKG.jpg" style="height:270px; width: 260px; text-decoration: none;margin-left: -25px; margin-top: 15px;">
-                       </span>
-                    
-                
-     <a href=https://www.up.edu.mx/en/international/mex"  target="_blank">             
- <input type="button" name="send" id="send" style="margin-top: 40px; text-align: center; background-color:#a50118; color: white; border: none; width: 200px; position: absolute; left: 50%; margin-left: -94px; cursor: pointer" value="VISITA NUESTRA WEBSITE"></a>
+                    <img src="https://i.imgur.com/vi5eiKG.jpg" style="height:270px; width: 260px; text-decoration: none;">
+                </span>
+
+                <span class="s-III">
+                <a href="https://www.up.edu.mx/en/international/mex" target="_blank">
+                    <input type="button" name="send" id="send" style="text-align: center; background-color:#a50118; color: white; border: none; width: 200px; cursor: pointer" value="VISITA NUESTRA WEBSITE">
+                </a>
+                </span>
 
             </div>
+            
+            <style>
+                .red{
+                }
+                
+                .red .s-I, .red .s-II, .red .s-III{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    left: 0px;
+                    width: 100%;
+                    margin-left: 0px;
+                }
+                .red .s-II{
+                    height: 10%;
+                }
+                .red .s-II{
+                    height: 70%;
+                }
+                .red .s-III{
+                    align-items: flex-start;
+                    height: 20%;
+                }
+            </style>
 
 
         </div>
@@ -286,7 +315,6 @@
             })
 
         });
-
     </script>
 
 </body>
