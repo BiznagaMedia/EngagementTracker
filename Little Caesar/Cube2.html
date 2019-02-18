@@ -366,16 +366,14 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
-/*#/#*//*#i30.i70.button.css:button/base/css*/
-#i70 { position: absolute; cursor: pointer; opacity: 1; background-color: rgba(255,77,0,1); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: bold; font-style: italic; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 20px; border-color: rgba(255,122,0,1); border-width: 1px; margin:-1px; border-style: solid; }
-#i70:hover { opacity: 1; background-color: rgba(0,90,140, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-#i70:active { opacity: 1; background-color: rgba(0,80,130, 1); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); border-radius: 2px; border-color: #006496; border-width: 1px; margin:-1px; border-style: solid; }
-/*#/#*//*#i70.i71.positioning.css:positioning/base/css.2*/
-#i70 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 129px; height: 30px;
-        -ms-transform: translate(0, 0) translate(138px, 88px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(138px, 88px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(138px, 88px) rotate(0deg);
-        transform: translate(0, 0) translate(138px, 88px) rotate(0deg);
+/*#/#*//*#i30.i130.image.css:image/base/css*/
+#i130 { opacity: 1; }
+/*#/#*//*#i130.i131.positioning.css:positioning/base/css.2*/
+#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 143px; height: 40px;
+        -ms-transform: translate(0, 0) translate(132px, 85px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(132px, 85px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(132px, 85px) rotate(0deg);
+        transform: translate(0, 0) translate(132px, 85px) rotate(0deg);
 }
 /*#/#*//*#i30.i98.shape.css:shape/base/css*/
 #i98 { background-color: #dedede; opacity: 0.00;
@@ -498,8 +496,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <div id="i31"></div>
 <!--#/#--><!--#i30.i68.image.html:image/html-->
 <img id="i68" src="https://i.imgur.com/dMUCr3T.png"/>
-<!--#/#--><!--#i30.i70.button.html:button/html-->
-<button id="i70">¿Quieres pizza?</button>
+<!--#/#--><!--#i30.i130.image.html:image/html-->
+<img id="i130" src="https://i.imgur.com/yrzwO0j.png"/>
 <!--#/#--><!--#i30.i98.shape.html:shape/html-->
 <div id="i98"></div>
 <!--#/#-->
@@ -688,8 +686,23 @@ bmShow('i31');
 
 /*#/#*//*#i68.i69.positioning.js:positioning/base/js.2*/
 bmShow('i68');
-/*#/#*//*#i70.i71.positioning.js:positioning/base/js.2*/
-bmShow('i70');
+/*#/#*//*#i30.i130.image.js:image/base/js*/
+
+/*#/#*//*#i130.i131.positioning.js:positioning/base/js.2*/
+bmShow('i130');
+/*#/#*//*#i130.i132.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i130');
+
+el.addEventListener('click', function(e){
+    /*#i132.i133.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://goo.gl/maps/w1qyDHLpY8w'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
 /*#/#*//*#i98.i99.positioning.js:positioning/base/js.2*/
 bmShow('i98');
 /*#/#*//*#i98.i100.actions.js:actions/base/js.1*/
@@ -711,7 +724,7 @@ var el = document.getElementById('i30');
 
 el.addEventListener('click', function(e){
     /*#i56.i57.actions-clicktag.js:actions-clicktag/base/js.2*/
-    
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -870,11 +883,11 @@ name: dMUCr3T.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i68.i69.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i30.i70.button.meta:button/meta*/
-name: ¿Quieres pizza?;
+/*#/#*//*#i30.i130.image.meta:image/meta*/
+name: yrzwO0j.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
-/*#/#*//*#i70.i71.positioning.meta:positioning/meta.2*/
-data: /*!*/{}/*!*/;
+/*#/#*//*#i130.i131.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i30.i98.shape.meta:shape/meta*/
 name: Shape 1;
 /*#/#*//*#i98.i99.positioning.meta:positioning/meta.2*/
