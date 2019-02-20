@@ -123,7 +123,7 @@
     
     /*-------------------------------------*/
     
-    #question p input {
+    #question p input  {
 
     padding: 10px;
     border: 1px solid #ccc;
@@ -136,6 +136,26 @@
     font-size: 11px;
 }
 
+  #question select  {
+
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: helveticaneue;
+    background-color: #ffffff;
+    font-size: 11px;
+    text-align: left;
+    color: #a4a3a3;
+}
+
+
+ #question option  {
+     color: #a4a3a3;
+    text-align: left;
+}
     .FR{
     width:300px;
     height:600px;
@@ -242,23 +262,27 @@
                 <form id="question" class="FR form">
                     <center>
                     <span style="bottom:10px; text-align:center ; float:center; background-color: #f4f4f4;"> <img src="https://i.imgur.com/g38Y2AQ.jpg" style="height:90px; width: 270px; text-decoration: none; border-radius:0px; margin-top:30px; margin-left: -30px;
-    box-shadow:0 0 0px 0px #fff;"></span>
+    box-shadow:0 0 0px 0px #fff; margin-bottom: -5px;"></span>
 
                     
 
                     <!--<h2>CONTÁCTANOS</h2>-->
-                    <p style="width: 100%; text-align: left; margin-bottom: -8px;" ><input placeholder="NOMBRES" name="name" type="text"></p>
-                    <p style="width: 100%; text-align: left; margin-bottom: -8px;" ><input placeholder="APELLIDOS" name="email" type="email" required="true"></p>
-                   <p style="width: 100%; text-align: left; margin-bottom: -8px;"  ><input placeholder="DNI"></input></p>
-                   <p style="width: 100%; text-align: left; margin-bottom: -8px;" ><input placeholder="EMAIL"></input></p>
-                    <p style="width: 100%; text-align: left; margin-bottom: -8px;"  ><input placeholder="TELÉFONO"></input></p>
+                    <p style="text-align: left; margin-bottom: -12px;" ><select name="TDC CENCOSUD" style="text-align: left;">
+     <option color="#f4f4f4">TDC CENCOSUD</option>
+     
+   </select></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="NOMBRES" name="name" type="text"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="APELLIDOS" name="email" type="email" required="true"></p>
+                   <p style="width: 100%; text-align: left; margin-bottom: -12px;"  ><input placeholder="DNI"></input></p>
+                   <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="EMAIL"></input></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -12px;"  ><input placeholder="TELÉFONO"></input></p>
 
-                    <span style="display: flex; text-align: left; margin-top: 25px">
+                    <span style="display: flex; text-align: left; margin-top: 15px">
 
-                        <label style="min-width: 80%; float: right;" for="condiciones"><a href="https://momentosbancocencosud.pe/politica-de-proteccion-de-datos/" target="_blank" style="font-size: 10px;"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label><input type="checkbox" name="condiciones" required="true" style="text-align: left;" />
+                        <label style="min-width: 80%; float: right;" for="condiciones"><a href="https://momentosbancocencosud.pe/politica-de-proteccion-de-datos/" target="_blank" style="font-size: 9px;"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label><input type="checkbox"  ="condiciones" required="true" style="text-align: left;" />
                     </span>
 
-                    <input type="submit" name="bottom" style="margin-top: 10px; text-align: center; background-color:#f07f13; color: white; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -40px; cursor: pointer" value="SOLICITAR">
+                    <input type="submit" name="bottom" style="margin-top: 14px; text-align: center; background-color:#f07f13; color: white; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -40px; cursor: pointer" value="SOLICITAR">
                 </center>
                 </form>
             </div>
