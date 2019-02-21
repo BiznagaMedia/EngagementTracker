@@ -179,7 +179,7 @@
             }
             
 .FR input{
-    width:100%;
+    /*width:100%;*/
     padding:10px;
     box-sizing:border-box;
     background:none;
@@ -232,9 +232,9 @@
     box-shadow:10px 10px 40px -14px #000
             }
             
-.FR span{
+/*.FR span{
     margin:0 5px 0 15px;
-            }
+            }*/
 
 </style>
 
@@ -277,13 +277,15 @@
    </select></p>
                     <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="NOMBRES" name="name" type="text"></p>
                     <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="APELLIDOS" name="email" type="email"></p>
-                   <p style="width: 100%; text-align: left; margin-bottom: -12px;"  ><input placeholder="DNI"></input></p>
-                   <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="EMAIL"></input></p>
-                    <p style="width: 100%; text-align: left; margin-bottom: -12px;"  ><input placeholder="TELÉFONO"></input></p>
+                   <p style="width: 100%; text-align: left; margin-bottom: -12px;"  ><input placeholder="DNI"/></p>
+                   <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="EMAIL"/></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -12px;"  ><input placeholder="TELÉFONO"/></p>
 
-                    <span style="display: flex; text-align: left; margin-top: 15px">
+                    <span style="display: flex; flex-direction: row-reverse; justify-content: space-between; width: 100%; margin-top: 15px">
 
-                        <label style="min-width: 80%; float: right;" for="condiciones"><a href="https://momentosbancocencosud.pe/politica-de-proteccion-de-datos/" target="_blank" style="font-size: 8px;"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label><input type="checkbox"  ="condiciones" required="true" style="text-align: left;" />
+                        <label style="min-width: 80%" for="condiciones"><a href="https://momentosbancocencosud.pe/politica-de-proteccion-de-datos/" target="_blank" style="font-size: 8px;"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label>
+                        
+                        <input type="checkbox" width="10" required="true" style="text-align: left; background-color: red" />
                     </span>
 
                     <input type="submit" name="bottom" style="margin-top: 14px; text-align: center; background-color:#f07f13; color: white; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -40px; cursor: pointer" value="SOLICITAR">
