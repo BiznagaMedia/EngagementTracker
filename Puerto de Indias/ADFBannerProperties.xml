@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>043ff89f932dabdeab3bc9bf79862685</uniqueId>
+      <format>Standard</format>
+      <name><![CDATA[Puerto de Indias Venetian]]></name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName>main</fileName>
+        <clickTagNames>
+          <clickTagName><![CDATA[clickTAG]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG2]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG3]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG4]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG5]]></clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[https://goo.gl/maps/HshgM3tsakq]]></bannerClickTag>
+      <bannerClickTag name="clickTAG2" displayName="clickTAG2"><![CDATA[https://www.instagram.com/ginpuertoindias/?hl=es]]></bannerClickTag>
+      <bannerClickTag name="clickTAG3" displayName="clickTAG3"><![CDATA[https://www.facebook.com/sharer/sharer.php?u=https://goo.gl/maps/HshgM3tsakq]]></bannerClickTag>
+      <bannerClickTag name="clickTAG4" displayName="clickTAG4"><![CDATA[https://twitter.com/home?status= http://www.victoriassecret.mx]]></bannerClickTag>
+      <bannerClickTag name="clickTAG5" displayName="clickTAG5"><![CDATA[https://plus.google.com/share?url= http://www.victoriassecret.mx]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+  </banner>
+</adf>
