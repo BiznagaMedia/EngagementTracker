@@ -1,0 +1,21 @@
+{
+    "version": "1.0",
+    "uniqueId": "b624e6438933e60cbccbd2dee649f55f",
+    "title": "Puerto Indias Geo Cube2_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/goo.gl\/maps\/HshgM3tsakq",
+        "clickTAG2": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https:\/\/goo.gl\/maps\/HshgM3tsakq",
+        "clickTAG3": "http:\/\/www.whatsapp.com",
+        "clickTAG4": "https:\/\/twitter.com\/home?status=https:\/\/goo.gl\/maps\/HshgM3tsakq",
+        "clickTAG5": "http:\/\/www.whatsapp.com"
+    },
+    "source": "Cube2.html"
+}
