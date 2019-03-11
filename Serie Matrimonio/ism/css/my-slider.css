@@ -220,6 +220,7 @@ p.ism-badge a.ism-link:hover {
   animation: zoomin 0.81s linear 1;
 }
 
+/* cover height + 5% 
 @-webkit-keyframes zoomin {
   0% { -webkit-transform: scale(1.0); transform: scale(1.0); }
   100% { -webkit-transform: scale(3.0); transform: scale(3.0); }
@@ -228,6 +229,7 @@ p.ism-badge a.ism-link:hover {
   0% { -webkit-transform: scale(1.0); transform: scale(1.0); }
   100% { -webkit-transform: scale(3.0); transform: scale(3.0); }
 }
+*/
 
 @-webkit-keyframes fadein {
   0% { opacity: 0; }
