@@ -618,7 +618,8 @@ url('fonts/') format('svg');
     <!--#i41.i42.shape.html:shape/html-->
 <div id="i42"></div>
 <!--#/#--><!--#i41.i80.text.html:text/html-->
-<div id="i80">Feel like sharing?, right next to you, in Rácket !!</div>
+<div id="i80">Feel like sharing?
+Right next to you in Rácket!</div>
 <!--#/#--><!--#i41.i94.image.html:image/html-->
 <img id="i94" src="https://i.imgur.com/pu1eOth.jpg"/>
 <!--#/#--><!--#i41.i184.image.html:image/html-->
@@ -880,6 +881,11 @@ bmShow('i68');
 /* Name: On Click; */
 var el = document.getElementById('i68');
 
+el.addEventListener('click', function(e){
+    /*#i186.i187.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
@@ -952,6 +958,7 @@ bmShow('i142');
 /*#/#*//*#i142.i144.actions.js:actions/base/js.1*/
 /* Name: On Click; */
 var el = document.getElementById('i142');
+
 
 
 if ('click' === 'click') {
@@ -1106,7 +1113,7 @@ name: Background;
 /*#/#*//*#i20.i21.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i19.i62.image.meta:image/meta*/
-name: yjeZpJR.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: 2sivezF.jpg; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i62.i63.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
@@ -1120,7 +1127,7 @@ customName: false;
 /*#/#*//*#i86.i87.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i19.i134.image.meta:image/meta*/
-name: UhmS6ks.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+name: H7KMl4l.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
 /*#/#*//*#i134.i135.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
@@ -1180,7 +1187,7 @@ name: Background;
 /*#/#*//*#i42.i43.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i41.i80.text.meta:text/meta*/
-name: Feel like sharing?, right next to you, in Rácket !!; customName: false;
+name: Feel like sharing? Right next to you in Rácket!; customName: false;
 /*#/#*//*#i80.i81.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i41.i94.image.meta:image/meta*/
