@@ -1,43 +1,6 @@
 <html>
 <head> 
-<!-- Adform API Script -->
-    <script type="text/javascript">
-        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
-    </script>
-    
-    <!--Adform Global Clicktag START-->
-    <script type="text/javascript">
-        function adfOpenGlobalClickTAG() {
-            var adfClickTAGName = 'clickTAG',
-                adfClickTAGUrl = 'https://goo.gl/maps/TGdnp7jZk7G2';
 
-            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
-        }
-        if (window.addEventListener) {
-            window.addEventListener('click', function(e) {
-                if (e.button !== 0) return;
-                e.stopPropagation();
-                e.preventDefault();
-                adfOpenGlobalClickTAG();
-            }, true);
-        } else {
-            document.attachEvent('onclick', function() {
-                adfOpenGlobalClickTAG();
-            });
-        }
-
-        window.onload = function() {
-            dhtml.sendEvent('1', 'PageView', 'PageView');
-        }
-
-        window.onclick = function() {
-            dhtml.sendEvent('9', 'Click Out', 'Click Out');
-        }
-
-        /*document.getElementById('housell').addEventListener('click', function(e){
-            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
-        });*/
-    </script>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -183,7 +146,7 @@ a {text-decoration: none;}
 
 </head>
 <body class="zoom" style="margin:0px;">
- <a href="%%c1;cpdir="  target="_blank">
+ <a href="https://goo.gl/maps/TGdnp7jZk7G2"  target="_blank">
   
  	 <div class="wrapper size_300x250">
     
