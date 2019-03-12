@@ -2418,7 +2418,11 @@ bmShow('i16');
 /* Name: On Click; */
 var el = document.getElementById('i16');
 
-
+el.addEventListener('click', function(e){
+    /*#i89.i90.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';

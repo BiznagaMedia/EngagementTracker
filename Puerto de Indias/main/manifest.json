@@ -1,0 +1,21 @@
+{
+    "version": "1.0",
+    "uniqueId": "f5049ebcfc8d6448f75dbb08efd1866e",
+    "title": "Standard_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 480,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www.instagram.com\/ginpuertoindias\/?hl=es",
+        "clickTAG2": "https:\/\/goo.gl\/maps\/HshgM3tsakq",
+        "clickTAG3": "https:\/\/www.facebook.com\/sharer\/sharer.php?u= https:\/\/goo.gl\/maps\/HshgM3tsakq",
+        "clickTAG4": "https:\/\/www.instagram.com\/ginpuertoindias\/?hl=es",
+        "clickTAG5": "https:\/\/goo.gl\/maps\/HshgM3tsakq"
+    },
+    "source": "Venetian.html"
+}
