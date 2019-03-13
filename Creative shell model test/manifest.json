@@ -1,7 +1,7 @@
 {
     "version": "1.0",
-    "uniqueId": "b11ea3ee8b24c2d5d1356a7a20149062",
-    "title": "Builder Mode Standard Blank_main_asset",
+    "uniqueId": "b11e4c2d5d1a3ee8b2356014a7a29062",
+    "title": "Creative_shell_300x600",
     "description": "",
     "width": 300,
     "height": 600,
@@ -11,7 +11,7 @@
         }
     },
     "clicktags": {
-        "clickTAG": "http:\/\/www.adform.com"
+        "clickTAG": "https://www.hyundai.es/tucsonhibrido/"
     },
-    "source": "index.html"
+    "source": "shell.html"
 }
