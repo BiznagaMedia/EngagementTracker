@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "b11ea3ee8b24c2d5d1356a7a20149062",
+    "title": "Builder Mode Standard Blank_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 600,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http:\/\/www.adform.com"
+    },
+    "source": "index.html"
+}

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<head>
+<title>Adform Toolkit Ad</title>
+
+<!-- Adform API Script -->
+<script type="text/javascript">
+document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+</script>
+
+<style>
+body {
+  background: #fff;
+}
+</style>
+
+<!--#head:common/head-->
+<!--#text-dynamic.head:text-dynamic/globalhead-->
+<script>
+
+    (function() {
+        function addText(id, name) {
+            Adf.builder.dynamicContent.addItem(function(contentObject) {
+                if (contentObject[name] === undefined) return;
+                document.getElementById(id).innerText = contentObject[name];
+            })
+        }
+
+        Adf.builder = Adf.builder || {};
+        Adf.builder.dynamicContent = Adf.builder.dynamicContent || {};
+        Adf.builder.dynamicContent.addText = addText;
+    })(Adf = window.Adf || {});
+
+</script>
+<!--#/#--><!--#dynamicContent.head:dynamicContent/globalhead-->
+<script>
+
+    (function() {
+
+        var replaceList = [];
+        var contentList = [];
+
+        function addItem(item) {
+            replaceList.push(item);
+
+            contentList.forEach(function(content) {
+                item(content);
+            });
+        }
+
+        function onContentLoad(contentObject) {
+            if (contentObject) {
+                contentList.push(contentObject);
+
+                replaceList.forEach(function(item) {
+                    item(contentObject);
+                });
+            }
+        }
+
+        Adf.builder = Adf.builder || {};
+        Adf.builder.dynamicContent = Adf.builder.dynamicContent || {};
+        Adf.builder.dynamicContent.addItem = addItem;
+        Adf.builder.dynamicContent.onContentLoad = onContentLoad;
+
+    })(Adf = window.Adf || {});
+
+    Adform.AdMessage.build({
+        cid: dhtml.getVar('cid'),
+        tid: dhtml.getVar('tid'),
+        domain: dhtml.getVar('domain', 'http://track.adform.net/banners/'),
+        rotseqno: dhtml.getVar('rotseqno', 0),
+        clickTAG: dhtml.getVar('clickTAG', 'http://www.adform.com/'),
+        pageSize: 1,
+    }).getItems([dhtml.getVar('gid', 0)], function(error, items) {
+        if (!error && items && items[0]) Adf.builder.dynamicContent.onContentLoad(items[0]);
+    });
+
+</script>
+<!--#/#--><!--#animations.head:animations/globalhead-->
+<script>
+    window.Adf=window.Adf||{},window.Adf.animate=function(){"use strict";function t(t){var n={};for(var e in t)n[e]=t[e];return n}function n(){this.elementsIndex=[]}function e(n,e,i,r){this.isActive=!1,this.elementId=i.getElementId(r.element),this.groups=r.groups||[],this.element=r.element,this.toProps=r.settings.toProps,this.fromParams=r.settings.fromParams||null,this._toPropsCopy=t(r.settings.toProps),this.tweenSettings=r.settings,this.onUpdate=r.onUpdate,this.activationDelay=r.activationDelay,this.sharedParamsManager=e,this.AdfTween=n}function i(t,n,e,i){this.managers={GAM:t,GSM:n,SPM:e,ACM:i}}function r(t){this._params={},this._initialParamsCopy={},this.elementIdTracker=t}function o(){this.animations=[]}function a(t){this.startedAnimations={},this.sharedParamsManager=t}function s(){this.activeGroups={},this.subscribers={}}function u(t){this.state={},this.sharedParamsManager=t}function h(t){var n=new e(f,d,p,t);return m.register(n),v.adjustElementParamIfNeeded(n),n}function c(t){requestAnimationFrame(c),f.update(t)}!function(){for(var t=0,n=["ms","moz","webkit","o"],e=0;e<n.length&&!window.requestAnimationFrame;++e)window.requestAnimationFrame=window[n[e]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[n[e]+"CancelAnimationFrame"]||window[n[e]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(n,e){var i=(new Date).getTime(),r=Math.max(0,16-(i-t)),o=window.setTimeout(function(){n(i+r)},r);return t=i+r,o}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(t){clearTimeout(t)})}(),function(){if("performance"in window==!1&&(window.performance={}),Date.now=Date.now||function(){return(new Date).getTime()},"now"in window.performance==!1){var t=window.performance.timing&&window.performance.timing.navigationStart?window.performance.timing.navigationStart:Date.now();window.performance.now=function(){return Date.now()-t}}}();var f=function(){var t=[];return{getAll:function(){return t},removeAll:function(){t=[]},add:function(n){t.push(n)},remove:function(n){var e=t.indexOf(n);-1!==e&&t.splice(e,1)},update:function(n){if(0===t.length)return!1;var e=0;for(n=void 0!==n?n:window.performance.now();e<t.length;)t[e].update(n)?e++:t.splice(e,1);return!0}}}();f.Tween=function(t){var n=t,e={},i={},r={},o=1e3,a=0,s=!1,u=!1,h=!1,c=0,p=null,m=null,l=f.Easing.Linear.None,d=f.Interpolation.Linear,w=[],v=null,g=null,I=!1,M=null,P=null,A=null,y=!1;for(var S in t)e[S]=parseFloat(t[S],10);this.to=function(t,n){return void 0!==n&&(o=n),i=t,this},this.start=function(t){f.add(this),u=!0,v&&v(),I=!1,p=void 0!==t?t:window.performance.now(),p+=c;for(var e in i)if(i[e]instanceof Array){if(0===i[e].length)continue;i[e]=[n[e]].concat(i[e])}return this},this.stop=function(){return u?(f.remove(this),u=!1,null!==A&&A.call(n),this.stopChainedTweens(),this):this},this.pause=function(){return u?(f.remove(this),u=!1,this):this},this.resume=function(){return u?this:(f.add(this),u=!0,this)},this.stopChainedTweens=function(){for(var t=0,n=w.length;n>t;t++)w[t].stop()},this.delay=function(t){return c=t,this},this.repeat=function(t){return a=t,this},this.yoyo=function(t){return s=t,this},this.easing=function(t){return l=t,this},this.interpolation=function(t){return d=t,this},this.chain=function(){return w=arguments,this},this.onInitStart=function(t){return v=t,this},this.onStart=function(t){return g=t,this},this.onUpdate=function(t){return M=t,this},this.onComplete=function(t){return P=t,this},this.onStop=function(t){return A=t,this},this.update=function(f){var v,A,S;if(p>f)return!0;if(I===!1&&(null!==g&&g.call(n),I=!0),!y){for(var b in i)void 0!==e[b]&&(e[b]=parseFloat(t[b],10),e[b]instanceof Array==!1&&(e[b]*=1),r[b]=e[b]);y=!0,m=window.performance.now()}A=(f-p)/o,A=A>1?1:A,S=l(A);for(v in i)if(void 0!==e[v]){var G=e[v]||0,O=i[v];O instanceof Array?n[v]=d(O,S):("string"==typeof O&&(O=O.startsWith("+")||O.startsWith("-")?G+parseFloat(O,10):parseFloat(O,10)),"number"==typeof O&&(n[v]=G+(O-G)*S))}if(null!==M&&M.call(n,S),1===A){if(a>0){isFinite(a)&&a--;for(v in r){if("string"==typeof i[v]&&(r[v]=r[v]+parseFloat(i[v],10)),s){var C=r[v];r[v]=i[v],i[v]=C}e[v]=r[v]}return s&&(h=!h),p=f+c,!0}u=!1,null!==P&&P.call(n);for(var F=0,T=w.length;T>F;F++)w[F].start(p+o);return!1}return!0}},f.Easing={Linear:{None:function(t){return t}},Quadratic:{In:function(t){return t*t},Out:function(t){return t*(2-t)},InOut:function(t){return(t*=2)<1?.5*t*t:-.5*(--t*(t-2)-1)}},Cubic:{In:function(t){return t*t*t},Out:function(t){return--t*t*t+1},InOut:function(t){return(t*=2)<1?.5*t*t*t:.5*((t-=2)*t*t+2)}},Quartic:{In:function(t){return t*t*t*t},Out:function(t){return 1- --t*t*t*t},InOut:function(t){return(t*=2)<1?.5*t*t*t*t:-.5*((t-=2)*t*t*t-2)}},Quintic:{In:function(t){return t*t*t*t*t},Out:function(t){return--t*t*t*t*t+1},InOut:function(t){return(t*=2)<1?.5*t*t*t*t*t:.5*((t-=2)*t*t*t*t+2)}},Sinusoidal:{In:function(t){return 1-Math.cos(t*Math.PI/2)},Out:function(t){return Math.sin(t*Math.PI/2)},InOut:function(t){return.5*(1-Math.cos(Math.PI*t))}},Exponential:{In:function(t){return 0===t?0:Math.pow(1024,t-1)},Out:function(t){return 1===t?1:1-Math.pow(2,-10*t)},InOut:function(t){return 0===t?0:1===t?1:(t*=2)<1?.5*Math.pow(1024,t-1):.5*(-Math.pow(2,-10*(t-1))+2)}},Circular:{In:function(t){return 1-Math.sqrt(1-t*t)},Out:function(t){return Math.sqrt(1- --t*t)},InOut:function(t){return(t*=2)<1?-.5*(Math.sqrt(1-t*t)-1):.5*(Math.sqrt(1-(t-=2)*t)+1)}},Elastic:{In:function(t){var n,e=.1,i=.4;return 0===t?0:1===t?1:(!e||1>e?(e=1,n=i/4):n=i*Math.asin(1/e)/(2*Math.PI),-(e*Math.pow(2,10*(t-=1))*Math.sin((t-n)*(2*Math.PI)/i)))},Out:function(t){var n,e=.1,i=.4;return 0===t?0:1===t?1:(!e||1>e?(e=1,n=i/4):n=i*Math.asin(1/e)/(2*Math.PI),e*Math.pow(2,-10*t)*Math.sin((t-n)*(2*Math.PI)/i)+1)},InOut:function(t){var n,e=.1,i=.4;return 0===t?0:1===t?1:(!e||1>e?(e=1,n=i/4):n=i*Math.asin(1/e)/(2*Math.PI),(t*=2)<1?-.5*(e*Math.pow(2,10*(t-=1))*Math.sin((t-n)*(2*Math.PI)/i)):e*Math.pow(2,-10*(t-=1))*Math.sin((t-n)*(2*Math.PI)/i)*.5+1)}},Back:{In:function(t){var n=1.70158;return t*t*((n+1)*t-n)},Out:function(t){var n=1.70158;return--t*t*((n+1)*t+n)+1},InOut:function(t){var n=2.5949095;return(t*=2)<1?.5*(t*t*((n+1)*t-n)):.5*((t-=2)*t*((n+1)*t+n)+2)}},Bounce:{In:function(t){return 1-f.Easing.Bounce.Out(1-t)},Out:function(t){return 1/2.75>t?7.5625*t*t:2/2.75>t?7.5625*(t-=1.5/2.75)*t+.75:2.5/2.75>t?7.5625*(t-=2.25/2.75)*t+.9375:7.5625*(t-=2.625/2.75)*t+.984375},InOut:function(t){return.5>t?.5*f.Easing.Bounce.In(2*t):.5*f.Easing.Bounce.Out(2*t-1)+.5}}},f.Interpolation={Linear:function(t,n){var e=t.length-1,i=e*n,r=Math.floor(i),o=f.Interpolation.Utils.Linear;return 0>n?o(t[0],t[1],i):n>1?o(t[e],t[e-1],e-i):o(t[r],t[r+1>e?e:r+1],i-r)},Bezier:function(t,n){for(var e=0,i=t.length-1,r=Math.pow,o=f.Interpolation.Utils.Bernstein,a=0;i>=a;a++)e+=r(1-n,i-a)*r(n,a)*t[a]*o(i,a);return e},CatmullRom:function(t,n){var e=t.length-1,i=e*n,r=Math.floor(i),o=f.Interpolation.Utils.CatmullRom;return t[0]===t[e]?(0>n&&(r=Math.floor(i=e*(1+n))),o(t[(r-1+e)%e],t[r],t[(r+1)%e],t[(r+2)%e],i-r)):0>n?t[0]-(o(t[0],t[0],t[1],t[1],-i)-t[0]):n>1?t[e]-(o(t[e],t[e],t[e-1],t[e-1],i-e)-t[e]):o(t[r?r-1:0],t[r],t[r+1>e?e:r+1],t[r+2>e?e:r+2],i-r)},Utils:{Linear:function(t,n,e){return(n-t)*e+t},Bernstein:function(t,n){var e=f.Interpolation.Utils.Factorial;return e(t)/e(n)/e(t-n)},Factorial:function(){var t=[1];return function(n){var e=1;if(t[n])return t[n];for(var i=n;i>1;i--)e*=i;return t[n]=e,e}}(),CatmullRom:function(t,n,e,i,r){var o=.5*(e-t),a=.5*(i-n),s=r*r,u=r*s;return(2*n-2*e+o+a)*u+(-3*n+3*e-2*o-a)*s+o*r+n}}},n.prototype.getElementId=function(t){return this.elementsIndex.indexOf(t)>-1?this.elementsIndex.indexOf(t):this.elementsIndex.push(t)-1},e.prototype.makeTween=function(){var n=this,e=this.sharedParamsManager.getParams(this.elementId),i=this.tweenSettings;this.toProps=t(this._toPropsCopy),this.tween=new this.AdfTween.Tween(e).to(this.toProps,i.duration).easing(i.easing||this.AdfTween.Easing.Linear.None).repeat(i.repeat===1/0?i.repeat:Math.max(parseInt((i.repeat||0)-1),0)).yoyo(i.yoyo||!1).onUpdate(function(){n.onUpdate(n.element,e)})},e.prototype.activate=function(t){0===this.activationDelay?this.tween.start(t):this.tween.start(t+this.activationDelay)},i.prototype.startAnimationsGroup=function(t,n,e){var i=this,r=this.managers;if(!r.GSM.isGroupInProgress(t)){for(var o=window.performance.now(),a=r.GAM.getByGroup(t),s=0;s<a.length;s++)a[s].makeTween(),this._hookToLifecycleManagers(a[s]),a[s].activate(o);(e||n)&&r.GSM.subscribe(t,function(r){n&&n>1?(i._resetAnimationsToStartPosition(a),i.startAnimationsGroup(t,n-1,e)):e&&e(r)})}},i.prototype.stopAnimationsGroup=function(t){for(var n=this.managers.GAM.getByGroup(t),e=0;e<n.length;e++)n[e].tween.stop();this._resetAnimationsToStartPosition(n)},i.prototype._resetAnimationsToStartPosition=function(t){for(var n=0;n<t.length;n++)t[n].onUpdate(t[n].element,this.managers.SPM.getParams(t[n].elementId))},i.prototype._hookToLifecycleManagers=function(t){function n(){r.GSM.onInitStart(t.groups),r.ACM.onInitStart(t)}function e(){r.ACM.onStart(t)}function i(){r.ACM.onStopComplete(t),r.GSM.onStopComplete(t.groups)}var r=this.managers;t.tween.onInitStart(n).onStart(e).onStop(i).onComplete(i)},r.prototype.getParams=function(t){if(!this._params[t])throw Error("You must set initial Param state for element");return this._params[t]},r.prototype.adjustParams=function(t,n){var e=this._params[t];for(var i in n)e[i]=n[i]},r.prototype.reset=function(n){this._params[n]=t(this._initialParamsCopy[n])},r.prototype.setInitialParamsForElement=function(n,e){var i=this.elementIdTracker.getElementId(n);this._params[i]=e,this._initialParamsCopy[i]=t(e)},o.prototype.register=function(t){this.animations.push(t)},o.prototype.getByGroup=function(t){return this.animations.filter(function(n){return n.groups.indexOf(t)>-1})},a.prototype.onInitStart=function(t){t.isActive=!1,this.startedAnimations[t.elementId]?this.startedAnimations[t.elementId].push(t):this.startedAnimations[t.elementId]=[t]},a.prototype.onStart=function(t){function n(t,n){for(var e in n.toProps)e in t.toProps&&delete t.toProps[e]}var e=this.startedAnimations[t.elementId];if(e&&e.length>0)for(var i=0;i<e.length;i++)e[i].isActive&&n(e[i],t);t.fromParams&&this.sharedParamsManager.adjustParams(t.elementId,t.fromParams),t.isActive=!0},a.prototype.onStopComplete=function(t){var n=this.startedAnimations[t.elementId].indexOf(t);this.startedAnimations[t.elementId].splice(n,1),0===this.startedAnimations[t.elementId].length&&this.sharedParamsManager.reset(t.elementId)},s.prototype.isGroupInProgress=function(t){return void 0!==this.activeGroups[t]&&0!==this.activeGroups[t]},s.prototype.subscribe=function(t,n){this.subscribers[t]?this.subscribers[t].push(n):this.subscribers[t]=[n]},s.prototype.onInitStart=function(t){for(var n=0;n<t.length;n++){var e=t[n];this.activeGroups[e]?this.activeGroups[e]+=1:this.activeGroups[e]=1}},s.prototype.onStopComplete=function(t){for(var n=0;n<t.length;n++){var e=t[n];if(this.activeGroups[e]-=1,0===this.activeGroups[e]&&this.subscribers[e]){for(var i=0,r=this.subscribers[e].length;r>i;i++){var o=this.subscribers[e].splice(i,1,void 0)[0];o(e)}this.subscribers[e]=this.subscribers[e].filter(function(t){return void 0!==t})}}},u.prototype.adjustElementParamIfNeeded=function(t){function n(n){e=e||i.sharedParamsManager.getParams(t.elementId),e[n]=t.fromParams[n],t.onUpdate(t.element,e)}var e,i=this,r=t.elementId;this.state[r]||(this.state[r]={});for(var o in t.fromParams)this.state[r][o]?t.activationDelay<this.state[r][o]&&(this.state[r][o]=t.activationDelay,n(o)):(this.state[r][o]=t.activationDelay,n(o))};var p=new n,m=new o,l=new s,d=new r(p),w=new a(d),v=new u(d),g=new i(m,l,d,w);c();var I={createAnimation:h,startAnimationsGroup:g.startAnimationsGroup.bind(g),stopAnimationsGroup:g.stopAnimationsGroup.bind(g),setInitialParamsForElement:d.setInitialParamsForElement.bind(d),Easing:f.Easing};return I}();
+
+    (function(Adf) {
+        var PROP_PREFIXES = ['ms', 'Ms', 'webkit', 'Webkit', 'moz', 'Moz', 'o', 'O'];
+
+        var testDivElem = null;
+        var stylePropMap = {};
+
+        function findPrefixedPropName(object, propName, prefixes, ownProp) {
+            if ((!ownProp && propName in object) || (ownProp && object.hasOwnProperty(propName))) {
+                return propName;
+            }
+
+            propName = propName.charAt(0).toUpperCase() + propName.slice(1);
+
+            for (var i = 0, prefixedPropName; i < prefixes.length; i++) {
+                prefixedPropName = prefixes[i] + propName;
+
+                if ((!ownProp && prefixedPropName in object) || (ownProp && object.hasOwnProperty(prefixedPropName))) {
+                    return prefixedPropName;
+                }
+            }
+
+            return null;
+        }
+
+        function prefixStylePropName(propName) {
+            if (stylePropMap.hasOwnProperty(propName)) {
+                return stylePropMap[propName];
+            }
+
+            if (!testDivElem) {
+                testDivElem = document.createElement('div');
+            }
+
+            return stylePropMap[propName] = findPrefixedPropName(testDivElem.style, propName, PROP_PREFIXES, false);
+        }
+
+        Adf.cssHelpers = Adf.cssHelpers || {};
+        Adf.cssHelpers.prefixStylePropName = prefixStylePropName;
+
+    })(Adf = window.Adf || {});
+
+    var AdfAnimTransformProp = Adf.cssHelpers.prefixStylePropName('transform');
+
+    (function(Adf) {
+        var scaleRegex = /scale\(\d+\.*\d*.*\)/;
+        var translateRegex = /translate3d\((-?\d+\.?\d*px),(\s*-?\d+\.?\d*px), (\s*-?\d+\.?\d*px)\)/;
+        var rotateRegex = /rotate\(-?\d+\.?\d*deg\)/;
+
+        function addBaseTransform(target, initialParamState) {
+
+            var defaultTransform = 'translate(' + initialParamState.pivotX + ', ' + initialParamState.pivotY + ') translate(' + initialParamState.translateX + ', ' + initialParamState.translateY + ') rotate(' + initialParamState.rotate + 'deg)';
+
+            if (!defaultTransform.match(translateRegex)) defaultTransform += 'translate3d(' + initialParamState.x + 'px, ' + initialParamState.y +'px, 0px)';
+            if (!defaultTransform.match(scaleRegex)) defaultTransform += 'scale(1)';
+
+            target.style[AdfAnimTransformProp] = defaultTransform;
+        }
+
+        Adf.cssHelpers = Adf.cssHelpers || {};
+        Adf.cssHelpers.scaleRegex = scaleRegex;
+        Adf.cssHelpers.translateRegex = translateRegex;
+        Adf.cssHelpers.rotateRegex = rotateRegex;
+        Adf.cssHelpers.addBaseTransform = addBaseTransform;
+    })(Adf = window.Adf || {});
+
+
+    function DocVisibilityHandler() {
+        var callbacks = [];
+        var html = document.head.parentNode;
+        html.style.visibility = 'hidden';
+        document.addEventListener('DOMContentLoaded', function() {
+            html.style.visibility = 'visible';
+            for (var i = 0; i < callbacks.length; i ++) {
+                callbacks[i]();
+            }
+        });
+
+        function onDocVisible(cb) {
+            callbacks.push(cb);
+        }
+        return {
+            onDocVisible: onDocVisible
+        }
+    }
+
+    var AdfDocVisibilityHandler = DocVisibilityHandler();
+
+</script>
+<!--#/#--><!--#animations-zoom.head:animations-zoom/globalhead-->
+
+<script>
+    function AdfAnimateScale(target, allParams) {
+        var currentTransform = target.style[AdfAnimTransformProp];
+        target.style[AdfAnimTransformProp] = currentTransform.replace(Adf.cssHelpers.scaleRegex, 'scale(' + allParams.scale + ')');
+    }
+</script>
+
+<!--#/#--><!--#animations-move.head:animations-move/globalhead-->
+
+<script>
+    function AdfAnimateTranslateXAndY(target, allParams) {
+        var currentTransform = target.style[AdfAnimTransformProp];
+        target.style[AdfAnimTransformProp] = currentTransform.replace(Adf.cssHelpers.translateRegex, 'translate3d(' + allParams.x.toFixed(2) + 'px,' + allParams.y.toFixed(2) + 'px, 0px)');
+    }
+
+    function getCurrentElementCoords(componentId, containerId) {
+        var STAGE_ID = 0;
+
+        function getComponentDOMElementById(componentId) {
+            if (componentId == STAGE_ID) {
+                return document.getElementsByTagName('body')[0];
+            } else {
+                return document.getElementById(componentId);
+            }
+        }
+
+        var component = getComponentDOMElementById(componentId);
+        var container = getComponentDOMElementById(containerId);
+        var compBRects = component.getBoundingClientRect();
+        var contBRects = container.getBoundingClientRect();
+        return {
+            x: compBRects.left - contBRects.left,
+            y: compBRects.top - contBRects.top
+        };
+    }
+
+
+    function calcDestinationProps(customX, customY, loop, componentId, containerId) {
+        var currentCoords = getCurrentElementCoords(componentId, containerId);
+        var coords = {x: customX - currentCoords.x, y: customY - currentCoords.y};
+
+        if (loop > 1) {
+            coords.x = parseFloat(coords.x);
+            coords.y = parseFloat(coords.y);
+        }
+        return coords;
+    }
+</script>
+
+<!--#/#--><!--#image-dynamic.head:image-dynamic/globalhead-->
+
+<script>
+
+    (function() {
+        function addImage(id, name) {
+            Adf.builder.dynamicContent.addItem(function(contentObject) {
+                if (contentObject[name] === undefined) return;
+                document.getElementById(id).src = contentObject[name];
+            })
+        }
+
+        Adf.builder = Adf.builder || {};
+        Adf.builder.dynamicContent = Adf.builder.dynamicContent || {};
+        Adf.builder.dynamicContent.addImage = addImage;
+    })(Adf = window.Adf || {});
+
+</script>
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#i14.shape.css:shape/base/css*/
+#i14 { background-color: #ccc2c2; opacity: 1;
+}
+/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
+#i14 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i4.text.css:text/base/css*/
+#i4 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Arial Black", Gadget, sans-serif; font-size: 18px; color: #000000; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i4.i5.positioning.css:positioning/base/css.1*/
+#i4 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 283px; height: 24px;
+        -ms-transform: translate(0, 0) translate(-286px, 256px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(-286px, 256px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(-286px, 256px) rotate(0deg);
+        transform: translate(0, 0) translate(-286px, 256px) rotate(0deg);
+}
+/*#/#*//*#i6.text.css:text/base/css*/
+#i6 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Arial Black", Gadget, sans-serif; font-size: 72px; color: #e33030; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i6.i7.positioning.css:positioning/base/css.1*/
+#i6 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 165px; height: 81px;
+        -ms-transform: translate(0, 0) translate(67px, 319px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(67px, 319px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(67px, 319px) rotate(0deg);
+        transform: translate(0, 0) translate(67px, 319px) rotate(0deg);
+}
+/*#/#*//*#i8.image.css:image/base/css*/
+#i8 { opacity: 1; }
+/*#/#*//*#i8.i9.positioning.css:positioning/base/css.1*/
+#i8 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 131px;
+        -ms-transform: translate(0, 0) translate(0px, 377px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 377px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 377px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 377px) rotate(0deg);
+}
+/*#/#*//*#i12.text.css:text/base/css*/
+#i12 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Arial Black", Gadget, sans-serif; font-size: 14px; color: #000000; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i12.i13.positioning.css:positioning/base/css.1*/
+#i12 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 24px;
+        -ms-transform: translate(0, 0) translate(1px, 516px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(1px, 516px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(1px, 516px) rotate(0deg);
+        transform: translate(0, 0) translate(1px, 516px) rotate(0deg);
+}
+/*#/#*//*#i16.image.css:image/base/css*/
+#i16 { opacity: 1; }
+/*#/#*//*#i16.i17.positioning.css:positioning/base/css.1*/
+#i16 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 169px;
+        -ms-transform: translate(0, 0) translate(0px, 29px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 29px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 29px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 29px) rotate(0deg);
+}
+/*#/#*//*#i30.i31.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i28 { cursor: pointer; }
+/*#/#*//*#i28.i29.positioning.css:positioning/base/css.1*/
+#i28 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i14.shape.html:shape/html-->
+<div id="i14"></div>
+<!--#/#--><!--#i4.text.html:text/html-->
+<div id="i4">ŠIĄ SAVAITĘ LAIMĖKITE</div>
+<!--#/#--><!--#i6.text.html:text/html-->
+<div id="i6">10</div>
+<!--#/#--><!--#i8.image.html:image/html-->
+<img id="i8" src=""/>
+<!--#/#--><!--#i12.text.html:text/html-->
+<div id="i12"></div>
+<!--#/#--><!--#i16.image.html:image/html-->
+<img id="i16" src="assets/lottery.png"/>
+<!--#/#--><!--#i28.container.html:container/html-->
+<div id="i28">
+    
+</div>
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i4.i20.animations.js:animations/js*/
+(function(){
+    var ADFAnimTarget_i20 = document.getElementById('i4');
+    var AnimParentID = 'i4';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"-286px","translateY":"256px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i20, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i20, initialParamState);
+
+    /*#i20.i21.animations-move.js:animations-move/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i20, settings: {
+    toProps: calcDestinationProps(parseFloat(10), parseFloat(256), 1, AnimParentID, '0'),
+    duration: 0.5 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateTranslateXAndY, groups: [AnimParentID], activationDelay: 0.5 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i6.i10.text-dynamic.js:text-dynamic/js*/
+    Adf.builder.dynamicContent.addText('i6', 'kiekis');
+/*#/#*//*#i10.i11.dynamicContent.js:dynamicContent/js*//*#/#*//*#i6.i22.animations.js:animations/js*/
+(function(){
+    var ADFAnimTarget_i22 = document.getElementById('i6');
+    var AnimParentID = 'i6';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"67px","translateY":"319px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i22, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i22, initialParamState);
+
+    /*#i22.i23.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i22, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 0.6 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i8.image.js:image/base/js*/
+
+/*#/#*//*#i8.i24.animations.js:animations/js*/
+(function(){
+    var ADFAnimTarget_i24 = document.getElementById('i8');
+    var AnimParentID = 'i8';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"377px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i24, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i24, initialParamState);
+
+    /*#i24.i25.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i24, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 0.8 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i8.i32.image-dynamic.js:image-dynamic/js*/
+    Adf.builder.dynamicContent.addImage('i8', 'Automobilis');
+/*#/#*//*#i32.i33.dynamicContent.js:dynamicContent/js*//*#/#*//*#i12.i26.animations.js:animations/js*/
+(function(){
+    var ADFAnimTarget_i26 = document.getElementById('i12');
+    var AnimParentID = 'i12';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"1px","translateY":"516px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i26, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i26, initialParamState);
+
+    /*#i26.i27.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i26, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 1 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i12.i34.text-dynamic.js:text-dynamic/js*/
+    Adf.builder.dynamicContent.addText('i12', 'Modelis');
+/*#/#*//*#i34.i35.dynamicContent.js:dynamicContent/js*//*#/#*//*#i16.image.js:image/base/js*/
+
+/*#/#*//*#i16.i18.animations.js:animations/js*/
+(function(){
+    var ADFAnimTarget_i18 = document.getElementById('i16');
+    var AnimParentID = 'i16';
+    var initialParamState = JSON.parse('{"opacity":1,"rotate":0,"translateX":"0px","translateY":"29px","pivotX":"0","pivotY":"0","scale":1,"x":0,"y":0}');
+    Adf.cssHelpers.addBaseTransform(ADFAnimTarget_i18, initialParamState);
+    Adf.animate.setInitialParamsForElement(ADFAnimTarget_i18, initialParamState);
+
+    /*#i18.i19.animations-zoom.js:animations-zoom/js*/
+Adf.animate.createAnimation({
+    element: ADFAnimTarget_i18, settings: {
+    toProps: {scale: 100 / 100},
+    fromParams: {scale: 0 / 100},
+    duration: 0.3 * 1000,
+    repeat: 1,
+    easing: Adf.animate.Easing.Linear.None
+    }, onUpdate: AdfAnimateScale, groups: [AnimParentID], activationDelay: 0 * 1000
+});
+
+/*#/#*/
+
+    if (true) AdfDocVisibilityHandler.onDocVisible(function(){Adf.animate.startAnimationsGroup(AnimParentID, 1);});
+})();
+
+/*#/#*//*#i28.i30.actions.js:actions/base/js*/
+/* Name: On Click; */
+document.getElementById('i28').addEventListener('click', function(e){
+    /*#i30.i31.actions-clicktag.js:actions-clicktag/base/js.1*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+/*#/#*/
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i14.shape.meta:shape/meta*/
+name: Shape 1;
+/*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i4.text.meta:text/meta*/
+name: ŠIĄ SAVAITĘ LAIMĖKITE; customName: false;
+/*#/#*//*#i4.i20.animations.meta:animations/meta*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i20.i21.animations-move.meta:animations-move/meta*/
+name: Move 1;
+customName: ;
+/*#/#*//*#i4.i5.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i6.text.meta:text/meta*/
+name: kiekis; customName: 1;
+/*#/#*//*#i6.i22.animations.meta:animations/meta*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i22.i23.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i6.i7.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.image.meta:image/meta*/
+name: Automobilis; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i8.i24.animations.meta:animations/meta*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i24.i25.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i8.i9.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i12.text.meta:text/meta*/
+name: Modelis; customName: 1;
+/*#/#*//*#i12.i26.animations.meta:animations/meta*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i26.i27.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i12.i13.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i16.image.meta:image/meta*/
+name: lottery.png; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i16.i18.animations.meta:animations/meta*/
+name: animations 1;
+customName: ;
+animation 
+
+/*#/#*//*#i18.i19.animations-zoom.meta:animations-zoom/meta*/
+name: Zoom 1;
+customName: ;
+/*#/#*//*#i16.i17.positioning.meta:positioning/meta.1*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i28.container.meta:container/meta*/
+name: Container 1;
+data: /*!*/{}/*!*/;
+/*#/#*//*#i28.i29.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*/--><!--#/#-->
