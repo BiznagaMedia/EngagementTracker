@@ -79,7 +79,7 @@
         .value_cover {
             position: relative;
             width: 100%;
-            height: 100%;
+            height: 94%;
         }
 
         .bg.cover-1 {
@@ -102,15 +102,21 @@
           
         }
 
-        .bg.cover-4 {
-            background: url("https://i.imgur.com/AKbSlXZ.jpg");
-            background-size: cover;
-          
+         .cta {
+            position: absolute;
+            margin-top: 460px;
+            width:230px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 35px;
+           
+            
+            text-align: center;
         }
 
-         
-
-        
+        .value_cover .value_logo span {
+            color: white;
+        }
 
         .value_logo img {
             width: 100%;
@@ -144,7 +150,51 @@
 
         /* cover height + 5% */
 
-       
+        .value_text {
+            position: absolute;
+            top: 54%;
+            left: 7.5px;
+            width: 97%;
+            padding: 0.3em;
+            line-height: 1em;
+            color: #453936;
+        }
+
+        .value_text_title {
+            font-size: 165%;
+            color: #453936;
+            display: inline-block;
+            width: 97%;
+            margin-bottom: -40px;
+            margin-top: 28px;
+            text-align: center;
+            margin-left: -5px;
+            line-height: 1.05em
+        }
+
+        .value_text_light {
+            font-weight: 400;
+        }
+
+        .value_text_medium {
+            font-weight: 700;
+        }
+
+        .value_text_bold {
+            font-weight: 900;
+        }
+
+        .value_text_small {
+            font-size: 85%;
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
 
         /*Carousel in Cover */
 
@@ -174,40 +224,28 @@
         .item-1 {
             z-index: 2;
             opacity: 1;
-            animation: fade 12s infinite;
-            -webkit-animation: fade 12s infinite;
-            
+            animation: fade 15s infinite;
+            -webkit-animation: fade 15s infinite;
         }
 
         .item-2 {
-            animation: fade2 12s infinite;
-            -webkit-animation: fade2 12s infinite;
-            
+            animation: fade2 15s infinite;
+            -webkit-animation: fade2 15s infinite;
         }
 
         .item-3 {
-            animation: fade3 12s infinite;
-            -webkit-animation: fade3 12s infinite;
-            
-        }
-
-         .item-4 {
-            animation: fade4 12s infinite;
-            -webkit-animation: fade4 12s infinite;
-           
+            animation: fade3 15s infinite;
+            -webkit-animation: fade3 15s infinite;
         }
 
         @keyframes fade {
             0% {
                 opacity: 1
             }
-            25% {
+            33.333% {
                 opacity: 0
             }
-            50% {
-                opacity: 0
-            }
-             75% {
+            66.666% {
                 opacity: 0
             }
             100% {
@@ -219,13 +257,10 @@
             0% {
                 opacity: 0
             }
-            25% {
+            33.333% {
                 opacity: 1
             }
-            50% {
-                opacity: 0
-            }
-             75% {
+            66.666% {
                 opacity: 0
             }
             100% {
@@ -237,31 +272,10 @@
             0% {
                 opacity: 0
             }
-            25% {
+            33.333% {
                 opacity: 0
             }
-            50% {
-                opacity: 1
-            }
-             75% {
-                opacity: 0
-            }
-            100% {
-                opacity: 0
-            }
-        }
-
-         @keyframes fade4 {
-           0% {
-                opacity: 0
-            }
-            25% {
-                opacity: 0
-            }
-            50% {
-                opacity: 0
-            }
-             75% {
+            66.666% {
                 opacity: 1
             }
             100% {
@@ -298,13 +312,37 @@
              font-family: 'Lato', sans-serif;
         }
 
-      
+        .value_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #e97000;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
 
         .value_button:hover {
             background-color: #d34100;
         }
         
-       
+         .logo {
+            width: 41%;
+            z-index: 2;
+            float: right;
+            height: 30px;
+            text-align: center;
+            margin-top: 558px;
+            margin-right:-6px
+        }
+
+        .botones-para-compartir{
+            z-index: 10px;
+        }
 
     </style>
 
@@ -318,14 +356,13 @@
        <div class="te-container">
 
     
-  <!---<div class="cta"> <a href=" http://www.victoriassecret.mx" target="_blank">
-    <img src="https://i.imgur.com/xxS09E6.png" style="height: 40px;"></a></div>--->   
+    
   
      
   
   <div class="value_wrapper carousel-wrapper size_320x480">
 
-   
+     
    
    
     <a href="" target="_blank">
@@ -333,8 +370,7 @@
   
        
 
-       
-      
+        
 
         <div class="value_cover bg cover-1 carousel-item item-1">
             
@@ -343,9 +379,6 @@
            
         </div>
         <div class="value_cover bg cover-3 carousel-item item-3">
-           
-        </div>
-        <div class="value_cover bg cover-4 carousel-item item-4">
            
         </div>
         
