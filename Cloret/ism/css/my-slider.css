@@ -28,7 +28,7 @@
   list-style: none;
   position: absolute;
   width: 300px;
-  height: 480px;
+  height: 460px;
   top: 0;
   padding: 0 !important;
   margin-top: 0;
@@ -38,7 +38,7 @@
 
 .ism-slider li.ism-slide {
   width: 300px;
-  height: 480px;
+  height: 460px;
   overflow: hidden;
   position: absolute;
   display: block;
@@ -54,7 +54,7 @@
   display: block;
   position: absolute;
  width: 300px;
-  height: 480px;
+  height: 460px;
 }
 
 .ism-slider a.ism-image-link {
@@ -65,7 +65,7 @@
   top: 0;
   left: 0;
   width: 300px;
-  height: 480px;
+  height: 460px;
 }
 
 .ism-slider .ism-img {
