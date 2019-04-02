@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="ad.size" content="width=320, height=480" />
+        <title>Anuncio creator</title>
+       <!-- <link href='https://fonts.googleapis.com/css?family=Trebuchet MS:400,400i,700,700i' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Trebuchet MS:300,700,900" rel="stylesheet">
+         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>  -->
+        <script>
+            var videoUrl = "https://www.youtube.com/embed/mrn33_dtPJE?autohide=2&modestbranding=1&controls=2&showinfo=0&fs=0&rel=0&disablekb=1&cc_load_policy=0";
+            var config = [
+                {
+                    start: 5,
+                    position: [//position donde saldra el circulo sobre el video
+                        'left: 5px;',
+                        'top: 85px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/SVvjS4E.png',
+                    detail: {//configuracion para el modal imagen, titulo, y texto de detail
+                        imageUrl: 'https://i.imgur.com/SVvjS4E.png',
+                        title: ' ',
+                        href: 'https://www.xcaret.com/es/parques-y-tours/',
+                        description: '¡Haz de tu experiencia algo único con nuestros parques y tours!'
+                    }
+                },
+                
+               /* {
+                    start: 5,
+                    position: [
+                        'left: 20px;',
+                        'top: 150px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/jHgmAfk.png',
+                    detail: {
+                        imageUrl: 'https://i.imgur.com/jHgmAfk.png',
+                        title: ' ',
+                        href: 'https://www.xcaret.com/es/parques-y-tours/',
+                        description: '¡Vive la experiencia Xcaret!'
+                    }
+                },*/
+                
+                {
+                    start: 15,
+                    position: [
+                        'left: 5px;',
+                        'top: 85px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/VGJyFCY.png',
+                    detail: {
+                        imageUrl: 'https://i.imgur.com/VGJyFCY.png',
+                        title: ' ',
+                        href: 'https://www.xcaret.com/es/parques-y-tours/',
+                        description: 'Diversión, naturaleza y cultura para toda la familia.'
+                    }
+                },
+                
+               /* {
+                    start: 15,
+                    position: [
+                        'left: 30px;',
+                        'top: 150px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/C74ojbv.png',
+                    detail: {
+                        imageUrl: 'https://i.imgur.com/C74ojbv.png',
+                        title: ' ',
+                        href: 'https://www.xcaret.com/es/parques-y-tours/',
+                        description: 'Si te gusta la aventura, no te puedes perder esto...'
+                    }
+                }*/
+            ];
+             
+            var configRemoved = {
+               10: {
+                    position: 5
+                },
+                20: {
+                    position: 15
+                }
+            };
+        </script>
+        <style>
+            body { 
+                margin: 0px;
+                font-family: Trebuchet MS; }
+            .video-container {
+                width: 100%;
+                height: 100vh;
+                position: relative;
+            }
+            .video-container .circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 1px solid #ededed;
+                background-color: #ffffff;
+                cursor: pointer;
+            }
+
+
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content/Box */
+            .modal .modal-content {
+              background-color: #fefefe;
+              margin: 5% auto; /* 15% from the top and centered */
+              padding-bottom: 15px;
+              border: 1px solid #888;
+              width: 80%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button */
+            .modal .modal-content .modal-header {
+            	height: 4px;
+            }
+            .modal .modal-content .modal-header .close {
+              color: #aaa;
+              float: right;
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Trebuchet MS;
+              margin-top: 5px;
+              margin-right: 8px;
+            }
+
+            .modal .modal-content .modal-header .close:hover,
+            .modal .modal-content .modal-header .close:focus {
+              color: black;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            .modal .modal-content .body .column {
+                display: inline-block;
+                vertical-align: top;
+                width: 45%;
+                text-align: center;
+                margin-top: 2px;
+                
+            }
+            .modal .modal-content .body .movil-size {
+                display: block !important;
+                width: 100% !important;
+            }
+            .modal .modal-content .body .column img.logo {
+                height: 200px;
+                width: 100%;
+            }
+            .image-resize {
+                height: 100px !important;
+                width: 200px !important;
+            }
+            .modal .modal-content .body .column .link {
+                margin-top: -5px;
+            }
+            .modal .modal-content .body .column .link a {
+                padding: 2px 4px;
+                background-color: #828282;
+                border: 1px solid #fff;
+                text-decoration: none;
+                color: #fff;
+                margin-top: -10px;
+                padding-bottom: 5px;
+            }
+            
+            .modal .modal-content .body .description p {
+                 margin-top: -15px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="video-container">
+            <iframe src="" style="width:320px;height:270px;margin-top: px; margin-left: px;"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" id="fitvid434752"></iframe>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">                
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                    </div>
+
+                    <div class="body">
+                        <div class="column" id="force">
+                            <img class="logo" src="">
+                        </div>
+                        <div class="column">
+                            <div class="title"></div>
+                            <div class="description"></div>
+                            <div class="link">
+                                <a href="" target="_blank">DISCOVER</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function _initAdds() {
+
+                var gtmYTListeners = [];
+                var timeout = null;
+                //setear link de video de config al iframe
+                var iframe = document.querySelector('iframe');
+                if (!iframe) {return;}
+
+                iframe.setAttribute('src', videoUrl);
+
+                function _searchVideoInTemplate() {
+
+                    // activar api
+                    for (var e = document.getElementsByTagName("iframe"), x = e.length; x--;)
+                        if (/youtube.com\/embed/.test(e[x].src))
+                            if(e[x].src.indexOf('enablejsapi=') === -1)
+                                e[x].src += (e[x].src.indexOf('?') ===-1 ? '?':'&') + 'enablejsapi=1';        
+                };
+                //scan all video and apply format
+                _searchVideoInTemplate();
+
+                function _loadScript(src, callback) {
+
+                    var s = document.createElement('script'),
+                        r =false;
+
+                    s.type = 'text/javascript';
+                    s.src = src;
+                    s.onload = s.onreadystatechange = function() {
+                        //console.log( this.readyState ); //uncomment this line to see which ready states are called.
+                        if (!r && (!this.readyState || this.readyState == 'complete')) {
+                            r = true;
+                            if (callback !== undefined) {
+                                callback();
+                            }
+                        }
+                    };
+                    var head = document.querySelector('head');
+                    head.appendChild(s);
+                };
+
+                // añadir listener para cada reproductor
+                window.onYouTubeIframeAPIReady = (function() {
+                    for (var e = document.getElementsByTagName("iframe"), x = e.length; x--;) {
+                        if (/youtube.com\/embed/.test(e[x].src)) {
+                             gtmYTListeners.push({
+                                id: e[x].src,
+                                eventSend: false,
+                                time: 0,
+                                event: new YT.Player(e[x], {
+                                    events: {
+                                        onReady: onPlayerReady,
+                                        onStateChange: onPlayerStateChange
+                                    }
+                                })
+                            });
+                            YT.gtmLastAction = "p";
+                        }
+                    }
+                });
+
+                // informar del progreso del video
+                function onPlayerPercent(e) {
+                    if (e["getPlayerState"]() == YT.PlayerState.PLAYING) {
+                        var t = e["getCurrentTime"]();
+                        t = Math.round(t);                        
+                        e["lastP"] = t;
+                        addCircleDescriptor(t);
+                        removedCircleDescriptor(t);
+                    }
+                };
+
+                // detectar el cambio de estado del video
+                function onPlayerStateChange(e) {
+                    if (e["data"] == YT.PlayerState.PLAYING && YT.gtmLastAction == "p") {
+                        YT.gtmLastAction = "";
+                        timeout = setInterval(onPlayerPercent, 1000, e["target"])        
+                    }
+                    if (e["data"] == YT.PlayerState.PAUSED) {
+                        YT.gtmLastAction = "p";
+                        clearInterval(timeout);
+                    }
+                };
+
+                function onPlayerReady(event) {
+                    event.target.playVideo();
+                };
+                
+                //crear el modal
+                function configureAndShowModal($e) {
+
+                    //Extract position in config
+                    var index = $e.currentTarget.getAttribute('data-reference');
+                    var configuration = config[index];
+                    //remove el item cliked
+                    // var selector = "div[data-position='"+ index +"']";
+                    // var removed = document.querySelector(selector);
+                    // if (removed != undefined) {
+                    //     removed.parentNode.removeChild(removed);
+                    // }
+                    // Get the modal
+                    var modal = document.getElementById('myModal');
+                    modal.style.display = "block";
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                      modal.style.display = "none";
+                      gtmYTListeners[0].event.playVideo();
+                    };
+
+                    var body = document.querySelector("body");
+                    if (body.clientWidth < 767) {
+
+                        var columns = document.querySelectorAll(".modal .modal-content .body .column");
+                        for(var i = 0; i < columns.length; i++) {
+                            if (!columns[i].classList.contains('movil-size')) {
+                                columns[i].classList.add('movil-size');
+                            }
+                        }
+                    }
+
+                    //update image
+                    var element = document.querySelector(".modal .modal-content .body img.logo");
+                    if (element != undefined) {
+                        element.setAttribute('src', configuration.detail.imageUrl);
+                        if (body.clientWidth < 767) {
+                            if (!element.classList.contains('image-resize')) {
+                                element.classList.add('image-resize');
+                            }
+                        }else {
+                            if (element.classList.contains('image-resize')) {
+                                element.classList.remove('image-resize');
+                            }
+                        }
+                    }
+
+                    //update title
+                    element = document.querySelector(".modal .modal-content .body .title");
+                    if (element != undefined) {
+                        element.innerHTML = '';
+                        var p = document.createElement("h3");
+                        t = document.createTextNode(configuration.detail.title);
+                        p.appendChild(t);
+                        element.appendChild(p);
+                    }
+
+                    //update description
+                    element = document.querySelector(".modal .modal-content .body .description");
+                    if (element != undefined) {
+                        element.innerHTML = '';
+                        var p = document.createElement("p");
+                        t = document.createTextNode(configuration.detail.description);
+                        p.appendChild(t);
+                        element.appendChild(p);
+                    }
+
+                    element = document.querySelector(".modal .modal-content .body .link a");
+                    element.setAttribute('href', configuration.detail.href);
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        modal.style.display = "none";
+                        gtmYTListeners[0].event.playVideo();
+                      }
+                    };
+                };
+
+                function removedCircleDescriptor(segunsContainer) {
+
+                    var keys = Object.keys(configRemoved);
+                    var key = null;
+
+                    for(var i = 0; i < keys.length; i++) {
+                        if (keys[i] == segunsContainer) {
+                            key = keys[i];
+                            break;
+                        }
+                    }
+
+                    if (key != null) {
+                        key = configRemoved[keys[i]];
+                        var selector = "div[data-position='"+ key.position +"']";
+                        var removed = document.querySelectorAll(selector);
+                        if (removed != undefined) {
+                            for(var i = 0; i < removed.length; i++) {
+                                removed[i].parentNode.removeChild(removed[i]);
+                            }
+                        }
+                    }
+                };
+
+                function addCircleDescriptor(segunsContainer) {
+
+                    var views = [];
+                    for(var i = 0; i < config.length; i++) {
+                        if (config[i].start == segunsContainer) {
+                            views.push(i);
+                        }
+                    }
+
+                    for(var i = 0; i < views.length; i++) {
+                        var configInter = config[views[i]];
+                        var circle = document.createElement('div');
+                        var style = 'position: absolute;background-size: cover;'
+                        style += 'background-image: url(' + configInter.img_screen + ');';
+                        configInter.position.forEach( function(element) {
+                            style += element;
+                        });
+                        circle.setAttribute('style', style);
+                        circle.setAttribute('class', 'circle');
+                        circle.setAttribute('data-position', configInter.start);
+                        circle.setAttribute('data-reference', views[i]);
+                        circle.onclick = function($e) {
+                            gtmYTListeners[0].event.pauseVideo();
+                            configureAndShowModal($e);
+                        };
+                        var base = document.querySelector('.video-container');
+                        if (base != undefined) {
+                            base.append(circle);
+                        }
+                    }
+                };
+
+                function _youtubeAPIReady() {}
+
+                _loadScript('https://www.youtube.com/iframe_api', _youtubeAPIReady);
+            };
+
+            _initAdds();
+        </script>
+    </body>
+</html>
