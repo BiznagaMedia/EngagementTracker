@@ -1,7 +1,7 @@
 {
     "version": "1.0",
-    "uniqueId": "64e300ae13118847a655159a87dcb791",
-    "title": "Encripted-panamericana",
+    "uniqueId": "64e300a7a655159e1311884a87dcb791",
+    "title": "Encripted-Cencosud",
     "description": "",
     "width": 300,
     "height": 600,
@@ -16,7 +16,8 @@
         }
     },
     "clicktags": {
-        "clickTAG": "https:\/\/www.up.edu.mx\/en\/international\/mex\/",
+        "clickTAG": "https:\/\/momentosbancocencosud\/pe\/",
     },
     "source": "formulario-def.html"
 }
+

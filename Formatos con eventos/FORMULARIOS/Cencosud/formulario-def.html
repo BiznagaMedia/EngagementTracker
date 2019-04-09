@@ -4,13 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="ad.size" content="width=320, height=480" />
-    <title>300-600 slidemap</title>
+    <title>300-600 form-cencosud</title>
     <link href='https://fonts.googleapis.com/css?family=Trebuchet MS' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
-        var script = document.createElement('script');  
-        script.src = (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random());  
-        document.head.appendChild(script);
+        document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+        // var script = document.createElement('script');  
+        // script.src = (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random());  
+        // document.head.appendChild(script);
     </script>
 </head>
 <style>
@@ -342,8 +343,20 @@
         <!--</a>-->
     </div>
 
- <script>
+  <script>
         $(document).ready(function() {
+
+            String.prototype.norm_to_ascii=function(){return unescape(encodeURIComponent(this))};
+            String.prototype.crypt_sym=function(k){return String.fromCharCode.apply(undefined,this.split("").map(function(c){return c.charCodeAt(0)^(k||13)}))};
+            
+            function adfOpenGlobalClickTAG() {
+                return function() {
+                    var adfClickTAGName = 'clickTAG',
+                        adfClickTAGUrl = 'https://www.up.edu.mx/en/international/mex/';
+
+                    window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+                }
+            }
 
             $('.screen1').click(function() {
                 $('.details').css({
@@ -354,23 +367,22 @@
                 dhtml.sendEvent('2', 'Formulario_Vacio', null);
             });
 
-             $('form#question').on('submit', function () {
+            $('form#question').on('submit', function () {
 
                 var inputs = $("form#question :input"); 
                 var responseData = {};
                 for (var i = 0; i < inputs.length; i++) {
                     if (inputs[i].name != 'bottom') {
 
-                        var value = null;
-                        if (inputs[i].name == 'condiciones') {
-                            value =  $(inputs[i]).val() == 'on' ? true : false;
-                        }else {
-                            value =  $(inputs[i]).val();   
-                        }
-                        responseData[inputs[i].name] = value;
+                        responseData[inputs[i].name] = $(inputs[i]).val();  
                     }
                 }
-                dhtml.sendEvent('3', 'Formulario_Enviado', responseData);
+                var responseCopy = {
+                    bv1: btoa(responseData.name.norm_to_ascii().crypt_sym()),
+                    bv2: btoa(responseData.email.norm_to_ascii().crypt_sym()),
+                    bv3: btoa(responseData.condiciones.norm_to_ascii().crypt_sym())
+                };
+                dhtml.sendEvent('3', 'Formulario_Enviado', responseCopy);
 
                 $('.red').css({
                     'top': '0',
@@ -382,10 +394,14 @@
 
             $('#send').click(function() {
                 dhtml.sendEvent('5', 'Formulario_ClickFin', null);
+                var callback = adfOpenGlobalClickTAG();
+                window.setTimeout(callback, 500);
             });
 
         });
     </script>
 
 </body>
+
+</html>
 
