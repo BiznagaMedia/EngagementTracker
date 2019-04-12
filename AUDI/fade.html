@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Adform API Script -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>fade-small</title>
+    <title>Kipling-Map</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>
     <style>
-
-     @font-face {
-  font-family: 'BentonSans';
-  src: url('BentonSans.woff'); 
- 
-}
-        .fadesmall {
+        .corona p {
             margin: 0px
         }
 
-        .fadesmall .bg.cover-1,
-        .fadesmall .bg.cover-2,
-        .fadesmall .bg.cover-3,
-        .fadesmall {
+        .corona .bg.cover-1,
+        .corona .bg.cover-2,
+        .corona .bg.cover-3,
+        .corona {
             background-size: cover
         }
 
-        .fadesmall .btn {
+        .corona .btn {
             margin-top: 0;
             padding-left: 0
         }
 
-        .fadesmall a,
-        .fadesmall a:hover {
+        .corona a,
+        .corona a:hover {
             text-decoration: none;
             color: #fff
         }
 
-        .fadesmall .bzm_wrapper {
+        .corona .bzm_wrapper {
             position: relative;
             overflow: hidden;
             color: #000;
-            font-family: BentonSans, sans-serif
+            font-family: Lato, sans-serif
         }
 
-        .fadesmall .bzm_wrapper.size_300x250 {
+        .corona .bzm_wrapper.size_300x250 {
             width: 300px;
             height: 250px;
             background-color: #FFF
@@ -51,134 +44,131 @@
 
          .cta {
             position: absolute;
-            bottom: 80px;
-            width: 70px;
+            bottom: 70px;
+            width: 10px;
             line-height: 1.3em;
             z-index: 5;
-            margin-left: 75px;
-          text-align: center;
+            margin-left: 32%;
+            left: -30px;
+            background-color: ;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
         }
         
-        .fadesmall .bzm_cover,
-        .fadesmall .carousel-wrapper {
+        .corona .bzm_cover,
+        .corona .carousel-wrapper {
             position: relative;
             width: 100%
-
         }
 
-        .fadesmall .bzm_cover {
-            height: 170px
+        .corona .bzm_cover {
+            height: 150px
         }
 
-        .fadesmall .bg.cover-1 {
+        .corona .bg.cover-1 {
             background-image: url(https://i.imgur.com/cSphFj2.jpg)
         }
 
-        .fadesmall .bg.cover-2 {
+        .corona .bg.cover-2 {
             background-image: url(https://i.imgur.com/So0AS4l.jpg)
         }
 
-        .fadesmall .bg.cover-3 {
+        .corona .bg.cover-3 {
             background-image: url(https://i.imgur.com/FnPPOCH.jpg)
-
         }
 
-        .fadesmall .bzm_cover.bzm_pos_tl {
+        .corona .bzm_cover.bzm_pos_tl {
             top: 3%;
             left: 3%
         }
 
-        .fadesmall .bzm_pos_tr {
+        .corona .bzm_pos_tr {
             top: 3%;
             right: 3%
         }
 
-        .fadesmall .bzm_pos_bl {
+        .corona .bzm_pos_bl {
             bottom: 3%;
             left: 3%
         }
 
-        .fadesmall .bzm_pos_br {
+        .corona .bzm_pos_br {
             bottom: 3%;
             right: 3%
         }
 
-        .fadesmall .bzm_pos_bm {
+        .corona .bzm_pos_bm {
             bottom: 3%;
             left: calc(100% - 70%)
         }
 
-        .fadesmall .bzm_text {
-            padding: 0px 0 0 .3em;
-            line-height: 1.0;
+        .corona .bzm_text {
+            padding: 6px 0 0 .3em;
+            line-height: 1.1;
             color: #000;
-            text-align: center;
-            margin-top: 4px;
+            text-align: left;
+            margin-top: 5px;
             width: 99%;
-          
             
         }
 
-        .fadesmall .bzm_text_title {
+        .corona .bzm_text_title {
+            font-size: 18px;
             color: #000;
             width:95%;
-            font-size: 22px;
-            margin-top: 30px
-
         }
 
-        .fadesmall .bzm_text_light {
+        .corona .bzm_text_light {
             font-size: 10px;
             font-weight: 0
-            margin-top: -10px
         }
 
-        .fadesmall .bzm_text_medium {
+        .corona .bzm_text_medium {
+            font-size: 14px;
             font-weight: 500;
             line-height: 1.7
-            margin-top: -10px
         }
 
-        .fadesmall .bzm_text_bold {
-            font-weight: 100;
+        .corona .bzm_text_bold {
+            font-size: 18px;
+            font-weight: 700;
             line-height: 1
-            margin-top: 10px
         }
 
-        .fadesmall .bzm_text_small {
-            font-size: 14px;
+        .corona .bzm_text_small {
+            font-size: 10px;
             line-height: 1
-            margin-top: -10px
         }
 
-        .fadesmall .carousel-wrapper {
+        .corona .carousel-wrapper {
             height: auto;
             margin: 0 auto
         }
 
-        .fadesmall .carousel-item1 {
+        .corona .carousel-item1 {
             position: absolute;
             opacity: 0;
             transition: all .5s ease-in-out
         }
 
-        .fadesmall [id^=item] {
+        .corona [id^=item] {
             display: none
         }
 
-        .fadesmall .item-1 {
+        .corona .item-1 {
             z-index: 2;
             opacity: 1;
             animation: fade 14s infinite;
             -webkit-animation: fade 14s infinite
         }
 
-        .fadesmall .item-2 {
+        .corona .item-2 {
             animation: fade2 14s infinite;
             -webkit-animation: fade2 14s infinite
         }
 
-        .fadesmall .item-3 {
+        .corona .item-3 {
             animation: fade3 14s infinite;
             -webkit-animation: fade3 14s infinite
         }
@@ -219,33 +209,33 @@
             }
         }
 
-        
-        .fadesmall .bzm_button:hover {
+        .corona .bzm_button {
+            position: absolute;
+            bottom: 7px;
+            left: 3%;
+            text-transform: uppercase;
+            background-color: #6cbd44;
+            color: #fff;
+            border-radius: 50%;
+            padding: 4px;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer
+        }
+
+        .corona .bzm_button:hover {
             background-color: #579e38
         }
 
-        .fadesmall .carousel-container {
+        .corona .carousel-container {
             width: 300px;
-            height: 170px;
+            height: 150px;
             overflow-y: hidden
         }
 
-        .fadesmall #logo {
-            
-            height:27px;
-            margin-top: 9px; 
-            margin-left:230px;
-
-        }
-
-
-
-        .fadesmall #botones-para-compartir {
+        .corona #botones-para-compartir {
             text-align:left;
-            margin-left: 8px;
-            display:inline;
-            float:left;
-            margin-top:-30px;
+            margin-left: 12px
             
         }
 
@@ -275,47 +265,43 @@
     </style>
 </head>
 
-<body class="fadesmall">
+<body class="corona" style="margin:0px;">
    <div class="bzm_wrapper carousel-wrapper size_300x250">
-
-    <!-- Para quitar CTA se quita esta etiqueta y recordar quitar la propiedad CTA en el CSS -->
-        <div class="cta"> <a href="http://www.audi.com.mx/mx/web/es/models/a7/a7-sportback.html" target="_blank">
-    <img src="" style="height: 40px;"></a></div>   
-
-        <a href="http://www.audi.com.mx/mx/web/es/models/a7/a7-sportback.html" target="_blank">
+        <div class="cta"><a href="https://goo.gl/maps/DD46F1dFiuM2" target="_blank"> <img src="" style="height:45px;"></a></div>
+        <a href="" style="display: block;" target="_blank">
             <div class="carousel-container">
-                <!-- ESTAS SE COLOCAN EN EL CSS -->
                 <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
                 <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
                 <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
             </div>
-
-                <div class="ism_text"> <span class=" ism_text_title ism_text_bold" style="font-family:Trebuchet MS; color:black; font-size:5px; margin-left: 35px; margin-top:20px;  text-decoration: none;"><b></b></span><br>
-           
-
-                 <div class="ism_text"> <span class=" ism_text_title ism_text_bold" style="font-family:Trebuchet MS; color:black; font-size:24px; margin-left: 5px; margin-top:20px;  text-decoration: none;"><b>Nuevo Audi A7 Sportback.</b></span><br>
-
-               </div>
-
-            <!-- LOGO -->
-            <div class="logo"> <img id="logo" src="https://i.imgur.com/rw7KVcM.png"></div>
+            <div class="bzm_text"> <span class="bzm_text_title bzm_text" style="color:#000;line-height:1;font-size:19px;text-align:center;">¿Sabes lo que significa estar en contacto con el mañana? Nuevo Audi A7 Sportback.</span></div>
 
 
-                <!--PARA QUITAR LOS BOTONES SOLO COMENTAR Y CERRAR-->
+            <div style="bottom:0px;height:30px;text-align:right ;margin-top:5px; margin-right: 5px;"> <img src="https://i.imgur.com/rw7KVcM.png" style="height:30px;margin-top:-1px;">
 
-                 <!--<div id="botones-para-compartir"> 
-                   
-                    <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.soriana.com"  target="block">    
-                        <img alt="compartir en facebook" class="facebooki" height="25" src="https://i.imgur.com/oG0uc27.png" title="compartir en facebook" width="21" /></a>
+                 <!--<div id="botones-para-compartir" style="display:inline;float:left;margin-left:10px;margin-top:-25px;">
+                    <span>  
+                        <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=http://www.antara.com.mx/tienda/ver/kipling"  target="block">    
+                        <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/mJBNNLr.png" title="compartir en facebook" width="22" /></a>
 
-                            <a class="shared" href="whatsapp://send?text=https://www.soriana.com" target="block">
-                            <img alt="compartir en whatsapp" class="whatsappi" height="25" src="https://i.imgur.com/jlCdnzz.png" title="compartir en whatsapp" width="21" /></a>
+                            <a class="shared" href="https://plus.google.com/share?url=http://www.antara.com.mx/tienda/ver/kipling" target="block">
+                            <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/dC7ka2p.png" title="compartir en google+" width="22" /></a>
 
-                            <a class="shared" href="https://twitter.com/home?status=https://www.soriana.com" target="block">
-                            <img alt="compartir en twitter" class="twitteri" height="25" src="https://i.imgur.com/oIQ5zxi.png" title="compartir en twitter" width="21" /></a> </span></div>
+                            <a class="shared" href="https://twitter.com/home?status=http://www.antara.com.mx/tienda/ver/kipling" target="block">
+                            <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/YN2Vf5g.png" title="compartir en twitter" width="22" /></a>
+                    </span>
+                </div>
+            
+               
+                
             </div>
         </a>
     </div>
 
+    <!--<div class="EurowingsFade"></div>
+	<script src="bundle.js"></script>
+	<script>
+		EurowingsFade.show('EurowingsFade')
+	</script>-->
 </body>
 </html>
