@@ -9,13 +9,7 @@
         <!-- <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript">
-        var script = document.createElement('script');  
-        script.src = (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random());  
-        document.head.appendChild(script);
-    </script>
-        
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
         <script>
             var videoUrl = "https://www.youtube.com/embed/BDRVqewVd6g?autohide=2&modestbranding=1&controls=2&showinfo=0&fs=0&rel=0&disablekb=1&cc_load_policy=0";
             var linkRedirect = 'https://www.deichmann.com/PT/pt/shop/colecao-spread-the-look/todos-artigos-spread-the-look.cat?emsrc=display&refID=almamedia%2Fonnative_native_STL19';
@@ -37,8 +31,7 @@
                     img_screen: 'https://i.imgur.com/rSWViDB.png',
                     href: 'https://www.deichmann.com/ES/es/shop/mujer/zapatos/00013301708004/Sandalia*de*tac%C3%B3n.prod?positionInList=10&fromCategoryDetail=true'
                 },
-                
-                /*{
+                /* {
                     start: 15,
                     position: [
                         'left: 30px;',
@@ -58,10 +51,10 @@
             ];
              
             var configRemoved = {
-               4: {
+               5: {
                     position: 2
                 },
-                4: {
+               5: {
                     position: 2
                 }
             };
@@ -224,7 +217,6 @@
                             var href = linkRedirect;
                             var callback = goToLink(href);
                             /* Add Event 'click inner video' */
-                            dhtml.sendEvent('1', 'click inner video', responseData)
                             window.setTimeout(callback, 500);
                         });
                     }
@@ -292,6 +284,8 @@
                         t = Math.round(t);                        
                         e["lastP"] = t;
                         addCircleDescriptor(t);
+                        removedCircleDescriptor(t);
+                        
 
                         /* add video control */
                         var porcent = e["getDuration"]() - e["getCurrentTime"]() <= 1.5 ? 1 : (Math.floor(e["getCurrentTime"]() / e["getDuration"]() * 4) / 4).toFixed(2);
@@ -331,6 +325,9 @@
                     }
                 };
 
+               
+                
+                
                 // detectar el cambio de estado del video
                 function onPlayerStateChange(e) {
                     if (e["data"] == YT.PlayerState.PLAYING && YT.gtmLastAction == "p") {
@@ -356,13 +353,10 @@
                     var href = configuration.href;
                     var callback = goToLink(href, '_blank' + index);
                     /* Add Event 'click in circle an redirect' */
-                    
                     window.setTimeout(callback, 500);
                 };
-                
-                 
-                
-                 function removedCircleDescriptor(segunsContainer) {
+
+                function removedCircleDescriptor(segunsContainer) {
 
                     var keys = Object.keys(configRemoved);
                     var key = null;
@@ -385,7 +379,8 @@
                         }
                     }
                 };
-
+                
+                
                 function addCircleDescriptor(segunsContainer) {
 
                     var views = [];
@@ -418,7 +413,7 @@
 
                             /* Add Event 'enter circle in screen' */
                             var pos = views[i] + 1;
-                            console.log('Impresion Bola ' + pos);
+                            // console.log('Impresion Bola ' + pos);
                         }
                     }
                 };
