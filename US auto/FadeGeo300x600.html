@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="ad.size" content="width=320, height=480" />
+    <title>300x600 - Del norte</title>
+   
+    <style>
+        
+         
+        
+        
+        body.tgx {
+            background-color: #FFFFFF;
+            color: black;
+            font-family: "Trebuchet MS";
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .tgx_wrapper {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #c5c5c5;
+            cursor: pointer;
+        }
+
+        .tgx_wrapper.size_300x250 {
+            width: 298px;
+            height: 480px;
+        }
+
+        .tgx_wrapper.size_320x480 {
+            width: 298px;
+            height: 598px;
+        }
+
+        .tgx_wrapper.size_320x50 {
+            width: 318px;
+            height: 48px;
+        }
+
+        .tgx_wrapper.size_728x90 {
+            width: 726px;
+            height: 88px;
+        }
+
+        .tgx_cover {
+            position: relative;
+            width: 100%;
+            height: 50%;
+        }
+
+        .bg.cover-1 {
+            background: url("https://i.imgur.com/gMsF0tI.png");
+            background-size: cover;
+        }
+
+        .bg.cover-2 {
+            background: url("https://i.imgur.com/sUzTtAv.png");
+            background-size: cover;
+            
+        }
+
+        .bg.cover-3 {
+            background: url("https://i.imgur.com/0kXZ8kQ.png");
+            background-size: cover;
+            
+        }
+
+        .tgx_cover .tgx_logo {
+            position: absolute;
+            bottom: 15px;
+            width: 120px;
+            line-height: 1.3em;
+            z-index: 2;
+            margin-left: 47%;
+            left: -50px;
+            background-color: #;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .tgx_cover .tgx_logo span {
+            color: white;
+        }
+
+        .tgx_logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .tgx_pos_tl {
+            top: 3%;
+            left: 3%;
+        }
+
+        .tgx_pos_tr {
+            top: 3%;
+            right: 3%;
+        }
+
+        .tgx_pos_bl {
+            bottom: 3%;
+            left: 3%;
+        }
+
+        .tgx_pos_br {
+            bottom: 3%;
+            right: 3%;
+        }
+
+        .tgx_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%);
+        }
+
+        /* cover height + 5% */
+
+        .tgx_text {
+            position: absolute;
+            top: 51%;
+            left: 7.5px;
+            width: 91%;
+            padding: 0.3em;
+            line-height: 1.1em;
+            color: #453936;
+        }
+
+        .tgx_text_title {
+            font-size: 135%;
+            color: black;
+            display: inline-block;
+            width: 98%;
+            margin-bottom: -20px;
+            text-align: center;
+            margin-left: 7px;
+            line-height: 1.1em;
+            margin-top: -5px;
+                
+        }
+
+        .tgx_text_light {
+            font-weight: 400;
+        }
+
+        .tgx_text_medium {
+            font-weight: 300;
+        }
+
+        .tgx_text_bold {
+            font-weight: 750;
+        }
+
+        .tgx_text_small {
+            font-size: 80%;
+            text-align: justify
+            
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
+
+        /*Carousel in Cover */
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /*Select every element*/
+
+        [id^="item"] {
+            display: none;
+        }
+
+        .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 8s infinite;
+            -webkit-animation: fade 8s infinite;
+        }
+
+        .item-2 {
+            animation: fade2 8s infinite;
+            -webkit-animation: fade2 8s infinite;
+        }
+
+        .item-3 {
+            animation: fade3 8s infinite;
+            -webkit-animation: fade3 8s infinite;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade2 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 1
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 1
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        .tgx_sponsoredby {
+            position: absolute;
+            z-index: 99;
+        }
+
+        .tgx_sponsoredby.tgx_pos_br {
+            right: 1%;
+            bottom: 0% !important;
+        }
+
+        .tgx_sponsoredby .sponsor {
+            font-size: 9px;
+            display: inline-block;
+            float: left;
+            margin-right: 3px;
+            margin-top: 7px;
+        }
+
+        .tgx_sponsoredby:hover .sponsor {
+            opacity: 1;
+        }
+
+        .tgx_sponsoredby .tgx_logo {
+            width: 70px;
+            display: inline-block;
+            float: right;
+        }
+
+        .tgx_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #e97000;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
+
+        .tgx_button:hover {
+            background-color: #d34100;
+        }
+        
+         .logo {
+            width: 41%;
+            z-index: 2;
+            float: right;
+            height: 30px;
+            text-align: right;
+            margin-top: 6px;
+            margin-right: 0px
+        }
+        
+        .tgx #botones-para-compartir {
+            text-align:left;
+            margin-left: 12px
+            
+        }
+        
+       .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+        .map{
+
+            position: absolute;
+            margin-left: -12px;
+            margin-top: 40px;
+
+
+        }
+       
+        
+        
+    
+    
+    
+    </style>
+   
+</head>
+
+<body class="tgx">
+   
+   <a href= "https://newsroom.vw.com/vehicles/the-all-new-jetta-gli-is-back-for-2019/" target="_blank">
+   
+    <div class="tgx_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();"> 
+       
+        <div class="tgx_cover bg cover-1 carousel-item item-1">
+            <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small"></span></div>
+        </div>
+        <div class="tgx_cover bg cover-2 carousel-item item-2">
+            <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small"></span></div>
+        </div>
+        <div class="tgx_cover bg cover-3 carousel-item item-3">
+            <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small"></span></div>
+        </div>
+        
+       
+        <div class="tgx_text"> 
+                         <span class="tgx_text_title tgx_text_bold">
+             A New Silhouette for the Exterior.
+            </span> <br>
+                        <span class="tgx_text_medium" style="color: black;line-height:1.1em; font-size:13px; width:95%; text-align:justify;">
+                        <p style="margin-top: 11px; line-height: 1.1em; margin-left: 3px; ">
+                           The 2019 GLI combines a lowered sports suspension with lower side skirts</p>
+                          
+          
+               <div id="botones-para-compartir" style="display:inline;float:left;margin-left:4px; margin-top: 5px;">
+                    <span>  
+                        <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://newsroom.vw.com/vehicles/the-all-new-jetta-gli-is-back-for-2019/"  target="block">    
+                        <img alt="compartir en facebook" class="facebooki" height="25" src="https://i.imgur.com/nZQ0eBa.png" title="compartir en facebook" width="25" /></a>
+
+                            <a class="shared" href="whatsapp://send?text=¡Mira lo que he encontrado! https://newsroom.vw.com/vehicles/the-all-new-jetta-gli-is-back-for-2019/" target="block">
+                            <img alt="compartir en whatsapp" class="googlei" height="25" src="https://i.imgur.com/mwJgtoy.png" title="compartir en whatsapp" width="25" /></a>
+
+                            <a class="shared" href="https://twitter.com/home?status=https://newsroom.vw.com/vehicles/the-all-new-jetta-gli-is-back-for-2019/" target="block">
+                            <img alt="compartir en twitter" class="twitteri" height="25" src="https://i.imgur.com/fUFQ8Zg.png" title="compartir en twitter" width="25" /></a>
+                    </span>
+                </div>
+                <div class="logo">
+                    <img src="https://i.imgur.com/y8QKLzX.png" style="height:64px;margin-top:-30px;">
+                </div>
+
+                <div  class="map">
+                
+
+                    <span> <a href="https://goo.gl/maps/qrvgNiZXJK52" target="_blank" >  <img src="https://i.imgur.com/3aGIBaJ.png"></a> </span>
+        </div>
+
+            </span>
+
+        </div>   
+    </div>
+    </a>
+    </body>
+    
+
+</html>
