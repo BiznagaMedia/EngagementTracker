@@ -1,6 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+     <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+    
+    <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.juguetron.mx/tiendas/buscador';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -73,7 +111,7 @@
         }
 
         .corona .bg.cover-1 {
-            background-image: url(https://i.imgur.com/9PIJuss.gif)
+            background-image: url(https://i.imgur.com/g3UvcSf.gif)
         }
 
        
@@ -234,7 +272,7 @@
 
         
             <img src="" style="height:45px;"></a></div>
-        <a href="https://www.juguetron.mx/tiendas/buscador" target="_blank">
+        <a href="%%c1;cpdir=" target="_blank">
             <div class="carousel-container">
                 <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
                 <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>

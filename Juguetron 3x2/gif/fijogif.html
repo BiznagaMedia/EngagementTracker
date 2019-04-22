@@ -2,6 +2,44 @@
 <html lang="en">
 
 <head>
+    <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+    
+    <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.juguetron.mx/tiendas/buscador';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -63,7 +101,7 @@
         }
 
         .bg.cover-1 {
-            background: url("https://i.imgur.com/RCDTAcV.gif");
+            background: url("https://i.imgur.com/ddWV0Ng.gif");
             background-size: cover;
         }
 
@@ -108,7 +146,7 @@
 
         .tgx_text {
             position: absolute;
-            top: 74%;
+            top: 72%;
             left: 7.5px;
             width: 91%;
             padding: 0.3em;
@@ -241,7 +279,7 @@
             float: center;
             height: 34px;
             
-            margin-top: 32px;
+            margin-top: 45px;
             margin-left: -12px;
            
         }
@@ -256,7 +294,7 @@
 
 <body class="tgx">
     <div class="tgx_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
-       <a href="https://www.juguetron.mx/tiendas/buscador" target="_blank">
+       <a href="%%c1;cpdir=" target="_blank">
         <div class="tgx_cover bg cover-1 carousel-item item-1">
             <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small"></span></div>
         </div>
