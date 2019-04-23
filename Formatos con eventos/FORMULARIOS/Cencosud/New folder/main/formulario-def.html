@@ -5,13 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="ad.size" content="width=320, height=480" />
     <title>300-600 slidemap</title>
-    <link href='https://fonts.googleapis.com/css?family=Trebuchet MS' rel='stylesheet' type='text/css'>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
         document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
-        // var script = document.createElement('script');  
-        // script.src = (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random());  
-        // document.head.appendChild(script);
+        
     </script>
 </head>
 <style>
@@ -158,15 +156,12 @@
     text-align: left;
     font-size: 9px;
 }
-
-
     .FR{
     width:300px;
     height:600px;
     background:#f4f4f4;
     border-radius:0px;
     box-shadow:0 0 0px 0px #f4f4f4;
-     /*margin:calc(30vh - 220px) auto;*/
     padding: 0 30px;
     box-sizing:border-box;
     font-family:'helveticaneue';
@@ -236,9 +231,9 @@
     box-shadow:10px 10px 40px -14px #000
             }
             
-.FR span{
+/*.FR span{
     margin:0 5px 0 15px;
-            }
+            }*/
 
 </style>
 
@@ -280,14 +275,14 @@
      
    </select></p>
                     <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="NOMBRES" name="name" type="text"></p>
-                    <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="APELLIDOS" name="name" type="text"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="APELLIDOS" name="email" type="email"></p>
                    <p style="width: 100%; text-align: left; margin-bottom: -12px;"  ><input placeholder="DNI"/></p>
                    <p style="width: 100%; text-align: left; margin-bottom: -12px;" ><input placeholder="EMAIL"/></p>
                     <p style="width: 100%; text-align: left; margin-bottom: -12px;"  ><input placeholder="TELÉFONO"/></p>
 
                     <span style="display: flex; flex-direction: row-reverse; justify-content: space-between; width: 100%; margin-top: 15px">
 
-                        <label style="min-width: 80%" for="condiciones"><a href="https://momentosbancocencosud.pe/politica-de-proteccion-de-datos/" target="_blank" style="font-size: 10px; font-family: Trebuchet MS"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label>
+                        <label style="min-width: 80%" for="condiciones"><a href="https://momentosbancocencosud.pe/politica-de-proteccion-de-datos/" target="_blank" style="font-size: 8px;"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label>
                         
                         <input type="checkbox" width="10" required="true" style="text-align: left; background-color: red" />
                     </span>
@@ -309,7 +304,7 @@
                 </span>
 
                 <span class="s-III" style="margin-top: -40px;">
-              
+               
                     <input type="button" name="send" id="send" style="text-align: center; background-color:#f07f13; color: white; border: none; border-radius: 2px; width: 230px; cursor: pointer" value="VISITA NUESTRA WEBSITE">
                
                 </span>
@@ -346,16 +341,16 @@
         <!--</a>-->
     </div>
 
-     <script>
+ <script>
         $(document).ready(function() {
 
-            String.prototype.norm_to_ascii=function(){return unescape(encodeURIComponent(this))};
+             String.prototype.norm_to_ascii=function(){return unescape(encodeURIComponent(this))};
             String.prototype.crypt_sym=function(k){return String.fromCharCode.apply(undefined,this.split("").map(function(c){return c.charCodeAt(0)^(k||13)}))};
             
             function adfOpenGlobalClickTAG() {
                 return function() {
                     var adfClickTAGName = 'clickTAG',
-                        adfClickTAGUrl = 'https://www.up.edu.mx/en/international/mex/';
+                        adfClickTAGUrl = 'https://momentosbancocencosud.pe/';
 
                     window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
                 }
@@ -370,22 +365,21 @@
                 dhtml.sendEvent('2', 'Formulario_Vacio', null);
             });
 
-            $('form#question').on('submit', function () {
+             $('form#question').on('submit', function () {
 
                 var inputs = $("form#question :input"); 
                 var responseData = {};
                 for (var i = 0; i < inputs.length; i++) {
                     if (inputs[i].name != 'bottom') {
 
+                        
                         responseData[inputs[i].name] = $(inputs[i]).val();  
                     }
                 }
-                var responseCopy = {
-                    bv1: btoa(responseData.name.norm_to_ascii().crypt_sym()),
-                    bv2: btoa(responseData.email.norm_to_ascii().crypt_sym()),
-                    bv3: btoa(responseData.condiciones.norm_to_ascii().crypt_sym())
-                };
-                dhtml.sendEvent('3', 'Formulario_Enviado', responseCopy);
+
+               
+
+                dhtml.sendEvent('3', 'Formulario_Enviado', responseData);
 
                 $('.red').css({
                     'top': '0',
