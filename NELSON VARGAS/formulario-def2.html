@@ -43,6 +43,7 @@
         overflow: hidden;
         cursor: pointer;
         border: 1px solid #c5c5c5;
+        z-index: 5;
     }
 
     #ghost {
@@ -64,11 +65,13 @@
         position: absolute;
         box-sizing: border-box;
         transition: .5s;
+        z-index: 5;
     }
 
     .card:hover .imgBx {
         top: 0;
         left: 0;
+        z-index: 5;
     }
 
     .card .imgBx img {
@@ -88,6 +91,7 @@
         background: #f4f4f4;
         top: 0;
         left: 100%;
+        z-index: 5;
 
     }
 
@@ -280,9 +284,10 @@
         }
 
         .tgx_cover {
-            position: relative;
+            position: absolute;
             width: 100%;
             height: 70%;
+            z-index: 2;
         }
 
         .bg.cover-1 {
@@ -312,7 +317,7 @@
             left: -50px;
             background-color: #0064b1;
             padding: 5px;
-            border-radius: 50px;
+            border-radius: 18px;
             text-align: center;
         }
 
@@ -418,6 +423,7 @@
             right: 0;
             opacity: 0;
             transition: all 0.5s ease-in-out;
+            z-index: 2;
         }
 
         /*Select every element*/
@@ -490,7 +496,7 @@
 
         .tgx_sponsoredby {
             position: absolute;
-            z-index: 99;
+            z-index: 2;
         }
 
         .tgx_sponsoredby.tgx_pos_br {
@@ -553,7 +559,7 @@
         <map name="primary">
   <area shape="rect" style="cursor: ha" coords="50,0,150,175" href="left.html">
 </map>
-<img usemap="#primary" style="position: absolute; z-index: 999; opacity: 0.2" src="https://placehold.it/350x150" alt="350 x 150 pic">-->
+<img usemap="#primary" style="position: absolute; z-index: 2; opacity: 0.2" src="https://placehold.it/350x150" alt="350 x 150 pic">-->
 
         <!--<a href="" target="_blank"  style="color: none; text-decoration: none;">-->
 
@@ -587,7 +593,9 @@
                     
             
 </span>
-
+</p>
+</span>
+</div>
 
             <div class="details" style="background-color: #f4f4f4">
                 <!--<iframe src="Formulario.html" width="306" height="605" frameborder="0" scrolling="no" position="absolute" style="margin-left: 0px; margin-top: -8px;"></iframe>-->
@@ -612,7 +620,7 @@
 
                     <span style="display: flex; flex-direction: row-reverse; justify-content: space-between; width: 100%; margin-top: 15px">
 
-                        <label style="min-width: 80%" for="condiciones"><a href="ACA VA LA URL O CORREO A DONDE SE ENVIARÁ LA INFORMACIÓN DEL FORMULARIO," target="_blank" style="font-size: 10px; font-family: Trebuchet MS"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label>
+                        <label style="min-width: 80%" for="condiciones"><a href="ACA VA LA URL O CORREO A DONDE SE ENVIARÁ LA INFORMACIÓN DEL FORMULARIO," target="_blank" style="font-size: 10px; font-family: Trebuchet MS; color: blue;"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label>
                         
                         <input type="checkbox" width="10" required="true" style="text-align: left; background-color: red" />
                     </span>
@@ -670,6 +678,15 @@
 
         
         <!--</a>-->
+        <script>
+            $(document).ready(function(){
+
+                $('.card').click(function(){
+                    $('.details').css({'top':'0', 'left': '0px'});
+                })
+
+            });
+        </script>
    
 
         
