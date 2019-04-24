@@ -17,16 +17,16 @@
                 {
                     start: 3,
                     position: [//position donde saldra el circulo sobre el video
-                        'left: 5px;',
-                        'top: 85px;'
+                        'left: 90px;',
+                        'top: 170px;'
                     ],
                     img_screen: 'https://i.imgur.com/hgcsJx7.png',
                     href: 'https://www2.hm.com/en_us/productpage.0733864002.html',
                 },{
                     start: 3,
                     position: [
-                        'left: 175px;',
-                        'top: 55px;'
+                        'left: 160px;',
+                        'top: 170px;'
                     ],
                     img_screen: 'https://i.imgur.com/TtDfGcd.png',
                     href: 'https://www2.hm.com/en_us/productpage.0733852001.html'
@@ -34,16 +34,16 @@
                  {
                     start: 15,
                     position: [
-                        'left: 30px;',
-                        'top: 30px;'
+                        'left: 120px;',
+                        'top: 170px;'
                     ],
                     img_screen: 'https://i.imgur.com/hgcsJx7.png',
                     href: 'https://www2.hm.com/en_us/productpage.0747246002.html'                    
                 },{
                     start: 20,
                     position: [
-                        'left: 30px;',
-                        'top: 150px;'
+                        'left: 120px;',
+                        'top: 170px;'
                     ],
                     img_screen: 'https://i.imgur.com/TtDfGcd.png',
                     href: 'https://www2.hm.com/en_us/productpage.0188183022.html'                    
@@ -51,17 +51,17 @@
             ];
              
             var configRemoved = {
-               5: {
+               10: {
                     position: 3
                 },
-               5: {
+               10: {
                     position: 3
                 },
                 
-                19: {
+                20: {
                     position: 15
                 },
-               22: {
+               24: {
                     position: 20
                 }
             };
@@ -165,7 +165,7 @@
         <div class="video-container">
             <iframe src="" style="width:320px;height:270px;margin-top: px; margin-left: px;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" id="fitvid434752"></iframe>
 
-            <div class="over-video"></div>
+            <!-- <div class="over-video"></div> -->
 
         </div>
 
@@ -216,17 +216,18 @@
 
                 function _controlModalLinkAndScreen() {
 
-                    var screen = document.querySelector(".video-container .over-video");
-                    if (screen) {
-                        addEvent(screen, 'click', function($e) {
-                            $e.preventDefault();
-                            $e.stopPropagation();
-                            var href = linkRedirect;
-                            var callback = goToLink(href);
-                            /* Add Event 'click inner video' */
-                            window.setTimeout(callback, 500);
-                        });
-                    }
+                    // var screen = document.querySelector(".video-container .over-video");
+                    // if (screen) {
+                    //     addEvent(screen, 'click', function($e) {
+                    //         $e.preventDefault();
+                    //         $e.stopPropagation();
+                    //         var href = linkRedirect;
+                    //         var callback = goToLink(href);
+                    //         /* Add Event 'click inner video' */
+                    //         window.setTimeout(callback, 500);
+                    //     });
+                    // }
+                    return;
                 };
 
                 _controlModalLinkAndScreen();
@@ -412,6 +413,7 @@
                         circle.onclick = function($e) {
                             $e.preventDefault();
                             $e.stopPropagation();
+                            gtmYTListeners[0].event.pauseVideo();
                             configureAndShowModal($e);
                         };
                         var base = document.querySelector('.video-container');
