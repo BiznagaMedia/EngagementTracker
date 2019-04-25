@@ -1,0 +1,746 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="ad.size" content="width=320, height=480" />
+    <title>Toyota Vallejo</title>
+    <link href='https://fonts.googleapis.com/css?family=Trebuchet MS' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var script = document.createElement('script');  
+        script.src = (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random());  
+        document.head.appendChild(script);
+    </script>
+</head>
+<style>
+
+@font-face {
+  font-family: Trebuchet MS;
+  src: url(Trebuchet MS.woff);
+}
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Trebuchet MS;
+    }
+
+    .imgBx:details {
+        content: "";
+        width: 298px;
+        height: 598px;
+        position: absolute;
+    }
+
+    .card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 298px;
+        height: 598px;
+        background: none;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid #c5c5c5;
+        z-index: 5;
+    }
+
+    #ghost {
+        position: absolute;
+        margin-top: 230px;
+        margin-left: 36px;
+        z-index: 999;
+        width: 228px;
+        height: 200px;
+        cursor: pointer;
+        display: none;
+    }
+
+
+    .card .imgBx,
+    .card .details,  .card .red{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        box-sizing: border-box;
+        transition: .5s;
+        z-index: 5;
+    }
+
+    .card:hover .imgBx {
+        top: 0;
+        left: 0;
+        z-index: 5;
+    }
+
+    .card .imgBx img {
+        width: 100%;
+    }
+
+    .card .details {
+        width: 100%;
+        background: none;
+        top: 0;
+        left: 100%;
+
+    }
+    
+    .card .red {
+        width: 100%;
+        background: #fff;
+        top: 0;
+        left: 100%;
+        z-index: 5;
+
+    }
+
+    /*.card:hover .details {
+    top: 0;
+    left: 0%;
+}*/
+    .card .details .red h2 {
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 0 0 10px;
+        text-decoration: none;
+
+
+    }
+
+    .card .details .red p {
+        margin: 20px 0 0;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .facebooki {
+        margin-left: 40px;
+    }
+
+    .facebooki,
+    .twitteri,
+    .googlei {
+        padding: 15px;
+    }
+    
+    /*-------------------------------------*/
+    
+    #question p input  {
+
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: helveticaneue;
+    background-color: #ffffff;
+    font-size: 11px;
+}
+
+  #question select  {
+
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Trebuchet MS;
+    background-color: #ffffff;
+    font-size: 11px;
+    text-align: left;
+    color: #a4a3a3;
+}
+
+
+ #question option  {
+     color: #a4a3a3;
+    text-align: left;
+    font-size: 9px;
+}
+    .FR{
+    width:300px;
+    height:600px;
+    background:#fff;
+    border-radius:0px;
+    box-shadow:0 0 0px 0px #fff;
+    padding: 0 30px;
+    box-sizing:border-box;
+    font-family:'Trebuchet MS';
+    position:relative
+}
+            
+            
+.FR h2{
+    margin:10px 0;
+    padding-bottom:10px;
+    width:180px;
+    color:#78788c;
+    border-bottom:3px solid #78788c
+            }
+            
+.FR input{
+    /*width:100%;*/
+    padding:10px;
+    box-sizing:border-box;
+    background:none;
+    outline:none;
+    resize:none;
+    border:0;
+    font-family:'Trebuchet MS';
+    transition:all .3s;
+    border-bottom:2px solid #bebed2
+            }
+            
+.FR input:focus{
+    border-bottom:2px solid #78788c
+            }
+            
+.FR p:before{
+    content:attr(type);
+    display:block;
+    margin:28px 0 0;
+    font-size:14px;
+    color:#5a5a5a
+            }
+            
+.FR button{
+    float:right;
+    padding:8px 12px;
+    margin:8px 0 0;
+    font-family:'Trebuchet MS';
+    border:2px solid #78788c;
+    background:0;color:#5a5a6e;
+    cursor:pointer;
+    transition:all .3s
+            }
+            
+.FR button:hover{
+    background:#78788c;
+    color:#fff
+            }
+            
+.FR div{content:'Hi';
+    position:absolute;
+    bottom:-15px;
+    right:-20px;
+    background:#50505a;
+    color:#fff;
+    width:320px;
+    padding:16px 4px 16px 0;
+    border-radius:6px;
+    font-size:13px;
+    box-shadow:10px 10px 40px -14px #000
+            }
+            
+/*.FR span{
+    margin:0 5px 0 15px;
+            }*/
+    /*------------CSS Fade-------------*/
+    
+    
+    body.tgx {
+            background-color: #FFFFFF;
+            color: black;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .tgx_wrapper {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #c5c5c5;
+            cursor: pointer;
+        }
+
+        .tgx_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
+        }
+
+        .tgx_wrapper.size_320x480 {
+            width: 298px;
+            height: 598px;
+        }
+
+        .tgx_wrapper.size_320x50 {
+            width: 318px;
+            height: 48px;
+        }
+
+        .tgx_wrapper.size_728x90 {
+            width: 726px;
+            height: 88px;
+        }
+
+        .tgx_cover {
+            position: absolute;
+            width: 100%;
+            height: 70%;
+            z-index: 2;
+        }
+
+        .bg.cover-1 {
+            background: url("https://i.imgur.com/XGv4xR7.png");
+            background-size: cover;
+        }
+
+        .bg.cover-2 {
+            background: url("https://i.imgur.com/peOTNVj.png");
+            background-size: cover;
+            
+        }
+
+        .bg.cover-3 {
+            background: url("https://i.imgur.com/PVtTG92.png");
+            background-size: cover;
+            
+        }
+
+        .tgx_cover .tgx_logo {
+            position: absolute;
+            bottom: -15px;
+            width: 160px;
+            line-height: 1.3em;
+            z-index: 2;
+            margin-left: 48%;
+            left: -80px;
+            background-color: #ffce00;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .tgx_cover .tgx_logo span {
+            color: black;
+        }
+
+        .tgx_logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .tgx_pos_tl {
+            top: 3%;
+            left: 3%;
+        }
+
+        .tgx_pos_tr {
+            top: 3%;
+            right: 3%;
+        }
+
+        .tgx_pos_bl {
+            bottom: 3%;
+            left: 3%;
+        }
+
+        .tgx_pos_br {
+            bottom: 3%;
+            right: 3%;
+        }
+
+        .tgx_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%);
+        }
+
+        /* cover height + 5% */
+
+      .tgx_text {
+            position: absolute;
+            top: 79%;
+            left: 7.5px;
+            width: 91%;
+            padding: 0.3em;
+            line-height: 1.1em;
+            color: #453936;
+            font-family: Trebuchet MS;
+        }
+
+        .tgx_text_title {
+            font-size: 130%;
+            color: black;
+            display: inline-block;
+            width: 98%;
+            margin-bottom: -20px;
+            text-align: center;
+            margin-left: 7px;
+            line-height: 1.1em;
+            margin-top: -30px;
+                
+        }
+
+        .tgx_text_light {
+            font-weight: 400;
+        }
+
+        .tgx_text_medium {
+            font-weight: 700;
+        }
+
+      .tgx_text_bold {
+            font-weight: 750;
+
+        }
+
+        .tgx_text_small {
+            font-size: 100%;
+            text-align:center;
+            
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
+
+        /*Carousel in Cover */
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            z-index: 2;
+        }
+
+        /*Select every element*/
+
+        [id^="item"] {
+            display: none;
+        }
+
+        .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 8s infinite;
+            -webkit-animation: fade 8s infinite;
+        }
+
+        .item-2 {
+            animation: fade2 8s infinite;
+            -webkit-animation: fade2 8s infinite;
+        }
+
+        .item-3 {
+            animation: fade3 8s infinite;
+            -webkit-animation: fade3 8s infinite;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade2 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 1
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 1
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        .tgx_sponsoredby {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .tgx_sponsoredby.tgx_pos_br {
+            right: 1%;
+            bottom: 0% !important;
+        }
+
+        .tgx_sponsoredby .sponsor {
+            font-size: 9px;
+            display: inline-block;
+            float: left;
+            margin-right: 3px;
+            margin-top: 7px;
+        }
+
+        .tgx_sponsoredby:hover .sponsor {
+            opacity: 1;
+        }
+
+        .tgx_sponsoredby .tgx_logo {
+            width: 70px;
+            display: inline-block;
+            float: right;
+        }
+
+        .tgx_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #0064b1;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
+
+        .tgx_button:hover {
+            background-color: #0064b1;
+        }
+        
+         .logo {
+            width: 5%;
+            z-index: 2;
+            float: right;
+            height: 20px;
+            text-align: right;
+            margin-top: 550px;
+            margin-right: 120px
+        }
+
+</style>
+
+<body>
+
+    <div class="card">
+        <!--
+        <map name="primary">
+  <area shape="rect" style="cursor: ha" coords="50,0,150,175" href="left.html">
+</map>
+<img usemap="#primary" style="position: absolute; z-index: 2; opacity: 0.2" src="https://placehold.it/350x150" alt="350 x 150 pic">-->
+
+        <!--<a href="" target="_blank"  style="color: none; text-decoration: none;">-->
+
+        <div id="ghost"></div>
+
+        
+    <div class="screen1 tgx_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+       
+        <div class="tgx_cover bg cover-1 carousel-item item-1">
+            <div class="tgx_logo"><span class=" tgx_text_small"><b>Prueba de manejo</b></span></div>
+        </div>
+        <div class="tgx_cover bg cover-2 carousel-item item-2">
+            <div class="tgx_logo"><span class=" tgx_text_small"><b>Prueba de manejo</b></span></div>
+        </div>
+        <div class="tgx_cover bg cover-3 carousel-item item-3">
+            <div class="tgx_logo"><span class=" tgx_text_small"><b>Prueba de manejo</b></span></div>
+        </div>
+
+
+        <div class="tgx_text"> 
+            <span class="tgx_text_title tgx_text_bold">
+              Renault al instante.
+            </span>
+              <br/>
+             <span class="tgx_text tgx_text_small" style="margin-top:-10px;">
+                <p>Estrenar un Renault es tan fácil que puedes decidirlo en cualquier momento.</p><br/> 
+            </span>
+  
+            </div>
+          
+          
+                <div class="logo">
+                    <img src="https://i.imgur.com/oCIr3ue.png" style="height:40px">
+                </div>
+                    
+                    
+            
+</span>
+</p>
+</span>
+</div>
+
+            <div class="details" style="background-color: #fff">
+                <!--<iframe src="Formulario.html" width="306" height="605" frameborder="0" scrolling="no" position="absolute" style="margin-left: 0px; margin-top: -8px;"></iframe>-->
+                <form id="question" class="FR form">
+                    <center>
+                    <span style="bottom:1px; text-align:center ; float:center; background-color: #fff;"> <img src="https://i.imgur.com/oCIr3ue.png" style="height:65px; width: 234px; text-decoration: none; border-radius:0px; margin-top:50px; margin-left: 0px;
+    box-shadow:0 0 0px 0px #fff; margin-bottom: -5px;"></span>
+
+    <span style="bottom:10px; text-align:center ; float:center; background-color: #fff;"> <img src="https://i.imgur.com/7SiWcRG.png" style="height:60px; width: 210px; text-decoration: none; border-radius:0px; margin-top:40px; margin-left: 0px;
+    box-shadow:0 0 0px 0px #fff; margin-bottom: 20px;"></span>
+
+                    
+
+                    <!--<h2>CONTÁCTANOS</h2>-->
+                    <p style="width: 100%; text-align: left; margin-bottom: 30px;" ><input placeholder="NOMBRE COMPLETO:" name="name" type="text"></p>
+   
+                    <p style="width: 100%; text-align: left; margin-bottom: 30px;" ><input placeholder="CORREO:" name="name" type="text"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: 30px;" ><input placeholder="TELÉFONO:" name="name" type="text"></p>
+                   
+                  
+
+                    <span style="display: flex; flex-direction: row-reverse; justify-content: space-between; width: 100%; margin-top: 15px">
+
+                        <label style="min-width: 80%;" for="condiciones"><a href="ACA VA LA URL O CORREO A DONDE SE ENVIARÁ LA INFORMACIÓN DEL FORMULARIO," target="_blank" style="font-size: 10px; font-family: Trebuchet MS; color: #ffce00;"> He leído y acepto las condiciones de tratamiento de mis datos personales.</a></label>
+                        
+                        <input type="checkbox" width="10" required="true" style="text-align: left; background-color: #ffce00" />
+                    </span>
+
+                    <input type="submit" name="bottom" style="margin-top: 30px; text-align: center; background-color:#ffce00; color: black; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -50px; cursor: pointer" value="SOLICITAR">
+                    
+                </center>
+                </form>
+            </div>
+
+            <div class="FR red">
+                <center>
+                <span class="s-I" style="width: 300px; margin-left: -30px;"> 
+                    <img src="https://i.imgur.com/65DTj4k.gif" style="height:170px;  text-decoration: none; border-radius:0px;
+    box-shadow:0 0 0px 0px #fff; margin-top: 0px;"></span>
+
+                <span class="s-II bzm_text_title  bzm_text_medium" style="margin-top: -40px;">
+
+                    <img src="https://i.imgur.com/hUPRPyN.png" style=" width: 320px;height:150px; text-decoration: none;">
+                </span>
+
+                <span class="s-III" style="margin-top: -40px;">
+                <a href="https://www.renault.com.mx/test_drive_manejo.html" target="_blank">
+                    <input type="button" name="send" id="send" style="text-align: center; background-color:#ffce00; color: black; border: none; border-radius: 2px; width: 230px; cursor: pointer" value="VISITA NUESTRA WEBSITE">
+                </a>
+                </span>
+                    </center>
+            </div>
+            
+            <style>
+                .red{
+                }
+                
+                .red .s-I, .red .s-II, .red .s-III{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    left: 0px;
+                    width: 100%;
+                    margin-left: 0px;
+                }
+                .red .s-II{
+                    height: 10%;
+                }
+                .red .s-II{
+                    height: 70%;
+                }
+                .red .s-III{
+                    align-items: flex-start;
+                    height: 20%;
+                }
+            </style>
+
+
+        
+        <!--</a>-->
+        <script>
+            $(document).ready(function(){
+
+                $('.card').click(function(){
+                    $('.details').css({'top':'0', 'left': '0px'});
+                })
+
+            });
+        </script>
+   
+
+        
+ <script>
+        $(document).ready(function() {
+
+            $('.screen1').click(function() {
+                $('.details').css({
+                    'top': '0',
+                    'left': '0px'
+                });
+                dhtml.sendEvent('1', 'Formulario_Click', null);
+                dhtml.sendEvent('2', 'Formulario_Vacio', null);
+            });
+
+             $('form#question').on('submit', function () {
+
+                var inputs = $("form#question :input"); 
+                var responseData = {};
+                for (var i = 0; i < inputs.length; i++) {
+                    if (inputs[i].name != 'bottom') {
+
+                        var value = null;
+                        if (inputs[i].name == 'condiciones') {
+                            value =  $(inputs[i]).val() == 'on' ? true : false;
+                        }else {
+                            value =  $(inputs[i]).val();   
+                        }
+                        responseData[inputs[i].name] = value;
+                    }
+                }
+                dhtml.sendEvent('3', 'Formulario_Enviado', responseData);
+
+                $('.red').css({
+                    'top': '0',
+                    'left': '0px'
+                });           
+                dhtml.sendEvent('4', 'Formulario_Gracias', null);     
+                return false;
+            });
+
+            $('#send').click(function() {
+                dhtml.sendEvent('5', 'Formulario_ClickFin', null);
+            });
+
+        });
+    </script>
+    
+
+</body>
+
