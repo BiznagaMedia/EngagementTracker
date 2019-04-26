@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<head>
+<title>HTML5 STUDIO BUILDER: Venetian v 1.5</title>
+
+<!-- Adform API Script -->
+<script type="text/javascript">
+document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+</script>
+
+<!--#head:common/head-->
+<!--#slice.head:slice/globalhead-->
+<script>
+    (function () {
+        'use strict';
+
+        var objectProto = Object.prototype;
+        var opToString = objectProto.toString;
+        var opHasOwnProp = objectProto.hasOwnProperty;
+        var arrayProto = Array.prototype;
+        var apSlice = arrayProto.slice;
+
+        // Type checks based on https://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/
+        function isDefined(param) {
+            return typeof param !== 'undefined';
+        }
+
+        function isString(param) {
+            return typeof param === 'string';
+        }
+
+        function isfunction(param) {
+            return typeof param === 'function';
+        }
+
+        // TODO: what about Float32Array, similar ArrayBuffer views and things like NodeList? isArraylike would be nice...
+        // Array.isArray(new Float32Array(10)) === false, by the way
+
+        function isObject(param) {
+            return param && opToString.call(param) === '[object Object]'; // TODO: not strictly correct...
+        }
+
+        function toType(param) {
+            return opToString.call(param).slice(8, -1).toLowerCase();
+        }
+
+        function hasOwnProp(object, propName) {
+            return object && opHasOwnProp.call(object, propName);
+        }
+
+        function cloneArraylike(array) {
+            var clone = [];
+            var length = clone.length = Math.max(0, array.length) | 0;
+
+            for (var i = 0; i < length; i++) {
+                clone[i] = array[i];
+            }
+
+            return clone;
+        }
+
+        /**
+         * @param {number} index
+         * @param {number} length
+         * @return {number}
+         */
+        function wrapIndex(index, length) {
+            if (index > 0) {
+                index = index % length;
+            } else if (index < 0) {
+                index = (index + 1) % length + length - 1;
+            }
+
+            return index;
+        }
+
+        var now = Date.now ||  function () {
+                return new Date().getTime();
+            };
+
+        function bindArgsRight(callback) {
+            var defaultArgs = apSlice.call(arguments, 1); // TODO: check old IE
+            var _this = this;
+
+            return function () {
+                return callback.apply(_this, apSlice.call(arguments).concat(defaultArgs));
+            };
+        }
+
+        function fail(message) {
+            throw new Error(message);
+        }
+
+        function rethrowDelayed(error) {
+            setTimeout(function () {
+                throw error;
+            }, 0);
+        }
+
+        var defaultDoc = document;
+        var elemProto = Element.prototype;
+        var testElem = null;
+        var stylePropMap = {};
+        var VENDOR_PREFIXES = ['ms', 'Ms', 'webkit', 'Webkit', 'moz', 'Moz', 'o', 'O'];
+        var ADD_EVENT = 'addEventListener';
+        var ATTACH_EVENT = 'attachEvent';
+        var MATCHES = 'matches' in elemProto ? 'matches' : getPrefixedPropName(elemProto, 'matchesSelector', VENDOR_PREFIXES, false);
+        var DOC_HIDDEN = getPrefixedPropName(defaultDoc, 'hidden', VENDOR_PREFIXES, false);
+        var DOC_VISIBILITYCHANGE = DOC_HIDDEN ? (DOC_HIDDEN.slice(0, -6).toLowerCase() + 'visibilitychange') : null;
+
+        /**
+         * Finds prefixed (camelCase) object property name
+         * @param {Object} object
+         * @param {string} propName
+         * @param {string[]} prefixes
+         * @param {boolean=} isOwnProp
+         * @return {?string} Prefixed object property name or null
+         */
+        function getPrefixedPropName(object, propName, prefixes, isOwnProp) {
+            if ((!isOwnProp && propName in object) || (isOwnProp && hasOwnProp(object, propName))) {
+                return propName;
+            }
+
+            propName = propName.charAt(0).toUpperCase() + propName.slice(1);
+
+            for (var i = 0, prefixedPropName; i < prefixes.length; i++) {
+                prefixedPropName = prefixes[i] + propName;
+
+                if ((!isOwnProp && prefixedPropName in object) || (isOwnProp && hasOwnProp(object, prefixedPropName))) {
+                    return prefixedPropName;
+                }
+            }
+
+            return null;
+        }
+
+        /**
+         * Finds prefixed (camelCase) Element style property name
+         * @param propName
+         * @return {?string} Prefixed Element style property name or null
+         */
+        function getStylePropName(propName) {
+            if (!testElem) {
+                testElem = defaultDoc.createElement('div');
+            }
+
+            if (hasOwnProp(stylePropMap, propName)) {
+                return stylePropMap[propName];
+            } else {
+                return stylePropMap[propName] = getPrefixedPropName(testElem.style, propName, VENDOR_PREFIXES, false);
+            }
+        }
+
+        /**
+         * @param {HTMLElement} elem
+         * @param {string} eventName
+         * @param {function} listener
+         * @return {boolean}
+         */
+        function addEvent(elem, eventName, listener) {
+            return elem[ADD_EVENT] ? elem[ADD_EVENT](eventName, listener, false) : elem[ATTACH_EVENT]
+                    ? elem[ATTACH_EVENT]('on' + eventName, listener) : false;
+        }
+
+        /**
+         * @param event
+         */
+        function preventDefault(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            }
+
+            event.returnValue = false;
+        }
+
+        /**
+         * Clamps a value into the range [a, b] (or [b, a] if b > a)
+         * @param {number} value
+         * @param {number} a
+         * @param {number} b
+         * @return {number}
+         */
+        function clamp(value, a, b) {
+            if (a > b) {
+                return clamp(value, b, a);
+            }
+
+            return Math.min(b, Math.max(value, a));
+        }
+
+        function linear(t) {
+            return t;
+        }
+
+        function inQuad(t) {
+            return t * t;
+        }
+
+        function outQuad(t) {
+            return -t * (t - 2);
+        }
+
+        function inOutQuad(t) {
+            return 1 > (t *= 2)
+                ? 0.5 * t * t
+                : -0.5 * (--t * (t - 2) - 1);
+        }
+
+        // TODO: shorter prop. names?
+
+        function _nullListeners(listenerDataArray, listener) {
+            var nulledCount = 0;
+            var listenerData;
+
+            for (var i = 0; i < listenerDataArray.length; i++) {
+                listenerData = listenerDataArray[i];
+
+                if (listenerData && listenerData.listener === listener) {
+                    listenerDataArray[i] = null;
+                    nulledCount++;
+                }
+            }
+
+            return nulledCount;
+        }
+
+        function _filterListeners(listenerDataArray, listener) {
+            var oldLength = listenerDataArray.length;
+            var newLength = 0;
+            var listenerData;
+
+            // Filter and compact array
+            for (var i = 0; i < oldLength; i++) {
+                listenerData = listenerDataArray[i];
+
+                if (listenerData && listenerData.listener !== listener) {
+                    if (i !== newLength) {
+                        listenerDataArray[newLength] = listenerData;
+                    }
+
+                    newLength++;
+                }
+            }
+
+            listenerDataArray.length = newLength;
+
+            return oldLength - newLength;
+        }
+
+        /**
+         * @constructor
+         */
+        function EventEmitter() {
+            this._map = {};
+        }
+
+        var emitterProto = EventEmitter.prototype;
+
+        /**
+         * @param {string} eventName
+         * @param {function} listener
+         * @param {*} context
+         * @return {EventEmitter}
+         */
+        emitterProto.on = function (eventName, listener, context) {
+            if (!isfunction(listener)) {
+                throw new TypeError('Argument 2 (listener) is not a function.');
+            }
+
+            var eventData = this._map[eventName];
+
+            if (!eventData) {
+                eventData = this._map[eventName] = {
+                    listenerDataArray: [],  // Array.<{listener: function, context: *}|null>
+                    isDirty: false,         // Indicates whether listenerDataArray contains null entries
+                    activeEmitCount: 0      // Indicates how many EventEmitter#emit are currently being executed for this event
+                };
+            }
+
+            eventData.listenerDataArray.push({
+                listener: listener,
+                context: context
+            });
+
+            return this;
+        };
+
+        /**
+         * @param {string} eventName
+         * @param {function=} listener
+         * @return {EventEmitter}
+         */
+        emitterProto.off = function (eventName, listener) {
+            if (listener !== null && !isfunction(listener)) { // Intentional non-strict equals
+                throw new TypeError('Argument 2 (listener) is not a function.');
+            }
+
+            var eventData = this._map[eventName];
+            var listenerDataArray;
+
+            if (!eventData) {
+                return this;
+            }
+
+            listenerDataArray = eventData.listenerDataArray;
+
+            if (eventData.activeEmitCount > 0) {
+                // If EventEmitter#emit is being executed for this particular eventName at the moment, listenerDataArray length
+                // must stay the same, otherwise some listeners might get skipped. Instead of removing only null out matches and
+                // EventEmitter#emit will handle cleanup
+                eventData.isDirty |= !!_nullListeners(listenerDataArray, listener);
+            } else {
+                // If EventEmitter#emit is not being executed for this particular eventName at the moment, it's safe to remove
+                // entries from listenerDataArray...
+                if (listener) {
+                    _filterListeners(listenerDataArray, listener);
+                }
+
+                // ... or delete eventData entirely
+                if (!listener || !listenerDataArray.length) {
+                    delete this._map[eventName];
+                }
+            }
+
+            return this;
+        };
+
+        /**
+         * @param {string} eventName
+         * @param {*=} param2
+         * @param {*=} param3
+         * @param {*=} param4
+         * @return {EventEmitter}
+         */
+        emitterProto.emit = function (eventName, param2, param3, param4) {
+            var eventData = this._map[eventName];
+            var listenerDataArray;
+            var listenerData;
+            var listener;
+            var context;
+            var listenerError;
+
+            if (!eventData) {
+                return this;
+            }
+
+            listenerDataArray = eventData.listenerDataArray;
+
+            eventData.activeEmitCount++;
+
+            try {
+                for (var i = 0; i < listenerDataArray.length; i++) {
+                    listenerData = listenerDataArray[i];
+
+                    if (!listenerData) {
+                        continue;
+                    }
+
+                    listener = listenerData.listener;
+                    context = listenerData.context;
+
+                    // This seems a little convoluted, however there is a huge performance penalty for using
+                    // Array.prototype.slice on arguments. See http://jsperf.com/event-emitter-performance-array-slice
+                    switch (arguments.length) {
+                        case 1:
+                            listener.call(context);
+                            break;
+                        case 2:
+                            listener.call(context, param2);
+                            break;
+                        case 3:
+                            listener.call(context, param2, param3);
+                            break;
+                        case 4:
+                            listener.call(context, param2, param3, param4);
+                            break;
+                        default:
+                            listener.apply(context, Array.prototype.slice.call(arguments, 1));
+                            break;
+                    }
+                }
+            } catch (error) {
+                listenerError = error;
+            }
+
+            eventData.activeEmitCount--;
+
+            if (!eventData.activeEmitCount && eventData.isDirty) {
+                _filterListeners(listenerDataArray, null);
+                eventData.isDirty = false;
+
+                if (!listenerDataArray.length) {
+                    delete this._map[eventName];
+                }
+            }
+
+            if (listenerError) {
+                throw listenerError;
+            }
+
+            return this;
+        };
+
+        emitterProto.hasListener = function (eventName) {
+            var eventData = this._map[eventName];
+
+            // No data at all
+            if (!eventData) {
+                return false;
+            }
+
+            // Have clean data
+            if (!eventData.isDirty) {
+                return !!eventData.listenerDataArray.length;
+            }
+
+            // Have data, not sure if non-null entry exists...
+            var listenerDataArray = eventData.listenerDataArray;
+
+            for (var i = 0; i < listenerDataArray.length; i++) {
+                if (listenerDataArray[i]) {
+                    return true;
+                }
+            }
+
+            return false;
+        };
+
+        //export function getDhtmlAdbox() {
+        //    var adboxElem = null;
+        //
+        //    try {
+        //        //adboxElem = parentWindow.Adform.adRegister[getFullBn()].adBox.get('element');
+        //        adboxElem = _AdformContent._adbox._attributes.element;
+        //    } catch (error) {
+        //        // To throw, or not to throw, that is the question...
+        //    }
+        //
+        //    return adboxElem;
+        //}
+
+        // TODO: polite load
+        // TODO: visibility
+        // TODO: getAdbox
+        // TODO: test test test test test
+
+        /**
+         * @param {string} url
+         * @param {string=} target
+         */
+        function open(url, target) {
+            if (window.mraid) {
+                mraid.open(url);
+            } else {
+                if (!target) {
+                    target = window.dhtml ? dhtml.getVar('landingpagetarget', '_blank') : '_blank';
+                }
+
+                window.open(url, target);
+            }
+        }
+
+        /**
+         * @param {function} callback
+         */
+        function onVisibilityChange(callback) {
+
+            if (window.mraid) {
+                onVisibilityMraid(callback);
+            } else {
+                onVisibilityDhtml(callback);
+            }
+        }
+
+        function onVisibilityMraid(callback) {
+            var lastBxdTime;
+            var issActiveTab;
+
+            Adform.on('visibilityData', function (data) {
+
+                issActiveTab = lastBxdTime !== data.bxdTime;
+                lastBxdTime = data.bxdTime;
+
+                callback({
+                    visibleArea: data.visibleArea,
+                    isActiveTab: issActiveTab
+                });
+            });
+        }
+
+        function onVisibilityDhtml(callback) {
+            var isVisibleArea;
+            var isActiveTab;
+
+            function invokeCallback() {
+                callback({
+                    visibleArea: isVisibleArea,
+                    isActiveTab: isActiveTab
+                });
+            }
+
+            dhtml.inscreen.on('percent', function (visibility) {
+                isVisibleArea = visibility;
+
+                invokeCallback();
+            });
+
+            dhtml.inscreen.on('visible', function (isActive) {
+                isActiveTab = isActive;
+
+                invokeCallback();
+            });
+        }
+
+        /**
+         * TODO: ...
+         * @param {Object} options
+         * @param {HTMLElement} options.element
+         * @param {Function} options.listener
+         * @param {boolean} options.shouldPreventDefault
+         * @param {number} options.timeoutDuration
+         * @param {Object=} options.context
+         */
+        function addMouseWheelListener(options) {
+            var canCallListener = true;
+            var elem = options.element;
+            var listener = options.listener;
+            var shouldPreventDefault = options.shouldPreventDefault;
+            var timeoutDuration = parseInt(options.timeoutDuration) || 150;
+            var context = options.context;
+
+            function internalListener(event) {
+                event = event || window.event;
+
+                if (shouldPreventDefault) {
+                    preventDefault(event);
+                }
+
+                if (canCallListener) {
+                    if (timeoutDuration) {
+                        canCallListener = false;
+                        setTimeout(resetCanCallListener, timeoutDuration);
+                    }
+
+                    listener.call(context || this, event, (event.detail < 0 || event.wheelDelta > 0) ? 1 : -1);
+                }
+            }
+
+            function resetCanCallListener() {
+                canCallListener = true;
+            }
+
+            addEvent(elem, 'mousewheel', internalListener);
+            addEvent(elem, 'DOMMouseScroll', internalListener);
+        }
+
+        var VALUE_MUST_BE = 'Value must be ';
+
+        function parseProp(object, propName, parseFunction, testFunction, fallback) {
+            if (!hasOwnProp(object, propName) && arguments.length >= 5) {
+                return fallback;
+            }
+
+            var value = object[propName];
+            var parsedValue = parseFunction ? parseFunction(value) : value;
+
+            if (testFunction) {
+                try {
+                    testFunction(parsedValue);
+                } catch (error) {
+                    throw new Error('Invalid ' + propName + ': ' + value + '. ' + error.message);
+                }
+            }
+
+            return parsedValue;
+        }
+
+        function testIsInRange(param, rangeOptions) {
+            var threshold;
+
+            if ((threshold = rangeOptions['<'], isDefined(threshold)) && !(param < threshold)) {
+                fail(VALUE_MUST_BE + 'lesser than ' + threshold);
+            }
+
+            if ((threshold = rangeOptions['<='], isDefined(threshold)) && !(param <= threshold)) {
+                fail(VALUE_MUST_BE + 'lesser than or equal to ' + threshold);
+            }
+
+            if ((threshold = rangeOptions['>'], isDefined(threshold)) && !(param > threshold)) {
+                fail(VALUE_MUST_BE + 'greater than ' + threshold);
+            }
+
+            if ((threshold = rangeOptions['>='], isDefined(threshold)) && !(param >= threshold)) {
+                fail(VALUE_MUST_BE + 'greater than or equal to ' + threshold);
+            }
+        }
+
+        function testIsType(param, typeName) {
+            if (toType(param) !== typeName) {
+                fail(VALUE_MUST_BE + typeName + ' type');
+            }
+        }
+
+        var PREFIXES = ['ms', 'moz', 'webkit', 'o'];
+        var ANIMATION_FRAME = 'AnimationFrame';
+        var REQUEST = 'Request';
+        var CANCEL = 'Cancel';
+        var win = window;
+        var isFallback = false;
+        var winRequestFrame;
+        var winCancelFrame;
+        var fallbackTimeZero;
+        var fallbackTimeLast;
+
+        // TODO: check how TweenLite handles older iOS requestAnimationFrame startup nonsense instead of using fallback
+        var	isIOSLE8 = /(iphone|ipod|ipad).* os ([1-8])_.*safari/i.test(navigator.userAgent);
+
+        if (!isIOSLE8) {
+            // Native
+            winRequestFrame = win['request' + ANIMATION_FRAME];
+            winCancelFrame = win['cancel' + ANIMATION_FRAME];
+
+            for (var i = 0; i < PREFIXES.length && !(winRequestFrame && winCancelFrame); i++) {
+                winRequestFrame = win[PREFIXES[i] + REQUEST + ANIMATION_FRAME];
+                winCancelFrame = win[PREFIXES[i] + CANCEL + ANIMATION_FRAME]
+                    || win[PREFIXES[i] + CANCEL + REQUEST + ANIMATION_FRAME];
+            }
+        }
+
+        // Fallback
+        if (!(winRequestFrame && winCancelFrame)) {
+            isFallback = true;
+            fallbackTimeZero = now();
+            fallbackTimeLast = fallbackTimeZero;
+
+            winRequestFrame = function (callback) {
+                var timeCurrent = now();
+                var timeWait = Math.max(0, 16 - (timeCurrent - fallbackTimeLast));
+                var timeNext = timeCurrent + timeWait;
+
+                fallbackTimeLast = timeNext;
+
+                return setTimeout(function () {
+                    callback(timeNext - fallbackTimeZero);
+                }, timeWait);
+            };
+
+            winCancelFrame = function (id) {
+                clearTimeout(id);
+            };
+        }
+
+        // Ticker
+        var idCounter = 0;
+        var idToOptions = {};
+        var currentFrameIds = [];
+        var nextFrameIds = [];
+        var frameRequestId = null;
+        var lastFrameWorldTime = now();
+
+        function wakeUpNativeFrame() {
+            if (frameRequestId !== null && now() - lastFrameWorldTime > 1500) {
+                winCancelFrame(frameRequestId);
+                frameRequestId = winRequestFrame(onFrame);
+            }
+
+            setTimeout(wakeUpNativeFrame, 1500);
+        }
+
+        if (!isFallback) {
+            // When using native requestAnimationFrame, some browsers (like android 4.3 native and sometimes iOS 8 safari) don't
+            // call requestAnimationFrame callback if pending frame was interrupted by window.open, which freezes animator.
+            // TweenLite is using timeout based interval that cancels and requests another animation frame after 2000ms have
+            // passed since last requestAnimationFrame callback as a workaround. We'll use 1500ms timeout based interval... :)
+
+            wakeUpNativeFrame();
+        }
+
+        function enqueue() {
+            if (frameRequestId === null && nextFrameIds.length) {
+                frameRequestId = winRequestFrame(onFrame);
+            }
+        }
+
+        function onFrame(time) {
+            var temp;
+            var id;
+            var options;
+
+            frameRequestId = null;
+            lastFrameWorldTime = now();
+
+            temp = currentFrameIds;
+            currentFrameIds = nextFrameIds;
+            nextFrameIds = temp;
+
+            for (var i = 0; i < currentFrameIds.length; i++) {
+                try {
+                    id = currentFrameIds[i];
+                    options = idToOptions[id];
+
+                    if (options) {
+                        if (options.isRepeating) {
+                            nextFrameIds.push(id);
+                        } else {
+                            cancelFrame(id);
+                        }
+
+                        options.callback.call(options.context, time);
+                    }
+                } catch (error) {
+                    // Prevent immediate errors, otherwise currentFrameIds won't be cleared. This is also consistent with how
+                    // requestAnimationFrame, setTimeout and setInterval behaves
+                    rethrowDelayed(error);
+                }
+            }
+
+            currentFrameIds.length = 0;
+
+            enqueue();
+        }
+
+        /**
+         * @param {function} callback
+         * @param {Object} [context=window] - Value of 'this' keyword in callback
+         * @param {boolean} [isRepeating=false] - Indicates whether the callback should be called on every frame or once
+         * @return {number}
+         */
+        function requestFrame(callback, context, isRepeating) {
+            var id = idCounter++;
+
+            nextFrameIds.push(id);
+
+            idToOptions[id] = {
+                callback: callback,
+                context: context === null ? window : context,
+                isRepeating: !!isRepeating
+            };
+
+            enqueue();
+
+            return id;
+        }
+
+        /**
+         * @param {number} id
+         * @return {boolean}
+         */
+        function cancelFrame(id) {
+            id = parseInt(id);
+
+            if (idToOptions[id]) {
+                delete idToOptions[id];
+            }
+        }
+
+        /**
+         * Basic additive numeric value animator
+         * @param {number} value - Starting value
+         * @constructor
+         */
+        function Tween(value) {
+            this._animations = [];
+            this._tid = null;       // Ticker interval id
+            this._listeners = [];
+            this._isFirstFrame = false;
+
+            this.currentValue = value;
+            this.targetValue = value;
+        }
+
+        var tweenProto = Tween.prototype;
+
+        /**
+         * @return {boolean}
+         */
+        tweenProto.isActive = function () {
+            return this._tid !== null;
+        };
+
+        /**
+         * @param {number} time
+         * @private
+         */
+        tweenProto._updateTime = function (time) {
+            var listeners = this._listeners;
+            var animations = this._animations;
+            var lastValue = this.currentValue;
+            var currentValue = this.targetValue;
+            var newLength = 0;
+            var didUpdate = false;
+            var animation;
+            var progress;
+
+            for (var i = 0; i < animations.length; i++) {
+                animation = animations[i];
+
+                if (animation.ts === null) {
+                    animation.ts = time + animation.tw;
+                }
+
+                if (time >= animation.ts) {
+                    progress = !animation.td ? 1 : Math.min((time - animation.ts) / animation.td, 1);
+                    currentValue += (1 - animation.ease(progress)) * animation.vd;
+                    didUpdate = true;
+                } else {
+                    progress = 0;
+                    currentValue += animation.vd;
+                }
+
+                // Compact array, only keep animations that still need updates
+                if (progress < 1) {
+                    if (i !== newLength) {
+                        animations[newLength] = animation;
+                    }
+
+                    newLength++;
+                }
+            }
+
+            animations.length = newLength;
+
+            this.currentValue = currentValue;
+
+            var isFirstFrame = this._isFirstFrame && didUpdate;
+            var isLastFrame = !newLength;
+
+            if (isFirstFrame) {
+                this._isFirstFrame = false;
+            }
+
+            if (isLastFrame) {
+                cancelFrame(this._tid);
+                this._tid = null;
+            }
+
+            if (currentValue !== lastValue || isFirstFrame || isLastFrame) {
+                for (var j = 0; j < listeners.length; j++) {
+                    listeners[j](currentValue, isFirstFrame, isLastFrame);
+                }
+            }
+        };
+
+        /**
+         * @param {number} targetValue
+         * @param {number=} duration
+         * @param {number=} delay
+         * @param {function=} easingFunction
+         */
+        tweenProto.to = function (targetValue, duration, delay, easingFunction) {
+            targetValue = parseFloat(targetValue) || 0;
+
+            this._animations.push({
+                vd: this.targetValue - targetValue, // Value delta
+                ts: null,                           // Time start
+                td: parseFloat(duration) || 0,      // Time duration
+                tw: parseFloat(delay) || 0,         // Time wait (delay)
+                ease: easingFunction || linear // Easing function
+            });
+
+            this.targetValue = targetValue;
+
+            if (this._tid === null) {
+                this._tid = requestFrame(this._updateTime, this, true);
+                this._isFirstFrame = true;
+            }
+
+            return this;
+        };
+
+        /**
+         * Called each time {@link Tween#currentValue} changes
+         * @callback tweenUpdateListener
+         * @param {number} currentValue - Current animation value
+         * @param {boolean} isFirstFrame - Indicates animation start
+         * @param {boolean} isLastFrame - Indicates animation end
+         * @this Tween
+         */
+
+        /**
+         * @param {tweenUpdateListener} listener
+         */
+        tweenProto.addListener = function (listener) {
+            this._listeners.push(listener);
+
+            return this;
+        };
+
+        /**
+         * Clears all active animations
+         */
+        tweenProto.clear = function () {
+            this._animations.length = 0;
+            this.targetValue = this.currentValue;
+
+            return this;
+        };
+
+        var MOUSE_SYNTH_THRESHOLD = 25; // px
+
+        // TODO: MOUSE_SYNTH_TIMEOUT = 400;
+
+        var KIND_POINTER = 'pointer';
+        var KIND_TOUCH = 'touch';
+        var KIND_MOUSE = 'mouse';
+        var rePointer = /^(?:ms)?pointer/i;
+        var reTouch = /^touch/i;
+        var reMouse = /^mouse/i;
+        function getEventKind(event) {
+            var eventType = event.type;
+            var kind = null;
+
+            if (rePointer.test(eventType)) {
+                kind = KIND_POINTER;
+            } else if (reTouch.test(eventType)) {
+                kind = KIND_TOUCH;
+            } else if (reMouse.test(eventType)) {
+                kind = KIND_MOUSE;
+            }
+
+            return kind;
+        }
+
+        function findTouchById(touchList, id) {
+            for (var i = 0; i < touchList.length; i++) {
+                if (touchList[i].identifier === id) {
+                    return touchList[i];
+                }
+            }
+
+            return null;
+        }
+
+        function getEventClientXy(event, eventInfo) {
+            var kind = getEventKind(event);
+            var position = null;
+
+            if (kind && eventInfo && kind === eventInfo.kind) {
+                if (kind === KIND_POINTER && event.pointerId === eventInfo.id) {
+                    position = event;
+                } else if (kind === KIND_TOUCH) {
+                    position = findTouchById(event.changedTouches, eventInfo.id);
+                } else if (kind === KIND_MOUSE) {
+                    position = event;
+                }
+            }
+
+            return position ? { x: position.clientX, y: position.clientY } : null;
+        }
+
+        function getEventInfo(event) {
+            var kind = getEventKind(event);
+            var id = null;
+
+            if (kind === KIND_POINTER) {
+                id = event.pointerId;
+            } else if (kind === KIND_TOUCH) {
+                id = event.changedTouches[0].identifier;
+            } else if (kind === KIND_MOUSE) {
+                id = null;
+            }
+
+            return {
+                kind: kind,
+                id: id
+            };
+        }
+
+        function eventMatchesInfo(event, eventInfo) {
+            var kind = getEventKind(event);
+            var matches = false;
+
+            if (kind && eventInfo && kind === eventInfo.kind) {
+                if (kind === KIND_POINTER) {
+                    matches = event.pointerId === eventInfo.id;
+                } else if (kind === KIND_TOUCH) {
+                    matches = !!findTouchById(event.changedTouches, eventInfo.id);
+                } else if (kind === KIND_MOUSE) {
+                    matches = true;
+                }
+            }
+
+            return matches;
+        }
+
+        function debounce(callback, delay, immediate) { // https://davidwalsh.name/javascript-debounce-function
+            var timeout = null;
+
+            return function () {
+                var _this = this;
+                var args = arguments;
+                var callNow = immediate && !timeout;
+
+                clearTimeout(timeout);
+
+                timeout = setTimeout(function () {
+                    timeout = null;
+
+                    if (!immediate) {
+                        callback.apply(_this, args);
+                    }
+                }, delay);
+
+                if (callNow) {
+                    callback.apply(_this, args);
+                }
+            };
+        }
+        
+        function required(value, message) {
+          if (value) return value;
+          throw new Error(message);
+        }
+
+        function Gestures(options) {
+          var _this = this;
+          var element = required(options.element, 'No element specified in Gestures constructor');
+          var events = required(options.events, 'At least one event must be provided');
+          var preventPageScroll = options.preventPageScroll;
+          var handleMouseLeave = options.mouseLeaveHandler === undefined ? true : options.mouseLeaveHandler;
+          var cbs = {};
+
+          // creates methods and stores passed callbacks for future usage
+
+          function createMethods(methods) {
+            return methods.forEach(function (method) {
+              _this[method] = function (cb) {
+                cbs[method] = cb;
+              };
+            });
+          }
+
+          // returns the callback for method and assigns provided arguments
+
+          function getCallback(name, args) {
+            return cbs[name] && cbs[name].apply(this, args);
+          }
+
+          // maps provided events on init and creates needed events/methods
+
+          function mapEvents(map) {
+            return events.forEach(function (event) {
+              map[event]();
+            });
+          }
+
+          // initialize swipe events
+
+          function swipeEvents() {
+            var initiateMove = false;
+            var startPos;
+            var endPos;
+            var delta;
+            var currentTarget;
+            var currentPos = {};
+            var distanceFromStart = {};
+            var threshold = options.swipeThreshold || 10;
+
+            // calculate one given position
+
+            function getX(e) {
+              if (e.changedTouches) {
+                return e.changedTouches[0].clientX;
+              }
+              if (e.clientX) {
+                return e.clientX;
+              }
+              return e.x;
+            }
+
+            function getY(e) {
+              if (e.changedTouches) {
+                return e.changedTouches[0].clientY;
+              }
+              if (e.clientY) {
+                return e.clientY;
+              }
+              return e.y;
+            }
+
+            function getPos(e) {
+              return {
+                x: getX(e),
+                y: getY(e)
+              };
+            }
+
+            // calculates delta based on current position and previous position
+
+            function getDelta(e) {
+              return {
+                x: getX(e) - (currentPos.x || startPos.x),
+                y: getY(e) - (currentPos.y || startPos.y)
+              };
+            }
+
+            // move functions which handle method callbacks and correct positioning
+
+            function moveStart(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              currentTarget = e.currentTarget;
+              startPos = getPos(e);
+              return getCallback('swipestart', [startPos, e]);
+            }
+
+            function move(e) {
+              e.stopPropagation();
+
+              delta = getDelta(e);
+              currentPos = getPos(e);
+
+              distanceFromStart = {
+                x: Math.abs(currentPos.x - startPos.x),
+                y: Math.abs(currentPos.y - startPos.y)
+              };
+
+              if (currentTarget && currentTarget !== e.currentTarget) mouseLeaveHandler(e);
+              if (preventPageScroll) e.preventDefault();
+
+              currentTarget = e.currentTarget;
+
+              if (initiateMove) {
+
+                if (!handleMouseLeave && e.type === 'mousemove' && ((!e.buttons && e.which === 0) || (e.buttons === 0))) {
+                    return;
+                }  
+
+                document.body.addEventListener('click', stopClicks, true);
+
+                getCallback('swipemove', [currentPos, e]);
+
+                if (Math.pow(Math.round(delta.y), 2) > Math.pow(Math.round(delta.x), 2)) {
+                  if (delta.y > 0) return getCallback('swipedown', [Math.abs(delta.y), e]);
+                  if (delta.y < 0) return getCallback('swipeup', [Math.abs(delta.y), e]);
+                } else {
+                  if (delta.x > 0) return getCallback('swiperight', [Math.abs(delta.x), e]);
+                  if (delta.x < 0) return getCallback('swipeleft', [Math.abs(delta.x), e]);
+                }
+              }
+
+              if (distanceFromStart.x >= threshold || distanceFromStart.y >= threshold) {
+                initiateMove = true;
+              }
+
+              return false;
+            }
+
+            function moveEnd(e) {
+
+              endPos = getPos(e);
+              currentPos = {};
+
+              initiateMove = false;
+              currentTarget = null;    
+
+              setTimeout(function () {
+                document.body.removeEventListener('click', stopClicks, true);
+              }, 50);
+
+              return getCallback('swipeend', [endPos, e]);
+            }
+
+            // IE11/Edge Tablet Support
+
+            element.style['-ms-touch-action'] = 'none';
+
+            document.addEventListener('dragstart', function () {
+              return false;
+            });
+
+            // helper functions to handle click stopping / mouseleave events
+
+            function stopClicks(e) {
+              return e.stopPropagation();
+            }
+
+            function mouseLeaveHandler(e) {
+              if (!!handleMouseLeave) {
+                  element.removeEventListener('mousemove', move);
+                  element.removeEventListener('mouseleave', mouseLeaveHandler);
+              }
+              return moveEnd(e);
+            }
+
+            function pointerLeaveHandler(e) {  
+              if (!!handleMouseLeave) {
+                  element.removeEventListener('pointermove', move);
+                  element.removeEventListener('pointerleave', pointerLeaveHandler);
+              }
+              return moveEnd(e);
+            }
+
+            // event listeners for touch devices
+
+            element.addEventListener('touchstart', moveStart);
+            element.addEventListener('touchmove', move);
+            element.addEventListener('touchend', moveEnd);
+            element.addEventListener('touchcancel', moveEnd);
+
+            // event listener for mouse devices
+
+            element.addEventListener('click', function (e) {
+              e.stopPropagation();
+            });
+
+            if (window.navigator.pointerEnabled) {
+              element.addEventListener('pointerdown', function (e) {
+                if (e.which === 3) {
+                  return false;
+                }
+
+                element.addEventListener('pointermove', move);
+                element.addEventListener('pointerleave', pointerLeaveHandler);
+                return moveStart(e);
+              });
+
+              element.addEventListener('pointerup', function (e) {
+                if (currentTarget === element) {
+                  element.removeEventListener('pointermove', move);
+                  element.removeEventListener('pointerleave', pointerLeaveHandler);
+                  return moveEnd(e);
+                }
+              });
+            } else {
+              element.addEventListener('mousedown', function (e) {
+                if (e.which === 3) {
+                  return false;
+                }
+                element.addEventListener('mousemove', move);
+                element.addEventListener('mouseleave', mouseLeaveHandler);
+                return moveStart(e);
+              });
+
+              element.addEventListener('mouseup', function (e) {
+                if (currentTarget === element) {
+                  element.removeEventListener('mousemove', move);
+                  element.removeEventListener('mouseleave', mouseLeaveHandler);
+                  return moveEnd(e);
+                }
+              });
+            }
+
+            return createMethods(['swipestart', 'swipemove', 'swipeleft', 'swiperight', 'swipeup', 'swipedown', 'swipeend']);
+          }
+
+          // initialize wheel events
+
+          function wheelEvents() {
+            // debounce callback for 200ms to accomodate Safari browser
+
+            var debounced = debounce(function (e) {
+              if (e.wheelDelta) {
+                if (e.wheelDelta > 0) return getCallback('wheelup', [e]);
+                return getCallback('wheeldown', [e]);
+              }
+
+              if (e.detail) {
+                if (e.detail > 0) return getCallback('wheelup', [e]);
+                return getCallback('wheeldown', [e]);
+              }
+
+              if (e.deltaY) {
+                if (e.deltaY < 0) return getCallback('wheelup', [e]);
+                return getCallback('wheeldown', [e]);
+              }
+
+              return false;
+            }, 200);
+
+            function debouncedWheelRotate(e) {
+              e.stopPropagation();
+              e.preventDefault(); // disable page scroll
+
+              return debounced(e);
+            }
+
+            element.addEventListener('wheel', debouncedWheelRotate);
+            element.addEventListener('DOMMouseScroll', debouncedWheelRotate); // Firefox support
+
+            return createMethods(['wheelup', 'wheeldown']);
+          }
+
+          // initialize keys events
+
+          function keysEvents() {
+            element.addEventListener('keydown', function (e) {
+              e.stopPropagation();
+
+              switch (e.keyCode) {
+                case 37:
+                  return getCallback('arrowleft', [e]);
+                case 38:
+                  return getCallback('arrowup', [e]);
+                case 39:
+                  return getCallback('arrowright', [e]);
+                case 40:
+                  return getCallback('arrowdown', [e]);
+                default:
+                  return false;
+              }
+            });
+
+            element.addEventListener('focus', function () {
+              this.style.outline = 'none';
+            });
+
+            element.addEventListener('mouseover', function (e) {
+              e.stopPropagation();
+              element.focus();
+            });
+
+            element.addEventListener('mouseout', function (e) {
+              e.stopPropagation();
+              element.blur();
+            });
+
+            return createMethods(['arrowleft', 'arrowup', 'arrowright', 'arrowdown']);
+          }
+
+          return mapEvents({
+            swipe: swipeEvents,
+            wheel: wheelEvents,
+            keys: keysEvents
+          });
+        }
+
+        var PI$1 = Math.PI;
+        var TAU$1 = PI$1 * 2;
+        var PERSPECTIVE$1 = getStylePropName('perspective');
+        var TRANSFORM$1 = getStylePropName('transform');
+        var BACKFACE_VISIBILITY = getStylePropName('backfaceVisibility');
+        var TRANSFORM_STYLE$1 = getStylePropName('transformStyle');
+        var SUPPORTS_3D = !!PERSPECTIVE$1;
+        function setAbsoluteRectStyle(elem, x, y, width, height) {
+            var style = elem.style;
+
+            style.position = 'absolute';
+            style.left = x + 'px';
+            style.top = y + 'px';
+            style.width = width + 'px';
+            style.height = height + 'px';
+        }
+
+        /**
+         * @constructor
+         */
+        function CarouselTransformHelper() {
+            this._sideAngle = 0;    // 360deg / sideCount in radians
+            this._innerRadius = 0;  // Distance from carousel rotation center to side center
+            this._outerRadius = 0;  // Distance from carousel rotation center to side edge
+            this._rotationSign = 1; // Rotation direction sign (1 or -1)
+
+            // Cached transform string parts
+            this._t1 = '';
+            this._t2 = '';
+            this._t3 = '';
+        }
+
+        var carouselHelperProto = CarouselTransformHelper.prototype;
+
+        /**
+         * @param {number} sideCount - Number of carousel sides, 2 - flat, 3 - triangle prism, 4 - square prism, ...
+         * @param {number} sideSize - Side size in pixels
+         * @param {boolean} isVertical - Indicates vertical rotation
+         * @param {boolean} isCompensated - Indicates whether a side should be pushed back when rotating
+         * @param {number=} perspective
+         */
+        carouselHelperProto.setParams = function (sideCount, sideSize, isVertical, isCompensated, perspective) {
+            sideCount = Math.max(2, sideCount);
+
+            var sideAngle = TAU$1 / sideCount;
+            var innerRadius = Math.tan((PI$1 - sideAngle) / 2) / 2 * sideSize;
+            var outerRadius = isCompensated ? 0.5 / Math.cos((PI$1 - sideAngle) / 2) * sideSize : 0;
+            var rotationAxis = isVertical ? 'X' : 'Y';
+
+            this._sideAngle = sideAngle;
+            this._innerRadius = innerRadius;
+            this._outerRadius = outerRadius;
+            this._rotationSign = isVertical ? -1 : 1;
+
+            this._t1 = (perspective ? 'perspective(' + perspective + 'px) ' : '') + 'translateZ(';
+            this._t2 = 'px) rotate' + rotationAxis + '(';
+            this._t3 = 'rad) translateZ(' + innerRadius + 'px)';
+        };
+
+        /**
+         * @param {number} position
+         * @return {string}
+         */
+        carouselHelperProto.getTransform = function (position) {
+            var sideAngle = this._sideAngle;
+            var outerRadius = this._outerRadius;
+            var negativeZ;
+
+            if (outerRadius) {
+                negativeZ = Math.round(Math.cos((Math.abs(position) % 1 - 0.5) * sideAngle) * outerRadius); // Compensated
+            } else {
+                negativeZ = this._innerRadius; // Normal
+            }
+
+            return this._t1 + -negativeZ + this._t2 + (position * sideAngle * this._rotationSign) + this._t3;
+        };
+
+        /**
+         * A fancy cube, basically...
+         * @param {SlicedUnitOptions} options
+         * @constructor
+         */
+        function Slice(options) {
+            var _this = this;
+            var doc = options.document;
+            var sideCount = options.sliceSideCount;
+            var className = options.className;
+            var sides = [];
+            var views = [];
+            var sideHeadIndex = 0;
+            var sideWrapThreshold = (sideCount % 2 === 0 ? 0 : 0.5) - Math.floor((sideCount - 1) / 2);
+            var rotation = 0;
+
+            for (var i = 0, elem, contentElem, shadeElem, view; i < sideCount; i++) {
+                elem = doc.createElement('div');
+                shadeElem = elem.appendChild(doc.createElement('div'));
+
+                elem.className = className + '-slice';
+                shadeElem.className = className + '-sliceShade';
+
+                view = {
+                    elem: elem,
+                    shadeElem: shadeElem,
+                    rotation: null,
+                    contentIndex: null
+                };
+
+                views[i] = view;
+
+                sides[i] = {
+                    offsetIndex: i,
+                    isContentValid: false,
+                    view: view
+                };
+            }
+
+            this.options = options;
+            this.views = views;
+            this.tween = new Tween(0);
+            this.transformHelper = new CarouselTransformHelper();
+
+            this.tween.addListener(function (currentValue) {
+                rotation = -currentValue;
+                _this.update();
+            });
+
+            this.update = function () {
+                var side;
+
+                while (side = sides[sideHeadIndex], side.offsetIndex <= sideWrapThreshold - rotation - 1) {
+                    side.offsetIndex += sideCount;
+                    side.isContentValid = false;
+
+                    if (++sideHeadIndex === sideCount) {
+                        sideHeadIndex = 0;
+                    }
+                }
+
+                while (sides[sideHeadIndex].offsetIndex > sideWrapThreshold - rotation) {
+                    side = sides[(sideHeadIndex ? sideHeadIndex - 1 : sideCount - 1)];
+                    side.offsetIndex -= sideCount;
+                    side.isContentValid = false;
+
+                    if (--sideHeadIndex < 0) {
+                        sideHeadIndex = sideCount - 1;
+                    }
+                }
+
+                for (var i = 0, newContentIndex, sideView; i < sideCount; i++) {
+                    side = sides[i];
+                    sideView = side.view;
+
+                    if (!side.isContentValid) {
+                        side.isContentValid = true;
+
+                        newContentIndex = wrapIndex(side.offsetIndex, options.content.length);
+
+                        if (sideView.contentIndex !== newContentIndex) {
+                            sideView.contentIndex = newContentIndex;
+                            this.updateViewData(sideView);
+                        }
+                    }
+
+                    sideView.rotation = side.offsetIndex + rotation;
+                }
+
+                this.updateTransforms();
+            };
+        }
+
+        var sliceProto = Slice.prototype;
+
+        sliceProto.layout = function (x, y, width, height) {
+            var options = this.options;
+            var wrapper = document.querySelector('#' + options.elementId);
+            var views = this.views;
+            var view;
+            var style;
+
+            for (var i = 0; i < views.length; i++) {
+                view = views[i];
+
+                // Slice
+                setAbsoluteRectStyle(view.elem, x, y, width, height);
+                style = view.elem.style;
+                style.backgroundPosition = -x + 'px ' + -y + 'px';
+                style.backgroundSize = wrapper.offsetWidth + 'px ' + wrapper.offsetHeight + 'px'; // Unit width and height
+                style[BACKFACE_VISIBILITY] = 'hidden';
+
+                // Shade
+                setAbsoluteRectStyle(view.shadeElem, 0, 0, width, height);
+                style = view.shadeElem.style;
+                style[TRANSFORM$1] = 'translateZ(0px)';
+
+                if (options.shadow && SUPPORTS_3D) {
+                    style.backgroundColor = options.shadow;
+                }
+            }
+
+            var isVerticalRotation = options.useVerticalRotation;
+            var sideSize = isVerticalRotation ? height : width;
+            var isCompensated = options.useOffsetCompensation;
+            var perspective = options.useSinglePerspective ? null : options.perspective;
+
+            this.transformHelper.setParams(views.length, sideSize, isVerticalRotation, isCompensated, perspective);
+
+            this.update();
+        };
+
+        sliceProto.updateViewData = function (view) {
+            var contentIndex = view.contentIndex;
+            var content = this.options.content[contentIndex];
+
+            view.elem.setAttribute('data-content-index', contentIndex);
+            view.elem.style.backgroundImage = content && isString(content.src) ? 'url(' + content.src + ')' : '';
+        };
+
+        sliceProto.updateTransforms = function () {
+            var transformHelper = this.transformHelper;
+            var sideViews = this.views;
+            var sideCount = sideViews.length;
+            var sideView;
+            var style;
+            var rotation;
+            var shadowAngleMultiplier;
+            var isIE10 = /MSIE\s([\d.]+)/.test(navigator.userAgent);
+            var isIE11 = !!navigator.userAgent.match(/Trident\/7.0/);
+
+            if (SUPPORTS_3D) {
+                shadowAngleMultiplier = 4 / sideCount;
+
+                for (var i = 0; i < sideCount; i++) {
+                    sideView = sideViews[i];
+                    rotation = sideView.rotation;
+
+                    sideView.elem.style[TRANSFORM$1] = transformHelper.getTransform(rotation);
+                    sideView.shadeElem.style.opacity = inQuad(clamp(Math.abs(rotation * shadowAngleMultiplier), 0, 1));
+
+                    // Manually sort sides (IE)
+                    if (isIE10 || isIE11) {
+                        sideView.elem.style.zIndex = Math.round(sideCount * 2 - Math.floor(Math.abs(rotation * 2)));
+                    }
+                }
+            } else {
+                // Fade slices (IE 9)
+                for (var i = 0; i < sideCount; i++) {
+                    sideView = sideViews[i];
+                    rotation = sideView.rotation;
+
+                    style = sideView.elem.style;
+                    style.zIndex = Math.round(sideCount * 2 - Math.floor(Math.abs(rotation * 2)));
+                    style.opacity = clamp(1 - Math.abs(rotation), 0, 1);
+                }
+            }
+
+        };
+
+        var PERSPECTIVE = getStylePropName('perspective');
+        var TRANSFORM = getStylePropName('transform');
+        var TRANSFORM_STYLE = getStylePropName('transformStyle');
+        var DEFAULT_PERSPECTIVE = 800;
+        var DEFAULT_SLICE_COUNT = 5;
+        var DEFAULT_SIDE_COUNT = 3;
+        var DEFAULT_MIN_SCALE = 1;
+        var DEFAULT_ROTATION_DURATION = 0.6;
+        var DEFAULT_ROTATION_DELAY = 0.15;
+        var DEFAULT_SHADOW = 'rgba(0, 0, 0, 0.5)';
+        var DEFAULT_AUTO_ROTATION_DELAY = 0;
+        var DEFAULT_AUTO_ROTATION_TIMEOUT = 25;
+        var DEFAULT_CLASS_NAME = 'adf-SlicedUnit';
+        var ROTATION = 'rotation';
+        var ROTATION_ANIMATION_START = 'rotationAnimationStart';
+        var ROTATION_ANIMATION_END = 'rotationAnimationEnd';
+        /**
+         * @typedef {Object} SlicedUnitContent
+         * @property {string} src - Image asset url
+         * @property {string|function} onClick - Click url or function
+         */
+
+        /**
+         * @typedef {Object} SlicedUnitOptions
+         * @property {Array.<SlicedUnitContent>} content - Array of {@link SlicedUnitContent}s
+         * @property {number} [perspective=800] - CSS perspective (integer, greater than 0)
+         * @property {number} [sliceCount=5] - Number of slices (integer, min. 1, max. 20)
+         * @property {number} [sliceSideCount=3] - Number of sides a slice has (integer, min. 2, max. 4)
+         * @property {number} [sliceRotationDuration=0.6] - Slice rotation duration in seconds (min. 0)
+         * @property {number} [sliceRotationDelay=0.15] - Delay between slice rotations in seconds (min. 0)
+         * @property {string} [shadow=#000] - Shadow color (CSS color string)
+         * @property {number} [minScale=1] - Unit scale while rotating (greater than 0, max. 1)
+         * @property {boolean} [useVerticalSlices=false] - Indicates whether banner should be sliced vertically or horizontally
+         *     (<code>true</code> - vertically, <code>false</code> - horizontally)
+         * @property {boolean} [useVerticalRotation=false] - Indicates whether slices should rotate vertically or horizontally
+         *     (<code>true</code> - vertically, <code>false</code> - horizontally)
+         * @property {boolean} [useSinglePerspective=false] - Indicates whether perspective should be applied on a container or
+         *     each slice separately (<code>true</code> - container, <code>false</code> - each slice)
+         * @property {boolean} [useOffsetCompensation=false] - Indicates whether  slices should be pushed back slightly to
+         *     better fit inside container when rotating
+         * @property {boolean} [defaultButtons=false] - Indicates whether default previous/next buttons have to be added
+         * @property {number} [autoRotationDelay=0] - Number of seconds between auto rotations. <code>0</code> indicates no
+         *     auto rotation
+         * @property {number} [autoRotationTimeout=25] - Auto rotation duration
+         * @property {string} [className=slicedUnit] - Outer element class name. Note that inner elements will use this
+         *     className as a prefix as well
+         * @property {Document} [document=document] - Document which will be used to create child nodes
+         */
+
+        /**
+         * @private
+         * @param {SlicedUnitOptions} options
+         * @return {SlicedUnitOptions}
+         */
+        function parseOptions(options) {
+            if (!isObject(options)) {
+                throw new TypeError('Argument 1 (options) must be an object');
+            }
+
+            var _parseInt = parseInt;
+            var _parseFloat = parseFloat;
+            var testIsGreaterThanZero = bindArgsRight(testIsInRange, { '>': 0 });
+            var testIsGreaterOrEqualToZero = bindArgsRight(testIsInRange, { '>=': 0 });
+            var testIsString = bindArgsRight(testIsType, 'string');
+            var testIsArray = bindArgsRight(testIsType, 'array');
+            var testIsBoolean = bindArgsRight(testIsType, 'boolean');
+
+            var parsedOptions = {
+                elementId: options.elementId,
+                perspective: parseProp(options, 'perspective', _parseInt, testIsGreaterThanZero, DEFAULT_PERSPECTIVE),
+                sliceCount: parseProp(options, 'sliceCount', _parseInt, bindArgsRight(testIsInRange, { '>=': 1, '<=': 20 }), DEFAULT_SLICE_COUNT),
+                sliceSideCount: parseProp(options, 'sliceSideCount', _parseInt, bindArgsRight(testIsInRange, { ' >=': 2, '<=': 4 }), DEFAULT_SIDE_COUNT),
+                minScale: parseProp(options, 'minScale', _parseFloat, bindArgsRight(testIsInRange, { '>': 0, '<=': 1 }), DEFAULT_MIN_SCALE),
+                sliceRotationDuration: 1000 * parseProp(options, 'sliceRotationDuration', _parseFloat, testIsGreaterOrEqualToZero, DEFAULT_ROTATION_DURATION),
+                sliceRotationDelay: 1000 * parseProp(options, 'sliceRotationDelay', _parseFloat, testIsGreaterOrEqualToZero, DEFAULT_ROTATION_DELAY),
+                shadow: parseProp(options, 'shadow', null, testIsString, DEFAULT_SHADOW),
+                autoRotationEnabled: (options.autoRotationEnabled == 'true'),
+                autoRotationDelay: 1000 * parseProp(options, 'autoRotationDelay', _parseFloat, testIsGreaterThanZero, DEFAULT_AUTO_ROTATION_DELAY),
+                autoRotationTimeout: 1000 * parseProp(options, 'autoRotationTimeout', _parseFloat, testIsGreaterThanZero, DEFAULT_AUTO_ROTATION_TIMEOUT),
+                useVerticalSlices: (options.useVerticalSlices == 'true'),
+                useVerticalRotation: (options.useVerticalRotation == 'true'),
+                useSinglePerspective: (options.useSinglePerspective == 'true'),
+                useOffsetCompensation: (options.useOffsetCompensation == 'true'),
+                defaultButtons: (options.defaultButtons == 'true'),
+                className: parseProp(options, 'className', null, testIsString, DEFAULT_CLASS_NAME),
+                document: options.document || document
+            };
+
+            // Reduce slice side count to prevent slices from overlapping when rotating (because IE doesn't do z-ordering at all
+            // and firefox only does it per layer)
+            var useVerticalSlices = parsedOptions.useVerticalSlices;
+            var useVerticalRotation = parsedOptions.useVerticalRotation;
+            var sliceSideCount = parsedOptions.sliceSideCount;
+            var sliceCount = parsedOptions.sliceCount;
+
+            if ((useVerticalSlices && !useVerticalRotation || !useVerticalSlices && useVerticalRotation) && sliceCount > 1) {
+                parsedOptions.sliceSideCount = Math.min(sliceSideCount, 3);
+            }
+
+            return parsedOptions;
+        }
+
+        var PANEL_NEXT = 'sliceNext';
+        var PANEL_PREV = 'slicePrevious';
+
+        /**
+         * @param {SlicedUnitOptions} options
+         * @constructor
+         */
+        function SlicedUnit(options) {
+
+            // Parse, sanitize and shallow clone options
+            options = parseOptions(options);
+            options.content = [];
+
+            // ...
+            var _this = this;
+            var doc = options.document;
+            var outerElem = doc.createElement('div');
+            var innerElem = outerElem.appendChild(doc.createElement('div'));
+            var slices = [];
+            var rotation = 0;
+            var emitter = new EventEmitter();
+            var autoRotationInterval = null;
+            var wrapper = document.querySelector('#' + options.elementId);
+            var imgs = wrapper.querySelectorAll('dataimg');
+            [].map.call(imgs, function (item) {
+                options.content.push({src: item.getAttribute('src'), id: item.id});
+            });
+            var content = options.content;
+
+            outerElem.className = options.className;
+            innerElem.className = options.className + '-inner';
+
+
+
+            function addDefaultButtons() {
+                function makeAButton(direction) {
+                    var button = document.createElement('div');
+                    button.className = 'adf-Controls--' + direction + ((options.useVerticalRotation) ? ' vertical' : ' horizontal');
+                    button.addEventListener('click', function (event) {
+                        var amount = (direction === PANEL_NEXT) ? 1 : -1;
+                        stopAutoRotation();
+                        rotateBy(amount);
+                    });
+                    return button;
+                }
+                if (options.defaultButtons) {
+                    wrapper.appendChild(makeAButton(PANEL_NEXT));
+                    wrapper.appendChild(makeAButton(PANEL_PREV));
+                }
+            }
+
+            // Create and append slices
+            function slice() {
+                var slice;
+                var sliceSideViews;
+
+                for (var i = 0, j; i < options.sliceCount; i++) {
+                    slice = new Slice(options);
+                    slices[i] = slice;
+                    sliceSideViews = slice.views;
+
+                    for (j = 0; j < sliceSideViews.length; j++) {
+                        innerElem.appendChild(sliceSideViews[j].elem);
+                    }
+                }
+            }
+
+            // Resize stuff
+            function resize() {
+                var width = wrapper.offsetWidth;
+                var height = wrapper.offsetHeight;
+                var style;
+
+                // Outer
+                style = outerElem.style;
+                style.width = width + 'px';
+                style.height = height + 'px';
+                style.cursor = 'pointer';
+                style.overflow = 'hidden';
+
+                // Inner
+                style = innerElem.style;
+                style.position = 'absolute';
+                style.top = 0;
+                style.left = 0;
+                style.width = width + 'px';
+                style.height = height + 'px';
+                style[TRANSFORM_STYLE] = 'preserve-3d';
+
+                if (options.useSinglePerspective) {
+                    style[PERSPECTIVE] = options.perspective + 'px';
+                }
+
+                // Slices (grid layout)
+                // NOTE: slices overlap by 1px to prevent spaces between them when page is zoomed in or out
+                var sliceCount = slices.length;
+                var useVerticalSlices = options.useVerticalSlices;
+                var horizontalSliceCount = useVerticalSlices ? sliceCount : 1;
+                var verticalSliceCount = useVerticalSlices ? 1 : sliceCount;
+                var sliceWidth = (width - 1) / horizontalSliceCount;
+                var sliceHeight = (height - 1) / verticalSliceCount;
+
+                for (var i = 0, xMin = 0, xMax; i < horizontalSliceCount; i++, xMin = xMax) {
+                    xMax = Math.round(sliceWidth * (i + 1));
+
+                    for (var j = 0, yMin = 0, yMax; j < verticalSliceCount; j++, yMin = yMax) {
+                        yMax = Math.round(sliceHeight * (j + 1));
+                        slices[i + j].layout(xMin, yMin, xMax - xMin + 1, yMax - yMin + 1);
+                    }
+                }
+            }
+
+            function makeEvent(name) {
+                var event = document.createEvent('Event');
+                event.initEvent(name, true, true);
+
+                return event;
+            }
+
+            // Setup rotation events and scale animator
+            function setEvents() {
+                var firstSliceTween = slices[0].tween;
+                var lastSliceTween = slices[slices.length - 1].tween;
+                var isRotating = false;
+
+                var scaleTween = new Tween(1);
+                var minScale = options.minScale;
+                var scaleDuration = options.sliceRotationDuration / 2;
+
+                function onSliceTweenUpdate() {
+                    var isRotatingNow = firstSliceTween.isActive() || lastSliceTween.isActive();
+
+                    if (isRotatingNow !== isRotating) {
+                        isRotating = isRotatingNow;
+
+                        if (isRotating && scaleTween.targetValue !== minScale) {
+                            scaleTween.to(minScale, scaleDuration, 0, outQuad);
+                        } else if (!isRotating && scaleTween.targetValue !== 1) {
+                            scaleTween.to(1, scaleDuration, 0, outQuad);
+                        }
+
+                        try {
+                            emitter.emit(isRotating ? ROTATION_ANIMATION_START : ROTATION_ANIMATION_END);
+                            wrapper.dispatchEvent(makeEvent(isRotating ? ROTATION_ANIMATION_START : ROTATION_ANIMATION_END));
+                        } catch (error) {
+                            rethrowDelayed(error);
+                        }
+                    }
+                }
+
+                function onScaleTweenUpdate(currentValue) {
+                    innerElem.style[TRANSFORM] = 'scale(' + currentValue + ', ' + currentValue + ') translateZ(0)';
+                }
+
+                firstSliceTween.addListener(onSliceTweenUpdate);
+                lastSliceTween.addListener(onSliceTweenUpdate);
+                scaleTween.addListener(onScaleTweenUpdate);
+            }
+
+            // Setup mouse and touch gesture detection
+            function setGestures() {
+
+                var SWIPE_THRESHOLD = 25;   // px
+                var CLICK_TIMEOUT = 300;    // ms
+
+                var isVertical = options.useVerticalRotation;
+                var downTime = null;
+                var downX = null;
+                var downY = null;
+                var deltaX = 0;
+                var deltaY = 0;
+                
+                // Setup mouse and touch gesture detection
+                var gestures = new Gestures({
+                    element: innerElem,
+                    events: ['swipe', 'wheel']
+                });
+                
+                // Setup mouse scroll
+                gestures.wheeldown(function(){
+                   options.useVerticalRotation ? _this.prev() : _this.next();
+                });
+
+                gestures.wheelup(function(){
+                    options.useVerticalRotation ? _this.next() : _this.prev();
+                });
+
+                gestures.swipestart(function (delta, event) {
+                    downTime = now();
+                    downX = delta['x'];
+                    downY = delta['y'];
+                    deltaX = 0;
+                    deltaY = 0;
+                });
+
+                gestures.swipemove(function (delta, event) {   
+                    deltaX = delta['x'] - downX;
+                    deltaY = delta['y'] - downY;
+                });
+
+                gestures.swipeend(function (delta, event) { 
+                    deltaX = delta['x'] - downX;
+                    deltaY = delta['y'] - downY;
+
+                    detectSwipe(event) || detectClick(event); 
+                });
+
+                function detectSwipe() {
+                    if (isVertical && deltaY > SWIPE_THRESHOLD || !isVertical && deltaX > SWIPE_THRESHOLD) {
+                        _this.prev();
+                        return true;
+                    } else if (isVertical && deltaY < -SWIPE_THRESHOLD || !isVertical && deltaX < -SWIPE_THRESHOLD) {
+                        _this.next();
+                        return true;
+                    }
+
+                    return false;
+                }
+
+                function detectClick(event) {
+                    if (event.which === 3) {
+                        return false;
+                    }
+
+                    if (Math.abs(deltaX) < SWIPE_THRESHOLD && Math.abs(deltaY) < SWIPE_THRESHOLD && now() - downTime < CLICK_TIMEOUT) {
+                        onClick(event.target);
+                        return true;
+                    }
+
+                    return false;
+                }
+
+                function onClick(elem) {
+                    var attributeName = 'data-content-index';
+                    var contentIndex = null;
+                    var content;
+                    var onClick;
+
+                    // Find target parent element with 'data-content-index' attribute. Note that user might accidentally click
+                    // on gap between rotating slices in which case the click should be ignored.
+                    while (elem && elem !== outerElem && contentIndex === null) {
+                        if (elem.nodeType === 1 && elem.hasAttribute(attributeName)) {
+                            contentIndex = parseInt(elem.getAttribute(attributeName));
+                        } else {
+                            elem = elem.parentNode;
+                        }
+                    }
+
+                    content = options.content[contentIndex];
+                    content && content.id && document.getElementById(content.id).click();
+                    stopAutoRotation();
+                }
+            }
+
+            // Setup auto rotation
+            function setAutoRotation() {
+                if (!window.Adform || !options.autoRotationEnabled) {
+                    return;
+                }
+
+                var autoRotationDelay = options.autoRotationDelay;
+                var autoRotationTimeout = options.autoRotationTimeout;
+                var visibilityData = null;
+
+                function onAutoRotationIntervalTick(visibilityData) {
+                    if (visibilityData && visibilityData.visibleArea !== 0 && visibilityData.isActiveTab) {
+                        rotateBy(1);
+                    }
+                }
+
+                if (autoRotationDelay) {
+
+                    if (Adform.tagData && Adform.tagData.rtbData) {
+                        autoRotationTimeout = Math.min(autoRotationTimeout, 25000);
+                    }
+
+                    onVisibilityChange(function (data) {
+                        visibilityData = data;
+                    });
+
+                    autoRotationInterval = setInterval(function () {
+                        onAutoRotationIntervalTick(visibilityData);
+                    }, autoRotationDelay);
+
+                    setTimeout(stopAutoRotation, Math.min(autoRotationTimeout, 25000));
+                }
+            }
+
+            // Setup mouse scroll listener
+            addMouseWheelListener({
+                element: outerElem,
+                shouldPreventDefault: true,
+                timeoutDuration: 300,
+                listener: function (event, direction) {
+                    if (!options.useVerticalRotation) {
+                        direction *= -1;
+                    }
+
+                    if (direction > 0) {
+                        _this.next();
+                    } else {
+                        _this.prev();
+                    }
+                }
+            });
+
+            function stopAutoRotation() {
+                clearInterval(autoRotationInterval);
+                autoRotationInterval = null;
+            }
+
+            function rotateBy(amount) {
+                var previousRotation = rotation;
+
+                rotation += Math.round(amount);
+
+                try {
+                    emitter.emit(ROTATION, wrapIndex(rotation, content.length), wrapIndex(previousRotation, content.length));
+                } catch (error) {
+                    rethrowDelayed(error);
+                }
+
+                var animationDuration = options.sliceRotationDuration;
+                var animationDelay = options.sliceRotationDelay;
+                var sliceCount = slices.length;
+                var sliceAnimationDelay;
+
+                for (var i = 0; i < sliceCount; i++) {
+                    sliceAnimationDelay = (amount > 0 ? sliceCount - 1 - i : i) * animationDelay;
+                    slices[i].tween.to(rotation, animationDuration, sliceAnimationDelay, inOutQuad);
+                }
+            }
+
+            this.init = function () {
+                slice();
+                resize();
+                setEvents();
+                setGestures();
+                setAutoRotation();
+                addDefaultButtons();
+                wrapper.appendChild(_this.getElement());
+            };
+
+            /**
+             * Rotates to next item. Note that this method will stop auto rotation.
+             */
+            this.next = function () {
+                stopAutoRotation();
+                rotateBy(1);
+            };
+
+            /**
+             * Rotates to previous item. Note that this method will stop auto rotation.
+             */
+            this.prev = function () {
+                stopAutoRotation();
+                rotateBy(-1);
+            };
+
+            /**
+             * Checks if auto rotation is active.
+             * @return {boolean}
+             */
+            this.isAutoRotating = function () {
+                return autoRotationInterval !== null;
+            };
+
+            /**
+             * Stops auto rotation.
+             */
+            this.stopAutoRotation = function () {
+                stopAutoRotation();
+            };
+
+            /**
+             * Returns outer {@link SlicedUnit} element.
+             * @return {Element}
+             */
+            this.getElement = function () {
+                return outerElem;
+            };
+
+            /**
+             * Returns index of currently visible {@link SlicedUnitContent}
+             * @return {number}
+             */
+            this.getCurrentItemIndex = function () {
+                return wrapIndex(rotation, options.content.length);
+            };
+
+            /**
+             * Registers event listener for the provided event name.
+             * @param {string} eventName
+             * @param {function} listener
+             * @param {*=} [context=SlicedUnit]
+             */
+            this.on = function (eventName, listener, context) {
+                emitter.on(eventName, listener, context || this);
+            };
+
+            /**
+             * Removes event listener. If listener is <code>null</code> or <code>undefined</code>, removes all listeners
+             * associated with the provided event name.
+             * @param {string} eventName
+             * @param {function?} listener
+             */
+            this.off = function (eventName, listener) {
+                emitter.off(eventName, listener);
+            };
+        }
+
+        /**
+         * Content index change (rotation) event name.
+         * @type {string}
+         */
+        SlicedUnit.ROTATION = ROTATION;
+
+        /**
+         * Rotation animation start event name.
+         * @type {string}
+         */
+        SlicedUnit.ROTATION_ANIMATION_START = ROTATION_ANIMATION_START;
+
+        /**
+         * Rotation animation end event name.
+         * @type {string}
+         */
+        SlicedUnit.ROTATION_ANIMATION_END = ROTATION_ANIMATION_END;
+
+        // Create namespace and export SlicedUnit as global
+        window.Adf = window.Adf || {};
+        Adf.SlicedUnit = SlicedUnit;
+
+    }());
+</script>
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#visibility.css:visibility/globalcss*/
+.visibility-hidden, .visibility-hidden * {
+    visibility: hidden !important;
+}
+/*#/#*//*#i30.shape.css:shape/base/css*/
+#i30 { background-color: #ffffff; opacity: 1;
+}
+/*#/#*//*#slice.css:slice/globalcss*/
+
+/* nav controls*/
+.adf-SliceBox .adf-Controls--slicePrevious, .adf-SliceBox .adf-Controls--sliceNext {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OC4xMjEsNC40MjMgTDIwLjU0NCwzMi4wMDAgTDQ4LjEyMSw1OS41NzcgQzQ4LjkwMiw2MC4zNTggNDguOTAyLDYxLjYyNSA0OC4xMjEsNjIuNDA2IEw0Ny40MTQsNjMuMTEzIEM0Ni42MzMsNjMuODk0IDQ1LjM2Nyw2My44OTQgNDQuNTg2LDYzLjExMyBMMTUuNTk0LDM0LjEyMSBMMTQuODg3LDMzLjQxNCBDMTQuMTA2LDMyLjYzMyAxNC4xMDYsMzEuMzY3IDE0Ljg4NywzMC41ODYgTDQ0LjU4NiwwLjg4NyBDNDUuMzY3LDAuMTA2IDQ2LjYzMywwLjEwNiA0Ny40MTQsMC44ODcgTDQ4LjEyMSwxLjU5NCBDNDguOTAyLDIuMzc1IDQ4LjkwMiwzLjY0MiA0OC4xMjEsNC40MjMgWiIgc3R5bGU9ImZpbGw6ICMwMDVGOEM7DQpmaWxsLXJ1bGU6IGV2ZW5vZGQ7Ii8+DQo8L3N2Zz4=') 50% 50% no-repeat;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    z-index:9999;
+    cursor:pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.adf-SliceBox .adf-Controls--slicePrevious.horizontal, .adf-SliceBox .adf-Controls--sliceNext.horizontal {
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 0;
+}
+
+.adf-SliceBox .adf-Controls--slicePrevious.vertical, .adf-SliceBox .adf-Controls--sliceNext.vertical {
+    left: 50%;
+    -webkit-transform: translate(-50%) rotate(90deg);
+    -moz-transform: translate(-50%) rotate(90deg);
+    -ms-transform: translate(-50%) rotate(90deg);
+    -o-transform: translate(-50%) rotate(90deg);
+    transform: translate(-50%) rotate(90deg);
+    top: 0;
+}
+
+.adf-SliceBox .adf-Controls--sliceNext {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OS4xMTMsMzMuNDE0IEw0OC40MDYsMzQuMTIxIEwxOS40MTQsNjMuMTEzIEMxOC42MzMsNjMuODk0IDE3LjM2Nyw2My44OTQgMTYuNTg2LDYzLjExMyBMMTUuODc5LDYyLjQwNiBDMTUuMDk4LDYxLjYyNSAxNS4wOTgsNjAuMzU4IDE1Ljg3OSw1OS41NzcgTDQzLjQ1NiwzMi4wMDAgTDE1Ljg3OSw0LjQyMyBDMTUuMDk4LDMuNjQyIDE1LjA5OCwyLjM3NSAxNS44NzksMS41OTQgTDE2LjU4NiwwLjg4NyBDMTcuMzY3LDAuMTA2IDE4LjYzMywwLjEwNiAxOS40MTQsMC44ODcgTDQ5LjExMywzMC41ODYgQzQ5Ljg5NCwzMS4zNjcgNDkuODk0LDMyLjYzMyA0OS4xMTMsMzMuNDE0IFoiIHN0eWxlPSJmaWxsOiAjMDA1RjhDOw0KZmlsbC1ydWxlOiBldmVub2RkOyIvPg0KPC9zdmc+') 50% 50% no-repeat;
+}
+
+.adf-SliceBox .adf-Controls--sliceNext.horizontal {
+    left: auto;
+    right: 0;
+}
+
+.adf-SliceBox .adf-Controls--sliceNext.vertical {
+    top: auto;
+    bottom: 0;
+}
+
+.adf-SliceBox .adf-Controls--slicePrevious:hover, .adf-SliceBox .adf-Controls--sliceNext:hover {
+    background-color: #5AAAD2;
+}
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.2*/
+#i30 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i7.text.css:text/base/css*/
+#i7 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: Arial, Helvetica, sans-serif; font-size: 22px; color: #000000; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i7.i8.positioning.css:positioning/base/css.2*/
+#i7 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 257px; height: 123px;
+        -ms-transform: translate(0, 0) translate(19px, 504px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(19px, 504px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(19px, 504px) rotate(0deg);
+        transform: translate(0, 0) translate(19px, 504px) rotate(0deg);
+}
+/*#/#*//*#i16.image.css:image/base/css*/
+#i16 { opacity: 1; }
+/*#/#*//*#i16.i17.positioning.css:positioning/base/css.2*/
+#i16 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 73px; height: 41px;
+        -ms-transform: translate(0, 0) translate(215px, 549px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(215px, 549px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(215px, 549px) rotate(0deg);
+        transform: translate(0, 0) translate(215px, 549px) rotate(0deg);
+}
+/*#/#*//*#i2.slice.css:slice/base/css*/
+#i2.adf-SlicedUnit {
+    position: absolute;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    -ms-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -ms-touch-action: none;
+    background: transparent;
+}
+
+/*#/#*//*#i2.i3.positioning.css:positioning/base/css.1*/
+#i2 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 480px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i26.button.css:button/base/css*/
+#i26 { position: absolute; cursor: pointer; opacity: 1.00; background-color: rgba(0,0,0,0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 0%; letter-spacing: 5px; text-shadow: 0px 0px 0px rgba(0,0,0,0); border-radius: 1px; border-color: rgba(115,112,112,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i26:hover { opacity: 1; background-color: rgba(0,90,140,0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,0); border-radius: 1px; border-color: rgba(46,46,46,1); border-width: 1px; margin:-1px; border-style: solid; }
+#i26:active { opacity: 1; background-color: rgba(0,80,130,0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,0); border-radius: 1px; border-color: rgba(54,54,54,1); border-width: 1px; margin:-1px; border-style: solid; }
+/*#/#*//*#i26.i27.positioning.css:positioning/base/css.2*/
+#i26 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 299px; height: 600px;
+        -ms-transform: translate(0, 0) translate(1px, 2px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(1px, 2px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(1px, 2px) rotate(0deg);
+        transform: translate(0, 0) translate(1px, 2px) rotate(0deg);
+}
+/*#/#*//*#i37.font-local.css:font/font-local/css*/
+/*#i37.i38.font-local.css:font-local/css.1*/
+@font-face {
+font-family: 'DIN Light Regular';
+src: url('fonts/');
+src: url('fonts/?#iefix') format('embedded-opentype'),
+url('fonts/') format('woff'),
+url('fonts/') format('truetype'),
+url('fonts/DIN Light Regular.otf') format('opentype'),
+url('fonts/') format('svg');
+}
+/*#/#*/
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i30.shape.html:shape/html-->
+<div id="i30"></div>
+<!--#/#--><!--#i7.text.html:text/html-->
+<div id="i7">El sabor de confianza.</div>
+<!--#/#--><!--#i16.image.html:image/html-->
+<img id="i16" src="https://i.imgur.com/jlWOL3A.png"/>
+<!--#/#--><!--#i2.slice.html:slice/html-->
+<div id="i2" class="adf-SliceBox">
+    <!--#i2.i4.slice-image.html:slice-image/html-->
+<dataimg id="i4" src="https://i.imgur.com/bVzq0aj.jpg"></dataimg>
+<!--#/#--><!--#i2.i5.slice-image.html:slice-image/html-->
+<dataimg id="i5" src="https://i.imgur.com/ansPfG6.jpg"></dataimg>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i26.button.html:button/html-->
+<button id="i26"></button>
+<!--#/#--><!--#i37.font.html:font/html-->
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i30.i31.positioning.js:positioning/base/js.2*/
+bmShow('i30');
+/*#/#*//*#i7.i8.positioning.js:positioning/base/js.2*/
+bmShow('i7');
+/*#/#*//*#i16.image.js:image/base/js*/
+
+/*#/#*//*#i16.i17.positioning.js:positioning/base/js.2*/
+bmShow('i16');
+/*#/#*//*#i2.slice.js:slice/js*/
+document.addEventListener('DOMContentLoaded', function() {
+    var slicedUnit_i2 = new Adf.SlicedUnit({
+        elementId: 'i2',
+        useVerticalRotation: 'false',
+        sliceCount: '10',
+        sliceSideCount: '2',
+        useVerticalSlices: 'true',
+        minScale: '1',
+        defaultButtons: 'false',
+        sliceRotationDuration: '1',
+        sliceRotationDelay: '0.08',
+        autoRotationEnabled: 'true',
+        autoRotationDelay: '3',
+        autoRotationTimeout: '25',
+        shadow: 'rgba(255,255,255,1)',
+        perspective: '500',
+        useSinglePerspective: 'false',
+        useOffsetCompensation: 'true',
+    });
+
+    slicedUnit_i2.init();
+
+    document.getElementById('i2').addEventListener('slicePrevious', function(e){
+        slicedUnit_i2.prev();
+    });
+
+    document.getElementById('i2').addEventListener('sliceNext', function(e){
+        slicedUnit_i2.next();
+    });
+
+/*AutomaticFunction*/
+     function next(){
+        slicedUnit_i2.next();
+        }
+        setInterval(next, 5000);
+/*End Automatic Function*/
+});
+/*#/#*//*#i2.i4.slice-image.js:slice-image/base/js*/
+
+/*#/#*//*#i2.i5.slice-image.js:slice-image/base/js*/
+
+/*#/#*//*#i2.i41.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i2');
+
+el.addEventListener('click', function(e){
+    /*#i41.i42.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.sanjacinto.lat/media.php'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i26.i27.positioning.js:positioning/base/js.2*/
+bmShow('i26');
+/*#/#*//*#i26.i43.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i26');
+
+el.addEventListener('click', function(e){
+    /*#i43.i44.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.sanjacinto.lat/media.php'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i9.visibility.js:visibility/js*/
+function bmShow(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('visibility-hidden');
+}
+
+function bmHide(id) {
+    var el = document.getElementById(id);
+    el.classList.add('visibility-hidden');
+}
+/*#/#*/
+ 
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i30.shape.meta:shape/meta*/
+name: Shape 1;
+/*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i7.text.meta:text/meta*/
+name: El sabor de confianza.; customName: false;
+/*#/#*//*#i7.i8.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i16.image.meta:image/meta*/
+name: jlWOL3A.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i16.i17.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i2.slice.meta:slice/meta*/
+name: Slice 1;
+customName: ;
+/*#/#*//*#i2.i4.slice-image.meta:slice-image/meta*/
+name: bVzq0aj.jpg; fileId: ; sourceTypeId: externalUrl;
+/*#/#*//*#i2.i5.slice-image.meta:slice-image/meta*/
+name: ansPfG6.jpg; fileId: ; sourceTypeId: externalUrl;
+/*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i26.button.meta:button/meta*/
+name: ;
+customName: false;
+/*#/#*//*#i26.i27.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i37.font.meta:font/meta*/
+name: Web Font: DIN Light Regular; type: font-local; customName: ;
+/*#/#*/--><!--#/#-->
