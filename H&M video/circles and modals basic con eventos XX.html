@@ -11,8 +11,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
         <script>
-            var videoUrl = "https://www.youtube.com/embed/xPu9lPlEs4M?autohide=2&modestbranding=1&controls=2&showinfo=0&fs=0&rel=0&disablekb=1&cc_load_policy=0";
-            var linkRedirect = 'https://www2.hm.com/en_us/free-form-campaigns/1079-studio-2019.html#intro';
+            var videoUrl = "https://www.youtube.com/embed/xPu9lPlEs4M?autohide=2&modestbranding=1&controls=2&showinfo=0&fs=0&rel=0&disablekb=1&cc_load_policy=0&playsinline=1";
             var config = [
                 {
                     start: 3,
@@ -21,7 +20,10 @@
                         'top: 170px;'
                     ],
                     img_screen: 'https://i.imgur.com/hgcsJx7.png',
-                    href: 'https://www2.hm.com/en_us/productpage.0733864002.html',
+                    
+                        href: 'https://www2.hm.com/en_us/productpage.0733864002.html',
+                       
+                    }
                 },{
                     start: 3,
                     position: [
@@ -29,24 +31,31 @@
                         'top: 170px;'
                     ],
                     img_screen: 'https://i.imgur.com/TtDfGcd.png',
-                    href: 'https://www2.hm.com/en_us/productpage.0733852001.html'
-                },
-                 {
+                   
+                    href: 'https://www2.hm.com/en_us/productpage.0733852001.html',
+                        
+                    }
+                },{
                     start: 15,
                     position: [
                         'left: 120px;',
                         'top: 170px;'
                     ],
                     img_screen: 'https://i.imgur.com/hgcsJx7.png',
-                    href: 'https://www2.hm.com/en_us/productpage.0747246002.html'                    
+                    href: 'javascript:;',
+                      
+                    }
                 },{
                     start: 20,
                     position: [
                         'left: 120px;',
                         'top: 170px;'
                     ],
-                    img_screen: 'https://i.imgur.com/TtDfGcd.png',
-                    href: 'https://www2.hm.com/en_us/productpage.0188183022.html'                    
+                   
+                   
+                    href: 'https://www2.hm.com/en_us/productpage.0188183022.html',
+                  
+                    }
                 }
             ];
              
@@ -74,8 +83,8 @@
                 position: relative;
             }
             .video-container .circle {
-                width: 50px;
-                height: 50px;
+                width: 100px;
+                height: 100px;
                 border-radius: 50%;
                 border: 1px solid #ededed;
                 background-color: #ffffff;
@@ -149,30 +158,30 @@
                 text-decoration: none;
                 color: #333;
             }
-
-            /* styles for screen over video 
+            
+            /* styles for screen over video */
             .video-container .over-video {
                 position: absolute;
                 top: 0px;
                 left: 0px;
                 width: 100%;
                 height: 100%;
-            }*/
+            }
         </style>
     </head>
     <body>
 
         <div class="video-container">
-            <iframe src="" style="width:320px;height:270px;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" id="fitvid434752"></iframe>
+            <iframe src="" style="width:320px;height:270px;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="0" id="fitvid434752"></iframe>
 
-            <!-- <div class="over-video"></div> -->
-
+          
         </div>
 
         <script>
             function _initAdds() {
 
                 var gtmYTListeners = [];
+                 var gtmYTListeners = [];
                 var videoState = {
                     '0.00': false,
                     '0.25': false,
@@ -181,13 +190,14 @@
                     '1': false
                 };
                 var timeout = null;
+                
                 //setear link de video de config al iframe
                 var iframe = document.querySelector('iframe');
                 if (!iframe) {return;}
 
                 iframe.setAttribute('src', videoUrl);
-
-                /* Start modal click */
+                
+                    /* Start modal click */
                 // Función que hace compatibles los eventos con todos los navegadores.
                 function addEvent(el, name, fn) {
                     if (el.addEventListener) {
@@ -216,18 +226,32 @@
 
                 function _controlModalLinkAndScreen() {
 
-                    // var screen = document.querySelector(".video-container .over-video");
-                    // if (screen) {
-                    //     addEvent(screen, 'click', function($e) {
-                    //         $e.preventDefault();
-                    //         $e.stopPropagation();
-                    //         var href = linkRedirect;
-                    //         var callback = goToLink(href);
-                    //         /* Add Event 'click inner video' */
-                    //         window.setTimeout(callback, 500);
-                    //     });
-                    // }
-                    return;
+                    var link = document.querySelector("#myModal .body .link > a");
+                    if (link) {
+                        addEvent(link, 'click', function($e) {
+                            $e.preventDefault();
+                            $e.stopPropagation();
+                            var el = $e.currentTarget;
+                            var href = linkRedirect;
+                            var callback = goToLink(href);
+                            /* Send click dicover bottom */
+                            console.log('Click pantalla')
+                            window.setTimeout(callback, 500);
+                        });
+                    }
+
+                    var screen = document.querySelector(".video-container .over-video");
+                    if (screen) {
+                        addEvent(screen, 'click', function($e) {
+                            $e.preventDefault();
+                            $e.stopPropagation();
+                            var href = linkRedirect;
+                            var callback = goToLink(href);
+                            /* Send click in video screen */
+                            console.log('Click in video screen');
+                            window.setTimeout(callback, 500);
+                        });
+                    }
                 };
 
                 _controlModalLinkAndScreen();
@@ -275,7 +299,7 @@
                                 time: 0,
                                 event: new YT.Player(e[x], {
                                     events: {
-                                        onReady: onPlayerReady,
+                                        // onReady: onPlayerReady,
                                         onStateChange: onPlayerStateChange
                                     }
                                 })
@@ -293,49 +317,48 @@
                         e["lastP"] = t;
                         addCircleDescriptor(t);
                         removedCircleDescriptor(t);
-                        
-
-                        /* add video control */
+                    }
+                };
+                
+                   /* add video control */
                         var porcent = e["getDuration"]() - e["getCurrentTime"]() <= 1.5 ? 1 : (Math.floor(e["getCurrentTime"]() / e["getDuration"]() * 4) / 4).toFixed(2);
 
                         switch (porcent) {
                             case '0.00':
                                 if (!videoState['0.00']) {
                                     videoState['0.00'] = true;
-                                    /* Add Event '0% video' */
+                                    console.log('Visualizacion 0%');
                                 }
                                 break;
                             case '0.25':
                                 if (!videoState['0.25']) {
                                     videoState['0.25'] = true;
-                                    /* Add Event '25% video' */
+                                    console.log('Visualizacion 25%');
                                 }
                                 break;
                             case '0.50':
                                 if (!videoState['0.50']) {
                                     videoState['0.50'] = true;
-                                    /* Add Event '50% video' */
+                                    console.log('Visualizacion 50%');
                                 }
                                 break;
                             case '0.75':
                                 if (!videoState['0.75']) {
                                     videoState['0.75'] = true;
-                                    /* Add Event '75% video' */
+                                    console.log('Visualizacion 75%');
                                 }
                                 break;
                             default:
                                 if (!videoState['1']) {
                                     videoState['1'] = true;
-                                    /* Add Event '100% video' */
+                                    console.log('Visualizacion 100%');
                                 }
                                 break;
                         }
                     }
                 };
 
-               
-                
-                
+
                 // detectar el cambio de estado del video
                 function onPlayerStateChange(e) {
                     if (e["data"] == YT.PlayerState.PLAYING && YT.gtmLastAction == "p") {
@@ -357,11 +380,90 @@
 
                     //Extract position in config
                     var index = $e.currentTarget.getAttribute('data-reference');
-                    var configuration = config[index];                    
-                    var href = configuration.href;
-                    var callback = goToLink(href, '_blank' + index);
-                    /* Add Event 'click in circle an redirect' */
-                    window.setTimeout(callback, 500);
+                    var configuration = config[index];
+                    
+                    /* Click in circle */
+                    console.log('Click Bola ' + index);
+                    // dhtml.sendEvent('1', 'Formulario_Click', null);
+                    /* Click in circle */
+                    console.log('Impresion Pantalla Popup ' + index);
+                    
+                    //remove el item cliked
+                    // var selector = "div[data-position='"+ index +"']";
+                    // var removed = document.querySelector(selector);
+                    // if (removed != undefined) {
+                    //     removed.parentNode.removeChild(removed);
+                    // }
+                    // Get the modal
+                    var modal = document.getElementById('myModal');
+                    modal.style.display = "block";
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                      modal.style.display = "none";
+                      gtmYTListeners[0].event.playVideo();
+                    };
+
+                    var body = document.querySelector("body");
+                    if (body.clientWidth < 767) {
+
+                        var columns = document.querySelectorAll(".modal .modal-content .body .column");
+                        for(var i = 0; i < columns.length; i++) {
+                            if (!columns[i].classList.contains('movil-size')) {
+                                columns[i].classList.add('movil-size');
+                            }
+                        }
+                    }
+
+                    //update image
+                    var element = document.querySelector(".modal .modal-content .body img.logo");
+                    if (element != undefined) {
+                        element.setAttribute('src', configuration.detail.imageUrl);
+                        if (body.clientWidth < 767) {
+                            if (!element.classList.contains('image-resize')) {
+                                element.classList.add('image-resize');
+                            }
+                        }else {
+                            if (element.classList.contains('image-resize')) {
+                                element.classList.remove('image-resize');
+                            }
+                        }
+                    }
+
+                    //update title
+                    element = document.querySelector(".modal .modal-content .body .title");
+                    if (element != undefined) {
+                        element.innerHTML = '';
+                        var p = document.createElement("h3");
+                        t = document.createTextNode(configuration.detail.title);
+                        p.appendChild(t);
+                        element.appendChild(p);
+                    }
+
+                    //update description
+                    element = document.querySelector(".modal .modal-content .body .description");
+                    if (element != undefined) {
+                        element.innerHTML = '';
+                        var p = document.createElement("p");
+                        t = document.createTextNode(configuration.detail.description);
+                        p.appendChild(t);
+                        element.appendChild(p);
+                    }
+
+                    element = document.querySelector(".modal .modal-content .body .link a");
+                    element.setAttribute('href', configuration.detail.href);
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        modal.style.display = "none";
+                        gtmYTListeners[0].event.playVideo();
+                      }
+                    };
                 };
 
                 function removedCircleDescriptor(segunsContainer) {
@@ -387,8 +489,7 @@
                         }
                     }
                 };
-                
-                
+
                 function addCircleDescriptor(segunsContainer) {
 
                     var views = [];
@@ -419,10 +520,10 @@
                         var base = document.querySelector('.video-container');
                         if (base != undefined) {
                             base.append(circle);
-
-                            /* Add Event 'enter circle in screen' */
-                            var pos = views[i] + 1;
-                            // console.log('Impresion Bola ' + pos);
+                            
+                          /* Enter cricle in screen */
+                            console.log('Impresion Bola ' + views[i]);   
+                            
                         }
                     }
                 };
