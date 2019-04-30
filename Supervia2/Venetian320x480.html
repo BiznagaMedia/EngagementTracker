@@ -2133,23 +2133,14 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
         transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
 }
-/*#/#*//*#i32.text.css:text/base/css*/
-#i32 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 22px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
-/*#/#*//*#i32.i33.positioning.css:positioning/base/css.2*/
-#i32 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 306px; height: 58px;
-        -ms-transform: translate(0, 0) translate(8px, 390px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(8px, 390px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(8px, 390px) rotate(0deg);
-        transform: translate(0, 0) translate(8px, 390px) rotate(0deg);
-}
 /*#/#*//*#i16.image.css:image/base/css*/
 #i16 { opacity: 1; }
 /*#/#*//*#i16.i17.positioning.css:positioning/base/css.2*/
-#i16 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 171px; height: 34px;
-        -ms-transform: translate(0, 0) translate(145px, 442px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(145px, 442px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(145px, 442px) rotate(0deg);
-        transform: translate(0, 0) translate(145px, 442px) rotate(0deg);
+#i16 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 233px; height: 46px;
+        -ms-transform: translate(0, 0) translate(43px, 409px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(43px, 409px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(43px, 409px) rotate(0deg);
+        transform: translate(0, 0) translate(43px, 409px) rotate(0deg);
 }
 /*#/#*//*#i2.slice.css:slice/base/css*/
 #i2.adf-SlicedUnit {
@@ -2244,8 +2235,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <body>
 <!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i30.shape.html:shape/html-->
 <div id="i30"></div>
-<!--#/#--><!--#i32.text.html:text/html-->
-<div id="i32">La vida es eso que pasa mientras estás en el tráfico.</div>
 <!--#/#--><!--#i16.image.html:image/html-->
 <img id="i16" src="https://i.imgur.com/rw3Ds7O.png"/>
 <!--#/#--><!--#i2.slice.html:slice/html-->
@@ -2258,6 +2247,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <dataimg id="i6" src="https://i.imgur.com/I2r69Ob.jpg"></dataimg>
 <!--#/#--><!--#i2.i34.slice-image.html:slice-image/html.1-->
 <dataimg id="i34" src="https://i.imgur.com/4WK2orV.jpg"></dataimg>
+<!--#/#--><!--#i2.i35.slice-image.html:slice-image/html.1-->
+<dataimg id="i35" src="https://i.imgur.com/LcMj7pV.jpg"></dataimg>
 <!--#/#-->
 </div>
 <!--#/#--><!--#i26.button.html:button/html-->
@@ -2266,12 +2257,23 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <script>
 /*#i30.i31.positioning.js:positioning/base/js.2*/
 bmShow('i30');
-/*#/#*//*#i32.i33.positioning.js:positioning/base/js.2*/
-bmShow('i32');
 /*#/#*//*#i16.image.js:image/base/js*/
 
 /*#/#*//*#i16.i17.positioning.js:positioning/base/js.2*/
 bmShow('i16');
+/*#/#*//*#i16.i46.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i16');
+
+el.addEventListener('click', function(e){
+    /*#i46.i47.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://www.supervia.mx/'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
 /*#/#*//*#i2.slice.js:slice/js*/
 document.addEventListener('DOMContentLoaded', function() {
     var slicedUnit_i2 = new Adf.SlicedUnit({
@@ -2312,21 +2314,88 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 /*#/#*//*#i2.i4.slice-image.js:slice-image/base/js*/
 
+/*#/#*//*#i4.i40.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i4');
+
+el.addEventListener('click', function(e){
+    /*#i40.i41.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://www.supervia.mx/'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
 /*#/#*//*#i2.i5.slice-image.js:slice-image/base/js*/
 
+/*#/#*//*#i5.i42.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i5');
+
+el.addEventListener('click', function(e){
+    /*#i42.i43.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://www.supervia.mx/'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
 /*#/#*//*#i2.i6.slice-image.js:slice-image/base/js*/
 
+/*#/#*//*#i6.i44.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i6');
+
+el.addEventListener('click', function(e){
+    /*#i44.i45.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://www.supervia.mx/'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
 /*#/#*//*#i2.i34.slice-image.js:slice-image/base/js.1*/
 
+/*#/#*//*#i34.i38.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i34');
+
+el.addEventListener('click', function(e){
+    /*#i38.i39.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://www.supervia.mx/'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i2.i35.slice-image.js:slice-image/base/js.1*/
+
+/*#/#*//*#i35.i36.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i35');
+
+el.addEventListener('click', function(e){
+    /*#i36.i37.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://goo.gl/maps/4cSRnwCwkk55ge5j6'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
 /*#/#*//*#i26.i27.positioning.js:positioning/base/js.2*/
 bmShow('i26');
-/*#/#*//*#i26.i28.actions.js:actions/base/js.1*/
+/*#/#*//*#i26.i48.actions.js:actions/base/js.1*/
 /* Name: On Click; */
 var el = document.getElementById('i26');
 
 el.addEventListener('click', function(e){
-    /*#i28.i29.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.supervia.mx'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i48.i49.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'http://www.supervia.mx/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -2350,10 +2419,6 @@ function bmHide(id) {
 name: Shape 1;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i32.text.meta:text/meta*/
-name: La vida es eso que pasa mientras estás en el tráfico.; customName: false;
-/*#/#*//*#i32.i33.positioning.meta:positioning/meta.2*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i16.image.meta:image/meta*/
 name: rw3Ds7O.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: false;
@@ -2370,6 +2435,9 @@ name: B334SVF.jpg; fileId: ; sourceTypeId: externalUrl;
 name: I2r69Ob.jpg; fileId: ; sourceTypeId: externalUrl;
 /*#/#*//*#i2.i34.slice-image.meta:slice-image/meta.1*/
 name: 4WK2orV.jpg; fileId: ; sourceTypeId: externalUrl;
+customName: false;
+/*#/#*//*#i2.i35.slice-image.meta:slice-image/meta.1*/
+name: LcMj7pV.jpg; fileId: ; sourceTypeId: externalUrl;
 customName: false;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
