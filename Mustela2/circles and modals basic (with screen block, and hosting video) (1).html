@@ -13,51 +13,52 @@
         <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
 
         <script>
-            var linkRedirect = 'https://www.canadadry.com/#/root-of-relaxation';
+            var linkRedirect = 'https://www.mustela.com.mx';
             var config = [
                 {
-                    start: 5,
+                    start: 8,
                     showFlag: false,
                     position: [//position donde saldra el circulo sobre el video
-                        'left: 30px;',
-                        'top: 30px;'
+                        'left: 5px;',
+                        'top: 90px;'
                     ],
-                    img_screen: './image/61E0jSM4zsL._UY606_.jpg',
+                    img_screen: 'https://i.imgur.com/hFG23LH.png',
                     detail: {//configuracion para el modal imagen, titulo, y texto de detail
-                        imageUrl: './image/61E0jSM4zsL._UY606_.jpg',
-                        title: 'asdasdas.com',
-                        href: 'https://www.canadadry.com/#/root-of-relaxation',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-                    }
-                },{
-                    start: 5,
-                    showFlag: false,
-                    position: [
-                        'left: 30px;',
-                        'top: 150px;'
-                    ],
-                    img_screen: './image/61xw0y7hTIL._UY500_.jpg',
-                    detail: {
-                        imageUrl: './image/61xw0y7hTIL._UY500_.jpg',
-                        title: 'asdasdas.com',
-                        href: 'https://www.canadadry.com/#/root-of-relaxation',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                        imageUrl: 'https://i.imgur.com/rP3DpDJ.jpg',
+                        title: '',
+                        href: 'https://www.mustela.com.mx',
+                        description: 'Cuate el aguacate hidrata y protege a la piel normal.'
                     }
                 },{
                     start: 15,
                     showFlag: false,
                     position: [
-                        'left: 30px;',
-                        'top: 30px;'
+                        'left: 5px;',
+                        'top: 90px;'
                     ],
-                    img_screen: './image/D_NP_958800-MLM27800649518_072018-Q.jpg',
+                    img_screen: 'https://i.imgur.com/vUAV7UN.png',
                     detail: {
-                        imageUrl: './image/D_NP_958800-MLM27800649518_072018-Q.jpg',
-                        title: 'asdasdas.com',
-                        href: 'https://www.canadadry.com/#/root-of-relaxation',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                        imageUrl: 'https://i.imgur.com/GngYKC9.jpg',
+                        title: '',
+                        href: 'https://www.mustela.com.mx',
+                        description: 'Imanol el girasol protege, calma y reepiteliza la piel atópica.'
                     }
                 },{
+                    start: 21,
+                    showFlag: false,
+                    position: [
+                        'left: 5px;',
+                        'top: 90px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/oCMbaMu.png',
+                    detail: {
+                        imageUrl: 'https://i.imgur.com/UFdUmIg.jpg',
+                        title: '',
+                        href: 'https://www.mustela.com.mx',
+                        description: 'Rita la abejita nutre profundamente la piel seca.'
+                    }
+                },
+                /*{
                     start: 15,
                     showFlag: false,
                     position: [
@@ -68,26 +69,33 @@
                     detail: {
                         imageUrl: './image/zapatos-de-tacon-con-lateral-abierto-negro-mujer-talla-34-a-48-wz517_1_fr1.jpg',
                         title: 'asdasdas.com',
-                        href: 'https://www.canadadry.com/#/root-of-relaxation',
+                        href: 'https://www.mustela.com.mx',
                         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                     }
-                }
+                }*/
             ];
              
             var configRemoved = {
-               10: {
-                    position: 5,
+               14: {
+                    position: 8,
                     removeFlag: false
                 },
                 20: {
                     position: 15,
+                    removeFlag: false
+                },
+                
+                30: {
+                    position: 21,
                     removeFlag: false
                 }
             };
         </script>
         
         <style>
-            body { margin: 0px;font-family: Lato; }
+            body { 
+                margin: 0px;
+                font-family: Trebuchet MS; }
             .video-container {
                 width: 100%;
                 height: 100vh;
@@ -101,8 +109,8 @@
                 padding-top: 0px;
             }
             .video-container .circle {
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
                 border-radius: 50%;
                 border: 1px solid #ededed;
                 background-color: #ffffff;
@@ -139,6 +147,9 @@
               float: right;
               font-size: 28px;
               font-weight: bold;
+              font-family: Trebuchet MS;
+              margin-top: 5px;
+              margin-right: 8px;
             }
 
             .modal .modal-content .modal-header .close:hover,
@@ -153,28 +164,46 @@
                 vertical-align: top;
                 width: 45%;
                 text-align: center;
+                margin-top: 2px;
             }
             .modal .modal-content .body .movil-size {
                 display: block !important;
                 width: 100% !important;
             }
             .modal .modal-content .body .column img.logo {
-                height: 450px;
+                height: 200px;
                 width: 100%;
             }
             .image-resize {
-                height: 250px !important;
+                height: 100px !important;
                 width: 200px !important;
             }
             .modal .modal-content .body .column .link {
-                margin-top: 30px;
+                margin-top: -5px;
             }
             .modal .modal-content .body .column .link a {
-                padding: 6px 25px;
+                padding: 2px 4px;
                 background-color: transparent;
-                border: 2px solid #333;
+                border: 1px solid #333;
                 text-decoration: none;
-                color: #333;
+                color: #fff;
+                margin-top: -10px;
+                padding-bottom: 5px;
+            }
+            
+            .modal .modal-content .body .description p {
+                 margin-top: -20px;
+                margin-left: 15px;
+                margin-right: 30px;
+                font-weight: 700;
+                
+            }
+            
+            .modal .modal-content .body .description2 p2 {
+                 margin-top: ;
+                margin-left: 15px;
+                margin-right: 30px;
+                padding-top: 20px;
             }
 
             /* styles for screen over video */
@@ -200,11 +229,12 @@
               <source src="https://drive.google.com/uc?export=download&id=1Tuq-e2lGyzI5GBb39lr4FHI-nVIewZUo" type="video/mp4"></source>
               <p class="vjs-no-js">
                 To view this video please enable JavaScript, and consider upgrading to a
-                web browser that
+                web browser that.
                 <a href="https://videojs.com/html5-video-support/" target="_blank">
                   supports HTML5 video
                 </a>
               </p>
+              
             </video>
 
 
@@ -226,7 +256,7 @@
                             <div class="title"></div>
                             <div class="description"></div>
                             <div class="link">
-                                <a href="javascript:;">DISCOVER</a>
+                                <a href="javascript:;">Leer más</a>
                             </div>
                         </div>
                     </div>
