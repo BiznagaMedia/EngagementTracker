@@ -223,8 +223,7 @@
                 id="my-player"
                 class="video-js"
                 controls="false"
-                preload="auto"
-                
+                preload="auto"                
                 data-setup='{}'>
               <source src="https://drive.google.com/uc?export=download&id=1Tuq-e2lGyzI5GBb39lr4FHI-nVIewZUo" type="video/mp4"></source>
               <p class="vjs-no-js">
@@ -238,7 +237,7 @@
             </video>
 
 
-            <div class="over-video"></div>
+            <!-- <div class="over-video"></div> -->
 
             <!-- The Modal -->
             <div id="myModal" class="modal">                
@@ -519,9 +518,9 @@
 
                 var player = videojs('my-player', options, function onPlayerReady() {
                   //  init controls and config
-                  this.controls(false);
+                  // this.controls(false);
                   // init video
-                  this.play();
+                  // this.play();
 
                   // How about an event listener?
                   this.on('ended', function() {
