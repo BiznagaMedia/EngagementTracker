@@ -305,6 +305,16 @@
             background-size: cover;
             
         }
+        .bg.cover-3 {
+            background: url("https://i.imgur.com/XxsUlHz.jpg");
+            background-size: cover;
+            
+        }
+        .bg.cover-4 {
+            background: url("https://i.imgur.com/zIiumWU.jpg");
+            background-size: cover;
+            
+        }
 
        
 
@@ -424,24 +434,39 @@
         .item-1 {
             z-index: 2;
             opacity: 1;
-            animation: fade 8s infinite;
-            -webkit-animation: fade 8s infinite;
+            animation: fade 12s infinite;
+            -webkit-animation: fade 12s infinite;
         }
 
         .item-2 {
-            animation: fade2 8s infinite;
-            -webkit-animation: fade2 8s infinite;
+            animation: fade2 12s infinite;
+            -webkit-animation: fade2 12s infinite;
         }
 
-         @keyframes fade {
+        .item-3 {
+            animation: fade3 12s infinite;
+            -webkit-animation: fade3 12s infinite;
+        }
+
+        .item-4 {
+            animation: fade4 12s infinite;
+            -webkit-animation: fade4 12s infinite;
+        }
+
+        @keyframes fade {
             0% {
                 opacity: 1
             }
-            50% {
+            25.333% {
                 opacity: 0
             }
-           
-            100% {
+            50.666% {
+                opacity: 0
+            }
+            75% {
+                opacity: 0
+            }
+             100% {
                 opacity: 1
             }
         }
@@ -450,10 +475,51 @@
             0% {
                 opacity: 0
             }
-            50% {
+            25.333% {
                 opacity: 1
             }
-          
+            50.666% {
+                opacity: 0
+            }
+            75% {
+                opacity: 0
+            }
+             100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            25.333% {
+                opacity: 0
+            }
+            50.666% {
+                opacity: 1
+            }
+            75% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+         @keyframes fade4 {
+            0% {
+                opacity: 0
+            }
+            25.333% {
+                opacity: 0
+            }
+            50.666% {
+                opacity: 0
+            }
+            75% {
+                opacity: 1
+            }
             100% {
                 opacity: 0
             }
@@ -524,6 +590,12 @@
             <div class="tgx_logo"></div>
         </div>
         <div class="tgx_cover bg cover-2 carousel-item item-2">
+            <div class="tgx_logo"></div>
+        </div>
+        <div class="tgx_cover bg cover-3 carousel-item item-3">
+            <div class="tgx_logo"></div>
+        </div>
+        <div class="tgx_cover bg cover-4 carousel-item item-4">
             <div class="tgx_logo"></div>
         </div>
         

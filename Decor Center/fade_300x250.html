@@ -82,6 +82,14 @@
             background-image: url(https://i.imgur.com/VjCPY9X.jpg)
         }
 
+        .fadesmall .bg.cover-3 {
+            background-image: url(https://i.imgur.com/oJw2wMm.jpg)
+        }
+        
+        .fadesmall .bg.cover-4 {
+            background-image: url(https://i.imgur.com/BzF8ygJ.jpg)
+        }
+
         
 
         .fadesmall .bzm_cover.bzm_pos_tl {
@@ -164,26 +172,39 @@
         .item-1 {
             z-index: 2;
             opacity: 1;
-            animation: fade 8s infinite;
-            -webkit-animation: fade 8s infinite;
+            animation: fade 12s infinite;
+            -webkit-animation: fade 12s infinite;
         }
 
         .item-2 {
-            animation: fade2 8s infinite;
-            -webkit-animation: fade2 8s infinite;
+            animation: fade2 12s infinite;
+            -webkit-animation: fade2 12s infinite;
         }
 
-       
+        .item-3 {
+            animation: fade3 12s infinite;
+            -webkit-animation: fade3 12s infinite;
+        }
+
+        .item-4 {
+            animation: fade4 12s infinite;
+            -webkit-animation: fade4 12s infinite;
+        }
 
         @keyframes fade {
             0% {
                 opacity: 1
             }
-            50% {
+            25.333% {
                 opacity: 0
             }
-           
-            100% {
+            50.666% {
+                opacity: 0
+            }
+            75% {
+                opacity: 0
+            }
+             100% {
                 opacity: 1
             }
         }
@@ -192,10 +213,51 @@
             0% {
                 opacity: 0
             }
-            50% {
+            25.333% {
                 opacity: 1
             }
-          
+            50.666% {
+                opacity: 0
+            }
+            75% {
+                opacity: 0
+            }
+             100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            25.333% {
+                opacity: 0
+            }
+            50.666% {
+                opacity: 1
+            }
+            75% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+         @keyframes fade4 {
+            0% {
+                opacity: 0
+            }
+            25.333% {
+                opacity: 0
+            }
+            50.666% {
+                opacity: 0
+            }
+            75% {
+                opacity: 1
+            }
             100% {
                 opacity: 0
             }
@@ -269,6 +331,8 @@
                 <!-- ESTAS SE COLOCAN EN EL CSS -->
                 <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
                 <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
+                <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
+                <div class="bzm_cover bg cover-4 carousel-item1 item-4"></div>
               
             </div>
             <!--<div class="bzm_text"> <span class="bzm_text_title"><b>¡¡ Porque me llevo más, mi mercado es Soriana!!</b></span>
