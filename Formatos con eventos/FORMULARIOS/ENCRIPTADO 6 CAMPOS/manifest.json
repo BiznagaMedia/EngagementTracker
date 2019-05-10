@@ -1,7 +1,7 @@
 {
     "version": "1.0",
-    "uniqueId": "1b70941e6207bbb18e42965a224dbb88",
-    "title": "FORMULARIO-EVENTS-TEST1",
+    "uniqueId": "1b70941e6965204db18e42b7bbba2288",
+    "title": "FORMULARIO-MINDTECH-test4",
     "description": "",
     "width": 300,
     "height": 600,
@@ -17,7 +17,7 @@
     },
     "clicktags": {
 
-        "clickTAG": "https://momentosbancocencosud.pe/",
+        "clickTAG": "https://mindtechvigo.com/en/home/",
     },
     "source": "formulario-def.html"
 }
