@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+     <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+    
+    <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.cosmoenespanol.com/belleza/luz-pulsada-metodo-depilacion/';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
+  
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consumer_Fade</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>
+    <style>
+        .fade1 p {
+            margin: 0px
+        }
+
+        .fade1 .bg.cover-1,
+        .fade1 .bg.cover-2,
+        .fade1 .bg.cover-3,
+        .fade1 {
+            background-size: cover
+        }
+
+        .fade1 .btn {
+            margin-top: 0;
+            padding-left: 0
+        }
+
+        .fade1 a,
+        .fade1 a:hover {
+            text-decoration: none;
+            color: #fff
+        }
+
+        .fade1 .bzm_wrapper {
+            position: relative;
+            overflow: hidden;
+            color: #000;
+            font-family: Lato, sans-serif
+        }
+
+        .fade1 .bzm_wrapper.size_300x250 {
+            width: 300px;
+            height: 250px;
+            background-color: #FFF
+        }
+        
+          .cta {
+            position: absolute;
+            bottom: 85px;
+            width: 85px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left:100px;
+            
+            background-color: #ff639b;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .fade1 .bzm_cover,
+        .fade1 .carousel-wrapper {
+            position: relative;
+            width: 100%
+        }
+        
+        
+
+        .fade1 .bzm_cover {
+            height: 150px
+        }
+
+        .fade1 .bg.cover-1 {
+            background-image: url(https://i.imgur.com/3V5rOPZ.jpg)
+        }
+
+        .fade1 .bg.cover-2 {
+            background-image: url(https://i.imgur.com/eY9TgXx.jpg)
+        }
+
+        .fade1 .bg.cover-3 {
+            background-image: url(https://i.imgur.com/R1KD4Jy.jpg)
+        }
+
+        .fade1 .bzm_cover.bzm_pos_tl {
+            top: 3%;
+            left: 3%
+        }
+
+        .fade1 .bzm_pos_tr {
+            top: 3%;
+            right: 3%
+        }
+
+        .fade1 .bzm_pos_bl {
+            bottom: 3%;
+            left: 3%
+        }
+
+        .fade1 .bzm_pos_br {
+            bottom: 3%;
+            right: 3%
+        }
+
+        .fade1 .bzm_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%)
+        }
+
+        .fade1 .bzm_text {
+            padding: 6px 0 0 .3em;
+            line-height: 1.1;
+            color: #000;
+            margin-top: 10px
+                
+        }
+
+        .fade1 .bzm_text_title {
+            font-size: 14px;
+            color: #000
+        }
+
+        .fade1 .bzm_text_light {
+            font-size: 10px;
+            font-weight: 0
+        }
+
+        .fade1 .bzm_text_medium {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.7
+        }
+
+        .fade1 .bzm_text_bold {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1
+        }
+
+        .fade1 .bzm_text_small {
+            font-size: 10px;
+            line-height: 1;
+            margin-top: 4px
+        }
+
+        .fade1 .carousel-wrapper {
+            height: auto;
+            margin: 0 auto
+        }
+
+        .fade1 .carousel-item1 {
+            position: absolute;
+            opacity: 0;
+            transition: all .5s ease-in-out
+        }
+
+        .fade1 [id^=item] {
+            display: none
+        }
+
+        .fade1 .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 14s infinite;
+            -webkit-animation: fade 14s infinite
+        }
+
+        .fade1 .item-2 {
+            animation: fade2 14s infinite;
+            -webkit-animation: fade2 14s infinite
+        }
+
+        .fade1 .item-3 {
+            animation: fade3 14s infinite;
+            -webkit-animation: fade3 14s infinite
+        }
+        
+      
+
+        @keyframes fade {
+            0%,
+            100% {
+                opacity: 1
+            }
+            25%,
+            50%,
+            50% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade2 {
+            0%,
+            100%,
+            50%,
+            50% {
+                opacity: 0
+            }
+            25% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade3 {
+            0%,
+            100%,
+            25%,
+            50% {
+                opacity: 0
+            }
+            50% {
+                opacity: 1
+            }
+        }
+
+        .fade1 .bzm_button {
+            position: absolute;
+            bottom: 7px;
+            left: 3%;
+            text-transform: uppercase;
+            background-color: #6cbd44;
+            color: #fff;
+            border-radius: 50%;
+            padding: 4px;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer
+        }
+
+        .fade1 .bzm_button:hover {
+            background-color: #579e38
+        }
+
+        .fade1 .carousel-container {
+            width: 300px;
+            height: 150px;
+            overflow-y: hidden
+        }
+
+        .fade1 #botones-para-compartir {
+            text-align: right
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+      
+    </style>
+</head>
+
+<body class="fade1" style="margin:0px;">
+  
+   <div class="bzm_wrapper carousel-wrapper size_300x250">
+       <div class="cta"><span class="bzm_text_title bzm_text_bold" style="font-size:80%; color: white;">Conoce más</span></div>
+        <a href="https://www.cosmoenespanol.com/belleza/luz-pulsada-metodo-depilacion/" style="display: block;" target="_blank">
+           
+        
+            <div class="carousel-container">
+                <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
+                <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
+                <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
+            </div>
+            <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000;line-height:1;font-size:20px;">Depilación en casa y sin dolor, ¡es posible con Philips Lumea!</span></div>
+           
+            <div style="bottom:0px;text-align:right;margin-top:2px;"> 
+              <img src="https://i.imgur.com/gvXS2BO.jpg" style="height:55px;margin-right:5px;">
+            </div>
+        </a>
+    </div>
+
+    <!--<div class="EurowingsFade"></div>
+	<script src="bundle.js"></script>
+	<script>
+		EurowingsFade.show('EurowingsFade')
+	</script>-->
+</body>
+</html>
