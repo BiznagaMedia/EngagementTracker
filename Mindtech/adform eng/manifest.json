@@ -1,0 +1,23 @@
+{
+    "version": "1.0",
+    "uniqueId": "478c014a15cf3b0c1481cd5bf9207e25",
+    "title": "FORMULARIO_ENG",
+    "description": "",
+    "width": 300,
+    "height": 600,
+    "events": {
+        "enabled": 0,
+        "list": {
+             "1": "Formulario_Click",
+            "2": "Formulario_Vacio",
+            "3": "Formulario_Enviado",
+            "4": "Formulario_Gracias",
+            "5": "Formulario_ClickFin"
+        }
+    },
+    "clicktags": {
+
+       "clickTAG": "https://mindtechvigo.com/",
+    },
+    "source": "formulario-def.html"
+}
