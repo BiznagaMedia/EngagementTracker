@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="ad.size" content="width=320, height=480" />
+        <title>Anuncio creator</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
+
+        <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+        <script>window.HELP_IMPROVE_VIDEOJS = false;</script>
+        <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+
+        <script>
+            var linkRedirect = 'https://www.mustela.com.mx';
+            var config = [
+                {
+                    start: 8,
+                    showFlag: false,
+                    position: [//position donde saldra el circulo sobre el video
+                        'left: 5px;',
+                        'top: 90px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/hFG23LH.png',
+                    detail: {//configuracion para el modal imagen, titulo, y texto de detail
+                        imageUrl: 'https://i.imgur.com/rP3DpDJ.jpg',
+                        title: '',
+                        href: 'https://www.mustela.com.mx',
+                        description: 'Cuate el aguacate hidrata y protege a la piel normal.'
+                    }
+                },{
+                    start: 15,
+                    showFlag: false,
+                    position: [
+                        'left: 5px;',
+                        'top: 90px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/vUAV7UN.png',
+                    detail: {
+                        imageUrl: 'https://i.imgur.com/GngYKC9.jpg',
+                        title: '',
+                        href: 'https://www.mustela.com.mx',
+                        description: 'Rita la abejita nutre profundamente la piel seca.'
+                    }
+                },{
+                    start: 21,
+                    showFlag: false,
+                    position: [
+                        'left: 5px;',
+                        'top: 90px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/oCMbaMu.png',
+                    detail: {
+                        imageUrl: 'https://i.imgur.com/UFdUmIg.jpg',
+                        title: '',
+                        href: 'https://www.mustela.com.mx',
+                        description: 'Imanol el girasol protege, calma y reepiteliza la piel atópica.'
+                    }
+                },
+                /*{
+                    start: 15,
+                    showFlag: false,
+                    position: [
+                        'left: 30px;',
+                        'top: 150px;'
+                    ],
+                    img_screen: './image/zapatos-de-tacon-con-lateral-abierto-negro-mujer-talla-34-a-48-wz517_1_fr1.jpg',
+                    detail: {
+                        imageUrl: './image/zapatos-de-tacon-con-lateral-abierto-negro-mujer-talla-34-a-48-wz517_1_fr1.jpg',
+                        title: 'asdasdas.com',
+                        href: 'https://www.mustela.com.mx',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                    }
+                }*/
+            ];
+             
+            var configRemoved = {
+               14: {
+                    position: 8,
+                    removeFlag: false
+                },
+                20: {
+                    position: 15,
+                    removeFlag: false
+                },
+                
+                30: {
+                    position: 21,
+                    removeFlag: false
+                }
+            };
+        </script>
+        
+        <style>
+            body { 
+                margin: 0px;
+                font-family: Trebuchet MS; }
+            .video-container {
+                width: 100%;
+                height: 100vh;
+                position: relative;
+            }
+           /* .video-js {
+                width: 100%;
+                height: 100vh;
+            }*/
+            .my-player-dimensions.vjs-fluid {
+                padding-top: 0px;
+            }
+            .video-container .circle {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                border: 1px solid #ededed;
+                background-color: #ffffff;
+                cursor: pointer;
+            }
+
+
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content/Box */
+            .modal .modal-content {
+              background-color: #fefefe;
+              margin: 5% auto; /* 15% from the top and centered */
+              padding: 20px;
+              border: 1px solid #888;
+              width: 300px; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button */
+            .modal .modal-content .modal-header .close {
+              color: #aaa;
+              float: right;
+              font-size: 10px;
+              font-weight: bold;
+              font-family: Trebuchet MS;
+              margin-top: 5px;
+              margin-right: 8px;
+            }
+
+            .modal .modal-content .modal-header .close:hover,
+            .modal .modal-content .modal-header .close:focus {
+              color: black;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            .modal .modal-content .body .column {
+                display:inline;
+                vertical-align: top;
+                width: 45%;
+                text-align: center;
+                margin-top: 2px;
+            }
+            .modal .modal-content .body .movil-size {
+                display: block !important;
+                width: 100% !important;
+            }
+            .modal .modal-content .body .column img.logo {
+                height: 180px;
+                width: 100%;
+            }
+            .image-resize {
+                height: 100px !important;
+                width: 200px !important;
+            }
+            .modal .modal-content .body .column .link {
+                margin-top: -5px;
+            }
+            .modal .modal-content .body .column .link a {
+                padding: 2px 4px;
+                background-color: #828282;
+                border: 1px solid #fff;
+                text-decoration: none;
+                color: #fff;
+                margin-top: -10px;
+                padding-bottom: 5px;
+                font-size: 12px;
+            }
+            
+            .modal .modal-content .body .description p {
+                 margin-top: -20px;
+                margin-left: 2px;
+                margin-right: 30px;
+                font-weight: 700;
+                font-size: 13px;
+                width: ;
+                height: ;
+                
+            }
+            
+            .modal .modal-content .body .description2 p2 {
+                 margin-top: ;
+                margin-left: 15px;
+                margin-right: 20px;
+                padding-top: 20px;
+            }
+
+            /* styles for screen over video */
+            .video-container .over-video {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+            }
+            /*.video-container video::-webkit-media-controls-fullscreen-button {
+                display: none;
+            }*/
+        </style>
+    </head>
+    <body>
+
+        <div class="video-container">
+            <!-- <video
+                id="my-player"
+                class="video-js"
+                controls="false"
+                preload="auto"                
+                data-setup='{}'>
+              <source src="https://drive.google.com/uc?export=download&id=1Tuq-e2lGyzI5GBb39lr4FHI-nVIewZUo" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></source>
+              <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that.
+                <a href="https://videojs.com/html5-video-support/" target="_blank">
+                  supports HTML5 video
+                </a>
+              </p>
+              
+            </video> -->
+            <video playsinline
+                id="my-player"
+                class="video-js"
+                controls="false"
+                preload="auto"                
+                data-setup='{}'>
+              <source src="http://love4native.com/wp-content/uploads/2019/05/Ediciones-Limitadas_SC_v9.mp4-1.mp4" type='video/mp4'></source>
+              <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that.
+                <a href="https://videojs.com/html5-video-support/" target="_blank">
+                  supports HTML5 video
+                </a>
+              </p>
+              
+            </video>
+
+
+            <!-- <div class="over-video"></div> -->
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">                
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                    </div>
+
+                    <div class="body">
+                        <div class="column" id="force">
+                            <img class="logo" src="">
+                        </div>
+                        <div class="column">
+                            <div class="title"></div>
+                            <div class="description"></div>
+                            <div class="link">
+                                <a href="javascript:;">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function _initAdds() {
+
+                var videoState = {
+                    '0.00': false,
+                    '0.25': false,
+                    '0.50': false,
+                    '0.75': false,
+                    '1': false
+                };
+
+                /* Start modal click */
+                // Función que hace compatibles los eventos con todos los navegadores.
+                function addEvent(el, name, fn) {
+                    if (el.addEventListener) {
+                    el.addEventListener(name, fn);
+                    } else if (el.attachEvent) {
+                    el.attachEvent('on' + name, function(evt) {
+                        evt.target = evt.target || evt.srcElement;
+                        // Call the event to ensure uniform 'this' handling, pass it event
+                        fn.call(el, evt);
+                    });
+                    } else if (typeof el['on' + name] === 'undefined' || el['on' + name] === null) {
+                    el['on' + name] = function(evt) {
+                        evt.target = evt.target || evt.srcElement;
+                        // Call the event to ensure uniform 'this' handling, pass it event
+                        fn.call(el, evt);
+                    };
+                    }
+                }; 
+
+                function goToLink(link, _name) {
+                    return function() {
+                        var tabName = _name == undefined ? '_blank' : _name;
+                        window.open(link, tabName);
+                    }
+                };
+
+                function _controlModalLinkAndScreen() {
+
+                    var link = document.querySelector("#myModal .body .link > a");
+                    if (link) {
+                        addEvent(link, 'click', function($e) {
+                            $e.preventDefault();
+                            $e.stopPropagation();
+                            var el = $e.currentTarget;
+                            var index = el.getAttribute('data-reference');
+                            var href = el.getAttribute('data-href');
+                            var callback = goToLink(href);
+                            /* Send click dicover bottom */
+                            console.log('Click pantalla ' + index);
+                            window.setTimeout(callback, 500);
+                        });
+                    }
+
+                    var screen = document.querySelector(".video-container .over-video");
+                    if (screen) {
+                        addEvent(screen, 'click', function($e) {
+                            $e.preventDefault();
+                            $e.stopPropagation();
+                            var href = linkRedirect;
+                            var callback = goToLink(href);
+                            /* Send click in video screen */
+                            console.log('Click in video screen');
+                            window.setTimeout(callback, 500);
+                        });
+                    }
+                };
+
+                _controlModalLinkAndScreen();
+                /* End modal click */
+                
+                //crear el modal
+                function configureAndShowModal($e) {
+
+                    //Extract position in config
+                    var index = $e.currentTarget.getAttribute('data-reference');
+                    var configuration = config[index];
+
+                    /* Click in circle */
+                    var pos = parseInt(index) + 1;
+                    console.log('Click Bola ' + pos);
+                    // dhtml.sendEvent('1', 'Formulario_Click', null);
+                    /* Click in circle */
+                    console.log('Impresion Pantalla Popup ' + pos);
+
+                    // Get the modal
+                    var modal = document.getElementById('myModal');
+                    modal.style.display = "block";
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function($e) {
+                        $e.preventDefault();
+                        $e.stopPropagation();
+                        modal.style.display = "none";
+                        player.play();
+                    };
+
+                    var body = document.querySelector("body");
+                    if (body.clientWidth < 767) {
+
+                        var columns = document.querySelectorAll(".modal .modal-content .body .column");
+                        for(var i = 0; i < columns.length; i++) {
+                            if (!columns[i].classList.contains('movil-size')) {
+                                columns[i].classList.add('movil-size');
+                            }
+                        }
+                    }
+
+                    //update image
+                    var element = document.querySelector(".modal .modal-content .body img.logo");
+                    if (element != undefined) {
+                        element.setAttribute('src', configuration.detail.imageUrl);
+                        if (body.clientWidth < 767) {
+                            if (!element.classList.contains('image-resize')) {
+                                element.classList.add('image-resize');
+                            }
+                        }else {
+                            if (element.classList.contains('image-resize')) {
+                                element.classList.remove('image-resize');
+                            }
+                        }
+                    }
+
+                    //update title
+                    element = document.querySelector(".modal .modal-content .body .title");
+                    if (element != undefined) {
+                        element.innerHTML = '';
+                        var p = document.createElement("h3");
+                        t = document.createTextNode(configuration.detail.title);
+                        p.appendChild(t);
+                        element.appendChild(p);
+                    }
+
+                    //update description
+                    element = document.querySelector(".modal .modal-content .body .description");
+                    if (element != undefined) {
+                        element.innerHTML = '';
+                        var p = document.createElement("p");
+                        t = document.createTextNode(configuration.detail.description);
+                        p.appendChild(t);
+                        element.appendChild(p);
+                    }
+
+                    element = document.querySelector(".modal .modal-content .body .link a");
+                    element.setAttribute('data-href', configuration.detail.href);
+                    element.setAttribute('data-reference', pos);
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        modal.style.display = "none";
+                        player.play();
+                      }
+                    };
+                };
+
+                function removedCircleDescriptor(segunsContainer) {
+
+                    var keys = Object.keys(configRemoved);
+                    var key = null;
+
+                    for(var i = 0; i < keys.length; i++) {
+                        if (keys[i] == segunsContainer) {
+                            key = keys[i];
+                            break;
+                        }
+                    }
+
+                    if (key != null) {
+                        key = configRemoved[keys[i]];
+                        if (!key.removeFlag) {
+                            configRemoved[keys[i]] = !key.removeFlag;
+                            var selector = "div[data-position='"+ key.position +"']";
+                            var removed = document.querySelectorAll(selector);
+                            if (removed != undefined) {
+                                for(var i = 0; i < removed.length; i++) {
+                                    removed[i].parentNode.removeChild(removed[i]);
+                                }
+                            }
+                        }
+                    }
+                };
+
+                function addCircleDescriptor(segunsContainer) {
+
+                    var views = [];
+                    for(var i = 0; i < config.length; i++) {
+                        if (config[i].start == segunsContainer) {
+                            views.push(i);
+                        }
+                    }
+
+                    for(var i = 0; i < views.length; i++) {
+                        var configInter = config[views[i]];
+                        if (!configInter.showFlag) {
+                            var circle = document.createElement('div');
+                            var style = 'position: absolute;background-size: cover;'
+                            style += 'background-image: url(' + configInter.img_screen + ');';
+                            configInter.position.forEach( function(element) {
+                                style += element;
+                            });
+                            circle.setAttribute('style', style);
+                            circle.setAttribute('class', 'circle');
+                            circle.setAttribute('data-position', configInter.start);
+                            circle.setAttribute('data-reference', views[i]);
+                            circle.onclick = function($e) {
+                                $e.preventDefault();
+                                $e.stopPropagation();
+                                player.pause();
+                                configureAndShowModal($e);
+                            };
+                            var base = document.querySelector('.video-container');
+                            if (base != undefined) {
+                                base.append(circle);
+
+                                /* Enter cricle in screen */
+                                var pos = views[i] + 1;
+                                console.log('Impresion Bola ' + pos);
+                                config[views[i]].showFlag = !configInter.showFlag;
+                            }
+                        }
+                    }
+                };
+
+
+                function checkVideoProgress(time, total) {
+
+                    var percent = time * 100 / total;
+
+                    if (percent == 0 && !videoState['0.00']) {
+                        videoState['0.00'] = true;
+                        console.log('Visualizacion 0%');
+                    }else if (percent > 20 && percent < 30 && !videoState['0.25']) {
+                        videoState['0.25'] = true;
+                        console.log('Visualizacion 25%');
+                    }else if (percent > 45 && percent < 55 && !videoState['0.50']) {
+                        videoState['0.50'] = true;
+                        console.log('Visualizacion 50%');
+                    }else if (percent > 70 && percent < 80 && !videoState['0.75']) {
+                        videoState['0.75'] = true;
+                        console.log('Visualizacion 75%');
+                    }
+                }
+
+                var player = videojs('my-player');
+                var options = {
+                };
+
+                var player = videojs('my-player', options, function onPlayerReady() {
+                  //  init controls and config
+                  // this.controls(false);
+                  // init video
+                  // this.play();
+                  var fullScreen = document.querySelector('.video-js .vjs-fullscreen-control');
+                  if (fullScreen) {
+                    // video.removeAttribute('controls');
+                    fullScreen.parentNode.removeChild(fullScreen);
+                  }
+
+                  // How about an event listener?
+                  this.on('ended', function() {
+                    videoState['1'] = true;
+                    console.log('Visualizacion 100%');
+                  });
+                  this.on('timeupdate', function(e) {
+
+                    var time = Math.floor(this.currentTime());
+                    addCircleDescriptor(time);
+                    removedCircleDescriptor(time);
+                    var lengthOfVideo = this.duration();
+                    checkVideoProgress(time, lengthOfVideo);
+                  });
+                });
+
+                player.fluid(false);
+                player.responsive(false);
+
+                function resizeVideoJS() {
+                    var element = document.querySelector('.video-container');
+                    var width = element.clientWidth;
+                    var height = element.clientHeight;
+                    player.dimensions(width, height);
+                }
+
+                resizeVideoJS();
+                window.onresize = resizeVideoJS;
+            };
+
+            _initAdds();
+        </script>
+    </body>
+</html>
