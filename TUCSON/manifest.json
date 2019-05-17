@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "c3b86d8906ef9ad076576d170e27bca6",
+    "title": "Cube Tucson_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www.hyundai.es\/tucsonhibrido\/"
+    },
+    "source": "Cube.html"
+}
