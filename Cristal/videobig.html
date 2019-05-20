@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="ad.size" content="width=320, height=480" />
+    <title>320x480</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
+    <style>
+        body.videonew {
+            background-color: #FFFFFF;
+            color: black;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+       
+        .videonew_wrapper {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #c5c5c5;
+            cursor: pointer;
+        }
+
+        .videonew_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
+        }
+
+        .videonew_wrapper.size_320x480 {
+            width: 318px;
+            height: 478px;
+        }
+        
+        
+
+        .videonew_wrapper.size_320x50 {
+            width: 318px;
+            height: 48px;
+        }
+
+        .videonew_wrapper.size_728x90 {
+            width: 726px;
+            height: 88px;
+        }
+
+        .videonew_cover {
+            position: relative;
+            width: 100%;
+            height: 70%;
+            
+        }
+
+        .bg.cover-1 {
+            background: url("https://i.imgur.com/KpGAcOq.jpg");
+            background-size: cover;
+        }
+
+        .bg.cover-2 {
+            background: url("https://i.imgur.com/oiPvvM1.jpg");
+            background-size: cover;
+            background-position-x: 40%;
+        }
+
+        .bg.cover-3 {
+            background: url("images/photo-3.jpg");
+            background-size: cover;
+            background-position-x: -40px;
+        }
+
+        
+        .videonew_cover .videonew_logo span {
+            color: white;
+        }
+
+        .videonew_logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .videonew_pos_tl {
+            top: 3%;
+            left: 3%;
+        }
+
+        .videonew_pos_tr {
+            top: 3%;
+            right: 3%;
+        }
+
+        .videonew_pos_bl {
+            bottom: 3%;
+            left: 3%;
+        }
+
+        .videonew_pos_br {
+            bottom: 3%;
+            right: 3%;
+        }
+
+        .videonew_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%);
+        }
+
+        /* cover height + 5% */
+
+        .videonew_text {
+            position: absolute;
+            top: 65%;
+            left: 5px;
+            width: 98%;
+            padding: 0.3em;
+            line-height: 1.2em;
+            color: #000;
+        }
+
+        .videonew_text_title {
+            font-size: 140%;
+            color: #000;
+            display: inline-block;
+            width: 95%;
+            margin-bottom: 10px;
+            text-align:center;
+            line-height: 1.1em;
+        }
+
+        .videonew_text_light {
+            font-weight: 400;
+        }
+
+        .videonew_text_medium {
+            font-weight: 700;
+        }
+
+        .videonew_text_bold {
+            font-weight: 900;
+        }
+
+        .videonew_text_small {
+            font-size:120%;
+            margin-top: 10px;
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
+
+        /*Carousel in Cover */
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .logo {
+            width: 41%;
+            z-index: 2;
+            float: right;
+            height: 30px;
+            text-align: center;
+            margin-top: 85px;
+            margin-right: -10px
+        }
+        
+        .videonew_cover .videonew_logo {
+            position: absolute;
+            bottom: -0px;
+            width: 60px;
+            line-height: 1.3em;
+            z-index: 2;
+            margin-left: 50%;
+            left: -30px;
+            background-color: #a50f40;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .videonew_sponsoredby {
+            position: absolute;
+            z-index: 99;
+        }
+
+        .videonew_sponsoredby.videonew_pos_br {
+            right: 1%;
+            bottom: 0% !important;
+        }
+
+        .videonew_sponsoredby .sponsor {
+            font-size: 9px;
+            display: inline-block;
+            float: left;
+            margin-right: 3px;
+            margin-top: 7px;
+        }
+
+        .videonew_sponsoredby:hover .sponsor {
+            opacity: 1;
+        }
+
+        .videonew_sponsoredby .videonew_logo {
+            width: 60px;
+            display: inline-block;
+            float: right;
+        }
+
+        .videonew_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #e97000;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
+
+        .videonew_button:hover {
+            background-color: #d34100;
+        }
+        
+        .videonew .tgx_logo {
+            position: absolute;
+            bottom: 185px;
+            width: 130px;
+            line-height: 1.2em;
+            z-index: 2;
+            margin-left: 90px;
+            
+            background-color: #fd224e;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .tgx_text_bold {
+            font-weight: 900;
+            
+        }
+
+         .cta {
+            position: absolute;
+            bottom: 155px;
+            width: 125px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 60px;
+            background-color: #;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+    </style>
+    
+</head>
+
+<body class="videonew">
+    <div class="videonew_wrapper carousel-wrapper size_320x480" id="cta">
+
+            <a href= "https://www.cristal.com.pe/sm_agegate?destination=oncedelaliento" target="_blank">
+        <div class="carousel-container">
+            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)" style="margin-left: -135px;">
+           
+            </div>
+        </div>
+        <script>
+            var tag = document.body.style.rightMargin="100px";
+            var tag = document.createElement('script') ;
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script') [0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+ 
+            var player;
+            function onYouTubeIframeAPIReady(){
+                ytplayer = new YT.Player('ytplayer', {
+
+                    height: '280',
+                    width: '580',
+                    videoId: 'FM71NOwndO0',
+                    autoplay: 1,
+                    playerVars: {
+                        loop: 1,
+                        controls: 0
+                    },
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
+                    }
+                })
+            };
+ 
+ 
+            function SetYoutubeVolume(pakata) {
+                if (pakata == true){
+                    ytplayer.setVolume(80);
+                }else{
+                    ytplayer.setVolume(0);
+                }
+            }
+ 
+            function onPlayerReady(event) {
+                ytplayer.playVideo();
+                ytplayer.setVolume(0);
+            }
+ 
+            function onPlayerStateChange(event) {
+                if (event.data == YT.PlayerState.ENDED) {
+                    ytplayer.playVideo();
+                }
+                event.target.setVolume(0);
+            }
+ 
+        </script>
+    
+           
+        <div class="videonew_text"> 
+           
+            <span class="videonew_text_title videonew_text_bold">
+               Destapa y participa en cristal.com.pe. 
+            </span>
+            
+            <span class="videonew_text_small videonew_text_small" style="color:black;">
+                <p style="margin-right:15px; text-align: center; width: 90%; margin-top: 0px; line-height: 1.1em">
+    11 ganadores llevarán el aliento del barrio a Brasil.
+
+
+                </p> 
+            </span> 
+
+             <div class="cta" > <img src="https://i.imgur.com/pgHcgWu.png" style="height: 45px;"></a></div>
+           
+                    <div>
+                    <img src="https://i.imgur.com/P2Oq2XF.png" style="height:45px; float:right;margin-right: 10px; margin-top: -10px;">
+                </div>
+       <!--     <div style="bottom:0px;height: 1px;text-align:left;margin-top:70px">-->
+               
+                <!--<div id="botones-para-compartir" style="display:inline;float:left;margin-top:-0px;margin-left:0px;"> <span> 
+                
+                <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/8veKdvzMHeQ" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/WV1DSVZ.png" title="compartir en facebook" width="22" /></a>
+                
+                <a class="shared" href="whatsapp://send?text=Mira lo que he encontrado https://youtu.be/8veKdvzMHeQ" target="block"><img alt="compartir en whatsapp" class="whatsappi" height="22" src="https://i.imgur.com/n0J7vCp.png" title="compartir en whatsapp" width="22" /></a>
+                
+                <a class="shared" href="https://twitter.com/home?status=https://youtu.be/8veKdvzMHeQ" target="block">
+                            <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/uabhexm.png" title="compartir en twitter" width="22" /></a>
+              
+                  </span>
+            
+                
+            
+        </div>-->
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
