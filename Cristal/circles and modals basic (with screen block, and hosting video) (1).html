@@ -13,36 +13,27 @@
         <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
 
         <script>
-            var linkRedirect = 'https://www.mustela.com.mx';
+            var linkRedirect = 'https://www.cristal.com.pe';
             var config = [
                 {
-                    start: 8,
+                    start: 3,
                     showFlag: false,
                     position: [//position donde saldra el circulo sobre el video
-                        'left: 5px;',
-                        'top: 90px;'
+                        'left: 100px;',
+                        'top: 450px;'
                     ],
-                    img_screen: 'https://i.imgur.com/hFG23LH.png',
+                    img_screen: 'https://i.imgur.com/A4bQYtD.gif',
                     detail: {//configuracion para el modal imagen, titulo, y texto de detail
-                        href: 'https://www.mustela.com.mx',
-                        
+                     //   imageUrl: 'https://i.imgur.com/rP3DpDJ.jpg',
+                        //title: '',
+                        href: 'https://www.cristal.com.pe',
+                    //    description: 'Cuate el aguacate hidrata y protege a la piel normal.'
                     }
                 },
-                 /*{
-                    start: 15,
-                    showFlag: false,
-                    position: [
-                        'left: 5px;',
-                        'top: 90px;'
-                    ],
-                    img_screen: 'https://i.imgur.com/vUAV7UN.png',
-                    detail: {
-                        imageUrl: 'https://i.imgur.com/GngYKC9.jpg',
-                        title: '',
-                        href: 'https://www.mustela.com.mx',
-                        description: 'Rita la abejita nutre profundamente la piel seca.'
-                    }
-                },{
+                
+                
+                
+                /*{
                     start: 21,
                     showFlag: false,
                     position: [
@@ -53,11 +44,11 @@
                     detail: {
                         imageUrl: 'https://i.imgur.com/UFdUmIg.jpg',
                         title: '',
-                        href: 'https://www.mustela.com.mx',
+                        href: 'https://www.cristal.com.pe',
                         description: 'Imanol el girasol protege, calma y reepiteliza la piel atópica.'
                     }
                 },
-               {
+                {
                     start: 15,
                     showFlag: false,
                     position: [
@@ -68,16 +59,16 @@
                     detail: {
                         imageUrl: './image/zapatos-de-tacon-con-lateral-abierto-negro-mujer-talla-34-a-48-wz517_1_fr1.jpg',
                         title: 'asdasdas.com',
-                        href: 'https://www.mustela.com.mx',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                        href: 'https://www.cristal.com.pe',
+                        description: 'Lorem ipsum dolor sit '
                     }
                 }*/
             ];
              
             var configRemoved = {
-               14: {
-                    position: 8,
-                    removeFlag: false
+               10: {
+                    position: 3,
+                    
                 },
                 20: {
                     position: 15,
@@ -103,10 +94,10 @@
            /* .video-js {
                 width: 100%;
                 height: 100vh;
-            }*/
+            }
             .my-player-dimensions.vjs-fluid {
                 padding-top: 0px;
-            }
+            }*/
             .video-container .circle {
                 width: 80px;
                 height: 80px;
@@ -137,7 +128,7 @@
               margin: 5% auto; /* 15% from the top and centered */
               padding: 20px;
               border: 1px solid #888;
-              width: 300px; /* Could be more or less, depending on screen size */
+              width: 80%; /* Could be more or less, depending on screen size */
             }
 
             /* The Close Button */
@@ -146,9 +137,7 @@
               float: right;
               font-size: 10px;
               font-weight: bold;
-              font-family: Trebuchet MS;
-              margin-top: 5px;
-              margin-right: 8px;
+              
             }
 
             .modal .modal-content .modal-header .close:hover,
