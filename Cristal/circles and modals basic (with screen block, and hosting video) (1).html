@@ -13,70 +13,87 @@
         <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
 
         <script>
-            var linkRedirect = 'https://www.cristal.com.pe';
+            var linkRedirect = 'https://www.cristal.com.pe/';
             var config = [
                 {
                     start: 3,
                     showFlag: false,
                     position: [//position donde saldra el circulo sobre el video
-                        'left: 100px;',
-                        'top: 450px;'
+                        'left: 5px;',
+                        'top: 50px;'
                     ],
                     img_screen: 'https://i.imgur.com/A4bQYtD.gif',
                     detail: {//configuracion para el modal imagen, titulo, y texto de detail
-                     //   imageUrl: 'https://i.imgur.com/rP3DpDJ.jpg',
-                        //title: '',
-                        href: 'https://www.cristal.com.pe',
-                    //    description: 'Cuate el aguacate hidrata y protege a la piel normal.'
+                        imageUrl: 'https://i.imgur.com/oqwDsa6.png',
+                        title: '',
+                        href: 'https://www.cristal.com.pe/',
+                        description: '¡Destapa y participa!'
+                    }
+                },{
+                    start: 11,
+                    showFlag: false,
+                    position: [
+                        'left: 5px;',
+                        'top: 150px;'
+                    ],
+                    img_screen: 'https://i.imgur.com/A4bQYtD.gif',
+                    detail: {
+                        imageUrl: 'https://i.imgur.com/OQiB0S7.png',
+                        title: '',
+                        href: 'https://www.cristal.com.pe/',
+                        description: '11 ganadores llevarán el aliento del barrio a Brasil.'
                     }
                 },
-                
-                
-                
-                /*{
+               {
                     start: 21,
                     showFlag: false,
                     position: [
                         'left: 5px;',
-                        'top: 90px;'
+                        'top: 50px;'
                     ],
-                    img_screen: 'https://i.imgur.com/oCMbaMu.png',
+                    img_screen: 'https://i.imgur.com/A4bQYtD.gif',
                     detail: {
-                        imageUrl: 'https://i.imgur.com/UFdUmIg.jpg',
+                        imageUrl: 'https://i.imgur.com/oqwDsa6.png',
                         title: '',
-                        href: 'https://www.cristal.com.pe',
-                        description: 'Imanol el girasol protege, calma y reepiteliza la piel atópica.'
+                        href: 'https://www.cristal.com.pe/',
+                        description: 'Destapa e ingresa tu código aquí.'
                     }
                 },
                 {
-                    start: 15,
+                    start: 31,
                     showFlag: false,
                     position: [
-                        'left: 30px;',
+                        'left: 5px;',
                         'top: 150px;'
                     ],
-                    img_screen: './image/zapatos-de-tacon-con-lateral-abierto-negro-mujer-talla-34-a-48-wz517_1_fr1.jpg',
+                    img_screen: 'https://i.imgur.com/A4bQYtD.gif',
                     detail: {
-                        imageUrl: './image/zapatos-de-tacon-con-lateral-abierto-negro-mujer-talla-34-a-48-wz517_1_fr1.jpg',
-                        title: 'asdasdas.com',
-                        href: 'https://www.cristal.com.pe',
-                        description: 'Lorem ipsum dolor sit '
+                        imageUrl: 'https://i.imgur.com/OQiB0S7.png',
+                        title: '',
+                        href: 'https://www.cristal.com.pe/',
+                        description: '¿Deseas viajar a Brasil? ¡#UnidosPodemos!'
                     }
-                }*/
+                }
             ];
              
             var configRemoved = {
-               10: {
+               9: {
                     position: 3,
-                    
+                    removeFlag: false
                 },
-                20: {
-                    position: 15,
+                19: {
+                    position: 11,
                     removeFlag: false
                 },
                 
-                30: {
+              29: {
                     position: 21,
+                    removeFlag: false
+                },
+            
+               
+                40: {
+                    position: 31,
                     removeFlag: false
                 }
             };
@@ -94,13 +111,13 @@
            /* .video-js {
                 width: 100%;
                 height: 100vh;
-            }
+            }*/
             .my-player-dimensions.vjs-fluid {
                 padding-top: 0px;
-            }*/
+            }
             .video-container .circle {
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
                 border-radius: 50%;
                 border: 1px solid #ededed;
                 background-color: #ffffff;
@@ -135,9 +152,11 @@
             .modal .modal-content .modal-header .close {
               color: #aaa;
               float: right;
-              font-size: 10px;
+              font-size: 18px;
               font-weight: bold;
-              
+              font-family: Trebuchet MS;
+              margin-top: 5px;
+              margin-right: 5px;
             }
 
             .modal .modal-content .modal-header .close:hover,
@@ -148,7 +167,7 @@
             }
 
             .modal .modal-content .body .column {
-                display:inline;
+                display: inline-block;
                 vertical-align: top;
                 width: 45%;
                 text-align: center;
@@ -159,7 +178,7 @@
                 width: 100% !important;
             }
             .modal .modal-content .body .column img.logo {
-                height: 180px;
+                height: 200px;
                 width: 100%;
             }
             .image-resize {
@@ -171,7 +190,7 @@
             }
             .modal .modal-content .body .column .link a {
                 padding: 2px 4px;
-                background-color: #828282;
+                background-color: #001a76;
                 border: 1px solid #fff;
                 text-decoration: none;
                 color: #fff;
@@ -182,11 +201,11 @@
             
             .modal .modal-content .body .description p {
                  margin-top: -20px;
-                margin-left: 2px;
-                margin-right: 30px;
+                margin-left: 3px;
+                margin-right: 0px;
                 font-weight: 700;
                 font-size: 13px;
-                width: ;
+                width: 230px;
                 height: ;
                 
             }
@@ -236,7 +255,7 @@
                 controls="false"
                 preload="auto"                
                 data-setup='{}'>
-              <source src="http://love4native.com/wp-content/uploads/2019/05/CRISTAL_11DA_-CONTENT-6_TRIBUNA.mp4" type='video/mp4'></source>
+              <source src="http://love4native.com/wp-content/uploads/2019/05/Los-11-del-aliento-Cristal-–-Brasil.mp4" type='video/mp4'></source>
               <p class="vjs-no-js">
                 To view this video please enable JavaScript, and consider upgrading to a
                 web browser that.
@@ -266,7 +285,7 @@
                             <div class="title"></div>
                             <div class="description"></div>
                             <div class="link">
-                                <a href="javascript:;">Leer más</a>
+                                <a href="javascript:;">¡Ven ahora!</a>
                             </div>
                         </div>
                     </div>
