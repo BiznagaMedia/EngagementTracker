@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+
+   <style>
+    .HuaweiScroll1 p {
+        margin: 0px;
+    }
+
+    .HuaweiScroll1 .btn {
+        margin-top: 0;
+        padding-left: 0;
+        overflow-y: auto;
+    }
+
+    .HuaweiScroll1 a,
+    .ClaroScroll a:hover {
+        text-decoration: none;
+        color: #fff;
+        
+    }
+
+    .HuaweiScroll1 .bzm_wrapper {
+        position: relative;
+        overflow: hidden;
+        color: #000;
+        font-family: Lato, sans-serif;
+        
+    }
+
+    .HuaweiScroll1 .bzm_wrapper.size_320x480 {
+        width: 300px!important;
+        height: 600px!important;
+        background-color: #FFF;
+        overflow-y: auto;
+    }
+
+    .HuaweiScroll1 .bzm_cover,
+    .ClaroScroll .carousel-wrapper {
+        position: relative;
+        width: 100%
+    }
+
+    .HuaweiScroll1 .bzm_cover {
+        height: 150px
+    }
+
+    .HuaweiScroll1 .bzm_cover.bzm_pos_tl {
+        top: 3%;
+        left: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_tr {
+        top: 3%;
+        right: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_bl {
+        bottom: 3%;
+        left: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_br {
+        bottom: 3%;
+        right: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_bm {
+        bottom: 3%;
+        left: calc(100% - 70%)
+    }
+
+    .HuaweiScroll1 .bzm_text {
+        padding: 4px 0 0 .3em;
+        line-height: 1.1;
+        color: #000;
+        width: 95%;
+        margin-left: 0px;
+        
+            
+    }
+
+    .HuaweiScroll1 .bzm_text_title {
+        font-size: 14px;
+        color: #000
+            
+    }
+
+    .HuaweiScroll1 .bzm_text_light {
+        font-size: 10px;
+        font-weight: 0
+    }
+
+    .HuaweiScroll1 .bzm_text_medium {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.4
+    }
+
+    .HuaweiScroll1 .bzm_text_bold {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1
+    }
+
+    .HuaweiScroll1 .bzm_text_small {
+        font-size: 10px;
+        line-height: 1
+    }
+
+    .HuaweiScroll1 .carousel-wrapper {
+        height: auto;
+        margin: 0 auto
+    }
+
+
+    .HuaweiScroll1 .bzm_button {
+        position: absolute;
+        bottom: 7px;
+        left: 3%;
+        text-transform: uppercase;
+        background-color: #6cbd44;
+        color: #fff;
+        border-radius: 50%;
+        padding: 4px;
+        text-align: center;
+        font-size: 90%;
+        cursor: pointer
+    }
+
+    .HuaweiScroll1 .bzm_button:hover {
+        background-color: #579e38
+    }
+
+    .HuaweiScroll1 .carousel-container {
+        width: 318px;
+        height: 418px;
+        overflow-y: hidden
+    }
+
+    .HuaweiScroll1 #botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .whatsappi:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .whatsappi,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .HuaweiScroll1 .logo {
+        
+        margin-right: 10px;
+        width: 33.33%;
+        line-height: 1.3em;
+        right: -20px;
+        z-index: 2;
+        background-color: ;
+        border-radius: 2px;
+        float: right;
+        height: 30px;
+        text-align: center;
+    }
+
+    .img-news {
+        background-size: cover;
+        width: 332px;
+        height: 250px;
+        float: center;
+        margin-left: -10px;
+    }
+
+    .img-cincoseis{
+        background-size: cover;
+        width: 320px;
+        height: 550px;
+        float: center;
+        margin-left: -10px;
+    }
+
+    .logo-enterp {
+       
+        float:left;
+        
+        margin-left: 5px
+       
+       
+    }
+
+    .HuaweiScroll1 #botones-para-compartir {
+        text-align: right;
+        
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .whatsappi:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .whatsappi,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .HuaweiScroll1 #Sup-botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .whatsappi:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .shared{ float: left;
+            margin-top: -6px;
+            padding-left: 10px;
+            height:20px;
+        
+           
+       
+          
+        
+    }
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .whatsappi,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+    
+    .facebooki,
+    .twitteri,
+    .whatsappi{
+        height:20px;
+        padding-top: 10px
+    }
+    
+    .bzm_text{
+        margin-top: -20px;
+        
+    }
+
+    @media screen and (max-width: 480px) {
+        .HuaweiScroll1 .bzm_wrapper.size_320x480 {
+            width: 320px;
+            height: 480px;
+            background-color: #FFF;
+            overflow-y: auto;
+        }
+
+        .img-news {
+            width: 322px;
+            height: 250px;
+        }
+
+       
+
+
+</style>
+    </head>
+
+<body>
+<div class="HuaweiScroll1" style="margin:0px; background-color:white;">
+    <div class="bzm_wrapper carousel-wrapper size_320x480">
+        <div class="context">
+
+            <div class="bzm_text">
+               
+                
+             
+
+              
+                    
+                      <div class="bzm_text">
+                <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#0eb49d;  margin-top:50px; margin-bottom: -20px; font-size: 17px; line-height: 1.3em; text-align: center; width:100%;">
+                    <i><h2> ¿Ya conoces nuestro plan de reciclaje?
+</h2></i> </span> 
+
+
+ 
+                    
+ <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:-20px; padding-top:20px; padding-bottom:10px;">
+                    <a href="https://www.dolce-gusto.com.mx/pages/conoceme/reciclaje/" style="display:block;" target="_blank">
+                        <div class="img-news" style="background-image:url(https://i.imgur.com/PAqY6xL.jpg); width: 300px; height: 1120px; margin-left: -15px;"></div> 
+                          </a> </span>
+                          
+
+               
+
+                   <!--<span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:-15px; padding-top:30px; padding-bottom:25px;">
+                        <a href="https://consumer.huawei.com/mx/phones/" style="display:block; margin-left:-10px;" target="_blank">
+                            <div class="img-news" style="background-image:url(https://i.imgur.com/wfMfYK6.jpg); margin-bottom:-10px; width: 300px;"></div>
+                        </a>
+                    </span> -->
+                   
+               
+
+  <!--<span class="bzm_text_title  bzm_text_medium" style="display:block;color:#8b8b8b; margin-left:0px; text-align: justify; margin-top: 17px;">
+                <i><strong>4.</strong><i><b>CONTENIDO NUTRICIONAL</b><p style="color:#8b8b8b">Los primeros años de vida son los que determinan la salud de nuestros hijos a futuro. Es importante ofrecerles alimentos con nutrientes esenciales que cubran su desarrollo mental <b>como el DHA , AA (ARA) y hierro, físico como la vitamina A y el calcio, inmunológico como la vitamina E y el zinc, y fibra como la oligofructosa</b> que contribuye a una buena <b>tolerancia de su sistema digestivo.</b></p>
+                </br></br><p style="color:#000"><strong>Una gran opción a considerar es Progress ALULA Gold Perú, con nueva presentación y fórmula mejorada, que contiene Alfa-lact*, 100% lactosa y no cuenta con azúcares añadidos como fructosa, sacarosa y sólidos de jarabe de maíz. Busquemos lo mejor para el crecimiento saludable de nuestros hijos.</b></strong></p></i> <br> </span>
+                <br> -->
+
+
+               
+
+                <!---<div style="text-align:right; background-color:white; background-size:25px; height:20px;margin-left: 3px; margin-top: 50px; margin-bottom: 30px;">
+                    <span>  
+                       
+                         <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u= https://www.cadillac.com.mx/vehiculos/xt5-camioneta-de-lujo?&ppc=GOOGLE_700000001310866_71700000048019608_58700004796697609_p41066884456&gclid=EAIaIQobChMIpOP06bvu4AIVCb7ACh1SRQH8EAAYASAAEgLHcPD_BwE&gclsrc=aw.ds"  target="block">    
+                        <img alt="compartir en facebook" class="facebooki" height="21" src="https://i.imgur.com/mJBNNLr.png" title="compartir en facebook" width="21" /></a>
+
+                            <a class="shared" href="whatsapp://send?text=Mira lo que he encontrado https://www.cadillac.com.mx/vehiculos/xt5-camioneta-de-lujo?&ppc=GOOGLE_700000001310866_71700000048019608_58700004796697609_p41066884456&gclid=EAIaIQobChMIpOP06bvu4AIVCb7ACh1SRQH8EAAYASAAEgLHcPD_BwE&gclsrc=aw.ds" target="block">
+                            <img alt="compartir en google+" class="whatsappi" height="21" src="https://i.imgur.com/ObtrzfY.png" title="compartir en google+" width="21" /></a>
+
+                            <a class="shared" href="https://twitter.com/home?status=https://www.cadillac.com.mx/vehiculos/xt5-camioneta-de-lujo?&ppc=GOOGLE_700000001310866_71700000048019608_58700004796697609_p41066884456&gclid=EAIaIQobChMIpOP06bvu4AIVCb7ACh1SRQH8EAAYASAAEgLHcPD_BwE&gclsrc=aw.ds" target="block">
+                            <img alt="compartir en twitter" class="twitteri" height="21" src="https://i.imgur.com/YN2Vf5g.png" title="compartir en twitter" width="21" /></a>
+                                
+                        <img class="final"  src="https://i.imgur.com/kkrzGUG.png"  style="height: 40px; margin-right: -10px; margin-top: -10px; float: right;">
+
+                    </span>
+                </div> --->
+                
+        
+        <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#0eb49d;  margin-top:20px; margin-bottom: -20px; font-size: 15px; line-height: 1.3em; text-align: center; width:100%;">
+                    <i><h2>  #ConGustoReciclamos.
+</h2></i> </span> 
+         
+
+
+                    </i>
+                </span>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    
+        </body>   
+
+</html>
