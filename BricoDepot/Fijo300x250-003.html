@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    
+    <style>
+        html {
+            cursor: pointer;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <title>Slider_Huawei</title>
+	  <style>
+          .bzm_text_title, 
+          .bzm_text_bold{
+              font-family: 'Trebuchet MS', sans-serif;
+               
+             
+          }
+          
+		.AmericanFijo a,
+        .AmericanFijo a:hover {
+            text-decoration: none;
+            color: white
+        }
+
+        .AmericanFijo .te-container {
+            width: 300px;
+            height: 250px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        .AmericanFijo .te-wrapper {
+            position: relative;
+            width: 300px;
+            height: 250px;
+            overflow: hidden;
+            font-family: Trebuchet MS;
+        }
+
+        .AmericanFijo .bzm_text {
+            margin-top: -28px;
+            margin-left: 8px;
+            text-align: center;
+            line-height: 1em;
+            font: Trebuchet MS; 
+        }
+        .bzm_text_title{
+            text-align: center;
+        }
+
+        .AmericanFijo .bzm_text_bold,
+        .AmericanFijo .bzm_text_medium {
+            line-height: 1.4;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .AmericanFijo .bzm_text_bold {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1;
+            
+            
+    
+        }
+
+        .AmericanFijo .bzm_text_medium {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /*******************************************************/
+
+        /****************** Unfold Effects *********************/
+
+        /*******************************************************/
+
+        .AmericanFijo .te-perspective {
+            -webkit-perspective: 1000;
+        }
+
+        .AmericanFijo .te-cover,
+        .AmericanFijo .te-transition {
+            width: 300px;
+            height: 170px;
+        }
+
+        .AmericanFijo .te-cover.te-hide,
+        .AmericanFijo .te-transition,
+        .AmericanFijo .te-images {
+            display: none;
+        }
+
+        .AmericanFijo .te-images {
+            width: 300px;
+            height: 170px;
+        }
+
+        .AmericanFijo .te-cover>img,
+        .AmericanFijo .te-images>img {
+            width: 300px;
+            height: 150px;
+        }
+
+        .AmericanFijo .te-transition.te-show {
+            display: block;
+        }
+
+        .AmericanFijo .te-back,
+        .AmericanFijo .te-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .AmericanFijo .te-front {
+            z-index: 2;
+        }
+
+        .AmericanFijo .te-back {
+            z-index: 1;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .AmericanFijo .te-transition img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        /***************** example3 ********************/
+
+        .AmericanFijo .te-example3 .te-front {
+            z-index: 1;
+        }
+
+        .AmericanFijo .te-example3 .te-back {
+            z-index: 2;
+        }
+
+        .AmericanFijo .te-example3.te-show .te-back {
+            -webkit-animation: example3Back 0.4s ease-out forwards;
+        }
+
+        @-webkit-keyframes example3Back {
+            0% {
+                -webkit-transform: rotate(40deg) scale(1.5) translate(200px, 10px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotate(0deg) scale(1) translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        .AmericanFijo #botones-para-compartir {
+            text-align: right;
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            /* Sombra */
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .AmericanFijo .logo {
+            z-index: 2;
+            background-color: transparent;
+            border-radius: 0px;
+            float: right;
+            height: 15px;
+            text-align: center;
+            margin-top: -4px;
+            margin-right: -7px
+        }
+          
+         .cta {
+            position: absolute;
+            bottom: 85px;
+            width: 120px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 48%;
+            left: -55px;
+            background-color: #000;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+          
+	 </style> 
+</head>
+<body class="AmericanFijo" style="margin:0px;">
+	 <div class="te-container">
+        <a href="http://blog.bricodepot.es/diy-en-familia-como-hacer-jardines-verticales/?utm_source=xaxis&utm_medium=display&utm_campaign=BlogMayo2019&utm_content=jardines_verticales" target="_blank">
+            <div id="te-wrapper" class="te-wrapper">
+               
+               <div class="cta"><span class="bzm_text_title bzm_text_bold" style="font-size:70%; color: white;">Piensa en verde</span></div>
+               
+                <div class="te-images"> 
+                <img src="https://i.imgur.com/1HyEcgD.png" alt="" /> 
+                 </div>
+                <div class="te-cover"> 
+                    <img src="https://i.imgur.com/1HyEcgD.png" alt="" /> 
+                </div>
+                <div class="te-transition">
+                    <div class="te-front"></div>
+                    <div class="te-back"></div>
+                </div>
+                <div style="margin-top:23px; margin-left:0px; margin-right: 10px;">
+                    <div class="bzm_text"> 
+                       <div class="bzm_wrapper carousel-wrapper size_300x250">
+       
+                         
+                          
+                            <span class="bzm_text_title bzm_text_bold" style="color:#000; font-size:21px; text-align: center;">
+                        Crea un jardín vertical  <br> 
+                        </span> 
+                         <span class="bzm_text_medium bzm_text_bold" style="color:#000; font-size:13px; text-align: justify;">
+                         Trucos para construir jardines verticales de forma sencilla y en familia.
+
+                        </span> </div>
+                        <div>
+                    
+                        <img class="logo" src="https://i.imgur.com/El80Lce.png"  style="height:28px;margin-top:2px;"> 
+                    </div>
+                  
+                </div>
+            </div>
+            <a>
+            
+        </a>
+    </div>
+</body>
+</html>
