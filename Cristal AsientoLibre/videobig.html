@@ -10,11 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
     <style>
         body.videonew {
-            background-color: #FFFFFF;
+            background-color: #e8ca4c;
             color: black;
             font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
+            
         }
 
         a,
@@ -27,7 +28,7 @@
         .videonew_wrapper {
             position: relative;
             overflow: hidden;
-            border: 1px solid #c5c5c5;
+            border: 1px solid #000;
             cursor: pointer;
         }
 
@@ -289,7 +290,7 @@
 
             <a href= "https://www.cristal.com.pe/" target="_blank">
         <div class="carousel-container">
-            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)" style="margin-left: -250px; margin-top: -25px;">
+            <div id="ytplayer" onmouseenter="SetYoutubeVolume(true)" onmouseleave="SetYoutubeVolume(false)" style="margin-left: -251px; margin-top: -30px;">
            
             </div>
         </div>
@@ -304,7 +305,7 @@
             function onYouTubeIframeAPIReady(){
                 ytplayer = new YT.Player('ytplayer', {
 
-                    height: '515',
+                    height: '525',
                     width: '800',
                     videoId: 'Nyi3UnEaiVA',
                     autoplay: 1,
