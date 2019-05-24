@@ -6,12 +6,39 @@
         document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
     </script>
     
-    
-    <style>
-        html {
-            cursor: pointer;
+    <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.latam.com/es_pe/promociones/millas-que-vuelan/?utm_source=AdsMedia&utm_medium=paid&utm_campaign=2019_05_BCPBranding_MillasqueVuelan_Intereses_CPC_NativeAds&utm_content=Internacional_Intereses_300X600_Todos';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
         }
-    </style>
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -199,11 +226,10 @@
 <body class="OpelGrandFijo" style="margin:0px;">
 	 <div class="te-container">
 
-        <a href="https://www.latam.com/es_pe/promociones/millas-que-vuelan/?utm_source=AdsMedia&utm_medium=paid&utm_campaign=2019_05_BCPBranding_MillasqueVuelan_Intereses_CPC_NativeAds&utm_content=Internacional_Intereses_300X600_Todos" target="_blank">
+        <a href="%%c1;cpdir=" style="display: block;" target="_blank">
+            
             <div id="te-wrapper" class="te-wrapper">
-
-                
-                <div class="te-images"> 
+             <div class="te-images"> 
                 <img src="https://i.imgur.com/5tNqpTs.jpg" alt="" /> 
                  </div>
                 <div class="te-transition">
