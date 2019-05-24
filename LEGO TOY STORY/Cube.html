@@ -622,12 +622,21 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     overflow: hidden;
 }
 
+/*#/#*//*#i4.i20.shape.css:shape/base/css*/
+#i20 { background-color: #ffffff; opacity: 1;
+}
+/*#/#*//*#i4.i348.image.css:image/base/css*/
+#i348 { opacity: 1; }
+/*#/#*//*#i348.i349.positioning.css:positioning/base/css.2*/
+#i348 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
 /*#/#*//*#visibility.css:visibility/globalcss*/
 .visibility-hidden, .visibility-hidden * {
     visibility: hidden !important;
-}
-/*#/#*//*#i4.i20.shape.css:shape/base/css*/
-#i20 { background-color: #ffffff; opacity: 1;
 }
 /*#/#*//*#i20.i21.positioning.css:positioning/base/css.1*/
 #i20 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
@@ -694,6 +703,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
         transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
+/*#/#*//*#i6.i350.image.css:image/base/css*/
+#i350 { opacity: 1; }
+/*#/#*//*#i350.i351.positioning.css:positioning/base/css.2*/
+#i350 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
 /*#/#*//*#i6.i60.image.css:image/base/css*/
 #i60 { opacity: 1; }
 /*#/#*//*#i60.i61.positioning.css:positioning/base/css.1*/
@@ -751,6 +769,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i5.i352.image.css:image/base/css*/
+#i352 { opacity: 1; }
+/*#/#*//*#i352.i353.positioning.css:positioning/base/css.2*/
+#i352 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 250px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i5.i24.text.css:text/base/css*/
 #i24 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 18px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -3px; margin-left: 5px;}
@@ -830,6 +857,8 @@ url('fonts/') format('svg');
 <div id="i4" class="panel-content-holder">
     <!--#i4.i20.shape.html:shape/html-->
 <div id="i20"></div>
+<!--#/#--><!--#i4.i348.image.html:image/html-->
+<img id="i348" src="https://i.imgur.com/ItwVqDV.png"/>
 <!--#/#--><!--#i4.i14.text.html:text/html-->
 <div id="i14">¡Amigos conocidos!</div>
 <!--#/#--><!--#i4.i344.text.html:text/html-->
@@ -846,6 +875,8 @@ url('fonts/') format('svg');
 <div id="i6" class="panel-content-holder">
     <!--#i6.i40.shape.html:shape/html-->
 <div id="i40"></div>
+<!--#/#--><!--#i6.i350.image.html:image/html-->
+<img id="i350" src="https://i.imgur.com/ItwVqDV.png"/>
 <!--#/#--><!--#i6.i60.image.html:image/html-->
 <img id="i60" src="https://i.imgur.com/yp59BCu.jpg"/>
 <!--#/#--><!--#i6.i340.image.html:image/html-->
@@ -862,6 +893,8 @@ url('fonts/') format('svg');
 <div id="i5" class="panel-content-holder">
     <!--#i5.i30.shape.html:shape/html-->
 <div id="i30"></div>
+<!--#/#--><!--#i5.i352.image.html:image/html-->
+<img id="i352" src="https://i.imgur.com/ItwVqDV.png"/>
 <!--#/#--><!--#i5.i24.text.html:text/html-->
 <div id="i24">¡Comienza la aventura de tu vida
  junto a Buzz y Woody!</div>
@@ -913,6 +946,10 @@ document.getElementById('i2').addEventListener('showPrevious', function(e){
 document.getElementById('i2').addEventListener('showNext', function(e){
     cube_i2.rotate(cube_i2.ROTATE_NEXT)
 });
+/*#/#*//*#i4.i348.image.js:image/base/js*/
+
+/*#/#*//*#i348.i349.positioning.js:positioning/base/js.2*/
+bmShow('i348');
 /*#/#*//*#i344.i345.positioning.js:positioning/base/js.2*/
 bmShow('i344');
 /*#/#*//*#i4.i130.image.js:image/base/js*/
@@ -939,14 +976,18 @@ if ('click' === 'click') {
 
 /*#/#*//*#i50.i51.actions-clicktag.js:actions-clicktag/base/js.1*/
 
-/*#/#*//*#i342.i343.positioning.js:positioning/base/js.2*/
-bmShow('i342');
+/*#/#*//*#i6.i350.image.js:image/base/js*/
+
+/*#/#*//*#i350.i351.positioning.js:positioning/base/js.2*/
+bmShow('i350');
 /*#/#*//*#i6.i60.image.js:image/base/js*/
 
 /*#/#*//*#i6.i340.image.js:image/base/js*/
 
 /*#/#*//*#i340.i341.positioning.js:positioning/base/js.2*/
 bmShow('i340');
+/*#/#*//*#i342.i343.positioning.js:positioning/base/js.2*/
+bmShow('i342');
 /*#/#*//*#i99.i336.actions.js:actions/base/js.1*/
 /* Name: On Click; */
 var el = document.getElementById('i99');
@@ -965,6 +1006,12 @@ if ('click' === 'click') {
 
 /*#/#*//*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
  
+/*#/#*//*#i5.i352.image.js:image/base/js*/
+
+/*#/#*//*#i352.i353.positioning.js:positioning/base/js.2*/
+bmShow('i352');
+/*#/#*//*#i346.i347.positioning.js:positioning/base/js.2*/
+bmShow('i346');
 /*#/#*//*#i5.i58.image.js:image/base/js*/
 
 /*#/#*//*#i5.i338.image.js:image/base/js*/
@@ -984,8 +1031,6 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i346.i347.positioning.js:positioning/base/js.2*/
-bmShow('i346');
 /*#/#*//*#i5.i52.actions.js:actions/base/js*/
 /* Name: On Click; */
 
@@ -1022,6 +1067,11 @@ customName: 1;
 name: Background;
 /*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i4.i348.image.meta:image/meta*/
+name: MARCO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i348.i349.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i4.i14.text.meta:text/meta*/
 name: Texto; customName: 1;
 /*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
@@ -1050,6 +1100,11 @@ data: /*!*/{}/*!*/;
 name: Background;
 /*#/#*//*#i40.i41.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i350.image.meta:image/meta*/
+name: MARCO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i350.i351.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i6.i60.image.meta:image/meta*/
 name: Imagen de Cuadro; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
@@ -1078,6 +1133,11 @@ data: /*!*/{}/*!*/;
 name: Background;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i5.i352.image.meta:image/meta*/
+name: MARCO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i352.i353.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i5.i24.text.meta:text/meta*/
 name: Texto; customName: 1;
 /*#/#*//*#i24.i25.positioning.meta:positioning/meta.1*/
