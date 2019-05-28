@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "bc44ca0a1328ccf5a39372a3544cff17",
+    "title": "Chicco cubo_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www5.smartadserver.com\/h\/cc?imgid=23907395&tmstp=[timestamp]&tgt=[reference]"
+    },
+    "source": "Cube.html"
+}
