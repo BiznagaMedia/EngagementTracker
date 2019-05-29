@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "25388bb15cec37d42cd6566b5c5cce230",
+    "title": "C_Video_300x600_ALIENTO",
+    "description": "",
+    "width": 300,
+    "height": 600,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https://www.cristal.com.pe/"
+    },
+    "source": "videobig.html"
+}

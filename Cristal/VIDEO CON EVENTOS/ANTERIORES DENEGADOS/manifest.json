@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "226566b8bb15cecd5c5cc537d4e238c30",
+    "title": "C_Video_300x250",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https://www.cristal.com.pe/"
+    },
+    "source": "videosmall.html"
+}

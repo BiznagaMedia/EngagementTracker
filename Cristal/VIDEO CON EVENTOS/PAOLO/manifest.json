@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "66cc25c3b5d42cd6388bb15cec575e230",
+    "title": "C_Video_300x600_PAOLO",
+    "description": "",
+    "width": 300,
+    "height": 600,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https://www.cristal.com.pe/"
+    },
+    "source": "videobig.html"
+}

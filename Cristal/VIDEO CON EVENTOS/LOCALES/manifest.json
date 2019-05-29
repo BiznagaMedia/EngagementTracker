@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "66b5d42cd6388bb15cec5cc25c375e230",
+    "title": "C_Video_300x600_LOCALES",
+    "description": "",
+    "width": 300,
+    "height": 600,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https://www.cristal.com.pe/"
+    },
+    "source": "videobig.html"
+}
