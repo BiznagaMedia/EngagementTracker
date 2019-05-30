@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://fonts.googleapis.com/css?family=Trebuchet MS;' rel='stylesheet' type='text/css'>
+    <title>Slider</title>
+    <style>
+        .PapaJohnFijo a,
+        .PapaJohnFijo a:hover {
+            text-decoration: none;
+            color: white
+        }
+
+        .PapaJohnFijo .te-container {
+            width: 300px;
+            height: 250px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        .PapaJohnFijo .te-wrapper {
+            position: relative;
+            width: 300px;
+            height: 250px;
+            overflow: hidden;
+            font-family: Trebuchet MS;
+        }
+
+        .PapaJohnFijo .bzm_text {
+       ;
+            margin-left: 0px;
+            text-align: center;
+            font-family: Trebuchet MS;
+        }
+
+        .PapaJohnFijo .bzm_text_bold,
+        .PapaJohnFijo .bzm_text_medium {
+            line-height: 1.4;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .PapaJohnFijo .bzm_text_bold {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .PapaJohnFijo .bzm_text_medium {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /*******************************************************/
+
+        /****************** Unfold Effects *********************/
+
+        /*******************************************************/
+
+        .PapaJohnFijo .te-perspective {
+            -webkit-perspective: 1000;
+        }
+
+        .PapaJohnFijo .te-cover,
+        .PapaJohnFijo .te-transition {
+            width: 300px;
+            height: 250px;
+        }
+
+        .PapaJohnFijo .te-cover.te-hide,
+        .PapaJohnFijo .te-transition,
+        .PapaJohnFijo .te-images {
+            display: none;
+        }
+
+        .PapaJohnFijo .te-images {
+            width: 300px;
+            height: 250px;
+        }
+
+        .PapaJohnFijo .te-cover>img,
+        .PapaJohnFijo .te-images>img {
+            width: 300px;
+            height: 250px;
+        }
+
+        .PapaJohnFijo .te-transition.te-show {
+            display: block;
+        }
+
+        .PapaJohnFijo .te-back,
+        .PapaJohnFijo .te-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .PapaJohnFijo .te-front {
+            z-index: 2;
+        }
+
+        .PapaJohnFijo .te-back {
+            z-index: 1;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .PapaJohnFijo .te-transition img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        /***************** example3 ********************/
+
+        .PapaJohnFijo .te-example3 .te-front {
+            z-index: 1;
+        }
+
+        .PapaJohnFijo .te-example3 .te-back {
+            z-index: 2;
+        }
+
+        .PapaJohnFijo .te-example3.te-show .te-back {
+            -webkit-animation: example3Back 0.4s ease-out forwards;
+        }
+
+        @-webkit-keyframes example3Back {
+            0% {
+                -webkit-transform: rotate(40deg) scale(1.5) translate(200px, 10px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotate(0deg) scale(1) translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        .PapaJohnFijo #botones-para-compartir {
+            text-align: right;
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            /* Sombra */
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+        }
+
+        .PapaJohnFijo .logo {
+            z-index: 2;
+            background-color: transparent;
+            border-radius: 0px;
+            float: right;
+            height: 40px;
+            text-align: center;
+            margin-top: -2px;
+            margin-right: -20px;
+        }
+
+        .PapaJohnFijo .ctaButton {
+            position: absolute;
+            cursor: pointer;
+            opacity: 1;
+            background-color: #9d32b1;
+            font-family: "Source Sans Pro";
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: bold;
+            font-style: normal;
+            text-decoration: none;
+            text-align: center;
+            line-height: 100%;
+            letter-spacing: 0px;
+            text-shadow: 0px 0px 0px rgba(214, 214, 214, 1);
+            border-radius: 5px;
+            border-color: rgba(0, 100, 150, 0);
+            border-width: 1px;
+            margin: -1px;
+            border-style: solid;
+            width: 96px;
+            height: 24px;
+            margin-left: -92px;
+            margin-top: 42.5px
+        }
+
+        @media screen and (max-width: 480px) {
+            .ctaButton {
+                font-size: 10px!important;
+                font-weight: normal;
+            }
+        }
+
+        .cta {
+            position: absolute;
+            top: 126px;
+            width: 70px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 37%;
+            left: -30px;
+            
+            padding: 5px;
+            
+            text-align: center;
+            }
+    </style>
+</head>
+
+<body class="PapaJohnFijo" style="margin:0px;">
+    <div class="te-container">
+        
+            <div id="te-wrapper" class="te-wrapper">
+                <a href="https://www.walmart.com.mx/productos?Ntt=chicco&No=0?utm_source=display&utm_medium=mosaic&utm_content=teaser&utm_campaign=1905-chicco-hs" target="_blank">
+
+        <!--    <div class="cta"> <a href="https://www.walmart.com.mx/productos?Ntt=chicco&No=0?utm_source=display&utm_medium=mosaic&utm_content=teaser&utm_campaign=1905-chicco-hs" target="_blank">
+    <img src="https://i.imgur.com/i4PQ41e.png" style="height: 37px;"></a></div> -->
+
+                
+                <div class="te-cover"> <img src="https://i.imgur.com/nMhnlQH.gif" alt="" /> </div>
+                <div class="te-transition">
+                    <div class="te-front"></div>
+                    <div class="te-back"></div>
+                </div>
+                <div style="margin-top:21px; margin-left: 10px; margin-right: 10px;">
+                    <div class="bzm_text">
+                        <span class="bzm_text_title  bzm_text_bold" style="float:left; color:#2d363b;line-height:1.1; font-size:21px;">
+						    
+						</span>
+                       
+                      
+                       
+                        <img class="logo" src="" alt="">
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
