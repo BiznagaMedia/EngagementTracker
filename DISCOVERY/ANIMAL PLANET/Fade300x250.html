@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Adform API Script -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fade-300x250</title>
+    <link href="https://fonts.googleapis.com/css?family=Trebuchet MS:400,400i,700,700i" rel=stylesheet>
+    <style>
+
+ 
+}
+        .fadesmall {
+            margin: 0px
+        }
+
+
+
+        .fadesmall .bg.cover-1,
+        .fadesmall .bg.cover-2,
+        .fadesmall .bg.cover-3,
+        .fadesmall {
+            background-size: cover
+        }
+
+        .fadesmall .btn {
+            margin-top: 0;
+            padding-left: 0
+        }
+
+        .fadesmall a,
+        .fadesmall a:hover {
+            text-decoration: none;
+            color: #fff
+        }
+
+        .fadesmall .bzm_wrapper {
+            position: relative;
+            overflow: hidden;
+            color: #000;
+            font-family: "Trebuchet MS";
+           
+
+            
+        }
+
+        .fadesmall .bzm_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
+            background-color: #FFF
+
+            
+        
+        }
+        
+        .fadesmall .bzm_cover,
+        .fadesmall .carousel-wrapper {
+            position: relative;
+            width: 100%
+
+        }
+
+        .fadesmall .bzm_cover {
+            height: 150px
+        }
+
+        .fadesmall .bg.cover-1 {
+            background-image: url(https://i.imgur.com/XzQ6sRi.jpg)
+        }
+
+        .fadesmall .bg.cover-2 {
+            background-image: url(https://i.imgur.com/RNq361V.gif)
+        }
+
+        .fadesmall .bg.cover-3 {
+            background-image: url(https://i.imgur.com/pu5UsBt.jpg)
+
+        }
+
+        .fadesmall .bzm_cover.bzm_pos_tl {
+            top: 3%;
+            left: 3%
+        }
+
+        .fadesmall .bzm_pos_tr {
+            top: 3%;
+            right: 3%
+        }
+
+        .fadesmall .bzm_pos_bl {
+            bottom: 3%;
+            left: 3%
+        }
+
+        .fadesmall .bzm_pos_br {
+            bottom: 3%;
+            right: 3%
+        }
+
+        .fadesmall .bzm_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%)
+        }
+
+
+        .fadesmall .bzm_text {
+            padding: 0px 0 0 .3em;
+            line-height: 1.0;
+            color: #000;
+            text-align: center;
+            margin-top: 28px;
+            margin-left: -5px;
+            width: 100%;
+          
+            
+        }
+
+        .fadesmall .bzm_text_title {
+            color: #000;
+            width:95%;
+            font-size: 16px;
+        }
+
+        .fadesmall .bzm_text_light {
+            font-size: 10px;
+            font-weight: 0
+        }
+
+        .fadesmall .bzm_text_medium {
+            font-weight: 500;
+            line-height: 1.7
+        }
+
+        .fadesmall .bzm_text_bold {
+            font-weight: 100;
+            line-height: 1
+        }
+
+        .fadesmall .bzm_text_small {
+            font-size: 14px;
+            line-height: 1
+        }
+
+        .fadesmall .carousel-wrapper {
+            height: auto;
+            margin: 0 auto
+
+        }
+
+        .fadesmall .carousel-item1 {
+            position: absolute;
+            opacity: 0;
+            transition: all .5s ease-in-out
+        }
+
+        .fadesmall [id^=item] {
+            display: none
+        }
+
+        .fadesmall .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 14s infinite;
+            -webkit-animation: fade 14s infinite
+        }
+
+        .fadesmall .item-2 {
+            animation: fade2 14s infinite;
+            -webkit-animation: fade2 14s infinite
+        }
+
+        .fadesmall .item-3 {
+            animation: fade3 14s infinite;
+            -webkit-animation: fade3 14s infinite
+        }
+
+        @keyframes fade {
+            0%,
+            100% {
+                opacity: 1
+            }
+            25%,
+            50%,
+            50% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade2 {
+            0%,
+            100%,
+            50%,
+            50% {
+                opacity: 0
+            }
+            25% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade3 {
+            0%,
+            100%,
+            25%,
+            50% {
+                opacity: 0
+            }
+            50% {
+                opacity: 1
+            }
+        }
+
+        
+        .fadesmall .bzm_button:hover {
+            background-color: #579e38
+        }
+
+        .fadesmall .carousel-container {
+            width: 300px;
+            height: 150px;
+            overflow-y: hidden
+        }
+
+
+
+        .fadesmall #botones-para-compartir {
+            text-align:left;
+            margin-left: 8px;
+            display:inline;
+            float:left;
+            margin-top:-32px;
+            
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+          .fadesmall #logo {
+            
+            height:30px;
+            margin-top: 5px; 
+            margin-left:180px;
+
+        }
+
+        .cta {
+            position: absolute;
+            bottom: 64px;
+            width: 140px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 75px;
+            background-color: #;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+         .cta2 {
+            position: absolute;
+            bottom: 175px;
+            width: 140px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 192px;
+            background-color: #;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="fadesmall">
+
+      <a href="https://www.tudiscovery.com/animal-planet" target="_blank">
+
+   <div class="bzm_wrapper carousel-wrapper size_300x250" id="cta" onclick="openUrl();">
+
+  
+
+            <div class="carousel-container">
+                <!-- ESTAS SE COLOCAN EN EL CSS -->
+                <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
+                <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
+                <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
+            </div>
+            <div class="bzm_text"> <span class="bzm_text_title"><b>!Animal Planet describe el fantástico mundo animal. ¡No te lo puedes perder </br></span>
+               </div>
+
+                <div class="cta" > <img src="https://i.imgur.com/ZfyYb24.gif" style="height: 35px;"></div>
+
+                <div class="cta2" > <img src="https://i.imgur.com/dZVtYGc.gif" style="height: 60px;"></div>
+
+            <!-- LOGO -->
+            <div class="logo"> <img id="logo" src="https://i.imgur.com/odHXR4x.png"></div>
+
+
+                <!--PARA QUITAR LOS BOTONES SOLO COMENTAR Y CERRAR-->
+
+                <div id="botones-para-compartir"> 
+                   
+                    <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.tudiscovery.com/animal-planet"  target="block">    
+                        <img alt="compartir en facebook" class="facebooki" height="25" src="https://i.imgur.com/vVvrt1W.png" title="compartir en facebook" width="25" /></a>
+
+                            <a class="shared" href="whatsapp://send?text=https://www.tudiscovery.com/animal-planet" target="block">
+                            <img alt="compartir en whatsapp" class="whatsappi" height="25" src="https://i.imgur.com/oi5u9hc.png" title="compartir en whatsapp" width="25" /></a>
+
+                            <a class="shared" href="https://twitter.com/home?status=https://www.tudiscovery.com/animal-planet" target="block">
+                            <img alt="compartir en twitter" class="twitteri" height="25" src="https://i.imgur.com/zR8QZPG.png" title="compartir en twitter" width="25" /></a> </span></div>
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>
