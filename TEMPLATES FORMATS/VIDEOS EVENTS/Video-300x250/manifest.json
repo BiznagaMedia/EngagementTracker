@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "22cd5c5cc537d4e2386566b8bb15cec30",
+    "title": "LM_Video_300x250",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https://www.facebook.com/KFCMexico/"
+    },
+    "source": "videosmall.html"
+}
