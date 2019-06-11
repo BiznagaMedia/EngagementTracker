@@ -1,6 +1,45 @@
 <html>
 <head> 
 
+    <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+    
+    <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+        window.onload = function() {
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+        }
+
+        window.onclick = function() {
+            dhtml.sendEvent('9', 'Click Out', 'Click Out');
+        }
+
+        /*document.getElementById('housell').addEventListener('click', function(e){
+            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
+        });*/
+    </script>
+
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,6 +48,13 @@
    
 
 <style>
+
+a {text-decoration: none;} 
+
+@font-face {
+  font-family: PFBeauSansProSeBold;
+  src: url(PFBeauSansProSeBold.woff);
+}
 
   
     
@@ -54,13 +100,13 @@ a {text-decoration: none;}
         }
 
         .zoom .ism_text {
-            margin-top: 35px;
+            margin-top: 40px;
             margin-left: 0px;
             text-align:center;
             padding-left: 8px;
             text-decoration: none;
             width: 95%;
-            font-family: Trebuchet MS; 
+            font-family: PFBeauSansProSeBold; 
         }
 
         .zoom .ism_text_title {
@@ -69,7 +115,7 @@ a {text-decoration: none;}
             width:95%;
             font-weight: 600;
             text-align: center;
-            font-family: Trebuchet MS; 
+            font-family: PFBeauSansProSeBold; 
             line-height: 1;
         }
 
@@ -101,7 +147,7 @@ a {text-decoration: none;}
             font-weight: 400;
             text-align: justify;
             width: 92%;
-             font-family: Lehigh-Personal-SemiBold; 
+             font-family: PFBeauSansProSeBold; 
              line-height: 1.1;
 
          
@@ -143,23 +189,11 @@ a {text-decoration: none;}
 
     .cta {
             position: absolute;
-            bottom: 140px;
+            bottom: 135px;
             width: 125px;
             line-height: 1.3em;
             z-index: 5;
-            margin-left: 82px;
-            background-color: #;
-            padding: 5px;
-            border-radius: 20px;
-            text-align: center;
-        }
-        .cta2 {
-            position: absolute;
-            bottom: 518px;
-            width: 125px;
-            line-height: 1.3em;
-            z-index: 5;
-            margin-left: 200px;
+            margin-left: 75px;
             background-color: #;
             padding: 5px;
             border-radius: 20px;
@@ -176,7 +210,8 @@ a {text-decoration: none;}
 
 <body class="zoom" style="margin:0px;">
 
-<a href="https://www.tudiscovery.com/" target="_blank">
+
+<a href="%%c1;cpdir=" style="display: block;" target="_blank">
    
  	 <div class="wrapper size_300x250" id="cta" onclick="openUrl();">
 
@@ -186,13 +221,13 @@ a {text-decoration: none;}
 <div class="ism-slider" data-transition_type="zoom" data-play_type="loop" data-interval="3000" data-image_fx="zoompan" data-buttons="false" data-radios="false" id="my-slider" style="width: 300px; height: 430px; border-radius: none; cursor:pointer;">
   <ol>
     <li>
-      <img src="https://i.imgur.com/AszAoQo.png">
+      <img src="https://i.imgur.com/n3suxAH.jpg">
       
     <li>
-      <img src="https://i.imgur.com/C9PNWre.png">
+      <img src="https://i.imgur.com/U76UXMZ.gif">
       
     <li>
-      <img src="https://i.imgur.com/6juoeyC.png">
+      <img src="https://i.imgur.com/Ze4zU9F.jpg">
       
       
     </li>
@@ -200,25 +235,24 @@ a {text-decoration: none;}
   
 </div>
 
- <div class="ism_text"> <span class=" ism_text_title" style="color:#000000; font-size:23px; text-decoration: none;">¡Descubre y explora las maravillas del mundo<br> con nosotros!</span>
+ <div class="ism_text"> <span class=" ism_text_title" style="color:#000000; font-size:22px; text-decoration: none;">Es hora de viajar.<br>
+No esperes más, viaja hoy.</br></span>
     
-                  <div class="cta" > <img src="https://i.imgur.com/XUGwBjE.gif" style="height: 45px; margin-left: -35px;"></a></div>
-
-                   <div class="cta2" > <img src="https://i.imgur.com/qB97cZ6.gif" style="height: 70px; margin-left: -30px;"></a></div>
+                  <div class="cta" > <img src="https://i.imgur.com/fY0p01i.png" style="height: 50px; margin-left: -35px;"></a></div>
 
                  
                    </div>
-                     <div style=";height:20px;text-align:right ;margin-top:17px; margin-right: 5px;"> <img src="https://i.imgur.com/odHXR4x.png" style="height:36px; text-decoration: none;">
+                     <div style=";height:5px;text-align:right ;margin-top:30px; margin-right: 5px;"> <img src="https://i.imgur.com/D1hmq7w.png" style="height:40px; text-decoration: none;">
 
                                        
                    </div>
-                   <div id="botones-para-compartir" style="display:inline;float:left;margin-top:-20px;margin-left:8px;"><span>
+                   <div id="botones-para-compartir" style="display:inline;float:left;margin-top:5px;margin-left:8px;"><span>
 
-                         <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.tudiscovery.com/"  target="block"><img alt="compartir en facebook" class="facebooki" height="30" src="https://i.imgur.com/vVvrt1W.png" title="compartir en facebook" width="30" /></a>
+                         <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106"  target="block"><img alt="compartir en facebook" class="facebooki" height="28" src="https://i.imgur.com/a0n5edL.png" title="compartir en facebook" width="28" /></a>
 
-                            <a class="shared" href="whatsapp://send?text=https://www.tudiscovery.com/" target="block"><img alt="compartir en whatsapp" class="googlei" height="30" src="https://i.imgur.com/oi5u9hc.png" title="compartir en whatsapp" width="30" /></a>
+                            <a class="shared" href="whatsapp://send?text=https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106" target="block"><img alt="compartir en whatsapp" class="googlei" height="28" src="https://i.imgur.com/ftJEChb.png" title="compartir en whatsapp" width="28" /></a>
 
-                            <a class="shared" href="https://twitter.com/home?status=https://www.tudiscovery.com/" target="block"> <img alt="compartir en twitter" class="twitteri" height="30" src="https://i.imgur.com/zR8QZPG.png" title="compartir en twitter" width="30" /></a>
+                            <a class="shared" href="https://twitter.com/home?status=https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106" target="block"> <img alt="compartir en twitter" class="twitteri" height="28" src="https://i.imgur.com/a0n5edL.png" title="compartir en twitter" width="28" /></a>
                     </span></div>
 
               
