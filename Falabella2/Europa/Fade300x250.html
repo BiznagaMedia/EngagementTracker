@@ -1,174 +1,181 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Adform API Script -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>fade</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>
+    <title>fade-300x250</title>
+    <link href="https://fonts.googleapis.com/css?family=Trebuchet MS:400,400i,700,700i" rel=stylesheet>
     <style>
-        .corona p {
+
+        a {text-decoration: none;}
+
+        @font-face {
+            font-family: PFBeauSansProSeBold;
+            src: url(PFBeauSansProSeBold.woff);
+        }
+
+ 
+        .fadesmall {
             margin: 0px
         }
 
-        .corona .bg.cover-1,
-        .corona .bg.cover-2,
-        .corona .bg.cover-3,
-        .corona {
+
+
+        .fadesmall .bg.cover-1,
+        .fadesmall .bg.cover-2,
+        .fadesmall .bg.cover-3,
+        .fadesmall {
             background-size: cover
         }
 
-        .corona .btn {
+        .fadesmall .btn {
             margin-top: 0;
             padding-left: 0
         }
 
-        .corona a,
-        .corona a:hover {
+        .fadesmall a,
+        .fadesmall a:hover {
             text-decoration: none;
             color: #fff
         }
 
-        .corona .bzm_wrapper {
+        .fadesmall .bzm_wrapper {
             position: relative;
             overflow: hidden;
             color: #000;
-            font-family: Lato, sans-serif
+            font-family: "Trebuchet MS";
+           
+
+            
         }
 
-        .corona .bzm_wrapper.size_300x250 {
-            width: 300px;
-            height: 250px;
+        .fadesmall .bzm_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
             background-color: #FFF
-        }
 
-         .cta {
-            position: absolute;
-            bottom: 85px;
-            width: 120px;
-            line-height: 1.3em;
-            z-index: 5;
-            margin-left: 46%;
-            left: -55px;
-            background-color: #000;
-            padding: 5px;
-            border-radius: 20px;
-            text-align: center;
+            
+        
         }
         
-        .corona .bzm_cover,
-        .corona .carousel-wrapper {
+        .fadesmall .bzm_cover,
+        .fadesmall .carousel-wrapper {
             position: relative;
             width: 100%
+
         }
 
-        .corona .bzm_cover {
+        .fadesmall .bzm_cover {
             height: 150px
         }
 
-        .corona .bg.cover-1 {
-            background-image: url(https://i.imgur.com/AWGN6XC.png)
+        .fadesmall .bg.cover-1 {
+            background-image: url(https://i.imgur.com/fNYipHM.jpg)
         }
 
-        .corona .bg.cover-2 {
-            background-image: url(https://i.imgur.com/GRCzEK8.png)
+        .fadesmall .bg.cover-2 {
+            background-image: url(https://i.imgur.com/i3XflNC.jpg)
         }
 
-        .corona .bg.cover-3 {
-            background-image: url(https://i.imgur.com/2ISTC9w.png)
+        .fadesmall .bg.cover-3 {
+            background-image: url(https://i.imgur.com/GXK9PFj.gif)
+
         }
 
-        .corona .bzm_cover.bzm_pos_tl {
+        .fadesmall .bzm_cover.bzm_pos_tl {
             top: 3%;
             left: 3%
         }
 
-        .corona .bzm_pos_tr {
+        .fadesmall .bzm_pos_tr {
             top: 3%;
             right: 3%
         }
 
-        .corona .bzm_pos_bl {
+        .fadesmall .bzm_pos_bl {
             bottom: 3%;
             left: 3%
         }
 
-        .corona .bzm_pos_br {
+        .fadesmall .bzm_pos_br {
             bottom: 3%;
             right: 3%
         }
 
-        .corona .bzm_pos_bm {
+        .fadesmall .bzm_pos_bm {
             bottom: 3%;
             left: calc(100% - 70%)
         }
 
-        .corona .bzm_text {
-            padding: 2px 0 0 .3em;
-            line-height: 1.1;
+        .fadesmall .bzm_text {
+            padding: 0px 0 0 .3em;
+            line-height: 1.0;
             color: #000;
             text-align: center;
-            margin-top: 2px;
-            width: 99%;
+            margin-top: 18px;
+            margin-left: -5px;
+            width: 100%;
+          
             
         }
 
-        .corona .bzm_text_title {
-            font-size: 18px;
+        .fadesmall .bzm_text_title {
             color: #000;
             width:95%;
+            font-size: 16px;
         }
 
-        .corona .bzm_text_light {
+        .fadesmall .bzm_text_light {
             font-size: 10px;
             font-weight: 0
         }
 
-        .corona .bzm_text_medium {
-            font-size: 14px;
+        .fadesmall .bzm_text_medium {
             font-weight: 500;
             line-height: 1.7
         }
 
-        .corona .bzm_text_bold {
-            font-size: 18px;
-            font-weight: 700;
+        .fadesmall .bzm_text_bold {
+            font-weight: 100;
             line-height: 1
         }
 
-        .corona .bzm_text_small {
-            font-size: 10px;
+        .fadesmall .bzm_text_small {
+            font-size: 14px;
             line-height: 1
         }
 
-        .corona .carousel-wrapper {
+        .fadesmall .carousel-wrapper {
             height: auto;
             margin: 0 auto
+
         }
 
-        .corona .carousel-item1 {
+        .fadesmall .carousel-item1 {
             position: absolute;
             opacity: 0;
             transition: all .5s ease-in-out
         }
 
-        .corona [id^=item] {
+        .fadesmall [id^=item] {
             display: none
         }
 
-        .corona .item-1 {
+        .fadesmall .item-1 {
             z-index: 2;
             opacity: 1;
             animation: fade 14s infinite;
             -webkit-animation: fade 14s infinite
         }
 
-        .corona .item-2 {
+        .fadesmall .item-2 {
             animation: fade2 14s infinite;
             -webkit-animation: fade2 14s infinite
         }
 
-        .corona .item-3 {
+        .fadesmall .item-3 {
             animation: fade3 14s infinite;
             -webkit-animation: fade3 14s infinite
         }
@@ -209,33 +216,25 @@
             }
         }
 
-        .corona .bzm_button {
-            position: absolute;
-            bottom: 7px;
-            left: 3%;
-            text-transform: uppercase;
-            background-color: #6cbd44;
-            color: #fff;
-            border-radius: 50%;
-            padding: 4px;
-            text-align: center;
-            font-size: 90%;
-            cursor: pointer
-        }
-
-        .corona .bzm_button:hover {
+        
+        .fadesmall .bzm_button:hover {
             background-color: #579e38
         }
 
-        .corona .carousel-container {
+        .fadesmall .carousel-container {
             width: 300px;
             height: 150px;
             overflow-y: hidden
         }
 
-        .corona #botones-para-compartir {
+
+
+        .fadesmall #botones-para-compartir {
             text-align:left;
-            margin-left: 12px
+            margin-left: 8px;
+            display:inline;
+            float:left;
+            margin-top:-36px;
             
         }
 
@@ -262,40 +261,72 @@
             -webkit-transition: all .5s;
             -o-transition: all .5s
         }
+
+          .fadesmall #logo {
+            
+            height:25px;
+            margin-top: 0px; 
+            margin-left:235px;
+            margin-bottom: 5px;
+
+        }
+
+        .cta {
+            position: absolute;
+            bottom: 68px;
+            width: 140px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 62px;
+            background-color: #;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+         .bzm_text_title {
+            font-family: PFBeauSansProSeBold;
+         }
     </style>
 </head>
 
-<body class="corona" style="margin:0px;">
+<body class="fadesmall">
    <div class="bzm_wrapper carousel-wrapper size_300x250">
-     <!--   <div class="cta"><span class="bzm_text_title bzm_text_bold" style="font-size:70%; color: white;"></span></div>-->
-        <a href="https://saba.com.mx/" style="display: block;" target="_blank">
+
+    <!-- Para quitar CTA se quita esta etiqueta y recordar quitar la propiedad CTA en el CSS -->
+        <div class="cta"> <a href="https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106" target="_blank">
+    <img src="https://i.imgur.com/fY0p01i.png" style="height: 45px;"></a></div>   
+
+        <a href="https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106" target="_blank">
             <div class="carousel-container">
+                <!-- ESTAS SE COLOCAN EN EL CSS -->
                 <div class="bzm_cover bg cover-1 carousel-item1 item-1"></div>
                 <div class="bzm_cover bg cover-2 carousel-item1 item-2"></div>
                 <div class="bzm_cover bg cover-3 carousel-item1 item-3"></div>
             </div>
-            <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000;line-height:1;font-size:18px;text-align:center;"> ¡No más cólicos en esos días! </span></div>
-            
-            <div class="bzm_text"> <span class="bzm_text_title bzm_text_bold" style="color:#000;line-height:1;font-size:14px;text-align:center;margin-top:-20px;"> Con los nuevos <b>Parches Térmicos</b> tendrás la libertad de sentirte cómoda. </span></div>
-            
-               
-               
-                <div id="botones-para-compartir" style="display:inline;float:left;margin-top:5px;"> <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://saba.com.mx/" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/kzy8N87.png" title="compartir en facebook" width="22" /></a>
-                
-                <a class="shared" href="https://plus.google.com/share?url=https://saba.com.mx/" target="_blank"> <img alt="compartir en google+" class="googlei" height="22" src="https://i.imgur.com/Q7HIgrc.png" title="compartir en google+" width="22" /></a>
-                
-                <a class="shared" href="https://twitter.com/home?status=https://saba.com.mx/" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/wHzrYak.png" title="compartir en twitter" width="22" /></a> </span></div>
-            
-            
-            <div style="bottom:0px;height:50px;text-align:right ;margin-top:-9px; margin-right: 5px;"> <img src="https://i.imgur.com/pP9NWYG.png" style="height:45px;margin-top:-2px;"></div>
-            
+            <div class="bzm_text"> <span class="bzm_text_title"><b>¡Es hora de viajar, NO ESPERES MÀS!.</b><br>VIAJA HOY.</br></span>
+               </div>
+
+                <div class="cta" > <img src="" style="height: 45px;"></div>
+
+            <!-- LOGO -->
+            <div class="logo"> <img id="logo" src="https://i.imgur.com/D1hmq7w.png"></div>
+
+
+                <!--PARA QUITAR LOS BOTONES SOLO COMENTAR Y CERRAR-->
+
+                <div id="botones-para-compartir"> 
+                   
+                    <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106"  target="block">    
+                        <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/a0n5edL.png" title="compartir en facebook" width="22" /></a>
+
+                            <a class="shared" href="whatsapp://send?text=https:whatsapp:https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106" target="block">
+                            <img alt="compartir en whatsapp" class="whatsappi" height="22" src="https://i.imgur.com/ftJEChb.png" title="compartir en whatsapp" width="22" /></a>
+
+                            <a class="shared" href="https://twitter.com/home?status=https:whatsapp:https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/europa/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_europa_0106" target="block">
+                            <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/s6P43zI.png" title="compartir en twitter" width="22" /></a> </span></div>
+            </div>
         </a>
     </div>
 
-    <!--<div class="EurowingsFade"></div>
-	<script src="bundle.js"></script>
-	<script>
-		EurowingsFade.show('EurowingsFade')
-	</script>-->
 </body>
 </html>
