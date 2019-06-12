@@ -2133,6 +2133,17 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
         transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
 }
+/*#/#*//*#i2.slice.css:slice/base/css*/
+#i2.adf-SlicedUnit {
+    position: absolute;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    -ms-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -ms-touch-action: none;
+    background: transparent;
+}
+
 /*#/#*//*#i2.i3.positioning.css:positioning/base/css.1*/
 #i2 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 320px; height: 350px;
         -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
@@ -2140,6 +2151,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
+/*#/#*//*#i16.image.css:image/base/css*/
+#i16 { opacity: 1; }
 /*#/#*//*#i16.i17.positioning.css:positioning/base/css.2*/
 #i16 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 154px; height: 22px;
         -ms-transform: translate(0, 0) translate(159px, 452px) rotate(0deg);
@@ -2205,28 +2218,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 .visibility-hidden, .visibility-hidden * {
     visibility: hidden !important;
 }
-/*#/#*//*#i70.image.css:image/base/css*/
-#i70 { opacity: 1; }
-/*#/#*//*#i70.i71.positioning.css:positioning/base/css.2*/
-#i70 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 320px; height: 480px;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
-/*#/#*//*#i2.slice.css:slice/base/css*/
-#i2.adf-SlicedUnit {
-    position: absolute;
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    -ms-animation-fill-mode:forwards;
-    animation-fill-mode: forwards;
-    -ms-touch-action: none;
-    background: transparent;
-}
-
-/*#/#*//*#i16.image.css:image/base/css*/
-#i16 { opacity: 1; }
 /*#/#*//*#i50.text.css:text/base/css*/
 #i50 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 16px; color: #000000; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
 /*#/#*//*#i50.i51.positioning.css:positioning/base/css.2*/
@@ -2246,6 +2237,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
         transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
 }
+/*#/#*//*#i70.image.css:image/base/css*/
+#i70 { opacity: 1; }
+/*#/#*//*#i70.i71.positioning.css:positioning/base/css.2*/
+#i70 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 320px; height: 480px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
 /*#/#*//*#i72.text.css:text/base/css*/
 #i72 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 20px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
 /*#/#*//*#i72.i73.positioning.css:positioning/base/css.2*/
@@ -2261,8 +2261,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <body>
 <!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i30.shape.html:shape/html-->
 <div id="i30"></div>
-<!--#/#--><!--#i70.image.html:image/html-->
-<img id="i70" src="https://i.imgur.com/kZThkuS.png"/>
 <!--#/#--><!--#i2.slice.html:slice/html-->
 <div id="i2" class="adf-SliceBox">
     <!--#i2.i4.slice-image.html:slice-image/html-->
@@ -2281,16 +2279,14 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <div id="i50">Disfruta de tu Hyundai Tucson N Line Híbrido 48V, con acabado deportivo.</div>
 <!--#/#--><!--#i58.shape.html:shape/html-->
 <div id="i58"></div>
+<!--#/#--><!--#i70.image.html:image/html-->
+<img id="i70" src="https://i.imgur.com/kZThkuS.png"/>
 <!--#/#--><!--#i72.text.html:text/html-->
 <div id="i72">Nuevo TUCSON N Line</div>
 <!--#/#--><!--#/#--><!--#js:common/js-->
 <script>
 /*#i30.i31.positioning.js:positioning/base/js.2*/
 bmShow('i30');
-/*#/#*//*#i70.image.js:image/base/js*/
-
-/*#/#*//*#i70.i71.positioning.js:positioning/base/js.2*/
-bmShow('i70');
 /*#/#*//*#i2.slice.js:slice/js*/
 document.addEventListener('DOMContentLoaded', function() {
     var slicedUnit_i2 = new Adf.SlicedUnit({
@@ -2358,6 +2354,10 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
+/*#/#*//*#i70.image.js:image/base/js*/
+
+/*#/#*//*#i70.i71.positioning.js:positioning/base/js.2*/
+bmShow('i70');
 /*#/#*//*#i72.i73.positioning.js:positioning/base/js.2*/
 bmShow('i72');
 /*#/#*//*#i9.visibility.js:visibility/js*/
@@ -2377,11 +2377,6 @@ function bmHide(id) {
 name: Shape 1;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i70.image.meta:image/meta*/
-name: MARCO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: 1;
-/*#/#*//*#i70.i71.positioning.meta:positioning/meta.2*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.slice.meta:slice/meta*/
 name: Slice 1;
 customName: ;
@@ -2410,6 +2405,11 @@ data: /*!*/{}/*!*/;
 name: LINK;
 /*#/#*//*#i58.i59.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i70.image.meta:image/meta*/
+name: MARCO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i70.i71.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i72.text.meta:text/meta*/
 name: Nuevo TUCSON N Line; customName: false;
 /*#/#*//*#i72.i73.positioning.meta:positioning/meta.2*/
