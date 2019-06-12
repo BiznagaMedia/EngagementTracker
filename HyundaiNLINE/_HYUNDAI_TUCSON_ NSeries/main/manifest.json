@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "6a3d296aee2425ab7311a16361e22557",
+    "title": "_HYUNDAI_TUCSON_ NSeries_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 480,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www.hyundai.es\/nuevo-tucson?pagina_id=232&utm_medium=display&utm_source=Webads&utm_campaign=ESP_2019-TUCSON-NLINE-HMES-SPAIN-JUN_20190101&utm_content=text-Webads&utm_term=1x1&artemis=HYUNDAI_2019-TUCSON-NLINE-HMES-SPAIN-JUN_2019-01-01_2020-01-31_MLT_BRD_Tucson_ESP_SEU_HME_EUR_268305"
+    },
+    "source": "Venetian320x480.html"
+}

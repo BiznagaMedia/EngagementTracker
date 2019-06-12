@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>6a3d296aee2425ab7311a16361e22557</uniqueId>
+      <format>Standard</format>
+      <name><![CDATA[_HYUNDAI_TUCSON_ NSeries]]></name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName>main</fileName>
+        <clickTagNames>
+          <clickTagName><![CDATA[clickTAG]]></clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[https://www.hyundai.es/nuevo-tucson?pagina_id=232&utm_medium=display&utm_source=Webads&utm_campaign=ESP_2019-TUCSON-NLINE-HMES-SPAIN-JUN_20190101&utm_content=text-Webads&utm_term=1x1&artemis=HYUNDAI_2019-TUCSON-NLINE-HMES-SPAIN-JUN_2019-01-01_2020-01-31_MLT_BRD_Tucson_ESP_SEU_HME_EUR_268305]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+  </banner>
+</adf>
