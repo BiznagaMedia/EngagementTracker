@@ -1,63 +1,15 @@
 <html>
 <head> 
 
-    <!-- Adform API Script -->
-    <script type="text/javascript">
-        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
-    </script>
-    
-    <!--Adform Global Clicktag START-->
-    <script type="text/javascript">
-        function adfOpenGlobalClickTAG() {
-            var adfClickTAGName = 'clickTAG',
-                adfClickTAGUrl = 'https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/turquia/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_turquia_0106';
-
-            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
-        }
-        if (window.addEventListener) {
-            window.addEventListener('click', function(e) {
-                if (e.button !== 0) return;
-                e.stopPropagation();
-                e.preventDefault();
-                adfOpenGlobalClickTAG();
-            }, true);
-        } else {
-            document.attachEvent('onclick', function() {
-                adfOpenGlobalClickTAG();
-            });
-        }
-
-        window.onload = function() {
-            dhtml.sendEvent('1', 'PageView', 'PageView');
-        }
-
-        window.onclick = function() {
-            dhtml.sendEvent('9', 'Click Out', 'Click Out');
-        }
-
-        /*document.getElementById('housell').addEventListener('click', function(e){
-            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
-        });*/
-    </script>
-
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ZoomExp 300x600</title>
-     <link href="https://fonts.googleapis.com/css?family=Trebuchet MS:400,400i,700,700i" rel=stylesheet>
-   
+   <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel=stylesheet>-->
+
 
 <style>
 
-a {text-decoration: none;} 
-
-@font-face {
-  font-family: PFBeauSansProSeBold;
-  src: url(PFBeauSansProSeBold.woff);
-}
-
-  
-    
 a {text-decoration: none;} 
 
 .zoom p {
@@ -89,7 +41,7 @@ a {text-decoration: none;}
             position: relative;
             overflow: hidden;
             color: #000;
-            
+            font-family: Lato, sans-serif;
             border: 1px solid #c5c5c5;
         }
 
@@ -99,36 +51,47 @@ a {text-decoration: none;}
             background-color: #FFF
         }
 
+
+        .cta {
+            position: absolute;
+            bottom: 140px;
+            width: 145px;
+            line-height: 1.3em;
+            z-index: 5;
+            margin-left: 80px;
+           
+            background-color: #003a70;
+            padding: 5px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+
+     
+
         .zoom .ism_text {
-            margin-top: 40px;
-            margin-left: 0px;
+            margin-top: 16px;
+            margin-left: 10px;
             text-align:center;
-            padding-left: 8px;
+            padding-left: -10px;
             text-decoration: none;
-            width: 95%;
-            font-family: PFBeauSansProSeBold; 
+            width: 90%;
         }
 
         .zoom .ism_text_title {
-            
+            font-size: 18px;
             color: #000;
-            width:95%;
-            font-weight: 600;
+            width:90%;
+            font-weight: 100;
             text-align: center;
-            font-family: PFBeauSansProSeBold; 
-            line-height: 1;
         }
 
-        .zoom .ism_text_light {
-            font-weight: 400;
-        }
-
-        
+        .zoom .ism_text_bold,
         .zoom .ism_text_medium {
             line-height: 1.1;
             text-decoration: none;
             color: #000;
-            width: 95%;
+            width: 90%;
             
          
         }
@@ -138,18 +101,13 @@ a {text-decoration: none;}
             font-weight: 900;
             line-height: 1.1;
              text-decoration: none;
-             margin-top: -15px;
            
         }
 
         .zoom .izm_text_medium {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 400;
-            text-align: justify;
-            width: 92%;
-             font-family: PFBeauSansProSeBold; 
-             line-height: 1.1;
-
+            text-align: center;
          
         }
 
@@ -157,7 +115,7 @@ a {text-decoration: none;}
 
         .zoom #botones-para-compartir {
             text-align:left;
-            margin-left: -50px
+            margin-left: 40px
             
         }
 
@@ -187,79 +145,53 @@ a {text-decoration: none;}
              text-decoration: none;
         }
 
-    .cta {
-            position: absolute;
-            bottom: 135px;
-            width: 125px;
-            line-height: 1.3em;
-            z-index: 5;
-            margin-left: 75px;
-            background-color: #;
-            padding: 5px;
-            border-radius: 20px;
-            text-align: center;
-        }
 
 </style>
-</head>
+
 
 <link rel="stylesheet" href="ism/css/my-slider.css"/>
 <script src="ism/js/ism-2.2.min.js"></script>
 
 </head>
-
 <body class="zoom" style="margin:0px;">
+  <a href="https://consumer.huawei.com/mx/campaign/huaweiselajuega/" target="_blank">
+ 	 <div class="wrapper size_300x250">
+    
 
-
-<a href="%%c1;cpdir=" style="display: block;" target="_blank">
-   
- 	 <div class="wrapper size_300x250" id="cta" onclick="openUrl();">
-
-  
-         
-         
-<div class="ism-slider" data-transition_type="zoom" data-play_type="loop" data-interval="3000" data-image_fx="zoompan" data-buttons="false" data-radios="false" id="my-slider" style="width: 300px; height: 430px; border-radius: none; cursor:pointer;">
+ <!-- <div class="cta"><span class="bzm_text_title bzm_text_bold" style="font-size:80%; color: white;"><b>¿Eres un romántico?</b></span></div>-->
+<div class="ism-slider" data-transition_type="zoom" data-play_type="loop" data-interval="3000" data-image_fx="zoompan" data-buttons="false" data-radios="false" id="my-slider" style="width: 300px; height: 450px; border-radius: none;">
   <ol>
     <li>
-      <img src="https://i.imgur.com/KpnGe2Z.jpg">
+      <img src="https://i.imgur.com/NUJmcP7.jpg">
       
     <li>
-      <img src="https://i.imgur.com/ylZGdKL.gif">
+      <img src="https://i.imgur.com/RCy7Vlv.jpg">
       
     <li>
-      <img src="https://i.imgur.com/RwKrWE5.jpg">
-      
+      <img src="https://i.imgur.com/dcYdocf.jpg">
       
     </li>
   </ol>
-  
 </div>
 
- <div class="ism_text"> <span class=" ism_text_title" style="color:#000000; font-size:22px; text-decoration: none;">Es hora de viajar.<br>
-No esperes más, viaja hoy.</br></span>
-    
-                  <div class="cta" > <img src="https://i.imgur.com/fY0p01i.png" style="height: 50px; margin-left: -35px;"></a></div>
+ <div class="ism_text"> <span class=" ism_text_title" style="font-family:Arial; color:#000000; font-size:16px;  text-decoration: none;">Si la <b>SELECCIÓN NACIONAL DE MÉXICO®</b> gana el campeonato, <b>HUAWEI</b> te reembolsa el total de tu compra!.</span>
 
-                 
+                   
                    </div>
-                     <div style=";height:5px;text-align:right ;margin-top:30px; margin-right: 5px;"> <img src="https://i.imgur.com/D1hmq7w.png" style="height:40px; text-decoration: none;">
+                     <div style=";height:45px;text-align:right ;margin-top:12px; margin-right: 13px;"> <img src="https://i.imgur.com/Hk0NnME.png"style="height:35px; text-decoration: none;"> 
 
                                        
                    </div>
-                   <div id="botones-para-compartir" style="display:inline;float:left;margin-top:5px;margin-left:8px;"><span>
-
-                         <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/turquia/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_turquia_0106"  target="block"><img alt="compartir en facebook" class="facebooki" height="28" src="https://i.imgur.com/a0n5edL.png" title="compartir en facebook" width="28" /></a>
-
-                            <a class="shared" href="whatsapp://send?text=https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/turquia/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_turquia_0106" target="block"><img alt="compartir en whatsapp" class="googlei" height="28" src="https://i.imgur.com/ftJEChb.png" title="compartir en whatsapp" width="28" /></a>
-
-                            <a class="shared" href="https://twitter.com/home?status=https://www.viajesfalabella.com.co/ofertas/tiquetes-hoteles-paquetes-cruceros/paquetes-online-2/turquia/?utm_source=on_native&utm_medium=paid&utm_campaign=llego_el_verano&utm_content=landing_turquia_0106" target="block"> <img alt="compartir en twitter" class="twitteri" height="28" src="https://i.imgur.com/a0n5edL.png" title="compartir en twitter" width="28" /></a>
-                    </span></div>
+                   <div id="botones-para-compartir" style="display:inline;float:left;margin-top:-35px;margin-left:7px"> <span> <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://consumer.huawei.com/mx/campaign/huaweiselajuega/" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="25" src="https://i.imgur.com/QJzDJSF.png" title="compartir en facebook" width="22" /></a>
+                    <a class="shared" href="whatsapp://send?text=¡Mira lo que he encontrado! https://consumer.huawei.com/mx/campaign/huaweiselajuega/" target="block">
+                            <img alt="compartir en whatsapp" class="googlei" height="25" src="https://i.imgur.com/VDqH2Jc.png" title="compartir en whatsapp" width="25" /></a>
+                            <a class="shared" href="https://twitter.com/home?status=https://consumer.huawei.com/mx/campaign/huaweiselajuega/" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="25" src="https://i.imgur.com/9x1xsu1.png" title="compartir en twitter" width="22" /></a> </span></div>
 
               
-               </a>  
+                
             </div>
           
-       
+        </a>
       </body>
       </html>
 
