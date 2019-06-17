@@ -2225,6 +2225,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 .visibility-hidden, .visibility-hidden * {
     visibility: hidden !important;
 }
+/*#/#*//*#i145.text.css:text/base/css*/
+#i145 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 24px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i145.i146.positioning.css:positioning/base/css.2*/
+#i145 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 293px; height: 75px;
+        -ms-transform: translate(0, 0) translate(14px, 358px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(14px, 358px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(14px, 358px) rotate(0deg);
+        transform: translate(0, 0) translate(14px, 358px) rotate(0deg);
+}
 /*#/#*//*#i16.image.css:image/base/css*/
 #i16 { opacity: 1; }
 /*#/#*//*#i68.shape.css:shape/base/css*/
@@ -2264,15 +2273,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(64px, 451px) rotate(0deg);
         transform: translate(0, 0) translate(64px, 451px) rotate(0deg);
 }
-/*#/#*//*#i145.text.css:text/base/css*/
-#i145 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 24px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
-/*#/#*//*#i145.i146.positioning.css:positioning/base/css.2*/
-#i145 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 293px; height: 75px;
-        -ms-transform: translate(0, 0) translate(14px, 358px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(14px, 358px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(14px, 358px) rotate(0deg);
-        transform: translate(0, 0) translate(14px, 358px) rotate(0deg);
-}
 /*#/#*/
 </style>
 <!--#/#--></head>
@@ -2291,6 +2291,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 </div>
 <!--#/#--><!--#i46.image.html:image/html-->
 <img id="i46" src="https://i.imgur.com/10TeVmm.png"/>
+<!--#/#--><!--#i145.text.html:text/html-->
+<div id="i145">Agrega un toque de color a tu estilo con nuestras camisas y corbatas.</div>
 <!--#/#--><!--#i16.image.html:image/html-->
 <img id="i16" src="https://i.imgur.com/N7p02vj.png"/>
 <!--#/#--><!--#i68.shape.html:shape/html-->
@@ -2301,8 +2303,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <img id="i81" src="https://i.imgur.com/HwqP6vx.png"/>
 <!--#/#--><!--#i83.image.html:image/html-->
 <img id="i83" src="https://i.imgur.com/ybxwn2r.png"/>
-<!--#/#--><!--#i145.text.html:text/html-->
-<div id="i145">Agrega un toque de color a tu estilo con nuestras camisas y corbatas.</div>
 <!--#/#--><!--#/#--><!--#js:common/js-->
 <script>
 /*#i30.i31.positioning.js:positioning/base/js.2*/
@@ -2355,6 +2355,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*#/#*//*#i46.i47.positioning.js:positioning/base/js.2*/
 bmShow('i46');
+/*#/#*//*#i145.i146.positioning.js:positioning/base/js.2*/
+bmShow('i145');
 /*#/#*//*#i16.image.js:image/base/js*/
 
 /*#/#*//*#i16.i17.positioning.js:positioning/base/js.2*/
@@ -2374,13 +2376,13 @@ if ('click' === 'click') {
 }
 /*#/#*//*#i68.i69.positioning.js:positioning/base/js.2*/
 bmShow('i68');
-/*#/#*//*#i68.i135.actions.js:actions/base/js.1*/
+/*#/#*//*#i68.i147.actions.js:actions/base/js.1*/
 /* Name: On Click; */
 var el = document.getElementById('i68');
 
 el.addEventListener('click', function(e){
-    /*#i135.i136.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i147.i148.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.brooksbrothers.mx/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -2438,8 +2440,6 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i145.i146.positioning.js:positioning/base/js.2*/
-bmShow('i145');
 /*#/#*//*#i9.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
@@ -2473,6 +2473,10 @@ name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i46.i47.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i145.text.meta:text/meta*/
+name: Agrega un toque de color a tu estilo con nuestras camisas y corbatas.; customName: false;
+/*#/#*//*#i145.i146.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
 /*#/#*//*#i16.image.meta:image/meta*/
 name: LOGO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
@@ -2497,8 +2501,4 @@ name: TWITTER; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i83.i84.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i145.text.meta:text/meta*/
-name: Agrega un toque de color a tu estilo con nuestras camisas y corbatas.; customName: false;
-/*#/#*//*#i145.i146.positioning.meta:positioning/meta.2*/
-data: /*!*/{}/*!*/;
 /*#/#*/--><!--#/#-->
