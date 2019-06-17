@@ -1,0 +1,19 @@
+{
+    "version": "1.0",
+    "uniqueId": "c7a4c613f79a3872d63e79777a547914",
+    "title": "Brooks Brothers_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 480,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www.brooksbrothers.mx\/",
+        "clickTAG2": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https:https:\/\/www.brooksbrothers.mx\/",
+        "clickTAG3": "https:\/\/twitter.com\/home?status=https:\/\/www.brooksbrothers.mx\/"
+    },
+    "source": "Venetian.html"
+}
