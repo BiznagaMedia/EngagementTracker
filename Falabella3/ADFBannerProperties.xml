@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>6072e5a1ae6dbbe299c0ebdcdd41c48b</uniqueId>
+      <format>Standard</format>
+      <name><![CDATA[FalabellaCol_Venetian]]></name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName>main</fileName>
+        <clickTagNames>
+          <clickTagName><![CDATA[clickTAG]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG2]]></clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[https://goo.gl/maps/1jrypXTxtcDmPNJw6]]></bannerClickTag>
+      <bannerClickTag name="clickTAG2" displayName="clickTAG2"><![CDATA[https://www.viajesfalabella.com.co/sucursales/?utm_source=onnative&utm_medium=paid&utm_campaign=sucursales_onnative&utm_content=landing_home_sucursales_1906]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+  </banner>
+</adf>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>d7e68981ee8ea22b0cf025a1a01430bd</uniqueId>
+      <format>Standard</format>
+      <name><![CDATA[FalabellaCol]]></name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName>main</fileName>
+        <clickTagNames>
+          <clickTagName><![CDATA[clickTAG2]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG]]></clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG2" displayName="clickTAG2"><![CDATA[https://www.google.com/maps/place/Unicentro+Bogot%C3%A1/@4.7042241,-74.0407076,16z/data=!4m5!3m4!1s0x8e3f9ab26ea0240f:0x96607cc537204acd!8m2!3d4.7022085!4d-74.0419897]]></bannerClickTag>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[https://www.viajesfalabella.com.co/sucursales/?utm_source=onnative&utm_medium=paid&utm_campaign=sucursales_onnative&utm_content=landing_home_sucursales_1906]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+  </banner>
+</adf>
