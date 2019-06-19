@@ -2133,6 +2133,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
         transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
 }
+/*#/#*//*#i44.image.css:image/base/css*/
+#i44 { opacity: 1; }
+/*#/#*//*#i44.i45.positioning.css:positioning/base/css.2*/
+#i44 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 148px; height: 89px;
+        -ms-transform: translate(0, 0) translate(86px, 409px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(86px, 409px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(86px, 409px) rotate(0deg);
+        transform: translate(0, 0) translate(86px, 409px) rotate(0deg);
+}
 /*#/#*//*#i7.text.css:text/base/css*/
 #i7 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 24px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
 /*#/#*//*#i7.i8.positioning.css:positioning/base/css.2*/
@@ -2171,6 +2180,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 }
 /*#/#*//*#i42.image.css:image/base/css*/
 #i42 { opacity: 1; }
+/*#/#*//*#i42.i43.positioning.css:positioning/base/css.2*/
+#i42 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 320px; height: 96px;
+        -ms-transform: translate(0, 0) translate(0px, 384px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 384px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 384px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 384px) rotate(0deg);
+}
 /*#/#*//*#i16.i17.positioning.css:positioning/base/css.2*/
 #i16 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 58px; height: 40px;
         -ms-transform: translate(0, 0) translate(251px, 335px) rotate(0deg);
@@ -2236,13 +2252,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 .visibility-hidden, .visibility-hidden * {
     visibility: hidden !important;
 }
-/*#/#*//*#i42.i43.positioning.css:positioning/base/css.2*/
-#i42 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 320px; height: 96px;
-        -ms-transform: translate(0, 0) translate(0px, 384px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 384px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 384px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 384px) rotate(0deg);
-}
 /*#/#*//*#i16.image.css:image/base/css*/
 #i16 { opacity: 1; }
 /*#/#*//*#i68.image.css:image/base/css*/
@@ -2307,6 +2316,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <body>
 <!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i30.shape.html:shape/html-->
 <div id="i30"></div>
+<!--#/#--><!--#i44.image.html:image/html-->
+<img id="i44" src="https://i.imgur.com/CGzIxHl.png"/>
 <!--#/#--><!--#i7.text.html:text/html-->
 <div id="i7">¡ES HORA DE VIAJAR!</div>
 <!--#/#--><!--#i12.text.html:text/html-->
@@ -2314,11 +2325,11 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i2.slice.html:slice/html-->
 <div id="i2" class="adf-SliceBox">
     <!--#i2.i4.slice-image.html:slice-image/html-->
-<dataimg id="i4" src="https://i.imgur.com/ociDmIM.jpg"></dataimg>
+<dataimg id="i4" src="https://i.imgur.com/6Tz4Ctn.jpg"></dataimg>
 <!--#/#--><!--#i2.i5.slice-image.html:slice-image/html-->
-<dataimg id="i5" src="https://i.imgur.com/Qyq6H53.jpg"></dataimg>
+<dataimg id="i5" src="https://i.imgur.com/HOVec8k.jpg"></dataimg>
 <!--#/#--><!--#i2.i6.slice-image.html:slice-image/html-->
-<dataimg id="i6" src="https://i.imgur.com/5lxBWEq.jpg"></dataimg>
+<dataimg id="i6" src="https://i.imgur.com/WperAXg.jpg"></dataimg>
 <!--#/#-->
 </div>
 <!--#/#--><!--#i42.image.html:image/html-->
@@ -2341,6 +2352,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <script>
 /*#i30.i31.positioning.js:positioning/base/js.2*/
 bmShow('i30');
+/*#/#*//*#i44.image.js:image/base/js*/
+
+/*#/#*//*#i44.i45.positioning.js:positioning/base/js.2*/
+bmShow('i44');
 /*#/#*//*#i7.i8.positioning.js:positioning/base/js.2*/
 bmShow('i7');
 /*#/#*//*#i12.i13.positioning.js:positioning/base/js.2*/
@@ -2399,7 +2414,7 @@ var el = document.getElementById('i42');
 
 el.addEventListener('click', function(e){
     /*#i46.i47.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://goo.gl/maps/1jrypXTxtcDmPNJw6'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -2471,7 +2486,7 @@ var el = document.getElementById('i50');
 
 el.addEventListener('click', function(e){
     /*#i64.i65.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'whatsapp://send?text=https://www.viajesfalabella.com.co/sucursales/?utm_source=onnative&utm_medium=paid&utm_campaign=sucursales_onnative&utm_content=landing_home_sucursales_1906'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://web.whatsapp.com/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -2512,6 +2527,11 @@ function bmHide(id) {
 name: Shape 1;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i44.image.meta:image/meta*/
+name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i44.i45.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i7.text.meta:text/meta*/
 name: ¡ES HORA DE VIAJAR!; customName: false;
 /*#/#*//*#i7.i8.positioning.meta:positioning/meta.2*/
@@ -2524,11 +2544,11 @@ data: /*!*/{}/*!*/;
 name: Slice 1;
 customName: ;
 /*#/#*//*#i2.i4.slice-image.meta:slice-image/meta*/
-name: ociDmIM.jpg; fileId: ; sourceTypeId: externalUrl;
+name: 6Tz4Ctn.jpg; fileId: ; sourceTypeId: externalUrl;
 /*#/#*//*#i2.i5.slice-image.meta:slice-image/meta*/
-name: Qyq6H53.jpg; fileId: ; sourceTypeId: externalUrl;
+name: HOVec8k.jpg; fileId: ; sourceTypeId: externalUrl;
 /*#/#*//*#i2.i6.slice-image.meta:slice-image/meta*/
-name: 5lxBWEq.jpg; fileId: ; sourceTypeId: externalUrl;
+name: WperAXg.jpg; fileId: ; sourceTypeId: externalUrl;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i42.image.meta:image/meta*/
