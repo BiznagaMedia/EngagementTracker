@@ -1,0 +1,21 @@
+{
+    "version": "1.0",
+    "uniqueId": "07d37e904317ff9571b7b0bb8c851400",
+    "title": "FINALISIMO_CUBE_P.F.CHANG_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/pfchangsmexico.com.mx",
+        "clickTAG2": "https:\/\/pfchangsmexico.com.mx",
+        "clickTAG3": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https:\/\/pfchangsmexico.com.mx",
+        "clickTAG4": "https:\/\/whatsapp.com",
+        "clickTAG5": "https:\/\/twitter.com\/home?status=https:\/\/pfchangsmexico.com.mx"
+    },
+    "source": "Cube_Itallianis.html"
+}

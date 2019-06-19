@@ -1,0 +1,20 @@
+{
+    "version": "1.0",
+    "uniqueId": "73c399b2c55265e9264dabdc33b82904",
+    "title": "FINALISIMO_VENETTIAN_P.F.CHANG_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 480,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/pfchangsmexico.com.mx",
+        "clickTAG3": "https:\/\/twitter.com\/home?status=https:\/\/pfchangsmexico.com.mx",
+        "clickTAG4": "https:\/\/whatsapp.com",
+        "clickTAG5": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https:\/\/pfchangsmexico.com.mx"
+    },
+    "source": "Venetian_Itallianis.html"
+}
