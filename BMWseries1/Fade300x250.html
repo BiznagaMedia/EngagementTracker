@@ -10,7 +10,7 @@
     <style>
 
  
-}
+
         .fadesmall {
             margin: 0px
         }
@@ -21,7 +21,7 @@
         .fadesmall .bg.cover-2,
         .fadesmall .bg.cover-3,
         .fadesmall {
-            background-size: cover
+            background-size: cover;
         }
 
         .fadesmall .btn {
@@ -36,7 +36,7 @@
         }
 
         .fadesmall .bzm_wrapper {
-            position: relative;
+            position: absolute;
             overflow: hidden;
             color: #000;
             font-family: "Trebuchet MS";
@@ -56,10 +56,15 @@
         
         .fadesmall .bzm_cover,
         .fadesmall .carousel-wrapper {
-            position: relative;
+            position: absolute;
             width: 100%
 
         }
+
+   .fadesmall .carousel-container{
+
+    padding-top: -10px;
+   }
 
         .fadesmall .bzm_cover {
             height: 150px
@@ -79,12 +84,12 @@
         }
 
         .fadesmall .bzm_cover.bzm_pos_tl {
-            top: 3%;
+            top: 0%;
             left: 3%
         }
 
         .fadesmall .bzm_pos_tr {
-            top: 3%;
+            top: 0%;
             right: 3%
         }
 
@@ -219,7 +224,7 @@
         .fadesmall .carousel-container {
             width: 300px;
             height: 150px;
-            overflow-y: hidden
+            overflow-y: hidden;
         }
 
 
