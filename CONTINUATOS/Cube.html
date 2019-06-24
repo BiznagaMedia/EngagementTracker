@@ -824,15 +824,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(124px, 218px) rotate(0deg);
         transform: translate(0, 0) translate(124px, 218px) rotate(0deg);
 }
-/*#/#*//*#i6.i382.image.css:image/base/css*/
-#i382 { opacity: 1; }
-/*#/#*//*#i382.i383.positioning.css:positioning/base/css.2*/
-#i382 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 166px; height: 45px;
-        -ms-transform: translate(0, 0) translate(62px, 119px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(62px, 119px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(62px, 119px) rotate(0deg);
-        transform: translate(0, 0) translate(62px, 119px) rotate(0deg);
-}
 /*#/#*//*#i6.i370.image.css:image/base/css*/
 #i370 { opacity: 1; }
 /*#/#*//*#i370.i371.positioning.css:positioning/base/css.2*/
@@ -851,6 +842,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i6.i382.image.css:image/base/css*/
+#i382 { opacity: 1; }
+/*#/#*//*#i382.i383.positioning.css:positioning/base/css.2*/
+#i382 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 166px; height: 45px;
+        -ms-transform: translate(0, 0) translate(62px, 119px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(62px, 119px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(62px, 119px) rotate(0deg);
+        transform: translate(0, 0) translate(62px, 119px) rotate(0deg);
 }
 /*#/#*//*#i6.i358.image.css:image/base/css*/
 #i358 { opacity: 1; }
@@ -959,12 +959,12 @@ url('fonts/') format('svg');
 <img id="i60" src="https://i.imgur.com/ldBQIAk.jpg"/>
 <!--#/#--><!--#i6.i356.image.html:image/html-->
 <img id="i356" src="https://i.imgur.com/mgV7wMV.png"/>
-<!--#/#--><!--#i6.i382.image.html:image/html-->
-<img id="i382" src="https://i.imgur.com/oKzzcnZ.png"/>
 <!--#/#--><!--#i6.i370.image.html:image/html-->
 <img id="i370" src="https://i.imgur.com/JIhFzGe.gif"/>
 <!--#/#--><!--#i6.i99.shape.html:shape/html-->
 <div id="i99"></div>
+<!--#/#--><!--#i6.i382.image.html:image/html-->
+<img id="i382" src="https://i.imgur.com/oKzzcnZ.png"/>
 <!--#/#--><!--#i6.i358.image.html:image/html-->
 <img id="i358" src="https://i.imgur.com/B86wJgP.png"/>
 <!--#/#--><!--#i6.i362.image.html:image/html-->
@@ -1175,10 +1175,6 @@ if ('click' === 'click') {
 
 /*#/#*//*#i356.i357.positioning.js:positioning/base/js.2*/
 bmShow('i356');
-/*#/#*//*#i6.i382.image.js:image/base/js*/
-
-/*#/#*//*#i382.i383.positioning.js:positioning/base/js.2*/
-bmShow('i382');
 /*#/#*//*#i6.i370.image.js:image/base/js*/
 
 /*#/#*//*#i370.i371.positioning.js:positioning/base/js.2*/
@@ -1190,6 +1186,23 @@ var el = document.getElementById('i99');
 el.addEventListener('click', function(e){
     /*#i336.i337.actions-clicktag.js:actions-clicktag/base/js.2*/
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG5')) : window.open(dhtml.getVar('clickTAG5', 'https://goo.gl/maps/ZnxoUZpRvtKMs6YR9'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i6.i382.image.js:image/base/js*/
+
+/*#/#*//*#i382.i383.positioning.js:positioning/base/js.2*/
+bmShow('i382');
+/*#/#*//*#i382.i384.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i382');
+
+el.addEventListener('click', function(e){
+    /*#i384.i385.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.continautos.co/test_drive/formulario_test_drive/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -1381,11 +1394,6 @@ name: LOGO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i356.i357.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i6.i382.image.meta:image/meta*/
-name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: 1;
-/*#/#*//*#i382.i383.positioning.meta:positioning/meta.2*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i6.i370.image.meta:image/meta*/
 name: ICONO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
@@ -1395,6 +1403,11 @@ data: /*!*/{"keepAspectRatio":true}/*!*/;
 name: Link;
 /*#/#*//*#i99.i100.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i6.i382.image.meta:image/meta*/
+name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i382.i383.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i6.i358.image.meta:image/meta*/
 name: F; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
