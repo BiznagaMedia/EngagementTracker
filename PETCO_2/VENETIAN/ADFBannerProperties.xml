@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>4f047b45790988970c4b189180abe1e5</uniqueId>
+      <format>Standard</format>
+      <name><![CDATA[Petco_Venetian]]></name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName>main</fileName>
+        <clickTagNames>
+          <clickTagName><![CDATA[clickTAG]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG2]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG3]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG4]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG5]]></clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[https://www.google.com/maps/place/Manuel+Gonzalez+113,+San+Sim%C3%B3n+Tolnahuac,+06920+Ciudad+de+M%C3%A9xico,+CDMX,+M%C3%A9xico/@19.4559506,-99.1442151,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1f921db1ddfa5:0x317f02b7d7be8b50!8m2!3d19.4559506!4d-99.1420264]]></bannerClickTag>
+      <bannerClickTag name="clickTAG2" displayName="clickTAG2"><![CDATA[https://www.petco.com.mx/petco/en/]]></bannerClickTag>
+      <bannerClickTag name="clickTAG3" displayName="clickTAG3"><![CDATA[https://www.facebook.com/sharer/sharer.php?u=https://www.petco.com.mx/petco/en/]]></bannerClickTag>
+      <bannerClickTag name="clickTAG4" displayName="clickTAG4"><![CDATA[https://www.whatsapp.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG5" displayName="clickTAG5"><![CDATA[https://twitter.com/home?status=https://www.petco.com.mx/petco/en/]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+  </banner>
+</adf>

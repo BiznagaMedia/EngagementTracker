@@ -1,0 +1,21 @@
+{
+    "version": "1.0",
+    "uniqueId": "0cd182b83ca445a62ca10df68ee8d5bc",
+    "title": "Petco_Cube_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/goo.gl\/maps\/z4BfqoBKoR7Gc2Y76",
+        "clickTAG2": "https:\/\/www.petco.com.mx\/petco\/en\/",
+        "clickTAG3": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https:\/\/www.petco.com.mx\/petco\/en\/",
+        "clickTAG4": "https:\/\/www.whatsapp.com",
+        "clickTAG5": "https:\/\/twitter.com\/home?status=https:\/\/www.petco.com.mx\/petco\/en\/"
+    },
+    "source": "Cube.html"
+}
