@@ -1,0 +1,21 @@
+{
+    "version": "1.0",
+    "uniqueId": "4f047b45790988970c4b189180abe1e5",
+    "title": "Petco_Venetian_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 480,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www.google.com\/maps\/place\/Manuel+Gonzalez+113,+San+Sim%C3%B3n+Tolnahuac,+06920+Ciudad+de+M%C3%A9xico,+CDMX,+M%C3%A9xico\/@19.4559506,-99.1442151,17z\/data=!3m1!4b1!4m5!3m4!1s0x85d1f921db1ddfa5:0x317f02b7d7be8b50!8m2!3d19.4559506!4d-99.1420264",
+        "clickTAG2": "https:\/\/www.petco.com.mx\/petco\/en\/",
+        "clickTAG3": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https:\/\/www.petco.com.mx\/petco\/en\/",
+        "clickTAG4": "https:\/\/www.whatsapp.com",
+        "clickTAG5": "https:\/\/twitter.com\/home?status=https:\/\/www.petco.com.mx\/petco\/en\/"
+    },
+    "source": "Venetian.html"
+}
