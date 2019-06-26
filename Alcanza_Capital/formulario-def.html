@@ -625,10 +625,10 @@
                     <!--<h2>CONTÁCTANOS</h2>-->
                     
                     <p style="width: 100%; text-align: left; margin-bottom: -24px;" ><input placeholder="NOMBRE" name="name" type="text" required="text" ></p>
-                    <p style="width: 100%; text-align: left; margin-bottom: -24px;" ><input placeholder="APELLIDOS" name="name" type="text" required="text" ></p>                    
+                    <p style="width: 100%; text-align: left; margin-bottom: -24px;" ><input placeholder="APELLIDOS" name="lastName" type="text" required="text" ></p>                    
                     <p style="width: 100%; text-align: left; margin-bottom: -24px;" ><input placeholder="E-MAIL" name="email" type="email" required="@" ></p>
                    <p style="width: 100%; text-align: left; margin-bottom: -24px;" ><input placeholder="TELÉFONO" name="phone" type="number" required="number" ></p>
-                   <p style="width: 100%; text-align: left; margin-bottom: 24px;" ><input placeholder="EMPRESA" name="lastName" type="text" required="text" ></p>
+                   <p style="width: 100%; text-align: left; margin-bottom: 24px;" ><input placeholder="EMPRESA" name="company" type="text" required="text" ></p>
 
                    
                    
@@ -747,9 +747,9 @@
                 var eventVars = {
                     bv1: btoa(responseData.name.norm_to_ascii().crypt_sym()),
                     bv2: btoa(responseData.lastName.norm_to_ascii().crypt_sym()),
-                    bv3: btoa(responseData.phone.norm_to_ascii().crypt_sym()),
-                    bv4: btoa(responseData.email.norm_to_ascii().crypt_sym()),
-                    bv5: btoa(responseData.condiciones.norm_to_ascii().crypt_sym()),
+                    bv3: btoa(responseData.email.norm_to_ascii().crypt_sym()),
+                    bv4: btoa(responseData.phone.norm_to_ascii().crypt_sym()),
+                    bv5: btoa(responseData.company.norm_to_ascii().crypt_sym()),
                    
                 };
 
