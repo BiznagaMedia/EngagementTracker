@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "f14d38fab62140cb61aefe44eb796453",
+    "title": "Michelin_Cube_main_asset",
+    "description": "",
+    "width": 300,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/promociones.michelin.es\/inicio"
+    },
+    "source": "Cube.html"
+}
