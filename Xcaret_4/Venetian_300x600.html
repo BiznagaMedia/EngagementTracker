@@ -2189,15 +2189,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i56.image.css:image/base/css*/
-#i56 { opacity: 1; }
-/*#/#*//*#i56.i57.positioning.css:positioning/base/css.2*/
-#i56 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 600px;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
-}
 /*#/#*//*#i2.slice.css:slice/base/css*/
 #i2.adf-SlicedUnit {
     position: absolute;
@@ -2260,6 +2251,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(52px, 354px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(52px, 354px) rotate(0deg);
         transform: translate(0, 0) translate(52px, 354px) rotate(0deg);
+}
+/*#/#*//*#i56.image.css:image/base/css*/
+#i56 { opacity: 1; }
+/*#/#*//*#i56.i57.positioning.css:positioning/base/css.2*/
+#i56 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 300px; height: 600px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i67.shape.css:shape/base/css*/
 #i67 { background-color: #dedede; opacity: 0.00;
@@ -2328,8 +2328,6 @@ url('fonts/') format('svg');
 <body>
 <!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i30.shape.html:shape/html-->
 <div id="i30"></div>
-<!--#/#--><!--#i56.image.html:image/html-->
-<img id="i56" src="https://i.imgur.com/tbm1zmk.png"/>
 <!--#/#--><!--#i2.slice.html:slice/html-->
 <div id="i2" class="adf-SliceBox">
     <!--#i2.i4.slice-image.html:slice-image/html-->
@@ -2356,6 +2354,8 @@ url('fonts/') format('svg');
 <div id="i81">Del 10 de junio al 25 de agosto, aprovecha el precio especial en paquetes de Xcaret Adventure.</div>
 <!--#/#--><!--#i45.image.html:image/html-->
 <img id="i45" src="https://i.imgur.com/rKp5Ldj.png"/>
+<!--#/#--><!--#i56.image.html:image/html-->
+<img id="i56" src="https://i.imgur.com/tbm1zmk.png"/>
 <!--#/#--><!--#i67.shape.html:shape/html-->
 <div id="i67"></div>
 <!--#/#--><!--#i61.image.html:image/html-->
@@ -2370,10 +2370,6 @@ url('fonts/') format('svg');
 <script>
 /*#i30.i31.positioning.js:positioning/base/js.2*/
 bmShow('i30');
-/*#/#*//*#i56.image.js:image/base/js*/
-
-/*#/#*//*#i56.i57.positioning.js:positioning/base/js.2*/
-bmShow('i56');
 /*#/#*//*#i2.slice.js:slice/js*/
 document.addEventListener('DOMContentLoaded', function() {
     var slicedUnit_i2 = new Adf.SlicedUnit({
@@ -2424,23 +2420,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*#/#*//*#i2.i60.slice-image.js:slice-image/base/js.1*/
 
-/*#/#*//*#i2.i41.actions.js:actions/base/js.1*/
-/* Name: On Click; */
-var el = document.getElementById('i2');
-
-el.addEventListener('click', function(e){
-    /*#i41.i42.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
-/*#/#*/
-});
-
-if ('click' === 'click') {
-    el.style.cursor = 'pointer';
-}
 /*#/#*//*#i50.image.js:image/base/js*/
 
 /*#/#*//*#i50.i51.positioning.js:positioning/base/js.2*/
 bmShow('i50');
+/*#/#*//*#i83.i84.positioning.js:positioning/base/js.2*/
+bmShow('i83');
 /*#/#*//*#i79.i80.positioning.js:positioning/base/js.2*/
 bmShow('i79');
 /*#/#*//*#i81.i82.positioning.js:positioning/base/js.2*/
@@ -2449,6 +2434,10 @@ bmShow('i81');
 
 /*#/#*//*#i45.i46.positioning.js:positioning/base/js.2*/
 bmShow('i45');
+/*#/#*//*#i56.image.js:image/base/js*/
+
+/*#/#*//*#i56.i57.positioning.js:positioning/base/js.2*/
+bmShow('i56');
 /*#/#*//*#i67.i68.positioning.js:positioning/base/js.2*/
 bmShow('i67');
 /*#/#*//*#i67.i69.actions.js:actions/base/js.1*/
@@ -2515,8 +2504,6 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i83.i84.positioning.js:positioning/base/js.2*/
-bmShow('i83');
 /*#/#*//*#i9.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
@@ -2534,11 +2521,6 @@ function bmHide(id) {
 name: Shape 1;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i56.image.meta:image/meta*/
-name: MARCO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: 1;
-/*#/#*//*#i56.i57.positioning.meta:positioning/meta.2*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.slice.meta:slice/meta*/
 name: Slice 1;
 customName: ;
@@ -2581,6 +2563,11 @@ data: /*!*/{}/*!*/;
 name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i45.i46.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i56.image.meta:image/meta*/
+name: MARCO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i56.i57.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i67.shape.meta:shape/meta*/
 name: LINK;
