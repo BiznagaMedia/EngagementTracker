@@ -1,0 +1,20 @@
+{
+    "version": "1.0",
+    "uniqueId": "264be1bda3198cb1afeae424738bc97b",
+    "title": "Xcaret_cube_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 50,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/www.xcaret.com\/es\/promociones\/verano-xcaret\/",
+        "clickTAG2": "https:\/\/www.whatsapp.com",
+        "clickTAG3": "https:\/\/twitter.com\/home?status=https:\/\/www.xcaret.com\/es\/promociones\/verano-xcaret\/",
+        "clickTAG4": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https:\/\/www.xcaret.com\/es\/promociones\/verano-xcaret\/"
+    },
+    "source": "Cube.html"
+}

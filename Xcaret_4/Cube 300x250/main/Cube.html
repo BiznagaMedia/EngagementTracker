@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <head>
+<meta charset="UTF-8">
+
 <title>HTML5 STUDIO BUILDER: 3D Box v 1.5</title>
 
 <!-- Adform API Script -->
@@ -463,10 +465,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     })(Adf = window.Adf || {});
 
 </script>
-<!--#/#--><!--#i8.font-google.head:font/font-google/head-->
-<!--#i8.i9.font-google.head:font-google/head-->
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
-<!--#/#-->
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
@@ -599,6 +597,18 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     background-color: #5AAAD2;
 }
 
+/*#/#*//*#i8.font-local.css:font/font-local/css*/
+/*#i8.i245.font-local.css:font-local/css.1*/
+@font-face {
+font-family: 'AVENIRLTSTD-BOOK';
+src: url('fonts/');
+src: url('fonts/?#iefix') format('embedded-opentype'),
+url('fonts/AVENIRLTSTD-BOOK.woff') format('woff'),
+url('fonts/') format('truetype'),
+url('fonts/') format('opentype'),
+url('fonts/') format('svg');
+}
+/*#/#*/
 /*#/#*//*#i2.cube.css:cube/base/css.1*/
 #i2.shape-holder {
     position: absolute;
@@ -622,10 +632,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
     overflow: hidden;
 }
 
-/*#/#*//*#visibility.css:visibility/globalcss*/
-.visibility-hidden, .visibility-hidden * {
-    visibility: hidden !important;
-}
 /*#/#*//*#i4.i20.shape.css:shape/base/css*/
 #i20 { background-color: #ffffff; opacity: 1;
 }
@@ -636,45 +642,38 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: AVENIRLTSTD-BOOK; font-size: 13px; color: #1d1d1d; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
-/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
-#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 268px; height: 49px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-}
 /*#/#*//*#i4.i130.image.css:image/base/css*/
 #i130 { opacity: 1; }
 /*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
-#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 150px;
+#i130 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 170px; height: 50px;
         -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i4.i286.image.css:image/base/css*/
-#i286 { opacity: 1; }
-/*#/#*//*#i286.i287.positioning.css:positioning/base/css.2*/
-#i286 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 190px; height: 51px;
-        -ms-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
+/*#/#*//*#i4.i187.image.css:image/base/css*/
+#i187 { opacity: 1; }
+/*#/#*//*#i187.i188.positioning.css:positioning/base/css.1*/
+#i187 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 58px; height: 26px;
+        -ms-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
 }
-/*#/#*//*#i4.i181.image.css:image/base/css*/
-#i181 { opacity: 1; }
-/*#/#*//*#i181.i182.positioning.css:positioning/base/css.2*/
-#i181 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 95px; height: 43px;
-        -ms-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
+/*#/#*//*#i4.i272.text.css:text/base/css*/
+#i272 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: AVENIRLTSTD-BOOK; font-size: 12px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+/*#/#*//*#i272.i273.positioning.css:positioning/base/css.1*/
+#i272 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 41px;
+        -ms-transform: translate(-50%, -50%) translate(86px, -4px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(86px, -4px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(86px, -4px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(86px, -4px) rotate(0deg);
 }
 /*#/#*//*#i4.i91.shape.css:shape/base/css*/
 #i91 { background-color: #dedede; opacity: 0.00;
 }
+/*#/#*//*#i177.i178.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i91 { cursor: pointer; }
 /*#/#*//*#i91.i92.positioning.css:positioning/base/css.1*/
 #i91 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
         -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
@@ -682,32 +681,32 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i4.i190.image.css:image/base/css*/
-#i190 { opacity: 1; }
-/*#/#*//*#i190.i191.positioning.css:positioning/base/css.2*/
-#i190 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
+/*#/#*//*#i4.i183.image.css:image/base/css*/
+#i183 { opacity: 1; }
+/*#/#*//*#i183.i184.positioning.css:positioning/base/css.1*/
+#i183 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
 }
-/*#/#*//*#i4.i228.image.css:image/base/css*/
-#i228 { opacity: 1; }
-/*#/#*//*#i228.i229.positioning.css:positioning/base/css.2*/
-#i228 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
+/*#/#*//*#i4.i185.image.css:image/base/css*/
+#i185 { opacity: 1; }
+/*#/#*//*#i185.i186.positioning.css:positioning/base/css.1*/
+#i185 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
 }
-/*#/#*//*#i4.i242.image.css:image/base/css*/
-#i242 { opacity: 1; }
-/*#/#*//*#i242.i243.positioning.css:positioning/base/css.2*/
-#i242 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
+/*#/#*//*#i4.i181.image.css:image/base/css*/
+#i181 { opacity: 1; }
+/*#/#*//*#i181.i182.positioning.css:positioning/base/css.1*/
+#i181 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
 }
 /*#/#*//*#i50.i51.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i4 { cursor: pointer; }
@@ -715,84 +714,77 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i30 { background-color: #ffffff; opacity: 1;
 }
 /*#/#*//*#i30.i31.positioning.css:positioning/base/css.1*/
-#i30 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
 }
 /*#/#*//*#i5.i58.image.css:image/base/css*/
 #i58 { opacity: 1; }
 /*#/#*//*#i58.i59.positioning.css:positioning/base/css.1*/
-#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 150px;
+#i58 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 170px; height: 50px;
         -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i5.i388.image.css:image/base/css*/
-#i388 { opacity: 1; }
-/*#/#*//*#i388.i389.positioning.css:positioning/base/css.2*/
-#i388 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 95px; height: 43px;
-        -ms-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
+/*#/#*//*#i5.i227.image.css:image/base/css*/
+#i227 { opacity: 1; }
+/*#/#*//*#i227.i228.positioning.css:positioning/base/css.1*/
+#i227 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 58px; height: 26px;
+        -ms-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
 }
-/*#/#*//*#i5.i384.image.css:image/base/css*/
-#i384 { opacity: 1; }
-/*#/#*//*#i384.i385.positioning.css:positioning/base/css.2*/
-#i384 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 190px; height: 51px;
-        -ms-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-}
-/*#/#*//*#i5.i382.text.css:text/base/css*/
-#i382 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: AVENIRLTSTD-BOOK; font-size: 14px; color: #1d1d1d; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#i382.i383.positioning.css:positioning/base/css.1*/
-#i382 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 268px; height: 49px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
+/*#/#*//*#i5.i246.text.css:text/base/css*/
+#i246 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: AVENIRLTSTD-BOOK; font-size: 12px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+/*#/#*//*#i246.i247.positioning.css:positioning/base/css.1*/
+#i246 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 41px;
+        -ms-transform: translate(-50%, -50%) translate(86px, -5px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(86px, -5px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(86px, -5px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(86px, -5px) rotate(0deg);
 }
 /*#/#*//*#i5.i95.shape.css:shape/base/css*/
 #i95 { background-color: #dedede; opacity: 0.00;
 }
+/*#/#*//*#i175.i176.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i95 { cursor: pointer; }
 /*#/#*//*#i95.i96.positioning.css:positioning/base/css.1*/
 #i95 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0px, 2px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 2px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 2px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 2px) rotate(0deg);
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i5.i392.image.css:image/base/css*/
-#i392 { opacity: 1; }
-/*#/#*//*#i392.i393.positioning.css:positioning/base/css.2*/
-#i392 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
+/*#/#*//*#i5.i229.image.css:image/base/css*/
+#i229 { opacity: 1; }
+/*#/#*//*#i229.i232.positioning.css:positioning/base/css.1*/
+#i229 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
 }
-/*#/#*//*#i5.i404.image.css:image/base/css*/
-#i404 { opacity: 1; }
-/*#/#*//*#i404.i405.positioning.css:positioning/base/css.2*/
-#i404 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
+/*#/#*//*#i5.i233.image.css:image/base/css*/
+#i233 { opacity: 1; }
+/*#/#*//*#i233.i236.positioning.css:positioning/base/css.1*/
+#i233 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
 }
-/*#/#*//*#i5.i408.image.css:image/base/css*/
-#i408 { opacity: 1; }
-/*#/#*//*#i408.i409.positioning.css:positioning/base/css.2*/
-#i408 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
+/*#/#*//*#i5.i237.image.css:image/base/css*/
+#i237 { opacity: 1; }
+/*#/#*//*#i237.i240.positioning.css:positioning/base/css.1*/
+#i237 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
 }
 /*#/#*//*#i52.i53.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i5 { cursor: pointer; }
@@ -809,108 +801,78 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i6.i60.image.css:image/base/css*/
 #i60 { opacity: 1; }
 /*#/#*//*#i60.i61.positioning.css:positioning/base/css.1*/
-#i60 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 150px;
+#i60 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 170px; height: 50px;
         -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i6.i390.image.css:image/base/css*/
-#i390 { opacity: 1; }
-/*#/#*//*#i390.i391.positioning.css:positioning/base/css.2*/
-#i390 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 95px; height: 43px;
-        -ms-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
-        transform: translate(0, 0) translate(210px, 206px) rotate(0deg);
+/*#/#*//*#i6.i262.image.css:image/base/css*/
+#i262 { opacity: 1; }
+/*#/#*//*#i262.i263.positioning.css:positioning/base/css.1*/
+#i262 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 58px; height: 26px;
+        -ms-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
+        transform: translate(0, 0) translate(262px, 23px) rotate(0deg);
 }
-/*#/#*//*#i6.i386.image.css:image/base/css*/
-#i386 { opacity: 1; }
-/*#/#*//*#i386.i387.positioning.css:positioning/base/css.2*/
-#i386 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 190px; height: 51px;
-        -ms-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-        transform: translate(0, 0) translate(55px, 123px) rotate(0deg);
-}
-/*#/#*//*#i6.i416.text.css:text/base/css*/
-#i416 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: AVENIRLTSTD-BOOK; font-size: 13px; color: #1d1d1d; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
-/*#/#*//*#i416.i417.positioning.css:positioning/base/css.1*/
-#i416 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 268px; height: 49px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 71px) rotate(0deg);
+/*#/#*//*#i6.i264.text.css:text/base/css*/
+#i264 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: AVENIRLTSTD-BOOK; font-size: 12px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); }
+/*#/#*//*#i264.i265.positioning.css:positioning/base/css.1*/
+#i264 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 273px; height: 41px;
+        -ms-transform: translate(-50%, -50%) translate(83px, -6px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(83px, -6px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(83px, -6px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(83px, -6px) rotate(0deg);
 }
 /*#/#*//*#i6.i99.shape.css:shape/base/css*/
 #i99 { background-color: #dedede; opacity: 0.00;
 }
+/*#/#*//*#i179.i180.actions-clicktag.css:actions-clicktag/base/css.1*/
+#i99 { cursor: pointer; }
 /*#/#*//*#i99.i100.positioning.css:positioning/base/css.1*/
 #i99 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(-1px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(-1px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(-1px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(-1px, 0px) rotate(0deg);
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i6.i396.image.css:image/base/css*/
-#i396 { opacity: 1; }
-/*#/#*//*#i396.i397.positioning.css:positioning/base/css.2*/
-#i396 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(69px, 222px) rotate(0deg);
+/*#/#*//*#i6.i256.image.css:image/base/css*/
+#i256 { opacity: 1; }
+/*#/#*//*#i256.i259.positioning.css:positioning/base/css.1*/
+#i256 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(195px, 27px) rotate(0deg);
 }
-/*#/#*//*#i6.i400.image.css:image/base/css*/
-#i400 { opacity: 1; }
-/*#/#*//*#i400.i401.positioning.css:positioning/base/css.2*/
-#i400 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(9px, 222px) rotate(0deg);
+/*#/#*//*#i6.i252.image.css:image/base/css*/
+#i252 { opacity: 1; }
+/*#/#*//*#i252.i255.positioning.css:positioning/base/css.1*/
+#i252 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(216px, 27px) rotate(0deg);
 }
-/*#/#*//*#i6.i412.image.css:image/base/css*/
-#i412 { opacity: 1; }
-/*#/#*//*#i412.i413.positioning.css:positioning/base/css.2*/
-#i412 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 25px; height: 25px;
-        -ms-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
-        transform: translate(0, 0) translate(40px, 222px) rotate(0deg);
+/*#/#*//*#i6.i248.image.css:image/base/css*/
+#i248 { opacity: 1; }
+/*#/#*//*#i248.i251.positioning.css:positioning/base/css.1*/
+#i248 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 20px; height: 20px;
+        -ms-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
+        transform: translate(0, 0) translate(174px, 27px) rotate(0deg);
 }
 /*#/#*//*#i54.i55.actions-clicktag.css:actions-clicktag/base/css.1*/
 #i6 { cursor: pointer; }
 /*#/#*//*#i2.i3.positioning.css:positioning/base/css.1*/
-#i2 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
-        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
-        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+#i2 { position: absolute; top: 0%; left: 50%; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(-50%, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(-50%, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(-50%, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(-50%, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i188.font-local.css:font/font-local/css*/
-/*#i188.i189.font-local.css:font-local/css*/
-@font-face {
-font-family: 'BrownStd-Bold';
-src: url('fonts/');
-src: url('fonts/?#iefix') format('embedded-opentype'),
-url('fonts/BrownStd-Bold.woff') format('woff'),
-url('fonts/') format('truetype'),
-url('fonts/') format('svg');
-}
-/*#/#*/
-/*#/#*//*#i380.font-local.css:font/font-local/css*/
-/*#i380.i381.font-local.css:font-local/css.1*/
-@font-face {
-font-family: 'AVENIRLTSTD-BOOK';
-src: url('fonts/');
-src: url('fonts/?#iefix') format('embedded-opentype'),
-url('fonts/AVENIRLTSTD-BOOK.woff') format('woff'),
-url('fonts/') format('truetype'),
-url('fonts/') format('opentype'),
-url('fonts/') format('svg');
-}
-/*#/#*/
 /*#/#*/
 </style>
 <!--#/#--></head>
@@ -923,23 +885,21 @@ url('fonts/') format('svg');
 <div id="i4" class="panel-content-holder">
     <!--#i4.i20.shape.html:shape/html-->
 <div id="i20"></div>
-<!--#/#--><!--#i4.i14.text.html:text/html-->
-<div id="i14">Elige aventuras y diversión con las promociones de verano de Xcaret.
-¡LA AVENTURA TE CAMBIA!</div>
 <!--#/#--><!--#i4.i130.image.html:image/html-->
-<img id="i130" src="https://i.imgur.com/FsBnrR7.png"/>
-<!--#/#--><!--#i4.i286.image.html:image/html-->
-<img id="i286" src="https://i.imgur.com/rKp5Ldj.png"/>
-<!--#/#--><!--#i4.i181.image.html:image/html-->
-<img id="i181" src="https://i.imgur.com/bYVFeo0.png"/>
+<img id="i130" src="https://i.imgur.com/cDtXJpp.jpg"/>
+<!--#/#--><!--#i4.i187.image.html:image/html-->
+<img id="i187" src="https://i.imgur.com/bYVFeo0.png"/>
+<!--#/#--><!--#i4.i272.text.html:text/html-->
+<div id="i272">¡LA AVENTURA 
+TE CAMBIA!</div>
 <!--#/#--><!--#i4.i91.shape.html:shape/html-->
 <div id="i91"></div>
-<!--#/#--><!--#i4.i190.image.html:image/html-->
-<img id="i190" src="https://i.imgur.com/FxeaJ9b.png"/>
-<!--#/#--><!--#i4.i228.image.html:image/html-->
-<img id="i228" src="https://i.imgur.com/yc4Xb4Z.png"/>
-<!--#/#--><!--#i4.i242.image.html:image/html-->
-<img id="i242" src="https://i.imgur.com/QCxt7Rr.png"/>
+<!--#/#--><!--#i4.i183.image.html:image/html-->
+<img id="i183" src="https://i.imgur.com/yc4Xb4Z.png"/>
+<!--#/#--><!--#i4.i185.image.html:image/html-->
+<img id="i185" src="https://i.imgur.com/QCxt7Rr.png"/>
+<!--#/#--><!--#i4.i181.image.html:image/html-->
+<img id="i181" src="https://i.imgur.com/FxeaJ9b.png"/>
 <!--#/#-->
 </div>
 <!--#/#--><!--#i2.i5.cube-panel.html:cube-panel/html-->
@@ -947,22 +907,20 @@ url('fonts/') format('svg');
     <!--#i5.i30.shape.html:shape/html-->
 <div id="i30"></div>
 <!--#/#--><!--#i5.i58.image.html:image/html-->
-<img id="i58" src="https://i.imgur.com/O0PzaCa.png"/>
-<!--#/#--><!--#i5.i388.image.html:image/html-->
-<img id="i388" src="https://i.imgur.com/bYVFeo0.png"/>
-<!--#/#--><!--#i5.i384.image.html:image/html-->
-<img id="i384" src="https://i.imgur.com/rKp5Ldj.png"/>
-<!--#/#--><!--#i5.i382.text.html:text/html-->
-<div id="i382">XCARET PLUS + XAVAGE ULTIMATE  
- ¡LA AVENTURA TE CAMBIA!</div>
+<img id="i58" src="https://i.imgur.com/axTy7BU.jpg"/>
+<!--#/#--><!--#i5.i227.image.html:image/html-->
+<img id="i227" src="https://i.imgur.com/bYVFeo0.png"/>
+<!--#/#--><!--#i5.i246.text.html:text/html-->
+<div id="i246">¡En Xcaret te espera 
+diversión en los ríos!</div>
 <!--#/#--><!--#i5.i95.shape.html:shape/html-->
 <div id="i95"></div>
-<!--#/#--><!--#i5.i392.image.html:image/html-->
-<img id="i392" src="https://i.imgur.com/QCxt7Rr.png"/>
-<!--#/#--><!--#i5.i404.image.html:image/html-->
-<img id="i404" src="https://i.imgur.com/FxeaJ9b.png"/>
-<!--#/#--><!--#i5.i408.image.html:image/html-->
-<img id="i408" src="https://i.imgur.com/yc4Xb4Z.png"/>
+<!--#/#--><!--#i5.i229.image.html:image/html-->
+<img id="i229" src="https://i.imgur.com/yc4Xb4Z.png"/>
+<!--#/#--><!--#i5.i233.image.html:image/html-->
+<img id="i233" src="https://i.imgur.com/QCxt7Rr.png"/>
+<!--#/#--><!--#i5.i237.image.html:image/html-->
+<img id="i237" src="https://i.imgur.com/FxeaJ9b.png"/>
 <!--#/#-->
 </div>
 <!--#/#--><!--#i2.i6.cube-panel.html:cube-panel/html-->
@@ -970,21 +928,20 @@ url('fonts/') format('svg');
     <!--#i6.i40.shape.html:shape/html-->
 <div id="i40"></div>
 <!--#/#--><!--#i6.i60.image.html:image/html-->
-<img id="i60" src="https://i.imgur.com/4uVG90L.png"/>
-<!--#/#--><!--#i6.i390.image.html:image/html-->
-<img id="i390" src="https://i.imgur.com/bYVFeo0.png"/>
-<!--#/#--><!--#i6.i386.image.html:image/html-->
-<img id="i386" src="https://i.imgur.com/rKp5Ldj.png"/>
-<!--#/#--><!--#i6.i416.text.html:text/html-->
-<div id="i416">Del 10 de junio al 25 de agosto, aprovecha el precio especial en paquetes de Xcaret Adventure.</div>
+<img id="i60" src="https://i.imgur.com/R00LW1q.jpg"/>
+<!--#/#--><!--#i6.i262.image.html:image/html-->
+<img id="i262" src="https://i.imgur.com/bYVFeo0.png"/>
+<!--#/#--><!--#i6.i264.text.html:text/html-->
+<div id="i264">Las aventuras más 
+extremas están en Xcaret</div>
 <!--#/#--><!--#i6.i99.shape.html:shape/html-->
 <div id="i99"></div>
-<!--#/#--><!--#i6.i396.image.html:image/html-->
-<img id="i396" src="https://i.imgur.com/QCxt7Rr.png"/>
-<!--#/#--><!--#i6.i400.image.html:image/html-->
-<img id="i400" src="https://i.imgur.com/FxeaJ9b.png"/>
-<!--#/#--><!--#i6.i412.image.html:image/html-->
-<img id="i412" src="https://i.imgur.com/yc4Xb4Z.png"/>
+<!--#/#--><!--#i6.i256.image.html:image/html-->
+<img id="i256" src="https://i.imgur.com/yc4Xb4Z.png"/>
+<!--#/#--><!--#i6.i252.image.html:image/html-->
+<img id="i252" src="https://i.imgur.com/QCxt7Rr.png"/>
+<!--#/#--><!--#i6.i248.image.html:image/html-->
+<img id="i248" src="https://i.imgur.com/FxeaJ9b.png"/>
 <!--#/#-->
 </div>
 <!--#/#-->
@@ -1000,8 +957,6 @@ url('fonts/') format('svg');
         <span>Swipe</span>
     </div>
 </div>
-<!--#/#--><!--#i188.font.html:font/html-->
-<!--#/#--><!--#i380.font.html:font/html-->
 <!--#/#--><!--#/#--><!--#js:common/js-->
 <script>
 /*#i2.cube.js:cube/js.1*/
@@ -1028,72 +983,54 @@ document.getElementById('i2').addEventListener('showNext', function(e){
 });
 /*#/#*//*#i4.i130.image.js:image/base/js*/
 
-/*#/#*//*#i4.i286.image.js:image/base/js*/
+/*#/#*//*#i4.i187.image.js:image/base/js*/
 
-/*#/#*//*#i286.i287.positioning.js:positioning/base/js.2*/
-bmShow('i286');
-/*#/#*//*#i4.i181.image.js:image/base/js*/
-
-/*#/#*//*#i181.i182.positioning.js:positioning/base/js.2*/
-bmShow('i181');
-/*#/#*//*#i91.i288.actions.js:actions/base/js.1*/
+/*#/#*//*#i91.i177.actions.js:actions/base/js*/
 /* Name: On Click; */
-var el = document.getElementById('i91');
-
-el.addEventListener('click', function(e){
-    /*#i288.i289.actions-clicktag.js:actions-clicktag/base/js.2*/
+document.getElementById('i91').addEventListener('click', function(e){
+    /*#i177.i178.actions-clicktag.js:actions-clicktag/base/js.1*/
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
+/*#/#*//*#i4.i183.image.js:image/base/js*/
 
-if ('click' === 'click') {
-    el.style.cursor = 'pointer';
-}
-/*#/#*//*#i4.i190.image.js:image/base/js*/
-
-/*#/#*//*#i190.i191.positioning.js:positioning/base/js.2*/
-bmShow('i190');
-/*#/#*//*#i190.i290.actions.js:actions/base/js.1*/
+/*#/#*//*#i183.i195.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i190');
+var el = document.getElementById('i183');
 
 el.addEventListener('click', function(e){
-    /*#i290.i291.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.facebook.com/sharer/sharer.php?u=https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i195.i196.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.whatsapp.com'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i4.i228.image.js:image/base/js*/
+/*#/#*//*#i4.i185.image.js:image/base/js*/
 
-/*#/#*//*#i228.i229.positioning.js:positioning/base/js.2*/
-bmShow('i228');
-/*#/#*//*#i228.i292.actions.js:actions/base/js.1*/
+/*#/#*//*#i185.i197.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i228');
+var el = document.getElementById('i185');
 
 el.addEventListener('click', function(e){
-    /*#i292.i293.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'whatsapp://send?text=¡Mira lo que he encontrado! https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i197.i198.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'https://twitter.com/home?status=https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i4.i242.image.js:image/base/js*/
+/*#/#*//*#i4.i181.image.js:image/base/js*/
 
-/*#/#*//*#i242.i243.positioning.js:positioning/base/js.2*/
-bmShow('i242');
-/*#/#*//*#i242.i294.actions.js:actions/base/js.1*/
+/*#/#*//*#i181.i193.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i242');
+var el = document.getElementById('i181');
 
 el.addEventListener('click', function(e){
-    /*#i294.i295.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://twitter.com/home?status=https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i193.i194.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://www.facebook.com/sharer/sharer.php?u=https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -1104,75 +1041,57 @@ if ('click' === 'click') {
 /* Name: On Click; */
 
 /*#/#*//*#i50.i51.actions-clicktag.js:actions-clicktag/base/js.1*/
-
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*//*#i5.i58.image.js:image/base/js*/
 
-/*#/#*//*#i5.i388.image.js:image/base/js*/
+/*#/#*//*#i5.i227.image.js:image/base/js*/
 
-/*#/#*//*#i388.i389.positioning.js:positioning/base/js.2*/
-bmShow('i388');
-/*#/#*//*#i5.i384.image.js:image/base/js*/
-
-/*#/#*//*#i384.i385.positioning.js:positioning/base/js.2*/
-bmShow('i384');
-/*#/#*//*#i95.i312.actions.js:actions/base/js.1*/
+/*#/#*//*#i95.i175.actions.js:actions/base/js*/
 /* Name: On Click; */
-var el = document.getElementById('i95');
-
-el.addEventListener('click', function(e){
-    /*#i312.i313.actions-clicktag.js:actions-clicktag/base/js.2*/
+document.getElementById('i95').addEventListener('click', function(e){
+    /*#i175.i176.actions-clicktag.js:actions-clicktag/base/js.1*/
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
+/*#/#*//*#i5.i229.image.js:image/base/js*/
 
-if ('click' === 'click') {
-    el.style.cursor = 'pointer';
-}
-/*#/#*//*#i5.i392.image.js:image/base/js*/
-
-/*#/#*//*#i392.i393.positioning.js:positioning/base/js.2*/
-bmShow('i392');
-/*#/#*//*#i392.i394.actions.js:actions/base/js.1*/
+/*#/#*//*#i229.i230.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i392');
+var el = document.getElementById('i229');
 
 el.addEventListener('click', function(e){
-    /*#i394.i395.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://twitter.com/home?status=https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i230.i231.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.whatsapp.com'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i5.i404.image.js:image/base/js*/
+/*#/#*//*#i5.i233.image.js:image/base/js*/
 
-/*#/#*//*#i404.i405.positioning.js:positioning/base/js.2*/
-bmShow('i404');
-/*#/#*//*#i404.i406.actions.js:actions/base/js.1*/
+/*#/#*//*#i233.i234.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i404');
+var el = document.getElementById('i233');
 
 el.addEventListener('click', function(e){
-    /*#i406.i407.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.facebook.com/sharer/sharer.php?u=https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i234.i235.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'https://twitter.com/home?status=https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i5.i408.image.js:image/base/js*/
+/*#/#*//*#i5.i237.image.js:image/base/js*/
 
-/*#/#*//*#i408.i409.positioning.js:positioning/base/js.2*/
-bmShow('i408');
-/*#/#*//*#i408.i410.actions.js:actions/base/js.1*/
+/*#/#*//*#i237.i238.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i408');
+var el = document.getElementById('i237');
 
 el.addEventListener('click', function(e){
-    /*#i410.i411.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'whatsapp://send?text=¡Mira lo que he encontrado! https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i238.i239.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://www.facebook.com/sharer/sharer.php?u=https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -1183,75 +1102,57 @@ if ('click' === 'click') {
 /* Name: On Click; */
 
 /*#/#*//*#i52.i53.actions-clicktag.js:actions-clicktag/base/js.1*/
-  
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*//*#i6.i60.image.js:image/base/js*/
 
-/*#/#*//*#i6.i390.image.js:image/base/js*/
+/*#/#*//*#i6.i262.image.js:image/base/js*/
 
-/*#/#*//*#i390.i391.positioning.js:positioning/base/js.2*/
-bmShow('i390');
-/*#/#*//*#i6.i386.image.js:image/base/js*/
-
-/*#/#*//*#i386.i387.positioning.js:positioning/base/js.2*/
-bmShow('i386');
-/*#/#*//*#i99.i336.actions.js:actions/base/js.1*/
+/*#/#*//*#i99.i179.actions.js:actions/base/js*/
 /* Name: On Click; */
-var el = document.getElementById('i99');
-
-el.addEventListener('click', function(e){
-    /*#i336.i337.actions-clicktag.js:actions-clicktag/base/js.2*/
+document.getElementById('i99').addEventListener('click', function(e){
+    /*#i179.i180.actions-clicktag.js:actions-clicktag/base/js.1*/
     window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
+/*#/#*//*#i6.i256.image.js:image/base/js*/
 
-if ('click' === 'click') {
-    el.style.cursor = 'pointer';
-}
-/*#/#*//*#i6.i396.image.js:image/base/js*/
-
-/*#/#*//*#i396.i397.positioning.js:positioning/base/js.2*/
-bmShow('i396');
-/*#/#*//*#i396.i398.actions.js:actions/base/js.1*/
+/*#/#*//*#i256.i257.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i396');
+var el = document.getElementById('i256');
 
 el.addEventListener('click', function(e){
-    /*#i398.i399.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://twitter.com/home?status=https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i257.i258.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'whatsapp://send?text=https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i6.i400.image.js:image/base/js*/
+/*#/#*//*#i6.i252.image.js:image/base/js*/
 
-/*#/#*//*#i400.i401.positioning.js:positioning/base/js.2*/
-bmShow('i400');
-/*#/#*//*#i400.i402.actions.js:actions/base/js.1*/
+/*#/#*//*#i252.i253.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i400');
+var el = document.getElementById('i252');
 
 el.addEventListener('click', function(e){
-    /*#i402.i403.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG2')) : window.open(dhtml.getVar('clickTAG2', 'https://www.facebook.com/sharer/sharer.php?u=https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i253.i254.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'https://twitter.com/home?status=https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i6.i412.image.js:image/base/js*/
+/*#/#*//*#i6.i248.image.js:image/base/js*/
 
-/*#/#*//*#i412.i413.positioning.js:positioning/base/js.2*/
-bmShow('i412');
-/*#/#*//*#i412.i414.actions.js:actions/base/js.1*/
+/*#/#*//*#i248.i249.actions.js:actions/base/js.1*/
 /* Name: On Click; */
-var el = document.getElementById('i412');
+var el = document.getElementById('i248');
 
 el.addEventListener('click', function(e){
-    /*#i414.i415.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'whatsapp://send?text=¡Mira lo que he encontrado! https:https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
+    /*#i249.i250.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'https://www.facebook.com/sharer/sharer.php?u=https://www.xcaret.com/es/promociones/verano-xcaret/'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -1262,17 +1163,7 @@ if ('click' === 'click') {
 /* Name: On Click; */
 
 /*#/#*//*#i54.i55.actions-clicktag.js:actions-clicktag/base/js.1*/
- 
-/*#/#*//*#i183.visibility.js:visibility/js*/
-function bmShow(id) {
-    var el = document.getElementById(id);
-    el.classList.remove('visibility-hidden');
-}
-
-function bmHide(id) {
-    var el = document.getElementById(id);
-    el.classList.add('visibility-hidden');
-}
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 
   function next(){
@@ -1282,9 +1173,7 @@ function bmHide(id) {
         setInterval(next, 5000);
 </script>
 <!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i8.font.meta:font/meta*/
-name: Web Font: Source Sans Pro; type: font-google; customName: ;
-/*#/#*//*#i8.i9.font-google.meta:font-google/meta*/
-family: Source Sans Pro;
+name: Web Font: AVENIRLTSTD-BOOK; type: font-local; customName: ;
 /*#/#*//*#i2.cube.meta:cube/meta.1*/
 name: Cube;
 customName: 1;
@@ -1294,43 +1183,38 @@ customName: 1;
 name: Background;
 /*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i4.i14.text.meta:text/meta*/
-name: Texto; customName: 1;
-/*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i130.image.meta:image/meta*/
 name: Imagen de Cuadro; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i130.i131.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i4.i286.image.meta:image/meta*/
-name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i4.i187.image.meta:image/meta*/
+name: logo; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i286.i287.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i187.i188.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i4.i181.image.meta:image/meta*/
-name: LOGO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: 1;
-/*#/#*//*#i181.i182.positioning.meta:positioning/meta.2*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i4.i272.text.meta:text/meta*/
+name: Texto copy 3; customName: 1;
+/*#/#*//*#i272.i273.positioning.meta:positioning/meta.1*/
+data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i91.shape.meta:shape/meta*/
 name: Link;
 /*#/#*//*#i91.i92.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i4.i190.image.meta:image/meta*/
-name: F; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i4.i183.image.meta:image/meta*/
+name: WP; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i190.i191.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i183.i184.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i4.i228.image.meta:image/meta*/
-name: W; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i4.i185.image.meta:image/meta*/
+name: TW; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i228.i229.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i185.i186.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i4.i242.image.meta:image/meta*/
-name: T; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i4.i181.image.meta:image/meta*/
+name: FB; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i242.i243.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i181.i182.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.i5.cube-panel.meta:cube-panel/meta*/
     name: Cube Panel 2;
@@ -1343,38 +1227,33 @@ name: Imagen de Cuadro; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i58.i59.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i5.i388.image.meta:image/meta*/
-name: LOGO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i5.i227.image.meta:image/meta*/
+name: logo copy; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i388.i389.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i227.i228.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i5.i384.image.meta:image/meta*/
-name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: 1;
-/*#/#*//*#i384.i385.positioning.meta:positioning/meta.2*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i5.i382.text.meta:text/meta*/
-name: Texto; customName: 1;
-/*#/#*//*#i382.i383.positioning.meta:positioning/meta.1*/
+/*#/#*//*#i5.i246.text.meta:text/meta*/
+name: Texto copy 2; customName: 1;
+/*#/#*//*#i246.i247.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i5.i95.shape.meta:shape/meta*/
 name: Link;
 /*#/#*//*#i95.i96.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i5.i392.image.meta:image/meta*/
-name: T; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i5.i229.image.meta:image/meta*/
+name: WP copy; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i392.i393.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i229.i232.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i5.i404.image.meta:image/meta*/
-name: F; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i5.i233.image.meta:image/meta*/
+name: TW copy; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i404.i405.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i233.i236.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i5.i408.image.meta:image/meta*/
-name: W; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i5.i237.image.meta:image/meta*/
+name: FB copy; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i408.i409.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i237.i240.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.i6.cube-panel.meta:cube-panel/meta*/
     name: Cube Panel 3;
@@ -1387,43 +1266,34 @@ name: Imagen de Cuadro; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i60.i61.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i6.i390.image.meta:image/meta*/
-name: LOGO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i6.i262.image.meta:image/meta*/
+name: logo copy 2; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i390.i391.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i262.i263.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i6.i386.image.meta:image/meta*/
-name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: 1;
-/*#/#*//*#i386.i387.positioning.meta:positioning/meta.2*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i6.i416.text.meta:text/meta*/
-name: Texto; customName: 1;
-/*#/#*//*#i416.i417.positioning.meta:positioning/meta.1*/
+/*#/#*//*#i6.i264.text.meta:text/meta*/
+name: Texto copy 4; customName: 1;
+/*#/#*//*#i264.i265.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
 /*#/#*//*#i6.i99.shape.meta:shape/meta*/
 name: Link;
 /*#/#*//*#i99.i100.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i6.i396.image.meta:image/meta*/
-name: T; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i6.i256.image.meta:image/meta*/
+name: WP copy 2; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i396.i397.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i256.i259.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i6.i400.image.meta:image/meta*/
-name: F; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i6.i252.image.meta:image/meta*/
+name: TW copy 2; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i400.i401.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i252.i255.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i6.i412.image.meta:image/meta*/
-name: W; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+/*#/#*//*#i6.i248.image.meta:image/meta*/
+name: FB copy 2; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
-/*#/#*//*#i412.i413.positioning.meta:positioning/meta.2*/
+/*#/#*//*#i248.i251.positioning.meta:positioning/meta.1*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.i3.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i188.font.meta:font/meta*/
-name: Web Font: BrownStd-Bold; type: font-local; customName: ;
-/*#/#*//*#i380.font.meta:font/meta*/
-name: Web Font: AVENIRLTSTD-BOOK; type: font-local; customName: ;
 /*#/#*/--><!--#/#-->
