@@ -556,7 +556,7 @@
                         <input type="checkbox" width="10" name="condiciones" style="text-align: left; background-color: #0d9dda" />
                     </span>
 
-                    <input type="submit" name="bottom" style="margin-top: 15px; text-align: center; background-color:#0d9dda; color: white; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -50px; cursor: pointer" value="ENVIAR">
+                    <input id="sendd" type="submit" name="bottom" style="margin-top: 15px; text-align: center; background-color:#0d9dda; color: white; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -50px; cursor: pointer" value="ENVIAR">
                 </center>
             </form>
         </div>
@@ -691,6 +691,10 @@
                 var callback = adfOpenGlobalClickTAG();
                 window.setTimeout(callback, 500);
             });
+            
+            $('#sendd').click(function(){
+                $(this).attr('value','REGISTRADO');
+            })
 
         });
 
