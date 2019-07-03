@@ -511,13 +511,13 @@
                     <!--<h2>CONTÁCTANOS</h2>-->
 
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input placeholder="¿Cómo te gusta que te digan?*" name="nickname" type="text" required="text"></p>
-                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input placeholder="¿Cuál es tu correo electrónico?*" name="email" type="email" required="@"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input id="name" placeholder="¿Cómo te gusta que te digan?*" name="nickname" type="text" required="text"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input id="correo" placeholder="¿Cuál es tu correo electrónico?*" name="email" type="email" required="@"></p>
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input placeholder="¿Cuál es tu número celular? (10 dígitos)*" name="phone" type="0" required="number"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input id="celular" placeholder="¿Cuál es tu número celular? (10 dígitos)*" pattern="[0-9]{10}" name="phone" type="0" required="number"></p>
 
                      <p style="width: 100%; text-align: left; margin-bottom: -20px;">
-                        <select name="man_woman" type="text" required="text">
+                        <select id="sexo" name="man_woman" type="text">
                             <option value="" disabled selected>Género</option>
                             <option>Hombre</option>
                             <option>Mujer</option>
@@ -526,7 +526,7 @@
                     </p>
 
                     <p style="width: 100%; text-align: left; margin-bottom: -20px;">
-                        <select name="yes_no" type="text" required="text">
+                        <select id="fuma" name="yes_no" type="text" required="text">
                             <option value="" disabled selected>¿Eres fumador?</option>
                             <option>Sí</option>
                             <option>NO</option>
@@ -556,7 +556,7 @@
                         <input type="checkbox" width="10" name="condiciones" style="text-align: left; background-color: #0d9dda" />
                     </span>
 
-                    <input id="sendd" type="submit" name="bottom" style="margin-top: 15px; text-align: center; background-color:#0d9dda; color: white; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -50px; cursor: pointer" value="ENVIAR">
+                    <input id="send" type="submit" name="bottom" style="margin-top: 15px; text-align: center; background-color:#0d9dda; color: white; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -50px; cursor: pointer" value="ENVIAR">
                 </center>
             </form>
         </div>
@@ -687,14 +687,16 @@
             });
 
             $('#send').click(function() {
+                
+                if ($('#name').val().length > 0 && $('#name').val().length > 0 && $('#celular').val().length > 7 && $('#sexo').val().length > 0 && $('#fuma').val().length > 0){
+                    
                 dhtml.sendEvent('5', 'Formulario_ClickFin', null);
                 var callback = adfOpenGlobalClickTAG();
                 window.setTimeout(callback, 500);
-            });
-            
-            $('#sendd').click(function(){
+                
                 $(this).attr('value','REGISTRADO');
-            })
+                }
+            });
 
         });
 
