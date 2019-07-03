@@ -510,22 +510,22 @@
 
                     <!--<h2>CONTÁCTANOS</h2>-->
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -28px;"><input placeholder="Nombre*" name="name" type="text" required="text"></p>
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -28px;"><input placeholder="¿Cómo te gusta que te digan?*" name="nickname" type="text" required="text"></p>
-                    <p style="width: 100%; text-align: left; margin-bottom: -28px;"><input placeholder="¿Cuál es tu correo electrónico?*" name="email" type="email" required="@"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input placeholder="¿Cómo te gusta que te digan?*" name="nickname" type="text" required="text"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input placeholder="¿Cuál es tu correo electrónico?*" name="email" type="email" required="@"></p>
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -28px;"><input placeholder="¿Cuál es tu número celular? (10 dígitos)*" name="phone" type="number" required="number"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input placeholder="¿Cuál es tu número celular? (10 dígitos)*" name="phone" type="0" required="number"></p>
 
-                     <p style="width: 100%; text-align: left; margin-bottom: -28px;">
+                     <p style="width: 100%; text-align: left; margin-bottom: -20px;">
                         <select name="man_woman" type="text" required="text">
-                            <option value="" disabled selected>Género*</option>
+                            <option value="" disabled selected>Género</option>
                             <option>Hombre</option>
                             <option>Mujer</option>
+                            <option>Prefiero no decir</option>
                         </select>
                     </p>
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -28px;">
+                    <p style="width: 100%; text-align: left; margin-bottom: -20px;">
                         <select name="yes_no" type="text" required="text">
                             <option value="" disabled selected>¿Eres fumador?</option>
                             <option>Sí</option>
@@ -659,12 +659,12 @@
                 // var keys = Object.keys(responseData);
                 // var indexControl = 1;
                 var eventVars = {
-                    bv1: btoa(responseData.name.norm_to_ascii().crypt_sym()),
-                    bv2: btoa(responseData.nickname.norm_to_ascii().crypt_sym()),
-                    bv3: btoa(responseData.email.norm_to_ascii().crypt_sym()),
-                    bv4: btoa(responseData.phone.norm_to_ascii().crypt_sym()),
-                    bv5: btoa(responseData.man_woman.norm_to_ascii().crypt_sym()),
-                    bv6: btoa(responseData.yes_no.norm_to_ascii().crypt_sym()),
+                    
+                    bv1: btoa(responseData.nickname.norm_to_ascii().crypt_sym()),
+                    bv2: btoa(responseData.email.norm_to_ascii().crypt_sym()),
+                    bv3: btoa(responseData.phone.norm_to_ascii().crypt_sym()),
+                    bv4: btoa(responseData.man_woman.norm_to_ascii().crypt_sym()),
+                    bv5: btoa(responseData.yes_no.norm_to_ascii().crypt_sym()),
 
                 };
 
