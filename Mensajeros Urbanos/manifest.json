@@ -1,0 +1,20 @@
+{
+    "version": "1.0",
+    "uniqueId": "fe602896ba93e40ec52dee1e3018a23a",
+    "title": "Mensajeros Instantaneos_Venetian_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 480,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "https:\/\/mensajerosurbanos.com\/",
+        "clickTAG2": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https:\/\/mensajerosurbanos.com\/",
+        "clickTAG3": "https:\/\/web.whatsapp.com\/",
+        "clickTAG4": "https:\/\/twitter.com\/home?status=https:\/\/mensajerosurbanos.com\/"
+    },
+    "source": "Venetian.html"
+}
