@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+
+   <style>
+    .HuaweiScroll1 p {
+        margin: 0px;
+    }
+
+    .HuaweiScroll1 .btn {
+        margin-top: 0;
+        padding-left: 0;
+        overflow-y: auto;
+    }
+
+    .HuaweiScroll1 a,
+    .ClaroScroll a:hover {
+        text-decoration: none;
+        color: #fff;
+        
+    }
+
+    .HuaweiScroll1 .bzm_wrapper {
+        position: relative;
+        overflow: hidden;
+        color: #000;
+        font-family: Lato, sans-serif;
+        
+    }
+
+    .HuaweiScroll1 .bzm_wrapper.size_320x480 {
+        width: 300px!important;
+        height: 600px!important;
+        background-color: #FFF;
+        overflow-y: auto;
+    }
+
+    .HuaweiScroll1 .bzm_cover,
+    .ClaroScroll .carousel-wrapper {
+        position: relative;
+        width: 100%
+    }
+
+    .HuaweiScroll1 .bzm_cover {
+        height: 150px
+    }
+
+    .HuaweiScroll1 .bzm_cover.bzm_pos_tl {
+        top: 3%;
+        left: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_tr {
+        top: 3%;
+        right: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_bl {
+        bottom: 3%;
+        left: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_br {
+        bottom: 3%;
+        right: 3%
+    }
+
+    .HuaweiScroll1 .bzm_pos_bm {
+        bottom: 3%;
+        left: calc(100% - 70%)
+    }
+
+    .HuaweiScroll1 .bzm_text {
+        padding: 4px 0 0 .3em;
+        line-height: 1.1;
+        color: #000;
+        width: 95%;
+        margin-left: 0px;
+        
+            
+    }
+
+    .HuaweiScroll1 .bzm_text_title {
+        font-size: 14px;
+        color: #000
+            
+    }
+
+    .HuaweiScroll1 .bzm_text_light {
+        font-size: 10px;
+        font-weight: 0
+    }
+
+    .HuaweiScroll1 .bzm_text_medium {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.4
+    }
+
+    .HuaweiScroll1 .bzm_text_bold {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1
+    }
+
+    .HuaweiScroll1 .bzm_text_small {
+        font-size: 10px;
+        line-height: 1
+    }
+
+    .HuaweiScroll1 .carousel-wrapper {
+        height: auto;
+        margin: 0 auto
+    }
+
+
+    .HuaweiScroll1 .bzm_button {
+        position: absolute;
+        bottom: 7px;
+        left: 3%;
+        text-transform: uppercase;
+        background-color: #6cbd44;
+        color: #fff;
+        border-radius: 50%;
+        padding: 4px;
+        text-align: center;
+        font-size: 90%;
+        cursor: pointer
+    }
+
+    .HuaweiScroll1 .bzm_button:hover {
+        background-color: #579e38
+    }
+
+    .HuaweiScroll1 .carousel-container {
+        width: 318px;
+        height: 418px;
+        overflow-y: hidden
+    }
+
+    .HuaweiScroll1 #botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .whatsappi:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .whatsappi,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .HuaweiScroll1 .logo {
+        
+        margin-right: 10px;
+        width: 33.33%;
+        line-height: 1.3em;
+        right: -20px;
+        z-index: 2;
+        background-color: ;
+        border-radius: 2px;
+        float: right;
+        height: 30px;
+        text-align: center;
+    }
+
+    .img-news {
+        background-size: cover;
+        width: 332px;
+        height: 250px;
+        float: center;
+        margin-left: -10px;
+    }
+
+    .img-cincoseis{
+        background-size: cover;
+        width: 320px;
+        height: 550px;
+        float: center;
+        margin-left: -10px;
+    }
+
+    .logo-enterp {
+       
+        float:left;
+        
+        margin-left: 5px
+       
+       
+    }
+
+    .HuaweiScroll1 #botones-para-compartir {
+        text-align: right;
+        
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .whatsappi:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .whatsappi,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .HuaweiScroll1 #Sup-botones-para-compartir {
+        text-align: right;
+    }
+
+    .likedini:hover,
+    .facebooki:hover,
+    .twitteri:hover,
+    .whatsappi:hover,
+    .pinteresti:hover {
+        border-radius: 25px 25px 25px 25px;
+        transition: all .3s ease-out;
+        box-shadow: 0px 0px 5px #000;
+        /* Sombra */
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+
+    .shared{ float: left;
+            margin-top: -6px;
+            padding-left: 10px;
+            height:20px;
+        
+           
+       
+          
+        
+    }
+    .likedini,
+    .facebooki,
+    .twitteri,
+    .whatsappi,
+    .pinteresti {
+        transition: all .3s ease-out;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+    }
+    
+    .facebooki,
+    .twitteri,
+    .whatsappi{
+        height:20px;
+        padding-top: 10px
+    }
+    
+    .bzm_text{
+        margin-top: -20px;
+        
+    }
+
+    @media screen and (max-width: 480px) {
+        .HuaweiScroll1 .bzm_wrapper.size_320x480 {
+            width: 320px;
+            height: 480px;
+            background-color: #FFF;
+            overflow-y: auto;
+        }
+
+        .img-news {
+            width: 322px;
+            height: 250px;
+        }
+
+       
+
+
+</style>
+    </head>
+
+<body>
+<div class="HuaweiScroll1" style="margin:0px; background-color:white;">
+    <div class="bzm_wrapper carousel-wrapper size_320x480">
+        <div class="context">
+
+            <div class="bzm_text">
+               
+                
+               <a href="https://www.facebook.com/McCormickMexico/" style="display: block;" target="_blank"><div style="background-image: url(https://i.imgur.com/ftLddnS.png);background-size:cover;width:300px;height:160px; margin-left:-5px;"></div></a>
+                <div class="bzm_text">
+
+              
+                    
+                      <div class="bzm_text">
+                <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#8b8b8b;  margin-top:50px; margin-bottom: -20px; font-size: 15px; line-height: 1.5em; text-align: center; width:100%;">
+                    <i><h2>McCormick une al guacamole con la mayonesa
+</h2></i> </span> 
+ <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#8b8b8b;  margin-top:40px; margin-bottom: -20px; font-size: 14px; line-height: 1.3em; text-align: justify; width:100%;">
+     <i><p>La empresaria McCormick sumó a su portafolio la oferta de mayonesa guacamole.
+</p> <br>
+    
+
+     </i>        
+ </span> 
+
+ <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#8b8b8b; margin-left:0px; text-align: justify;">
+                    
+ <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:-20px; padding-top:20px; padding-bottom:10px;">
+                    <a href="https://www.facebook.com/McCormickMexico/" style="display:block;" target="_blank">
+                        <div class="img-news" style="background-image:url(https://i.imgur.com/vpiLm0F.png); width: 300px;height:160px; margin-left: -15px;"></div> 
+                          </a> </span>
+                          <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#8b8b8b;  margin-top:10px; margin-bottom: 15px; font-size: 15px; line-height: 1.3em; text-align: left; width:100%;">
+                    
+                          
+                              <i><p>  “La tendencia del guacamole y el aguacate en el mercado de alimentos, ha llevado a McCormick a desarrollar este nuevo producto con la que todos los platillos se transformarán en algo único para degustar y sorprender. Con <b>Mayonesa Guacamole</b> revolucionamos nuevamente el mercado, tal como lo hicimos hace unos años con mayonesa chipotle y el año pasado con los nuevos sabores de tocino, habanero y mil islas”, comentó Melina Mascorro, Grouper de Mayonesas y Mostazas McCormick.</i> </span></span><br>
+                        
+
+            </div>
+            
+
+            <div class="bzm_text">
+               
+    
+
+				    
+				     <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:0px; padding-top:10px; padding-bottom:20px;">
+                    <a href="https://www.facebook.com/McCormickMexico/" style="display:block; margin-left:-10px;" target="_blank">
+                        <div class="img-news" style="background-image:url(https://i.imgur.com/jgRmYSk.gif); width: 300px;height:250px;"></div> 
+                          </a> </span>
+
+                           <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#8b8b8b;  margin-top:-10px; margin-bottom: 5px; font-size: 15px; line-height: 1.3em; text-align: left; width:100%;">
+                     <i><p> Mediante un comunicado indicaron que <b>Mayonesa Guacamole</b>, estará a la venta a partir de junio en tiendas de autoservicio, en dos presentaciones, la primera, en el icónico envase de vidrio, y la segunda en empaque squezee.<br>
+
+La categoría de mayonesas en nuestro país tiene una penetración de más del 90%, es decir, prácticamente de cada 10 casas, en nueve consumen mayonesa, donde <b>McCormick</b> es líder con más del 70% de participación.</i> </span><br>
+                        
+               
+                     
+                    <span class="bzm_text_title  bzm_text_medium" style="display:block; margin-top:0px; padding-top:10px; padding-bottom:20px;">
+                    <a href="https://www.facebook.com/McCormickMexico/" style="display:block; margin-left:-10px;" target="_blank">
+                        <div class="img-news" style="background-image:url(https://i.imgur.com/7q0rwIk.png); width: 300px;height:160px;"></div> 
+                          </a> </span>
+                     
+                     
+                     
+                     <span class="bzm_text_title  bzm_text_medium" style="display:block;color:#8b8b8b;  margin-top:20px; margin-bottom: -20px; font-size: 14px; line-height: 1.3em; text-align: justify; width:100%;">
+     <i><p>De acuerdo con la Secretaría de Desarrollo Rural y Agroalimentario (Sedrua) de Michoacán, durante el año pasado la exportación de aguacate mexicano superó el millón de toneladas y abarcó el mercado en 45 países. Durante este año se espera que este rubro supere un millón 200 mil toneladas, demostrando que el aguacate es un alimento con una a creciente demanda en todo el mundo.</p> <br>
+    
+
+     </i>        
+ </span> 
+                      
+         <div style="margin-top: 20px; margin-left: -20px;">               
+		  <iframe  src="video1.html" width="307" height="202" frameborder="0" scrolling="no" position="absolute" style="margin-left: -8px; margin-top: -8px;"></iframe></div>
+                        
+                          
+
+               
+
+                  
+                   
+               
+
+  <!--<span class="bzm_text_title  bzm_text_medium" style="display:block;color:#8b8b8b; margin-left:0px; text-align: justify; margin-top: 17px;">
+                <i><strong>4.</strong><i><b>CONTENIDO NUTRICIONAL</b><p style="color:#8b8b8b">Los primeros años de vida son los que determinan la salud de nuestros hijos a futuro. Es importante ofrecerles alimentos con nutrientes esenciales que cubran su desarrollo mental <b>como el DHA , AA (ARA) y hierro, físico como la vitamina A y el calcio, inmunológico como la vitamina E y el zinc, y fibra como la oligofructosa</b> que contribuye a una buena <b>tolerancia de su sistema digestivo.</b></p>
+                </br></br><p style="color:#000"><strong>Una gran opción a considerar es Progress ALULA Gold Perú, con nueva presentación y fórmula mejorada, que contiene Alfa-lact*, 100% lactosa y no cuenta con azúcares añadidos como fructosa, sacarosa y sólidos de jarabe de maíz. Busquemos lo mejor para el crecimiento saludable de nuestros hijos.</b></strong></p></i> <br> </span>
+                <br> -->
+
+
+               
+
+                <div style="text-align:right; background-color:white; background-size:25px; height:20px;margin-left: 3px; margin-top: 30px; margin-bottom: 30px;">
+                    <span>  
+                       
+                         <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/McCormickMexico/"  target="block" ><img alt="Facebook" class="facebooki"  src="https://i.imgur.com/5y8S4Dx.png" title="Facebook" />
+                        </a>
+
+                        
+                       <a class="shared" href="whatsapp://send?text=Mira lo que he encontrado https://www.facebook.com/McCormickMexico/" target="_blank"> <img alt="compartir en Whatssap" class="whatsappi" height="22" src="https://i.imgur.com/CxPb89I.png" title="compartir en Whatsapp" width="22"></a>
+                               
+                        <a class="shared" href="https://twitter.com/home?status=https://www.facebook.com/McCormickMexico/" target="block" ><img alt="Twitter" class="twitteri"src="https://i.imgur.com/QERBVw6.png" title="Twitter" />
+                        </a>
+                                
+                        <img class="final"  src="https://i.imgur.com/hN5Nmtl.png"  style="height: 60px; margin-right: -20px; margin-top: -20px; float: right;">
+
+                    </span>
+                </div> 
+                
+        
+        
+         
+                    </div>
+                </div>
+
+                    
+            </div>
+        </div>
+    </div>
+    </div>
+
+    
+        </body>   
+
+</html>
