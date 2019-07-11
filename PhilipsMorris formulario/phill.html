@@ -511,12 +511,12 @@
                     <!--<h2>CONTÁCTANOS</h2>-->
 
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input id="namee" placeholder="¿Cómo te gusta que te digan?*" name="nickname" type="text" required="text"></p>
-                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input id="correo" placeholder="¿Cuál es tu correo electrónico?*" name="email" type="email" required="@"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -25px;"><input id="namee" placeholder="¿Cómo te gusta que te digan?*" name="nickname" type="text" required="text"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -25px;"><input id="correo" placeholder="¿Cuál es tu correo electrónico?*" name="email" type="email" required="@"></p>
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -20px;"><input id="celular" placeholder="¿Cuál es tu número celular? (10 dígitos)*" pattern="[0-9]{10}" name="phone" type="0" required="number"></p>
+                    <p style="width: 100%; text-align: left; margin-bottom: -25px;"><input id="celular" placeholder="¿Cuál es tu número celular? (10 dígitos)*" pattern="[0-9]{10}" name="phone" type="0" required="number"></p>
 
-                     <p style="width: 100%; text-align: left; margin-bottom: -20px;">
+                     <p style="width: 100%; text-align: left; margin-bottom: -25px;">
                         <select id="sexo" name="man_woman" type="text">
                             <option value="" disabled selected></option>
                             <option>Hombre</option>
@@ -525,9 +525,18 @@
                         </select>
                     </p>
 
-                    <p style="width: 100%; text-align: left; margin-bottom: -20px;">
+                    <p style="width: 100%; text-align: left; margin-bottom: -25px;">
                         <select id="fuma" name="yes_no" type="text" required="text">
                             <option value="" disabled selected>¿Eres fumador?</option>
+                            <option>Sí</option>
+                            <option>NO</option>
+                        </select>
+                    </p>
+                    
+                    
+                    <p style="width: 100%; text-align: left; margin-bottom: -25px;">
+                        <select id="edad" name="age" type="text" required="text">
+                            <option value="" disabled selected>¿Eres mayor de edad?</option>
                             <option>Sí</option>
                             <option>NO</option>
                         </select>
@@ -660,6 +669,7 @@
                     bv3: btoa(responseData.phone.norm_to_ascii().crypt_sym()),
                     bv4: btoa(responseData.man_woman.norm_to_ascii().crypt_sym()),
                     bv5: btoa(responseData.yes_no.norm_to_ascii().crypt_sym()),
+                    bv6: btoa(responseData.age.norm_to_ascii().crypt_sym()),
 
                 };
 
