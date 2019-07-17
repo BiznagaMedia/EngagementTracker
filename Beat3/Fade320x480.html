@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="ad.size" content="width=320, height=480" />
+    <title>320x480 -bf</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900" rel="stylesheet">
+    <style>
+        body.bf {
+            background-color: #FFFFFF;
+            color: black;
+            font-family: Source Sans Pro;
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .bf_wrapper {
+            position:absolute;
+            overflow:hidden;
+            cursor: pointer;
+            font-family: Source Sans Pro;
+            border: 1px solid #c5c5c5
+                
+        }
+
+        .bf_wrapper.size_300x250 {
+            width: 298px;
+            height: 248px;
+        }
+
+        .bf_wrapper.size_320x480 {
+            width: 318px;
+            height: 478px;
+        }
+
+        .bf_wrapper.size_320x50 {
+            width: 318px;
+            height: 48px;
+        }
+
+        .bf_wrapper.size_728x90 {
+            width: 726px;
+            height: 88px;
+        }
+
+        .bf_cover {
+            position: relative;
+            width: 320px;
+            height: 350px;
+        }
+
+        .bg.cover-1 {
+            background: url("https://i.imgur.com/wKa4gHV.gif");
+            background-size: cover;
+        }
+
+        .bg.cover-2 {
+            background: url("https://i.imgur.com/IlqauHU.png");
+            background-size: cover;
+
+            
+        }
+
+        .bg.cover-3 {
+            background: url("https://i.imgur.com/PVkwIJl.png");
+            background-size: cover;
+          
+        }
+
+        .
+
+        .bf_cover .bf_logo span {
+            color: white;
+        }
+
+        .bf_logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .bf_pos_tl {
+            top: 3%;
+            left: 3%;
+        }
+
+        .bf_pos_tr {
+            top: 3%;
+            right: 3%;
+        }
+
+        .bf_pos_bl {
+            bottom: 3%;
+            left: 3%;
+        }
+
+        .bf_pos_br {
+            bottom: 3%;
+            right: 3%;
+        }
+
+        .bf_pos_bm {
+            bottom: 3%;
+            left: calc(100% - 70%);
+        }
+
+        /* cover height + 5% */
+
+        .bf_text {
+            position: absolute;
+            top: 72%;
+            left: 7.5px;
+            width: 98%;
+            padding: 0.3em;
+            line-height: 1em;
+            color: #453936;
+        }
+
+        .bf_text_title {
+            font-size: 160%;
+            color: #453936;
+            display: inline-block;
+            width: 95%;
+            margin-bottom: -40px;
+            margin-top: 20px;
+            text-align: center;
+            margin-left: 0px;
+            line-height: 1.05em
+        }
+
+        .bf_text_light {
+            font-weight: 300;
+        }
+
+        .bf_text_medium {
+            font-weight: 700;
+        }
+
+        .bf_text_bold {
+            font-weight: 900;
+        }
+
+        .bf_text_small {
+            font-size: 84%;
+        }
+
+        ul {
+            padding: 0 0;
+        }
+
+        ul>li {
+            font-weight: normal;
+        }
+
+        /*c in Cover */
+
+        .c-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .c-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /*Select every element*/
+
+        [id^="item"] {
+            display: none;
+        }
+
+        .item-1 {
+            z-index: 2;
+            opacity: 1;
+            animation: fade 8s infinite;
+            -webkit-animation: fade 8s infinite;
+        }
+
+        .item-2 {
+            animation: fade2 8s infinite;
+            -webkit-animation: fade2 8s infinite;
+        }
+
+        .item-3 {
+            animation: fade3 8s infinite;
+            -webkit-animation: fade3 8s infinite;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade2 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 1
+            }
+            66.666% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fade3 {
+            0% {
+                opacity: 0
+            }
+            33.333% {
+                opacity: 0
+            }
+            66.666% {
+                opacity: 1
+            }
+            100% {
+                opacity: 0
+            }
+        }
+
+        .bf_sponsoredby {
+            position: absolute;
+            z-index: 99;
+        }
+
+        .bf_sponsoredby.bf_pos_br {
+            right: 1%;
+            bottom: 0% !important;
+        }
+
+        .bf_sponsoredby .sponsor {
+            font-size: 9px;
+            display: inline-block;
+            float: left;
+            margin-right: 3px;
+            margin-top: 7px;
+        }
+
+        .bf_sponsoredby:hover .sponsor {
+            opacity: 1;
+        }
+
+        .bf_sponsoredby .bf_logo {
+            width: 70px;
+            display: inline-block;
+            float: right;
+             font-family: 'Lato', sans-serif;
+        }
+
+        .bf_button {
+            position: absolute;
+            bottom: 5px;
+            left: 85%;
+            text-transform: uppercase;
+            background-color: #e97000;
+            color: white;
+            border-radius: 50% 50%;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;
+        }
+
+        .bf_button:hover {
+            background-color: #d34100;
+        }
+        
+         .logo {
+            width: 41%;
+            z-index: 2;
+            float: right;
+            text-align: right;
+            margin-top: 15px;
+            margin-right: 10px; 
+           
+        }
+        
+         .corona #botones-para-compartir {
+            text-align:left;
+            margin-left: 12px
+            
+        }
+
+        .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+       .bf .cta {
+            position: relative;
+           margin-top: 330px;
+            width: 150px;
+            
+            z-index: 5;
+            margin-left: 85px;
+          
+            background-color: #23d2aa;
+            padding: 0px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+
+    </style>
+    <script>
+        function openUrl() {
+            window.open("https://thebeat.co/cl/");
+        }
+    </script>
+</head>
+
+<body class="bf">
+    <div class="bf_wrapper c-wrapper size_320x480" id="cta" onclick="openUrl();">
+       
+        <div class="cta"><span class="bf_text_title bf_text_bold" style="font-size:120%; color:#000028;text-align: center; margin-bottom: 5px; margin-top: 4px;">¡Muévelo!</span></div>
+       
+       
+        <div class="bf_cover bg cover-1 c-item item-1">
+            
+        </div>
+        <div class="bf_cover bg cover-2 c-item item-2">
+            
+        </div>
+        <div class="bf_cover bg cover-3 c-item item-3">
+           
+        </div>
+        <div class="bf_text"> 
+            <span class="bf_text_title bf_text_bold">
+             TU CONDUCTOR, <br> TU RUTA, TU CIUDAD.
+            </span>
+            <br/>  
+          <!--  <span class="bf_text_light bf_text_small" style="color:black;">
+                <p style="margin-right:10px; text-align: justify; width: 90%; margin-top: 7px; line-height: 1.2em">
+                   Sabemos lo que tu <b> Tiguan </b> significa para tí, por eso te ofrecemos grandes oportunidades para que estés al día con su <b> Servicio de Mantenimiento.</b>
+
+
+
+                </p> 
+            </span> -->
+            
+             <div id="botones-para-compartir" style="display:inline;float:left;margin-top:25px;"> <span> 
+               
+               <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://thebeat.co/cl/" target="_blank"> <img alt="compartir en facebook" class="facebooki" height="22" src="https://i.imgur.com/xmmtEoi.png" title="compartir en facebook" width="22" /></a>
+                
+                <a class="shared" href="whatsapp://send?text=¡Mira lo que he encontrado! //thebeat.co/cl/" target="_blank"> <img alt="compartir en Whatsapp" class="googlei" height="22" src="https://i.imgur.com/N1Dx0zi.png" title="compartir en Whatsapp" width="22" /></a>
+                
+                <a class="shared" href="https://twitter.com/home?status=https://thebeat.co/cl/" target="_blank"> <img alt="compartir en twitter" class="twitteri" height="22" src="https://i.imgur.com/wcvnPXW.png" title="compartir en twitter" width="22" /></a> </span></div>
+            
+            <div style="bottom:0px;height: 1px;text-align:left;margin-top:1.5%">
+                    
+                    <div class="logo">
+                        <img src="https://i.imgur.com/Lc32Fgp.png" style="height:45px">
+                    </div>
+                </div>
+        
+        </div>
+        
+    </div>
+    
+    
+</body>
+
+</html>
