@@ -632,15 +632,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
         transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
 }
-/*#/#*//*#i4.i14.text.css:text/base/css*/
-#i14 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: TradeGothicLTStd-Light; font-size: 15px; color: #1d1d1d; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(255,255,255,0); margin-top: -5px;}
-/*#/#*//*#i14.i15.positioning.css:positioning/base/css.1*/
-#i14 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 272px; height: 45px;
-        -ms-transform: translate(-50%, -50%) translate(0px, 81px) rotate(0deg);
-        -webkit-transform: translate(-50%, -50%) translate(0px, 81px) rotate(0deg);
-        -moz-transform: translate(-50%, -50%) translate(0px, 81px) rotate(0deg);
-        transform: translate(-50%, -50%) translate(0px, 81px) rotate(0deg);
-}
 /*#/#*//*#i4.i130.image.css:image/base/css*/
 #i130 { opacity: 1; }
 /*#/#*//*#i130.i131.positioning.css:positioning/base/css.1*/
@@ -658,6 +649,15 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -webkit-transform: translate(0, 0) translate(195px, 217px) rotate(0deg);
         -moz-transform: translate(0, 0) translate(195px, 217px) rotate(0deg);
         transform: translate(0, 0) translate(195px, 217px) rotate(0deg);
+}
+/*#/#*//*#i4.i504.text.css:text/base/css*/
+#i504 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: TradeGothicLTStd-Light; font-size: 14px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i504.i505.positioning.css:positioning/base/css.2*/
+#i504 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 254px; height: 44px;
+        -ms-transform: translate(0, 0) translate(23px, 187px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(23px, 187px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(23px, 187px) rotate(0deg);
+        transform: translate(0, 0) translate(23px, 187px) rotate(0deg);
 }
 /*#/#*//*#i4.i486.image.css:image/base/css*/
 #i486 { opacity: 1; }
@@ -916,12 +916,12 @@ url('fonts/') format('svg');
 <div id="i4" class="panel-content-holder">
     <!--#i4.i20.shape.html:shape/html-->
 <div id="i20"></div>
-<!--#/#--><!--#i4.i14.text.html:text/html-->
-<div id="i14">Compra un PANTALÓN y obtén un 20% de descuento en toda tu compra.</div>
 <!--#/#--><!--#i4.i130.image.html:image/html-->
 <img id="i130" src="https://i.imgur.com/TDmydx8.jpg"/>
 <!--#/#--><!--#i4.i456.image.html:image/html-->
 <img id="i456" src="https://i.imgur.com/GsmTVf2.png"/>
+<!--#/#--><!--#i4.i504.text.html:text/html-->
+<div id="i504">Compra un PANTALÓN y obtén un 20% de descuento en toda tu compra.</div>
 <!--#/#--><!--#i4.i486.image.html:image/html-->
 <img id="i486" src="https://i.imgur.com/PHMZOzz.png"/>
 <!--#/#--><!--#i4.i91.shape.html:shape/html-->
@@ -1068,7 +1068,7 @@ var el = document.getElementById('i228');
 
 el.addEventListener('click', function(e){
     /*#i292.i293.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'whatsapp://send?text=https://goo.gl/maps/qsx9ne3BbapXgidk6'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'whatsapp://send?text=¡Mira lo que he encontrado! https://goo.gl/maps/qsx9ne3BbapXgidk6'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -1092,6 +1092,8 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
+/*#/#*//*#i504.i505.positioning.js:positioning/base/js.2*/
+bmShow('i504');
 /*#/#*//*#i4.i50.actions.js:actions/base/js*/
 /* Name: On Click; */
 
@@ -1153,7 +1155,7 @@ var el = document.getElementById('i468');
 
 el.addEventListener('click', function(e){
     /*#i470.i471.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'whatsapp://send?text=https://goo.gl/maps/qsx9ne3BbapXgidk6'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'whatsapp://send?text=¡Mira lo que he encontrado! https://goo.gl/maps/qsx9ne3BbapXgidk6'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -1232,7 +1234,7 @@ var el = document.getElementById('i472');
 
 el.addEventListener('click', function(e){
     /*#i474.i475.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'whatsapp://send?text=https://goo.gl/maps/qsx9ne3BbapXgidk6'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'whatsapp://send?text=¡Mira lo que he encontrado! https://goo.gl/maps/qsx9ne3BbapXgidk6'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -1288,10 +1290,6 @@ customName: 1;
 name: Background;
 /*#/#*//*#i20.i21.positioning.meta:positioning/meta.1*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i4.i14.text.meta:text/meta*/
-name: Texto; customName: 1;
-/*#/#*//*#i14.i15.positioning.meta:positioning/meta.1*/
-data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i130.image.meta:image/meta*/
 name: Imagen de Cuadro; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
@@ -1302,6 +1300,10 @@ name: LOGO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i456.i457.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i4.i504.text.meta:text/meta*/
+name: Compra un PANTALÓN y obtén un 20% de descuento en toda tu compra.; customName: false;
+/*#/#*//*#i504.i505.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
 /*#/#*//*#i4.i486.image.meta:image/meta*/
 name: CTA; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
