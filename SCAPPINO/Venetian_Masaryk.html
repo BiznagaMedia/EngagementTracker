@@ -2121,19 +2121,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#-->
 <!--#/#--><!--#css:common/css-->
 <style>
-/*#i103.font-local.css:font/font-local/css*/
-/*#i103.i104.font-local.css:font-local/css.1*/
-@font-face {
-font-family: 'TradeGothicLTStd-Light';
-src: url('fonts/');
-src: url('fonts/?#iefix') format('embedded-opentype'),
-url('fonts/TradeGothicLTStd-Light.woff') format('woff'),
-url('fonts/') format('truetype'),
-url('fonts/') format('opentype'),
-url('fonts/') format('svg');
-}
-/*#/#*/
-/*#/#*//*#i30.shape.css:shape/base/css*/
+/*#i30.shape.css:shape/base/css*/
 #i30 { background-color: #ffffff; opacity: 1;
 }
 /*#/#*//*#i30.i31.positioning.css:positioning/base/css.2*/
@@ -2246,23 +2234,14 @@ url('fonts/') format('svg');
         -moz-transform: translate(0, 0) translate(64px, 479px) rotate(0deg);
         transform: translate(0, 0) translate(64px, 479px) rotate(0deg);
 }
-/*#/#*//*#i113.text.css:text/base/css*/
-#i113 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: TradeGothicLTStd-Light; font-size: 20px; color: #000000; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
-/*#/#*//*#i113.i114.positioning.css:positioning/base/css.2*/
-#i113 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 255px; height: 172px;
-        -ms-transform: translate(0, 0) translate(24px, 343px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(24px, 343px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(24px, 343px) rotate(0deg);
-        transform: translate(0, 0) translate(24px, 343px) rotate(0deg);
-}
-/*#/#*//*#i111.text.css:text/base/css*/
-#i111 { position: absolute; white-space: pre-wrap; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; opacity: 1; background-color: rgba(255,255,255,0); font-family: TradeGothicLTStd-Light; font-size: 14px; color: #000000; font-weight: normal; font-style: normal; text-decoration: none; text-align: left; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+/*#/#*//*#i111.image.css:image/base/css*/
+#i111 { opacity: 1; }
 /*#/#*//*#i111.i112.positioning.css:positioning/base/css.2*/
-#i111 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 306px; height: 56px;
-        -ms-transform: translate(0, 0) translate(13px, 421px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(13px, 421px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(13px, 421px) rotate(0deg);
-        transform: translate(0, 0) translate(13px, 421px) rotate(0deg);
+#i111 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 291px; height: 100px;
+        -ms-transform: translate(0, 0) translate(4px, 339px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(4px, 339px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(4px, 339px) rotate(0deg);
+        transform: translate(0, 0) translate(4px, 339px) rotate(0deg);
 }
 /*#/#*//*#i89.image.css:image/base/css*/
 #i89 { opacity: 1; }
@@ -2340,8 +2319,7 @@ url('fonts/') format('svg');
 </style>
 <!--#/#--></head>
 <body>
-<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i103.font.html:font/html-->
-<!--#/#--><!--#i30.shape.html:shape/html-->
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i30.shape.html:shape/html-->
 <div id="i30"></div>
 <!--#/#--><!--#i74.image.html:image/html-->
 <img id="i74" src="https://i.imgur.com/yR75vHL.jpg"/>
@@ -2359,10 +2337,8 @@ url('fonts/') format('svg');
 <img id="i16" src="https://i.imgur.com/GsmTVf2.png"/>
 <!--#/#--><!--#i46.image.html:image/html-->
 <img id="i46" src="https://i.imgur.com/PHMZOzz.png"/>
-<!--#/#--><!--#i113.text.html:text/html-->
-<div id="i113">¡Compra un pantalón y obtén el 20% de descuento en toda tu compra!</div>
-<!--#/#--><!--#i111.text.html:text/html-->
-<div id="i111">Del 6 de agosto al 16 de septiembre de 2019.</div>
+<!--#/#--><!--#i111.image.html:image/html-->
+<img id="i111" src="https://i.imgur.com/Ytp0srX.jpg"/>
 <!--#/#--><!--#i89.image.html:image/html-->
 <img id="i89" src="https://i.imgur.com/xJqyBh6.png"/>
 <!--#/#--><!--#i81.shape.html:shape/html-->
@@ -2441,6 +2417,8 @@ bmShow('i16');
 
 /*#/#*//*#i46.i47.positioning.js:positioning/base/js.2*/
 bmShow('i46');
+/*#/#*//*#i111.image.js:image/base/js*/
+
 /*#/#*//*#i111.i112.positioning.js:positioning/base/js.2*/
 bmShow('i111');
 /*#/#*//*#i89.image.js:image/base/js*/
@@ -2547,8 +2525,6 @@ el.addEventListener('click', function(e){
 if ('click' === 'click') {
     el.style.cursor = 'pointer';
 }
-/*#/#*//*#i113.i114.positioning.js:positioning/base/js.2*/
-bmShow('i113');
 /*#/#*//*#i9.visibility.js:visibility/js*/
 function bmShow(id) {
     var el = document.getElementById(id);
@@ -2562,9 +2538,7 @@ function bmHide(id) {
 /*#/#*/
  
 </script>
-<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i103.font.meta:font/meta*/
-name: Web Font: TradeGothicLTStd-Light; type: font-local; customName: ;
-/*#/#*//*#i30.shape.meta:shape/meta*/
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i30.shape.meta:shape/meta*/
 name: Shape 1;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
@@ -2594,14 +2568,11 @@ name: BOTON; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
 /*#/#*//*#i46.i47.positioning.meta:positioning/meta.2*/
 data: /*!*/{"keepAspectRatio":true}/*!*/;
-/*#/#*//*#i113.text.meta:text/meta*/
-name: ¡Compra un pantalón y obtén el 20% de descuento en toda tu compra!; customName: false;
-/*#/#*//*#i113.i114.positioning.meta:positioning/meta.2*/
-data: /*!*/{}/*!*/;
-/*#/#*//*#i111.text.meta:text/meta*/
-name: Del 6 de agosto al 16 de septiembre de 2019.; customName: false;
+/*#/#*//*#i111.image.meta:image/meta*/
+name: TEXTO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: 1;
 /*#/#*//*#i111.i112.positioning.meta:positioning/meta.2*/
-data: /*!*/{}/*!*/;
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i89.image.meta:image/meta*/
 name: ICONO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
 customName: 1;
