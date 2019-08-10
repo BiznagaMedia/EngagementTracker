@@ -639,9 +639,9 @@
 <u><b>AVISO DE PRIVACIDAD</b></u></a><a href="https://www.heb.com.mx/terms-conditions/" target="_blank" style="font-size: 13px; font-family: Trebuchet MS; text-align: left; color: #105677;  "> y los <u><b>TÉRMINOS Y CONDICIONES</b>.</u></a></label>
 
                         
-                        <!--<input type="checkbox" width="10" name="condiciones2" style="text-align: left; background-color: red" /></span>
+                      <!--    <input type="checkbox" width="10" name="condiciones2" style="text-align: left; background-color: red" /></span>
 
-                          <span style="display: flex; flex-direction: row-reverse; justify-content: left; width: 100%; margin-top: 5px; margin-left: -50px;">
+                        <span style="display: flex; flex-direction: row-reverse; justify-content: left; width: 100%; margin-top: 5px; margin-left: -50px;">
                             <label style="min-width: 80%" for="condiciones"><a href="https://mindtechvigo.com/visitantes/" target="_blank" style="font-size: 13px;color: blue;"> Deseo información para visitantes</a></label>
 
                         <input type="checkbox" width="10" name="condiciones3" style="text-align: left; background-color: red;" /></span>
@@ -651,7 +651,7 @@
                         <label style="min-width: 80%" for="condiciones"><a href="https://mindtechvigo.com/" target="_blank" style="font-size: 13px;color: blue; text-align: left;"> Deseo información general</a></label>--->
 
 
-                        <input type="checkbox" width="10"  name="condiciones" style="text-align: left; background-color: #a4061f" />
+                        <input type="checkbox" width="10"  name="condiciones" style="text-align: left; background-color: #a4061f" required="check"/>
                     </span>
 
                     <input type="submit" name="bottom" style="margin-top: 8px; text-align: center; background-color:#e22532; color: white; border-radius: 3px; width: 100px; position: absolute; left: 50%; margin-left: -50px; cursor: pointer" value="ENVIAR">
@@ -749,7 +749,7 @@
                 //    bv2: btoa(responseData.lastName.norm_to_ascii().crypt_sym()),
                     bv3: btoa(responseData.email.norm_to_ascii().crypt_sym()),
                 //    bv4: btoa(responseData.phone.norm_to_ascii().crypt_sym()),
-                //    bv5: btoa(responseData.company.norm_to_ascii().crypt_sym()),
+                    bv5: btoa(responseData.condiciones.norm_to_ascii().crypt_sym()),
                    
                 };
 
