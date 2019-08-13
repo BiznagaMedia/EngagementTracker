@@ -777,11 +777,11 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 /*#/#*//*#i6.i276.image.css:image/base/css*/
 #i276 { opacity: 1; }
 /*#/#*//*#i276.i277.positioning.css:positioning/base/css.2*/
-#i276 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 281px; height: 66px;
-        -ms-transform: translate(0, 0) translate(10px, 186px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(10px, 186px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(10px, 186px) rotate(0deg);
-        transform: translate(0, 0) translate(10px, 186px) rotate(0deg);
+#i276 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 285px; height: 67px;
+        -ms-transform: translate(0, 0) translate(3px, 185px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(3px, 185px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(3px, 185px) rotate(0deg);
+        transform: translate(0, 0) translate(3px, 185px) rotate(0deg);
 }
 /*#/#*//*#i6.i248.image.css:image/base/css*/
 #i248 { opacity: 1; }
@@ -862,7 +862,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <!--#/#--><!--#i6.i60.image.html:image/html-->
 <img id="i60" src="https://i.imgur.com/0j5CRgW.png"/>
 <!--#/#--><!--#i6.i276.image.html:image/html-->
-<img id="i276" src="https://i.imgur.com/KOhvrcC.png"/>
+<img id="i276" src="https://i.imgur.com/Kk9nYJF.png"/>
 <!--#/#--><!--#i6.i248.image.html:image/html-->
 <img id="i248" src="https://i.imgur.com/6lj7WHc.png"/>
 <!--#/#--><!--#i6.i99.shape.html:shape/html-->
@@ -1004,7 +1004,7 @@ var el = document.getElementById('i248');
 
 el.addEventListener('click', function(e){
     /*#i250.i251.actions-clicktag.js:actions-clicktag/base/js.2*/
-   
+    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
