@@ -300,12 +300,18 @@
         }
 
         .bg.cover-2 {
-            background: url("https://i.imgur.com/X43qK1C.jpg");
+            background: url("https://i.imgur.com/Wtbqg7E.jpg");
             background-size: cover;
             
         }
 
         .bg.cover-3 {
+            background: url("https://i.imgur.com/VZoVxMh.jpg");
+            background-size: cover;
+            
+        }
+
+         .bg.cover-4 {
             background: url("https://i.imgur.com/Wtbqg7E.jpg");
             background-size: cover;
             
@@ -430,31 +436,39 @@
         .item-1 {
             z-index: 2;
             opacity: 1;
-            animation: fade 8s infinite;
-            -webkit-animation: fade 8s infinite;
+            animation: fade 15s infinite;
+            -webkit-animation: fade 15s infinite;
         }
 
         .item-2 {
-            animation: fade2 8s infinite;
-            -webkit-animation: fade2 8s infinite;
+            animation: fade2 15s infinite;
+            -webkit-animation: fade2 15s infinite;
         }
 
         .item-3 {
-            animation: fade3 8s infinite;
-            -webkit-animation: fade3 8s infinite;
+            animation: fade3 15s infinite;
+            -webkit-animation: fade3 15s infinite;
+        }
+
+         .item-4 {
+            animation: fade4 15s infinite;
+            -webkit-animation: fade4 15s infinite;
         }
 
         @keyframes fade {
             0% {
                 opacity: 1
             }
-            33.333% {
+            25% {
                 opacity: 0
             }
-            66.666% {
+            50%{
                 opacity: 0
             }
-            100% {
+            75% {
+                opacity: 0
+            }
+            100%{
                 opacity: 1
             }
         }
@@ -463,28 +477,51 @@
             0% {
                 opacity: 0
             }
-            33.333% {
+            25% {
                 opacity: 1
             }
-            66.666% {
+            50%{
                 opacity: 0
             }
-            100% {
+            75% {
+                opacity: 0
+            }
+            100%{
                 opacity: 0
             }
         }
 
         @keyframes fade3 {
+             0% {
+                opacity: 0
+            }
+            25% {
+                opacity: 0
+            }
+            50%{
+                opacity: 1
+            }
+            75% {
+                opacity: 0
+            }
+            100%{
+                opacity: 0
+            }
+        }
+        @keyframes fade4 {
             0% {
                 opacity: 0
             }
-            33.333% {
+            25% {
                 opacity: 0
             }
-            66.666% {
+            50%{
+                opacity: 0
+            }
+            75% {
                 opacity: 1
             }
-            100% {
+            100%{
                 opacity: 0
             }
         }
@@ -559,6 +596,9 @@
             <div class="tgx_logo"></div>
         </div>
         <div class="tgx_cover bg cover-3 carousel-item item-3">
+            <div class="tgx_logo"></div>
+        </div>
+          <div class="tgx_cover bg cover-4 carousel-item item-4">
             <div class="tgx_logo"></div>
         </div>
         

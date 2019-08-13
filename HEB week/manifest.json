@@ -1,0 +1,23 @@
+{
+    "version": "1.0",
+    "uniqueId": "478fc014a1925cf3d481c07e25bb0c15",
+    "title": "FORMULARIO_HEB_300x600",
+    "description": "",
+    "width": 300,
+    "height": 600,
+    "events": {
+        "enabled": 1,
+        "list": {
+             "1": "Formulario_Click",
+            "2": "Formulario_Vacio",
+            "3": "Formulario_Enviado",
+            "4": "Formulario_Gracias",
+            "5": "Formulario_ClickFin"
+        }
+    },
+    "clicktags": {
+
+       "clickTAG": "https://www.heb.com.mx/",
+    },
+    "source": "formulario-def.html"
+}
