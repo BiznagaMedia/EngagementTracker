@@ -1,0 +1,448 @@
+<head>
+    <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+    <!--Adform Global Clicktag START-->
+    <script type="text/javascript">
+        function adfOpenGlobalClickTAG() {
+            var adfClickTAGName = 'clickTAG',
+                adfClickTAGUrl = 'https://www.youtube.com/watch?v=sjQW4I4Knlw';
+
+            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
+        }
+        if (window.addEventListener) {
+            window.addEventListener('click', function(e) {
+                if (e.button !== 0) return;
+                e.stopPropagation();
+                e.preventDefault();
+                adfOpenGlobalClickTAG();
+            }, true);
+        } else {
+            document.attachEvent('onclick', function() {
+                adfOpenGlobalClickTAG();
+            });
+        }
+
+    </script>
+    <style>
+        html {
+            cursor: pointer;
+        }
+
+    </style>
+    <!--Adform Global Clicktag END-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<div class="Adidas1Video"></div>
+<script>
+    var divCont = function() {
+
+        var html = '<div class="CristalVideo" style="margin:0px;"><div class="bzm_wrapper carousel-wrapper size_300x250"><div class="carousel-wrapper"> <a href="%%c1;cpdir="><div class="cta"> <img src="https://i.imgur.com/ESRxT5G.png" style="height: 70px; margin-left:10px;"></a></div><div style="text-align:center; width: 300px; margin-left:-150px;"> <iframe class="yt560x315" id="JSytplayer" width="600px" height="300px; margin-left:-400px;" src="https://www.youtube.com/embed/sjQW4I4Knlw?rel=0&autoplay=0&modestbranding=0&loop=0&controls=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div ><img src="https://i.imgur.com/dXaw9MM.png" style="margin-top: 30px; margin-left:10px;"></div></div></div>';
+
+        var css = '.Adidas1Video p{margin:0}.Adidas1Video .bg.cover-1{background-size:cover}.Adidas1Video .btn{margin-top:0;padding-left:0}.Adidas1Video a,.Adidas1Video a:hover{text-decoration:none;color:#fff}.Adidas1Video .bzm_wrapper{position:relative;overflow:hidden;color:#000;font-family:Lato,sans-serif}.Adidas1Video .bzm_wrapper.size_300x250{width:298px;height:598px;background-color:#FFF; border: 1px solid #c5c5c5;}.Adidas1Video .bzm_cover,.Adidas1Video .carousel-wrapper{position:relative;width:100%}.Adidas1Video .bzm_cover{height:150px}.Adidas1Video .bzm_cover.bzm_pos_tl{top:3%;left:3%}.Adidas1Video .bzm_pos_tr{top:3%;right:3%}.Adidas1Video .bzm_pos_bl{bottom:3%;left:3%}.Adidas1Video .bzm_pos_br{bottom:3%;right:3%}.Adidas1Video .bzm_pos_bm{bottom:3%;left:calc(100% - 70%)}.Adidas1Video .bzm_text{margin-top:35px;padding:6px 0 10px .3em;line-height:1.1;color:#000; font-family:Arial; text-align:center;}.Adidas1Video .bzm_text_title{font-size:26px;color:#000; font-family:Arial; text-align:center; margin-bottom: 5px;  }.Adidas1Video .bzm_text_light{font-size:10px;font-weight:0}.Adidas1Video .bzm_text_medium{line-height:1;}.Adidas1Video .Adidas1Video .Adidas1Video .carousel-wrapper{height:auto;margin:0 auto} .carousel-container{width:330px;} .Adidas1Video .carousel-item1{position:absolute;opacity:0;transition:all .5s ease-in-out}.Adidas1Video .bzm_button{position:absolute;bottom:7px;left:3%;text-transform:uppercase;background-color:#6cbd44;color:#fff;border-radius:50%;padding:4px;text-align:center;font-size:90%;cursor:pointer}.Adidas1Video .bzm_button:hover{background-color:#579e38}.Adidas1Video .carousel-container{width:300px;height:150px;overflow-y:hidden}.Adidas1Video .cta { position: absolute; top: 275px; width: 120px; line-height: 1.5em; z-index: 5; margin-left: 70px; background-color: #; padding: 0px; border-radius: 20px; text-align: center; }.Adidas1Video #botones-para-compartir{text-align:right}.facebooki:hover,.googlei:hover,.likedini:hover,.pinteresti:hover,.twitteri:hover{border-radius:25px;transition:all .3s ease-out;box-shadow:0 0 5px #000;-moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s}.facebooki,.googlei,.likedini,.pinteresti,.twitteri{transition:all .3s ease-out;-moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s}.Adidas1Video .logo{width:41%;z-index:2;background-color:#696969;border-radius:4px;float:right;height:30px;text-align:center;margin-top:10px;margin-right:12px}';
+
+
+        var containerE = null;
+        var rrss = ['facebook', 'twitter', 'plus.google', 'whatsapp', 'pinterest', 'mailto', 'reddit', 'linkedin',
+            'tumblr', 'mail.google', 'printfriendly', 'telegram', 'skype', 'viber', 'bufferapp', 'flipboard'
+        ];
+        var flagReadArticleTime = false;
+        var gtmYTListeners = [];
+        var porcetScroll = 95;
+        var adsName = "VideoRoca";
+
+        //var videoContainer = document.getElementById('videoContainer');
+        //var isFocused = (document.activeElement === videoContainer);
+
+        //add codigo de sequimiento de eventos
+        // function addPixel() {
+
+        //     var img = document.createElement('img');
+        //     img.setAttribute('width', 1);
+        //     img.setAttribute('height', 1);
+        //     var urltracker = 'http://www5.smartadserver.com/imp?imgid=21085124&tmstp=_ADFTAGID__';
+        //     img.setAttribute('src', urltracker);
+        //     img.setAttribute('style', 'display:none');
+
+        //     var body = document.querySelector('body');
+        //     var firstDiv = document.getElementsByTagName('div')[0];
+        //     body.insertBefore(img, firstDiv);
+        // };
+
+        // Función que hace compatibles los eventos con todos los navegadores.
+        function addEvent(el, name, fn) {
+            if (el.addEventListener) {
+                el.addEventListener(name, fn);
+            } else if (el.attachEvent) {
+                el.attachEvent('on' + name, function(evt) {
+                    evt.target = evt.target || evt.srcElement;
+                    // Call the event to ensure uniform 'this' handling, pass it event
+                    fn.call(el, evt);
+                });
+            } else if (typeof el['on' + name] === 'undefined' || el['on' + name] === null) {
+                el['on' + name] = function(evt) {
+                    evt.target = evt.target || evt.srcElement;
+                    // Call the event to ensure uniform 'this' handling, pass it event
+                    fn.call(el, evt);
+                };
+            }
+        };
+
+        function searchShare(href) {
+
+            for (var i = 0; i < rrss.length; i++) {
+                if (href.search(rrss[i]) != -1) {
+                    return rrss[i];
+                }
+            }
+            return null;
+        };
+
+        function goToLink(link, mode) {
+            return function() {
+                if (link != undefined) {
+                    switch (mode) {
+                        case undefined:
+                            {
+                                window.location = link;
+                                break;
+                            }
+                        default:
+                            {
+                                window.open(link, 'block');
+                                break;
+                            }
+                    }
+                }
+            }
+        };
+
+        // Function para controlar los links de redes sociales
+        function sortLink($event) {
+            var el = $event.currentTarget;
+            var href = el.getAttribute('href');
+            var socialMediaFlag = el.classList.contains("shared");
+            var socialShareRegister = searchShare(href);
+
+            if (href != undefined) {
+                if (socialShareRegister == null && socialMediaFlag != -1) {
+                    var target = el.getAttribute('target');
+                    var data = {
+                        ref: href,
+                        'AdsName': adsName
+                    };
+
+                    if (target == '_blank' || $event.ctrlKey) {
+                        dhtml.sendEvent('9', 'Click Out', 'Click Out');
+                        // mixpanel.track("Click Out", data, false);
+                        // addPixel();
+
+                    } else {
+                        $event.preventDefault();
+                        var callback = goToLink(href);
+                        dhtml.sendEvent('9', 'Click Out', 'Click Out');
+                        // mixpanel.track("Click Out", data, callback);
+                        // addPixel();
+                        window.setTimeout(callback, 500);
+                    }
+
+                } else {
+                    switch (socialShareRegister) {
+                        case 'plus.google':
+                            {
+                                var red = "Google+";
+                                break;
+                            }
+                        case 'mailto':
+                            {
+                                var red = "Email";
+                                break;
+                            }
+                        case 'mail.google':
+                            {
+                                var red = "Gmail";
+                                break;
+                            }
+                        case 'bufferapp':
+                            {
+                                var red = "Buffer";
+                                break;
+                            }
+                        default:
+                            {
+                                var red = socialShareRegister.charAt(0).toUpperCase() + socialShareRegister.slice(1);
+                                break;
+                            }
+                    }
+                    var data = {
+                        "Red": red,
+                        "AdsName": adsName
+                    };
+                    dhtml.sendEvent('8', 'Share Redes Sociales', Red);
+                    // mixpanel.track("Share Redes Sociales", data, false);
+                    // addPixel();
+
+                }
+                return;
+            }
+        };
+
+        //VIDEO ZONE INIT
+        // añadir listener para cada reproductor
+        window.onYouTubeIframeAPIReady = (function() {
+            
+            for (var e = document.querySelectorAll(containerE + " iframe"), x = e.length; x--;) {
+                if (/youtube.com\/embed/.test(e[x].src)) {
+                    gtmYTListeners.push({
+                        id: e[x].src,
+                        eventSendStart: false,
+                        eventSend25: false,
+                        eventSend50: false,
+                        eventSend75: false,
+                        eventSendEnd: false,
+                        time: 0,
+                        event: new YT.Player(e[x], {
+                            events: {
+                                onReady: onPlayerReady,
+                                onStateChange: onPlayerStateChange
+                            }
+                        })
+                    });
+                    YT.gtmLastAction = "p";
+                }
+            }
+        });
+
+        //Deteccion de Cargado el Video Youtube
+        function onPlayerReady(e) {
+            //Deteccion de Scroll cuando el video este Cargado
+            window.onscroll = function(){
+                //Iniciacion de Variables para dibujar lineas de verificacion en viewportz
+                var videoCont = document.querySelector('.videoContainer');
+                var windowHeight = window.innerHeight;
+                var linePosDown = Math.round((windowHeight / 2));
+                var linePosUp = Math.round((windowHeight / 1));
+                var videoContBound = videoCont.getBoundingClientRect(); //Deteccion de Offset del Div involucrado
+                var videoState;
+
+                //Condicional identifica si el anuncion esta en el Viewport o No.
+                if((videoContBound.top <= linePosUp) && (videoContBound.bottom <= linePosUp) || (videoContBound.top <= linePosDown)){
+                    videoCont.focus();
+                    videoState = 1;
+                    console.log('Element is focused');
+                } else {
+                    videoCont.blur();
+                    videoState = 0;
+                    console.log('Element is blured');
+                }
+
+                if (videoState == 1) {
+                    e.target.setVolume(0);
+                    e.target.playVideo();
+                    console.log('Element is playing');
+                } else {
+                    e.target.stopVideo();
+                    console.log('Element is Muted');
+                }
+            }
+            
+            //Encender Volumen del video al hacer MouseOver
+            var videoContainer = document.querySelector('.videoContainer');
+            videoContainer.onmouseover = function() {
+                e.target.setVolume(100);
+            }
+            
+            //Apagar Volumen del video al hacer MouseOut
+            videoContainer.onmouseout = function() {
+                e.target.setVolume(0);
+            }
+        }
+
+        // detectar play, pause, end y % avanzado (cada segundo)
+        function onPlayerStateChange(e) {
+            
+            e["data"] == YT.PlayerState.PLAYING && window.setTimeout(onPlayerPercent, 1000, e["target"]);
+            if (e["data"] == YT.PlayerState.PLAYING && YT.gtmLastAction == "p") {
+                YT.gtmLastAction = "";
+                /*if (document.activeElement == document.getElementsByTagName("iframe")[0]){
+                    console.log('iframe has focus');
+                    e.target.setVolume(100);
+                    
+                } else {
+                    console.log('iframe lost focus');
+                    e.target.setVolume(0);
+                    e.target.playVideo();
+                }*/
+            }
+            if (e["data"] == YT.PlayerState.PAUSED) {
+                YT.gtmLastAction = "p";
+                e.target.setVolume(100);
+            }
+            if (e["data"] == YT.PlayerState.ENDED) {
+                e.target.playVideo();
+            }
+        };
+
+        function extraVideoData(e) {
+
+            var video_data = e["getVideoData"]();
+            var evAction = window.location.href;
+            var evLabel = video_data.title + ' : ' + video_data.video_id;
+            return dataVideo = {
+                'Ubicacion': evAction,
+                'Nombre del Video': evLabel,
+                'AdsName': adsName
+            };
+        };
+
+        // informar del % reproducido en estos puntos: 0.00, 0.25, 0.50, 0.75, 1 es fin
+        function onPlayerPercent(e) {
+            if (e["getPlayerState"]() == YT.PlayerState.PLAYING) {
+                var t = e["getDuration"]() - e["getCurrentTime"]() <= 1.5 ? 1 : (Math.floor(e["getCurrentTime"]() / e["getDuration"]() * 4) / 4).toFixed(2);
+                var video = null;
+                for (var i = 0; i < gtmYTListeners.length; i++) {
+                    var src = e.getIframe().getAttribute('src');
+                    if (gtmYTListeners[i].id == e.getIframe().getAttribute('src')) {
+                        video = gtmYTListeners[i]
+                        break;
+                    }
+                }
+
+                if (t == '0.00' && !video.eventSendStart) { //Inicio de la reproduccion del video
+                    gtmYTListeners[0].eventSendStart = !video.eventSendStart;
+                    //var dataVideo = extraVideoData(e);    
+                    dhtml.sendEvent('2', 'video_0%', 'video_0%');
+                    // mixpanel.track("video_0%", dataVideo, false);
+                    // addPixel();
+                }
+
+                if (t == '0.25' && !video.eventSend25) {
+
+                    gtmYTListeners[i].eventSend25 = !video.eventSend25;
+                    //var dataVideo = extraVideoData(e);  
+                    dhtml.sendEvent('3', 'video_25%', 'video_25%');
+                    // mixpanel.track("video_25%", dataVideo, false);
+                    // addPixel();
+                }
+
+                if (t == '0.50' && !video.eventSend50) {
+
+                    gtmYTListeners[i].eventSend50 = !video.eventSend50;
+                    //var dataVideo = extraVideoData(e);    
+                    dhtml.sendEvent('4', 'video_50%', 'video_50%');
+                    // mixpanel.track("video_50%", dataVideo, false);
+                    // addPixel(); 
+                }
+
+                if (t == '0.75' && !video.eventSend75) {
+
+                    gtmYTListeners[i].eventSend75 = !video.eventSend75;
+                    //var dataVideo = extraVideoData(e);            
+                    dhtml.sendEvent('5', 'video_75%', 'video_75%');
+                    // mixpanel.track("video_75%", dataVideo, false);
+                    //    addPixel();
+                }
+
+                if (t == 1 && !video.eventSendEnd) { //Fin de ka reproduccion del video
+
+                    gtmYTListeners[i].eventSendEnd = !video.eventSendEnd;
+                    //var dataVideo = extraVideoData(e);   
+                    dhtml.sendEvent('6', 'video_100%', 'video_100%');
+                    // mixpanel.track("video_100%", dataVideo, false);
+                    //  addPixel();
+                }
+                e["lastP"] = t;
+                e["lastP"] != 1 && window.setTimeout(onPlayerPercent, 1000, e);
+            }
+        };
+
+        // cargar api de youtube e insertar
+        var j = document.createElement("script"),
+            f = document.getElementsByTagName("script")[0];
+        j.src = "https://www.youtube.com/iframe_api";
+        j.async = true;
+        f.parentNode.insertBefore(j, f);
+
+        function commonVideoAction() {
+
+            // buscar embeds flash y reemplazar por iframe
+            for (var e = document.querySelectorAll(containerE + " embed"), x = e.length; x--;) {
+                if (/youtube.com/.test(e[x].src)) {
+                    e[x].parentNode.outerHTML = e[x].outerHTML.replace(/embed/g, 'iframe').replace(/youtube\.com\/v/g, 'youtube.com/embed');
+                }
+            }
+
+            // activar api
+            for (var e = document.querySelectorAll(containerE + " iframe"), x = e.length; x--;)
+                if (/youtube.com\/embed/.test(e[x].src))
+                    if (e[x].src.indexOf('enablejsapi=') === -1)
+                        e[x].src += (e[x].src.indexOf('?') === -1 ? '?' : '&') + 'enablejsapi=1';
+        };
+        //VIDEO ZONE END
+
+
+        //Function para controlar el scroll
+        function scrollListener(e) {
+
+            var scroll = e.currentTarget;
+            var content = e.currentTarget.firstElementChild;
+            var scrollHeight = scroll.clientHeight;
+            var contentHeight = content.clientHeight;
+            var positionScroll = scroll.scrollTop;
+
+            var total = contentHeight - scrollHeight;
+            var currentPosition = total * porcetScroll / 100;
+            if (positionScroll >= currentPosition && !flagReadArticleTime) {
+                flagReadArticleTime = true;
+                dhtml.sendEvent('7', 'Lecturas', 'Lecturas');
+                // mixpanel.track("Lecturas", {'AdsName': adsName}, false);
+                // addPixel();
+            }
+
+            return;
+        };
+
+        // Function a ejecutar cuando la pagina cargue
+        function DOMContentLoaded() {
+
+            dhtml.sendEvent('1', 'PageView', 'PageView');
+            // mixpanel.track("PageView", {'AdsName': adsName}, false);
+            // addPixel();
+
+            //Detectar las etiquetas <a> que existen en el anuncio y asignarle el evento click
+            var links = document.querySelectorAll(containerE + " a");
+            for (var i = 0; i < links.length; i++) {
+                addEvent(links[i], 'click', sortLink);
+            }
+        };
+
+        return {
+            show: function(container) {
+
+                var containerElement = document.querySelector('.' + container);
+
+                if (containerElement != null) {
+                    containerE = '.' + container;
+                    var head = document.getElementsByTagName('head');
+                    var style = document.createElement('style');
+                    var text = document.createTextNode(css);
+                    style.appendChild(text);
+                    head[0].appendChild(style);
+
+                    containerElement.innerHTML = html;
+
+                    window.setTimeout(DOMContentLoaded, 5000);
+                    //Detectar los videos que existen en el anuncio
+                    commonVideoAction();
+
+                    var containerElement = document.querySelector(containerE + ' .bzm_wrapper');
+                    addEvent(containerElement, 'scroll', scrollListener);
+                }
+            }
+        };
+    }();
+    divCont.show('Adidas1Video');
+
+</script>
