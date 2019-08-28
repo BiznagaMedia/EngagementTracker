@@ -198,6 +198,7 @@
         var boton1 = false;
         var boton2 = false;
         var clickVideo = true;
+        var autoplay = 0;
         //--------------------------------------------------------------
         var total = Math.trunc(video.duration); // DURACION DEL VIDEO
         var porcent25 = Math.trunc(total * 0.25);
@@ -206,12 +207,18 @@
 
 
         video.onclick = function() { // VIDEO PLAY Y VIDEO PAUSE
-            if (clickVideo == false) {
-                video.play();
-                clickVideo = true;
+            if (autoplay == 0) {
+                video.volume = 1;
+                autoplay = 1;
             } else {
-                video.pause();
-                clickVideo = false;
+                if (clickVideo == false) {
+                    video.play();
+                    video.volume = 1;
+                    clickVideo = true;
+                } else {
+                    video.pause();
+                    clickVideo = false;
+                }
             }
         }
 
@@ -219,6 +226,11 @@
             if (clickVideo == true) {
                 video.play();
             }
+        }
+
+        window.onload = function() {
+            video.volume = 0;
+            video.play();
         }
 
 
