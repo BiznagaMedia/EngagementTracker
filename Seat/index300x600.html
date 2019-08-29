@@ -165,6 +165,11 @@
         background-color: rgba(0, 0, 0, 0.5);
         cursor: pointer;
     }
+    
+    .h4IOS{
+        font-size: 14px !important;
+        letter-spacing: -0.1em !important;
+    }
 
 </style>
 
@@ -193,19 +198,19 @@
             <div id="bn1" class="banner display-off" onclick="window.open('https://www.seat.mx/autos/arona/descubre.html', '_blank');" onmouseover="videoPause()">
                 <center>
                     <h4>Arona</h4>
-                    <button onclick="window.open('https://www.seat.mx/autos/arona/descubre.html', '_blank');">Llegó la hora de subir el volumen</button>
+                    <button id="redirecBtn" class="" onclick="window.open('https://www.seat.mx/autos/arona/descubre.html', '_blank');">Llegó la hora de subir el volumen</button>
                 </center>
             </div>
             <div id="bn2" class="banner display-off" onclick="https://www.seat.mx/autos/ateca/descubre.html', '_blank');" onmouseover="videoPause()">
                 <center>
                     <h4>Ateca</h4>
-                    <button onclick="window.open('https://www.seat.mx/autos/ateca/descubre.html', '_blank');">Una mirada de confianza</button>
+                    <button id="redirecBtn" class="" onclick="window.open('https://www.seat.mx/autos/ateca/descubre.html', '_blank');">Una mirada de confianza</button>
                 </center>
             </div>
             <div id="bn3" class="banner display-off" onclick="window.open('https://www.seat.mx/autos/tarraco/descubre.html', '_blank');" onmouseover="videoPause()">
                 <center>
                     <h4>Tarraco</h4>
-                    <button onclick="window.open('https://www.seat.mx/autos/tarraco/descubre.html', '_blank');">¿Por qué no ahora?</button>
+                    <button id="redirecBtn" class="" onclick="window.open('https://www.seat.mx/autos/tarraco/descubre.html', '_blank');">¿Por qué no ahora?</button>
                 </center>
             </div>
         </content>
@@ -313,6 +318,16 @@
         setInterval('min()', 1000);
 
     </script>
+    
+    
+
+<script type="text/javascript">
+if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/like Mac OS X/i))) {
+    document.getElementById("redirecBtn").classList.add('h4IOS');
+    console.log('bfseifb');
+}
+</script>
+    
 </body>
 
 </html>
