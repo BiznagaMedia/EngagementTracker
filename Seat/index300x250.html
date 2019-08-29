@@ -151,7 +151,7 @@
 
 <body>
     <content id="banner">
-        <video id="video" onmouseover="videoPause()" playsinline>
+        <video id="video" onmouseover="videoPause()" playsinline autoplay muted>
             <source src="images/Maqueta_SuvSeat_30s_V5.mp4" type="video/mp4" />
             <source src="images/Maqueta_SuvSeat_30s_V5.webm" type="video/webm" />
             <source src="images/Maqueta_SuvSeat_30s_V5.ogg" type="video/ogg" />
@@ -208,7 +208,7 @@
 
         video.onclick = function() { // VIDEO PLAY Y VIDEO PAUSE
             if (autoplay == 0) {
-                video.volume = 1;
+                video.muted = false;
                 autoplay = 1;
             } else {
                 if (clickVideo == false) {
@@ -228,10 +228,9 @@
             }
         }
 
-        window.onload = function() {
-            video.volume = 0;
+        /*window.onload = function() {
             video.play();
-        }
+        }*/
 
 
         function min() { // FUNCION QUE SE ACCIONA CADA 1 SEGUNDO
