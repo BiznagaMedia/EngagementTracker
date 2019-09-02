@@ -4,11 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Adform API Script -->
-    <script type="text/javascript">
-        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
-
-    </script>
 </head>
 
 <style>
@@ -33,7 +28,7 @@
         background-color: black;
         width: 300px;
         height: 600px;
-        background-image: url(https://josemob.github.io/page/images/fondo-2.jpg);
+        background-image: url(images/fondo-2.jpg);
         /*-----------RECURSO EXTERNO----------*/
         background-position: bottom;
         background-color: black;
@@ -114,17 +109,17 @@
     }
 
     #overlay #bn1 {
-        background-image: url(https://josemob.github.io/page/images/arona-2.jpg)
+        background-image: url(images/arona-2.jpg)
             /*-----------RECURSO EXTERNO----------*/
     }
 
     #overlay #bn2 {
-        background-image: url(https://josemob.github.io/page/images/ateca-2.jpg)
+        background-image: url(images/ateca-2.jpg)
             /*-----------RECURSO EXTERNO----------*/
     }
 
     #overlay #bn3 {
-        background-image: url(https://josemob.github.io/page/images/terraco-2.jpg)
+        background-image: url(images/terraco-2.jpg)
             /*-----------RECURSO EXTERNO----------*/
     }
 
@@ -136,17 +131,17 @@
     }
 
     #btn-img1 {
-        background-image: url(https://josemob.github.io/page/images/arona-btn.png);
+        background-image: url(images/arona-btn.png);
         /*-----------RECURSO EXTERNO----------*/
     }
 
     #btn-img2 {
-        background-image: url(https://josemob.github.io/page/images/ateca-btn.png);
+        background-image: url(images/ateca-btn.png);
         /*-----------RECURSO EXTERNO----------*/
     }
 
     #btn-img3 {
-        background-image: url(https://josemob.github.io/page/images/terraco-2.jpg);
+        background-image: url(images/terraco-2.jpg);
         /*-----------RECURSO EXTERNO----------*/
     }
 
@@ -181,9 +176,9 @@
 <body>
     <content id="banner">
         <video id="video" onmouseover="videoPause()" webkit-playsinline="true" playsinline="true" autoplay muted>
-            <source src="https://josemob.github.io/page/images/Maqueta_SuvSeat_30s_V5.mp4" type="video/mp4" />
-            <source src="https://josemob.github.io/page/images/Maqueta_SuvSeat_30s_V5.webm" type="video/webm" />
-            <source src="https://josemob.github.io/page/images/Maqueta_SuvSeat_30s_V5.ogg" type="video/ogg" />
+            <source src="images/Maqueta_SuvSeat_30s_V5.mp4" type="video/mp4" />
+            <source src="images/Maqueta_SuvSeat_30s_V5.webm" type="video/webm" />
+            <source src="images/Maqueta_SuvSeat_30s_V5.ogg" type="video/ogg" />
         </video>
         <!-----------RECURSO EXTERNO---------->
 
@@ -200,22 +195,22 @@
 
         <content id="overlay">
             <span id="close" class="display-off" onclick="closeBanner()">X</span>
-            <div id="bn1" class="banner display-off" onmouseover="videoPause()">
+            <div id="bn1" class="banner display-off" onclick="window.open('https://www.seat.mx/autos/arona/descubre.html', '_blank');" onmouseover="videoPause()">
                 <center>
                     <h4>Arona</h4>
-                    <button id="redirecBtn" class="" onclick="adfOpenGlobalClickTAG(1)">Llegó la hora de subir el volumen</button>
+                    <button id="redirecBtn" class="" onclick="window.open('https://www.seat.mx/autos/arona/descubre.html', '_blank');">Llegó la hora de subir el volumen</button>
                 </center>
             </div>
-            <div id="bn2" class="banner display-off" onmouseover="videoPause()">
+            <div id="bn2" class="banner display-off" onclick="https://www.seat.mx/autos/ateca/descubre.html', '_blank');" onmouseover="videoPause()">
                 <center>
                     <h4>Ateca</h4>
-                    <button id="redirecBtn" class="" onclick="adfOpenGlobalClickTAG(2)">Una mirada de confianza</button>
+                    <button id="redirecBtn" class="" onclick="window.open('https://www.seat.mx/autos/ateca/descubre.html', '_blank');">Una mirada de confianza</button>
                 </center>
             </div>
-            <div id="bn3" class="banner display-off" onmouseover="videoPause()">
+            <div id="bn3" class="banner display-off" onclick="window.open('https://www.seat.mx/autos/tarraco/descubre.html', '_blank');" onmouseover="videoPause()">
                 <center>
                     <h4>Tarraco</h4>
-                    <button id="redirecBtn" class="" onclick="adfOpenGlobalClickTAG(3)">¿Por qué no ahora?</button>
+                    <button id="redirecBtn" class="" onclick="window.open('https://www.seat.mx/autos/tarraco/descubre.html', '_blank');">¿Por qué no ahora?</button>
                 </center>
             </div>
         </content>
@@ -251,7 +246,6 @@
                     clickVideo = false;
                 }
             }
-            dhtml.sendEvent(12, 'clickVideo');
         }
 
         function videoPause() { //REPRODUCIR AUTOMATICAMENTE SI EL VIDEO NO SE A PAUSADO MANUALMENTE
@@ -281,26 +275,10 @@
                 }, 1500);
             }
 
-            if (video.currentTime == 0) {
-                dhtml.sendEvent(1, 'video_0%');
-                console.log('0')
-            }
-            if (video.currentTime == porcent25) {
-                dhtml.sendEvent(2, 'video_25%');
-                console.log('25')
-            } // EJECUCION DE EVENTO CUANDO LLEGUE A 25%
-            if (video.currentTime == porcent50) {
-                dhtml.sendEvent(3, 'video_50%');
-                console.log('50')
-            }
-            if (video.currentTime == porcent75) {
-                dhtml.sendEvent(4, 'video_75%');
-                console.log('75')
-            }
-            if (video.currentTime == total) {
-                dhtml.sendEvent(5, 'video_100%');
-                console.log('100')
-            }
+            if (video.currentTime == porcent25) {} // EJECUCION DE EVENTO CUANDO LLEGUE A 25%
+            if (video.currentTime == porcent50) {}
+            if (video.currentTime == porcent75) {}
+            if (video.currentTime == total) {}
         }
 
 
@@ -311,7 +289,6 @@
                 document.getElementById("bn2").classList.add('display-off');
                 document.getElementById("bn3").classList.add('display-off');
                 document.getElementById("close").classList.remove('display-off');
-                dhtml.sendEvent(6, 'ClickVentana1');
                 video.pause()
             }
             if (numero == 2) {
@@ -319,7 +296,6 @@
                 document.getElementById("bn1").classList.add('display-off');
                 document.getElementById("bn3").classList.add('display-off');
                 document.getElementById("close").classList.remove('display-off');
-                dhtml.sendEvent(7, 'ClickVentana2');
                 video.pause()
             }
             if (numero == 3) {
@@ -327,7 +303,6 @@
                 document.getElementById("bn1").classList.add('display-off');
                 document.getElementById("bn2").classList.add('display-off');
                 document.getElementById("close").classList.remove('display-off');
-                dhtml.sendEvent(8, 'ClickVentana2');
                 video.pause()
             }
         }
@@ -341,27 +316,6 @@
         }
 
         setInterval('min()', 1000);
-        
-        function adfOpenGlobalClickTAG(num) {
-                if (num == 1) {
-                    dhtml.sendEvent(9, 'redirArona');
-                    clickTAGvalue = dhtml.getVar('clickTAG', 'https://www.seat.mx/autos/arona/descubre.html'); //banner will receive clickTAG value - if not defined, banner will land to example.com
-                    landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
-                    window.open(clickTAGvalue, landingpagetarget);
-                }
-                if (num == 2) {
-                    dhtml.sendEvent(10, 'redirAteca');
-                    clickTAGvalue = dhtml.getVar('clickTAG1', 'https://www.seat.mx/autos/ateca/descubre.html'); //banner will receive clickTAG value - if not defined, banner will land to example.com
-                    landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
-                    window.open(clickTAGvalue, landingpagetarget);
-                }
-                if (num == 3) {
-                    dhtml.sendEvent(11, 'redirTarraco');
-                    clickTAGvalue = dhtml.getVar('clickTAG2', 'https://www.seat.mx/autos/tarraco/descubre.html'); //banner will receive clickTAG value - if not defined, banner will land to example.com
-                    landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
-                    window.open(clickTAGvalue, landingpagetarget);
-                }
-        }
 
     </script>
     
