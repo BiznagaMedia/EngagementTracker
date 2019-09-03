@@ -2131,15 +2131,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
         transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
 }
-/*#/#*//*#i99.image.css:image/base/css*/
-#i99 { opacity: 1; }
-/*#/#*//*#i99.i100.positioning.css:positioning/base/css.2*/
-#i99 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 56px; height: 56px;
-        -ms-transform: translate(0, 0) translate(260px, 3px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(260px, 3px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(260px, 3px) rotate(0deg);
-        transform: translate(0, 0) translate(260px, 3px) rotate(0deg);
-}
 /*#/#*//*#i2.slice.css:slice/base/css*/
 #i2.adf-SlicedUnit {
     position: absolute;
@@ -2332,8 +2323,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <body>
 <!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i30.shape.html:shape/html-->
 <div id="i30"></div>
-<!--#/#--><!--#i99.image.html:image/html-->
-<img id="i99" src="https://i.imgur.com/vrQ4ebH.gif"/>
 <!--#/#--><!--#i2.slice.html:slice/html-->
 <div id="i2" class="adf-SliceBox">
     <!--#i2.i4.slice-image.html:slice-image/html-->
@@ -2372,10 +2361,6 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <script>
 /*#i30.i31.positioning.js:positioning/base/js.2*/
 bmShow('i30');
-/*#/#*//*#i99.image.js:image/base/js*/
-
-/*#/#*//*#i99.i100.positioning.js:positioning/base/js.2*/
-bmShow('i99');
 /*#/#*//*#i2.slice.js:slice/js*/
 document.addEventListener('DOMContentLoaded', function() {
     var slicedUnit_i2 = new Adf.SlicedUnit({
@@ -2452,7 +2437,7 @@ var el = document.getElementById('i81');
 
 el.addEventListener('click', function(e){
     /*#i97.i98.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('')) : window.open(dhtml.getVar('', ''), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG5')) : window.open(dhtml.getVar('clickTAG5', 'https://goo.gl/maps/idQPQejmb9jiBsSb9'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -2501,7 +2486,7 @@ var el = document.getElementById('i103');
 
 el.addEventListener('click', function(e){
     /*#i109.i110.actions-clicktag.js:actions-clicktag/base/js.2*/
-    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'https://whats.com'), dhtml.getVar('landingPageTarget', '_blank'));
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'whatsapp://send?text=¡Mira lo que he encontrado! https://www.laeuropea.com.mx/main/index.php?utm_Campaign=SEM&utm_Content=la_europea&gclid=EAIaIQobChMI5qHvttuo5AIVTtbACh1cQwOREAAYASAAEgJoD_D_BwE'), dhtml.getVar('landingPageTarget', '_blank'));
 /*#/#*/
 });
 
@@ -2542,11 +2527,6 @@ function bmHide(id) {
 name: Shape 1;
 /*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
-/*#/#*//*#i99.image.meta:image/meta*/
-name: EVENTO; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
-customName: 1;
-/*#/#*//*#i99.i100.positioning.meta:positioning/meta.2*/
-data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.slice.meta:slice/meta*/
 name: Slice 1;
 customName: ;
