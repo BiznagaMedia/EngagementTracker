@@ -295,24 +295,29 @@
         }
 
         .bg.cover-1 {
-            background: url("https://i.imgur.com/34kuuIr.jpg");
+            background: url("https://i.imgur.com/WGbWjWS.jpg");
             background-size: cover;
         }
 
         .bg.cover-2 {
-            background: url("https://i.imgur.com/zFTNk4W.jpg");
+            background: url("https://i.imgur.com/YJvxlit.jpg");
             background-size: cover;
             
         }
 
         .bg.cover-3 {
-            background: url("https://i.imgur.com/WgQciAa.jpg");
+            background: url("https://i.imgur.com/GERlS5L.gif");
             background-size: cover;
             
         }
 
+        .bg.cover-4 {
+        background: url("https://i.imgur.com/3VGXrAm.jpg");
+        background-size: cover;
 
-       
+    }
+
+
 
         .tgx_cover .tgx_logo span {
             color: white;
@@ -423,71 +428,119 @@
 
         /*Select every element*/
 
-         [id^="item"] {
-            display: none;
+          [id^="item"] {
+        display: none;
+    }
+
+    .item-1 {
+        z-index: 2;
+        opacity: 1;
+        animation: fade 15s infinite;
+        -webkit-animation: fade 15s infinite;
+    }
+
+    .item-2 {
+        animation: fade2 15s infinite;
+        -webkit-animation: fade2 15s infinite;
+    }
+
+    .item-3 {
+        animation: fade3 15s infinite;
+        -webkit-animation: fade3 15s infinite;
+    }
+
+    .item-4 {
+        animation: fade4 15s infinite;
+        -webkit-animation: fade4 15s infinite;
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 1
         }
 
-        .item-1 {
-            z-index: 2;
-            opacity: 1;
-            animation: fade 16s infinite;
-            -webkit-animation: fade 22s infinite;
+        25% {
+            opacity: 0
         }
 
-        .item-2 {
-            animation: fade2 16s infinite;
-            -webkit-animation: fade2 22s infinite;
+        50% {
+            opacity: 0
         }
 
-        .item-3 {
-            animation: fade3 16s infinite;
-            -webkit-animation: fade3 22s infinite;
+        75% {
+            opacity: 0
         }
 
-         @keyframes fade {
-            0% {
-                opacity: 1
-            }
-            33.333% {
-                opacity: 0
-            }
-            66.666% {
-                opacity: 0
-            }
-            100% {
-                opacity: 1
-            }
+        100% {
+            opacity: 1
+        }
+    }
+
+    @keyframes fade2 {
+        0% {
+            opacity: 0
         }
 
-        @keyframes fade2 {
-            0% {
-                opacity: 0
-            }
-            33.333% {
-                opacity: 1
-            }
-            66.666% {
-                opacity: 0
-            }
-            100% {
-                opacity: 0
-            }
+        25% {
+            opacity: 1
         }
 
-        @keyframes fade3 {
-            0% {
-                opacity: 0
-            }
-            33.333% {
-                opacity: 0
-            }
-            66.666% {
-                opacity: 1
-            }
-            100% {
-                opacity: 0
-            }
+        50% {
+            opacity: 0
         }
+
+        75% {
+            opacity: 0
+        }
+
+        100% {
+            opacity: 0
+        }
+    }
+
+    @keyframes fade3 {
+        0% {
+            opacity: 0
+        }
+
+        25% {
+            opacity: 0
+        }
+
+        50% {
+            opacity: 1
+        }
+
+        75% {
+            opacity: 0
+        }
+
+        100% {
+            opacity: 0
+        }
+    }
+
+    @keyframes fade4 {
+        0% {
+            opacity: 0
+        }
+
+        25% {
+            opacity: 0
+        }
+
+        50% {
+            opacity: 0
+        }
+
+        75% {
+            opacity: 1
+        }
+
+        100% {
+            opacity: 0
+        }
+    }
 
          
 
@@ -561,6 +614,9 @@
         <div class="tgx_cover bg cover-3 carousel-item item-3">
             <div class="tgx_logo"></div>
         </div>
+        <div class="tgx_cover bg cover-4 carousel-item item-4">
+                <div class="tgx_logo"></div>
+            </div>
          
         
 
@@ -579,7 +635,7 @@
                 <!--<iframe src="Formulario.html" width="306" height="605" frameborder="0" scrolling="no" position="absolute" style="margin-left: 0px; margin-top: -8px;"></iframe>-->
                 <form id="question" class="FR form">
                     <center>
-                    <span style="bottom:1px; text-align:center ; float:center; background-color: #fff;"> <img src="https://i.imgur.com/VizjtDD.png" style="height:270px; width: 300px; text-decoration: none; border-radius:0px; margin-top:0px; margin-left: -30px;
+                    <span style="bottom:1px; text-align:center ; float:center; background-color: #fff;"> <img src="https://i.imgur.com/mjLBPmM.png" style="height:270px; width: 300px; text-decoration: none; border-radius:0px; margin-top:0px; margin-left: -30px;
     box-shadow:0 0 0px 0px #fff; margin-bottom: -25px;"></span>
 
    <!-- <span style="bottom:5px; text-align:center ; float:center; background-color: #e22532;"> <img src="https://i.imgur.com/zRuYlRY.jpg" style="height:100px; width: 250px; text-decoration: none; border-radius:0px; margin-top:0px; margin-left: -3px; margin-bottom: -5px;"></span>
