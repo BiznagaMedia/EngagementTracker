@@ -8,40 +8,6 @@
         document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
     </script>
     
-    <!--Adform Global Clicktag START-->
-    <script type="text/javascript">
-        function adfOpenGlobalClickTAG() {
-            var adfClickTAGName = 'clickTAG',
-                adfClickTAGUrl = 'https://www.cusquena.com/';
-
-            window.open(dhtml.getVar(adfClickTAGName, adfClickTAGUrl), dhtml.getVar('landingPageTarget', '_blank'));
-        }
-        if (window.addEventListener) {
-            window.addEventListener('click', function(e) {
-                if (e.button !== 0) return;
-                e.stopPropagation();
-                e.preventDefault();
-                adfOpenGlobalClickTAG();
-            }, true);
-        } else {
-            document.attachEvent('onclick', function() {
-                adfOpenGlobalClickTAG();
-            });
-        }
-
-        window.onload = function() {
-            dhtml.sendEvent('1', 'PageView', 'PageView');
-        }
-
-        window.onclick = function() {
-            dhtml.sendEvent('9', 'Click Out', 'Click Out');
-        }
-
-        /*document.getElementById('housell').addEventListener('click', function(e){
-            window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', '%%c1;cpdir='), dhtml.getVar('landingPageTarget', '_blank'));
-        });*/
-    </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -363,8 +329,8 @@
             float: right;
            
             text-align: right;
-            margin-top: 540px;
-            margin-right: 46px
+            margin-top: 550px;
+            margin-right: 86px
         }
 
         .cta {
@@ -389,14 +355,45 @@
             
         }
         
+        
+        .tgx #botones-para-compartir {
+            text-align:left;
+            margin-left: 5px
+            
+        }
+        
+       .likedini:hover,
+        .facebooki:hover,
+        .twitteri:hover,
+        .googlei:hover,
+        .pinteresti:hover {
+            border-radius: 25px 25px 25px 25px;
+            transition: all .3s ease-out;
+            box-shadow: 0px 0px 5px #000;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+
+        .likedini,
+        .facebooki,
+        .twitteri,
+        .googlei,
+        .pinteresti {
+            transition: all .3s ease-out;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s
+        }
+        
        
     </style>
    
 </head>
 
 <body class="tgx">
-   <a href="%%c1;cpdir=" style="display: block;" target="_blank">
-    <div class="tgx_wrapper carousel-wrapper size_320x480" id="cta" onclick="openUrl();">
+   <a href="https://www.cusquena.com/" style="display: block;" target="_blank">
+    <div class="tgx_wrapper carousel-wrapper size_320x480" id="cta" onclick=" ">
         
         <div class="cta"><img src="https://i.imgur.com/PX9HiJQ.png" style="height: 50px;"></div>
        
@@ -425,12 +422,12 @@
   
 
 
-           <div id="botones-para-compartir" style="display:inline;float:left;margin-left:4px; margin-top: 570px;">
+             <div id="botones-para-compartir" style="display:inline;float:left;margin-left:10px; margin-top: 560px;">
                     <span>  
                         <a class="shared" href="https://www.facebook.com/sharer/sharer.php?u=https://www.cusquena.com/"  target="block">    
                         <img alt="compartir en facebook" class="facebooki" height="25" src="https://i.imgur.com/tdIupaJ.png" title="compartir en facebook" width="25" /></a>
 
-                            <a class="shared" href="whatsapp://send?text=Mira lo que he encontrado https://www.cusquena.com/" target="block">
+                            <a class="shared" href="whatsapp://send?text=¡Mira lo que he encontrado! https://www.cusquena.com/" target="block">
                             <img alt="compartir en whatsapp" class="googlei" height="25" src="https://i.imgur.com/YGRGxVN.png" title="compartir en whatsapp" width="25" /></a>
 
                             <a class="shared" href="https://twitter.com/home?status=https://www.cusquena.com/" target="block">
@@ -438,10 +435,10 @@
                     </span>
                 </div>
                 <div class="logo">
-                    <img src="https://i.imgur.com/AyCJMp9.png" style="height:45px">
+                    <img src="https://i.imgur.com/AyCJMp9.png" style="height:35px">
                 </div>
 
-                <div class="Texto"><img src="https://i.imgur.com/pCWlxkE.png" style="height: 100px;  margin-top: 440px; margin-left: -210px;"></div>
+                <div class="Texto"><img src="https://i.imgur.com/pCWlxkE.png" style="height: 100px;  margin-top: 440px; margin-left: -175px;"></div>
                 
         
 
