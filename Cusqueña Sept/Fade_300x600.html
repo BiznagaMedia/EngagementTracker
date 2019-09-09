@@ -89,6 +89,12 @@
 
         }
 
+        .bg.cover-4 {
+            background: url("https://i.imgur.com/1Oj1o3f.png");
+            background-size: cover;
+
+        }
+
         .tgx_cover .tgx_logo {
             position: absolute;
             bottom: -5px;
@@ -212,70 +218,118 @@
         /*Select every element*/
 
          [id^="item"] {
-            display: none;
+        display: none;
+    }
+
+    .item-1 {
+        z-index: 2;
+        opacity: 1;
+        animation: fade 16s infinite;
+        -webkit-animation: fade 22s infinite;
+    }
+
+    .item-2 {
+        animation: fade2 16s infinite;
+        -webkit-animation: fade2 22s infinite;
+    }
+
+    .item-3 {
+        animation: fade3 16s infinite;
+        -webkit-animation: fade3 22s infinite;
+    }
+
+    .item-4 {
+        animation: fade4 16s infinite;
+        -webkit-animation: fade4 2s infinite;
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 1
         }
 
-        .item-1 {
-            z-index: 2;
-            opacity: 1;
-            animation: fade 22s infinite;
-            -webkit-animation: fade 16s infinite;
+        25% {
+            opacity: 0
         }
 
-        .item-2 {
-            animation: fade2 22s infinite;
-            -webkit-animation: fade2 16s infinite;
+        50% {
+            opacity: 0
         }
 
-        .item-3 {
-            animation: fade3 22s infinite;
-            -webkit-animation: fade3 16s infinite;
-        }
-        
-
-        @keyframes fade {
-            0% {
-                opacity: 1
-            }
-            33.333% {
-                opacity: 0
-            }
-            66.666% {
-                opacity: 0
-            }
-            100% {
-                opacity: 1
-            }
+        75% {
+            opacity: 0
         }
 
-        @keyframes fade2 {
-            0% {
-                opacity: 0
-            }
-            33.333% {
-                opacity: 1
-            }
-            66.666% {
-                opacity: 0
-            }
-            100% {
-                opacity: 0
-            }
+        100% {
+            opacity: 1
+        }
+    }
+
+    @keyframes fade2 {
+        0% {
+            opacity: 0
         }
 
-        @keyframes fade3 {
-            0% {
-                opacity: 0
-            }
-            33.333% {
-                opacity: 0
-            }
-            66.666% {
-                opacity: 1
-            }
-            100% {
-                opacity: 0
-            }
+        25% {
+            opacity: 1
+        }
+
+        50% {
+            opacity: 0
+        }
+
+        75% {
+            opacity: 0
+        }
+
+        100% {
+            opacity: 0
+        }
+    }
+
+    @keyframes fade3 {
+        0% {
+            opacity: 0
+        }
+
+        25% {
+            opacity: 0
+        }
+
+        50% {
+            opacity: 1
+        }
+
+        75% {
+            opacity: 0
+        }
+
+        100% {
+            opacity: 0
+        }
+    }
+
+    @keyframes fade4 {
+        0% {
+            opacity: 0
+        }
+
+        25% {
+            opacity: 0
+        }
+
+        50% {
+            opacity: 0
+        }
+
+        75% {
+            opacity: 1
+        }
+
+        100% {
+            opacity: 0
+        }
+    }
         }
         .tgx_sponsoredby {
             position: absolute;
@@ -404,6 +458,9 @@
             <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small"></span></div>
         </div>
         <div class="tgx_cover bg cover-3 carousel-item item-3">
+            <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small"></span></div>
+        </div>
+        <div class="tgx_cover bg cover-4 carousel-item item-4">
             <div class="tgx_logo"><span class="tgx_text_bold tgx_text_small"></span></div>
         </div>
        
