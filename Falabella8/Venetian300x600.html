@@ -2143,7 +2143,7 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         transform: translate(0, 0) translate(20px, 438px) rotate(0deg);
 }
 /*#/#*//*#i12.text.css:text/base/css*/
-#i12 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 14px; color: #000000; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
+#i12 { position: absolute; opacity: 1; background-color: rgba(255,255,255,0); font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 13px; color: #000000; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,1); }
 /*#/#*//*#i12.i13.positioning.css:positioning/base/css.2*/
 #i12 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 269px; height: 73px;
         -ms-transform: translate(0, 0) translate(16px, 488px) rotate(0deg);
@@ -2151,6 +2151,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
         -moz-transform: translate(0, 0) translate(16px, 488px) rotate(0deg);
         transform: translate(0, 0) translate(16px, 488px) rotate(0deg);
 }
+/*#/#*//*#i83.image.css:image/base/css*/
+#i83 { opacity: 1; }
 /*#/#*//*#i2.slice.css:slice/base/css*/
 #i2.adf-SlicedUnit {
     position: absolute;
@@ -2234,6 +2236,13 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 .visibility-hidden, .visibility-hidden * {
     visibility: hidden !important;
 }
+/*#/#*//*#i83.i84.positioning.css:positioning/base/css.2*/
+#i83 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 87px; height: 17px;
+        -ms-transform: translate(0, 0) translate(107px, 541px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(107px, 541px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(107px, 541px) rotate(0deg);
+        transform: translate(0, 0) translate(107px, 541px) rotate(0deg);
+}
 /*#/#*//*#i73.image.css:image/base/css*/
 #i73 { opacity: 1; }
 /*#/#*//*#i73.i74.positioning.css:positioning/base/css.2*/
@@ -2249,10 +2258,10 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 #i68 { opacity: 1; }
 /*#/#*//*#i68.i69.positioning.css:positioning/base/css.2*/
 #i68 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 300px; height: 600px;
-        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
-        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -ms-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, -1px) rotate(0deg);
 }
 /*#/#*//*#i48.image.css:image/base/css*/
 #i48 { opacity: 1; }
@@ -2291,6 +2300,8 @@ document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banner
 <div id="i7">Reserva tu plan a Europa y págalo a cuotas</div>
 <!--#/#--><!--#i12.text.html:text/html-->
 <div id="i12">¡Europa abre sus puertas para que te des el gusto de recorrer varios países! Aprovecha estos planes de pago a cuotas y pagalo antes de viajar sin pagar intereses.</div>
+<!--#/#--><!--#i83.image.html:image/html-->
+<img id="i83" src="https://i.imgur.com/v5dcGSr.png"/>
 <!--#/#--><!--#i2.slice.html:slice/html-->
 <div id="i2" class="adf-SliceBox">
     <!--#i2.i4.slice-image.html:slice-image/html-->
@@ -2321,6 +2332,10 @@ bmShow('i30');
 bmShow('i7');
 /*#/#*//*#i12.i13.positioning.js:positioning/base/js.2*/
 bmShow('i12');
+/*#/#*//*#i83.image.js:image/base/js*/
+
+/*#/#*//*#i83.i84.positioning.js:positioning/base/js.2*/
+bmShow('i83');
 /*#/#*//*#i2.slice.js:slice/js*/
 document.addEventListener('DOMContentLoaded', function() {
     var slicedUnit_i2 = new Adf.SlicedUnit({
@@ -2466,6 +2481,11 @@ data: /*!*/{}/*!*/;
 name: ¡Europa abre sus puertas para que te des el gusto de recorrer varios países! Aprovecha estos planes de pago a cuotas y pagalo antes de viajar sin pagar intereses.; customName: false;
 /*#/#*//*#i12.i13.positioning.meta:positioning/meta.2*/
 data: /*!*/{}/*!*/;
+/*#/#*//*#i83.image.meta:image/meta*/
+name: v5dcGSr.png; fileId: ; sourceTypeId: externalUrl; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i83.i84.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
 /*#/#*//*#i2.slice.meta:slice/meta*/
 name: Slice 1;
 customName: ;
