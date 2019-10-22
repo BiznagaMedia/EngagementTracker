@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adform API Script -->
+    <script type="text/javascript">
+        document.write('<script src="' + (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv=' + Math.random()) + '"><\/script>');
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Saira&display=swap');
+    /*-----------RECURSO EXTERNO----------*/
+
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Saira', sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+    }
+
+    #banner {
+        background-color: black;
+        width: 300px;
+        height: 600px;
+        background-image: url(https://josemob.github.io/page/images/fondo-2.jpg);
+        /*-----------RECURSO EXTERNO----------*/
+        background-position: bottom;
+        background-color: black;
+        background-repeat: no-repeat;
+    }
+
+    #banner video {
+        width: 300px;
+        height: 250px;
+        cursor: pointer;
+    }
+
+    #botones-b {
+        width: 300px;
+        height: 0px;
+        margin-top: 0px;
+        position: absolute;
+        z-index: 998;
+        transition-delay: 1s;
+    }
+
+    #btns-1{
+        /*background-color: red;*/
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    #btns-1 button {
+        /*top: 10px;*/
+        left: 0px;
+        width: 268px;
+        height: 0px;
+        margin: 6px 0px;
+        /*border-radius: 100px;*/
+        position: relative;
+        cursor: pointer;
+        border: none;
+        border: 1.5px solid rgb(149, 180, 172);
+        border-radius: 15px 15px 15px 15px;
+        /*border-top: 4px solid rgba(0, 0, 0, 0.5);
+        border-bottom: 4px solid rgba(0, 0, 0, 0.5);*/
+        /*border: 1px solid rgba(0, 0, 0, 0.5);*/
+        opacity: 0;
+        background-color: transparent;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+    animation: animate-pulse-2 3s linear infinite;
+    }
+
+    .display-off {
+        display: none
+    }
+
+    .display-off-2 {
+        display: none;
+        width: 0px;
+        height: 0px;
+        opacity: 0;
+    }
+
+    .display-on {
+        display: block
+    }
+
+    .display-on-2 {
+        height: 64px !important;
+        opacity: 1 !important;
+        transition-property: initial;
+        transition-duration: 0.5s;
+    }
+
+    #overlay {
+        position: relative;
+        top: -7px;
+        margin-left: 0px;
+    }
+
+    #overlay #close {
+        position: absolute;
+        margin-left: 280px;
+        color: white;
+        cursor: pointer;
+        z-index: 999;
+        text-shadow: 3px 1px 1px rgba(0, 0, 0, 0.8);
+    }
+
+    #overlay .banner {
+        width: 300px;
+        height: 350px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+    }
+
+    #overlay #bn1 {
+        background-image: url(https://josemob.github.io/page/images/arona-2.jpg)
+            /*-----------RECURSO EXTERNO----------*/
+    }
+
+    #overlay #bn2 {
+        background-image: url(https://josemob.github.io/page/images/ateca-2.jpg)
+            /*-----------RECURSO EXTERNO----------*/
+    }
+
+    #overlay #bn3 {
+        background-image: url(https://josemob.github.io/page/images/terraco-2.jpg)
+            /*-----------RECURSO EXTERNO----------*/
+    }
+
+    #btn-img1,
+    #btn-img2,
+    #btn-img3 {
+        background-size: 100%;
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: 0.1em;
+        color: white;
+    }
+    
+    #btn-img1:before{
+        content: "Arona";
+    }
+    #btn-img2:before{
+        content: "Ateca";
+    }
+    #btn-img3:before{
+        content: "Tarraco";
+    }
+    
+    
+@keyframes animate-pulse{
+    0%{
+        opacity: 0;
+        left: -10px
+    }
+    50%{
+        opacity: 0.8;
+        left: 0px;
+        top: -2.5px;
+        height: 55px;
+    }
+    100%{
+        opacity: 0;
+        left: -10px
+    } 
+}
+    
+@keyframes color{
+    0%{
+        text-shadow: 2px 2px 2px rgba(0, 180, 172, 0);
+        color: rgba(255, 255, 255, 1);
+    }
+    50%{
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+        color: rgba(255, 255, 255, 1);
+    }
+    100%{
+        text-shadow: 2px 2px 2px rgba(0, 180, 172, 0);
+        color: rgba(255, 255, 255, 1);
+    } 
+}
+    
+@keyframes animate-pulse-2{
+    0%{
+        box-shadow: 0 0 0 0 rgba(149, 180, 172, 1),  0 0 0 0 rgba(149, 180, 172, 0.9);
+    }
+    40%{
+        box-shadow: 0 0 0 20px rgba(149, 180, 172, 0.0),  0 0 0 0 rgba(149, 180, 172, 0.9);
+    }
+    80%{
+        box-shadow: 0 0 0 20px rgba(149, 180, 172, 0.0),  0 0 0 25px rgba(149, 180, 172, 0);
+    }
+    100%{
+        box-shadow: 0 0 0 0 rgba(149, 180, 172, 0.0),  0 0 0 25px rgba(149, 180, 172, 0);
+    }
+    
+}
+    
+    #btn-img1:before, #btn-img2:before, #btn-img3:before{
+        position: absolute;
+        margin: -16px 0px 0px -20px;
+        text-shadow: 2px 2px 2px rgba(0, 180, 172, 1);
+        animation: color 1.5s infinite;
+    }
+
+    #btn-img1 {
+        background-image: url(btn/ARONA-2.jpg);
+        /*-----------RECURSO EXTERNO----------*/
+    }
+    /*#btn-img1:after{
+        content: "";
+        height: 68px;
+        width: 300px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background-color: white;
+    }*/
+
+    #btn-img2 {
+        background-image: url(btn/ATECA-2.jpg);
+        /*-----------RECURSO EXTERNO----------*/
+    }
+
+    #btn-img3 {
+        background-image: url(btn/TERRACO.jpg);
+        /*-----------RECURSO EXTERNO----------*/
+    }
+
+    #overlay .banner h4 {
+        color: white;
+        font-size: 32px;
+        position: relative;
+        top: 240px;
+        text-shadow: 3px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    #overlay .banner button {
+        border: none;
+        top: 240px;
+        color: white;
+        border-radius: 50px;
+        padding: 2px 12px;
+        font-weight: 600;
+        font-size: 18px;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+    
+    .h4IOS{
+        font-size: 16px !important;
+        letter-spacing: -0.1em !important;
+    }
+
+    #logo {
+        /*display: none;*/
+        position: absolute;
+        margin-top: -45px !important;
+        height: 35px;
+        margin-left: 230px;
+    }
+
+</style>
+
+<body>
+    <content id="banner">
+        <video id="video" onmouseover="videoPause()" webkit-playsinline="true" playsinline="true" autoplay muted>
+            <source src="https://biznagamedia.github.io/BiznagaM/seat/resources/video/Master_SuvSeat_30s.mp4" type="video/mp4" />
+            <source src="https://biznagamedia.github.io/BiznagaM/seat/resources/video/Master_SuvSeat_30s.webm" type="video/webm" />
+            <source src="https://biznagamedia.github.io/BiznagaM/seat/resources/video/Master_SuvSeat_30s.ogg" type="video/ogg" />
+        </video>
+        <!-----------RECURSO EXTERNO---------->
+
+        <div class="logo"> <img id="logo" src="https://i.imgur.com/cI3FUPr.png"></div>
+
+        <div id="botones-b">
+            <center>
+                <div id="btns-1" class="display-off">
+                    <button id="btn-img1" class="" onclick="btnClick(1)" onmouseover="video.pause()"></button>
+                    <button id="btn-img2" class="" onclick="btnClick(2)" onmouseover="video.pause()"></button>
+                    <button id="btn-img3" class="" onclick="btnClick(3)" onmouseover="video.pause()"></button>
+                </div>
+            </center>
+
+        </div>
+
+        <content id="overlay">
+            <span id="close" class="display-off" onclick="closeBanner()">X</span>
+            <div id="bn1" class="banner display-off" onmouseover="videoPause()">
+                <center>
+                    <h4>Arona</h4>
+                    <button id="redirecBtn" class="" onclick="adfOpenGlobalClickTAG(1)">Llegó la hora de subir el volumen</button>
+                </center>
+            </div>
+            <div id="bn2" class="banner display-off" onmouseover="videoPause()">
+                <center>
+                    <h4>Ateca</h4>
+                    <button id="redirecBtn" class="" onclick="adfOpenGlobalClickTAG(2)">Una mirada de confianza</button>
+                </center>
+            </div>
+            <div id="bn3" class="banner display-off" onmouseover="videoPause()">
+                <center>
+                    <h4>Tarraco</h4>
+                    <button id="redirecBtn" class="" onclick="adfOpenGlobalClickTAG(3)">¿Por qué no ahora?</button>
+                </center>
+            </div>
+        </content>
+
+
+    </content>
+
+    <script>
+        var video = document.getElementById("video"); // VIDEO
+        var btns1 = document.getElementById("btns-1");
+        var boton1 = false;
+        var boton2 = false;
+        var clickVideo = true;
+        var autoplay = 0;
+        var clo = 0;
+        //--------------------------------------------------------------
+        //var total = Math.trunc(video.duration); // DURACION DEL VIDEO
+        //var porcent25 = Math.trunc(total * 0.25);
+        //var porcent50 = Math.trunc(total * 0.50);
+        //var porcent75 = Math.trunc(total * 0.75);
+
+
+        video.onclick = function() { // VIDEO PLAY Y VIDEO PAUSE
+            if (autoplay == 0) {
+                video.muted = false;
+                autoplay = 1;
+            } else {
+                if (clickVideo == false) {
+                    video.play();
+                    video.volume = 1;
+                    clickVideo = true;
+                } else {
+                    video.pause();
+                    clickVideo = false;
+                }
+            }
+            dhtml.sendEvent(12, 'clickVideo');
+        }
+
+        function videoPause() { //REPRODUCIR AUTOMATICAMENTE SI EL VIDEO NO SE A PAUSADO MANUALMENTE
+            if (clickVideo == true) {
+                video.play();
+            }
+        }
+
+        /*window.onload = function() {
+            video.volume = 0;
+            video.play();
+        }*/
+
+
+        function min() { // FUNCION QUE SE ACCIONA CADA 1 SEGUNDO
+            if (video.currentTime >= 4 && video.currentTime < 5) { // CUANDO EL VIDEO LLEGUE A 5 SEGUNDOS
+                btns1.classList.remove('display-off'); // REMOCION DE CLASE QUE OCULTA ELEMENTOS
+                boton1 = true; // VALIDADOR PARA QUE LA ACCION NO SE REPITA
+                setTimeout(function() {
+                    document.getElementById("btn-img1").classList.add('display-on-2');
+                }, 500);
+                setTimeout(function() {
+                    document.getElementById("btn-img2").classList.add('display-on-2');
+                }, 1000);
+                setTimeout(function() {
+                    document.getElementById("btn-img3").classList.add('display-on-2');
+                }, 1500);
+            }
+
+            var total = Math.trunc(video.duration);
+            var porcent = Math.trunc(video.currentTime);
+            var porcent25 = Math.trunc(total * 0.25);
+            var porcent50 = Math.trunc(total * 0.50);
+            var porcent75 = Math.trunc(total * 0.75);
+
+            if (porcent == 0) {
+                dhtml.sendEvent(1, 'video_0%');
+                console.log(porcent);
+            }
+            if (porcent == porcent25) {
+                dhtml.sendEvent(2, 'video_25%');
+                console.log(porcent);
+            } // EJECUCION DE EVENTO CUANDO LLEGUE A 25%
+            if (porcent == porcent50) {
+                dhtml.sendEvent(3, 'video_50%');
+                console.log(porcent);
+            }
+            if (porcent == porcent75) {
+                dhtml.sendEvent(4, 'video_75%');
+                console.log(porcent);
+            }
+            if (porcent == total && clo == 0) {
+                dhtml.sendEvent(5, 'video_100%');
+                clo = 1;
+            }
+        }
+
+
+
+        function btnClick(numero) {
+            if (numero == 1) {
+                document.getElementById("bn1").classList.remove('display-off');
+                document.getElementById("bn2").classList.add('display-off');
+                document.getElementById("bn3").classList.add('display-off');
+                document.getElementById("close").classList.remove('display-off');
+                dhtml.sendEvent(6, 'Click1');
+                video.pause()
+            }
+            if (numero == 2) {
+                document.getElementById("bn2").classList.remove('display-off');
+                document.getElementById("bn1").classList.add('display-off');
+                document.getElementById("bn3").classList.add('display-off');
+                document.getElementById("close").classList.remove('display-off');
+                dhtml.sendEvent(7, 'Click2');
+                video.pause()
+            }
+            if (numero == 3) {
+                document.getElementById("bn3").classList.remove('display-off');
+                document.getElementById("bn1").classList.add('display-off');
+                document.getElementById("bn2").classList.add('display-off');
+                document.getElementById("close").classList.remove('display-off');
+                dhtml.sendEvent(8, 'Click3');
+                video.pause()
+            }
+
+            $('#btn-img1').animate({
+                "left": '-300px'
+            }, 200);
+            $('#btn-img2').animate({
+                "left": '-300px'
+            }, 400);
+            $('#btn-img3').animate({
+                "left": '-300px'
+            }, 600);
+            
+            $('#botones-b').css({"opacity": '0'});
+        }
+
+        function closeBanner() {
+            document.getElementById("bn1").classList.add('display-off');
+            document.getElementById("bn2").classList.add('display-off');
+            document.getElementById("bn3").classList.add('display-off');
+            document.getElementById("close").classList.add('display-off');
+            
+            $('#botones-b').css({"opacity": '1'});
+            $('#btn-img1').animate({
+                "left": '0px'
+            }, 200);
+            $('#btn-img2').animate({
+                "left": '0px'
+            }, 400);
+            $('#btn-img3').animate({
+                "left": '0px'
+            }, 600);
+            video.play();
+        }
+
+        setInterval('min()', 1000);
+
+        function adfOpenGlobalClickTAG(num) {
+            if (num == 1) {
+                dhtml.sendEvent(9, 'ClickVent1');
+                clickTAGvalue = dhtml.getVar('clickTAG', 'https://www.seat.mx/autos/arona/descubre.html'); //banner will receive clickTAG value - if not defined, banner will land to example.com
+                landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
+                window.open(clickTAGvalue, landingpagetarget);
+            }
+            if (num == 2) {
+                dhtml.sendEvent(10, 'ClickVent2');
+                clickTAGvalue = dhtml.getVar('clickTAG1', 'https://www.seat.mx/autos/ateca/descubre.html'); //banner will receive clickTAG value - if not defined, banner will land to example.com
+                landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
+                window.open(clickTAGvalue, landingpagetarget);
+            }
+            if (num == 3) {
+                dhtml.sendEvent(11, 'ClickVent3');
+                clickTAGvalue = dhtml.getVar('clickTAG2', 'https://www.seat.mx/autos/tarraco/descubre.html'); //banner will receive clickTAG value - if not defined, banner will land to example.com
+                landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
+                window.open(clickTAGvalue, landingpagetarget);
+            }
+        }
+    </script>
+
+
+
+    <script type="text/javascript">
+        if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/like Mac OS X/i))) {
+            document.getElementById("redirecBtn").classList.add('h4IOS');
+            console.log('bfseifb');
+        }
+    </script>
+
+</body>
+
+</html>
